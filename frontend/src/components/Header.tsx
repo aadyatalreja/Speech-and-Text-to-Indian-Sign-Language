@@ -1,9 +1,21 @@
-export default function Header() {
+import { StatusIndicator } from "./ui";
+export const Logo = () => (
+  <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden>
+    <rect width="28" height="28" rx="8" fill="#4F46E5" />
+    <path d="M7 17c3-7 7-7 9-3s4 3 5-2" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" />
+    <circle cx="21" cy="9" r="1.8" fill="#fff" opacity=".85" />
+  </svg>
+);
+export default function Header({ onHistory, online }: { onHistory: () => void; online: boolean | null }) {
   return (
-    <header className="border-b-2 border-ink bg-panel">
-      <div className="mx-auto flex max-w-6xl flex-wrap items-baseline justify-between gap-2 px-6 py-5">
-        <h1 className="text-3xl font-bold">SignAI</h1>
-        <p className="text-base">AI Text / Speech → Indian Sign Language <span className="ml-2 rounded bg-saffron px-2 py-1 text-sm font-bold">Research prototype</span></p>
+    <header className="sticky top-3 z-30 mx-auto mt-3 flex max-w-5xl items-center justify-between gap-3 px-3">
+      <div className="glass glass-strong flex w-full items-center justify-between rounded-card px-4 py-2.5">
+        <a href="#top" className="flex items-center gap-2.5 rounded-ctl text-lg font-bold tracking-tight"><Logo />SignAI</a>
+        <nav aria-label="Main" className="flex items-center gap-1">
+          <a href="#top" className="btn-quiet">Translate</a>
+          <button className="btn-quiet" onClick={onHistory}>History</button>
+          <span className="ml-2 hidden sm:inline"><StatusIndicator ok={online} label={online === null ? "ISL · Connecting" : online ? "ISL · Ready" : "ISL · Offline"} /></span>
+        </nav>
       </div>
     </header>
   );

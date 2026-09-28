@@ -1,23 +1,30 @@
 import type { Translation } from "../types/translation";
 import GlossSequence from "./GlossSequence";
-interface Props { t: Translation | null; activeIndex: number }
-export default function TranslationPanel({ t, activeIndex }: Props) {
-  if (!t) return <section className="rounded-xl border-2 border-line p-5"><p>Translate a sentence to see how it is understood and turned into signs.</p></section>;
-  const engineNote = t.engine === "api" ? "Language model" : "Fallback rules (no language model)";
+import { GlassCard, SectionHeader } from "./ui";
+
+export default function TranslationPanel({ t, activeIndex }: { t: Translation; activeIndex: number }) {
+  const ctx = t.entities.map((e) => e.text[0].toUpperCase() + e.text.slice(1)).join(" · ");
   return (
-    <section aria-label="AI understanding" className="rounded-xl border-2 border-ink bg-panel p-5">
-      <dl className="grid grid-cols-[auto_1fr] gap-x-4 gap-y-1">
-        <dt className="font-bold">Original</dt><dd>{t.original_text}</dd>
-        <dt className="font-bold">Intent</dt><dd className="capitalize">{t.intent}</dd>
-        <dt className="font-bold">Entities</dt><dd>{t.entities.length ? t.entities.map((e) => `${e.text} (${e.type.toLowerCase()})`).join(", ") : "None found"}</dd>
-        <dt className="font-bold">Confidence</dt><dd>{Math.round(t.confidence * 100)}%</dd>
-        <dt className="font-bold">Processed by</dt><dd>{engineNote}</dd>
+    <GlassCard aria-label="AI Understanding" className="p-6">
+      <SectionHeader title="AI Understanding" />
+      <p className="text-lg leading-snug text-ink">“{t.original_text}”</p>
+      <dl className="mt-5 space-y-4 text-sm">
+        <div><dt className="text-muted">Type</dt><dd className="mt-0.5 text-base font-semibold capitalize">{t.intent}</dd></div>
+        {ctx && <div><dt className="text-muted">Context</dt><dd className="mt-0.5 text-base font-semibold">{ctx}</dd></div>}
+        <div><dt className="mb-2 text-muted">Sign sequence</dt><dd><GlossSequence items={t.sequence} activeIndex={activeIndex} /></dd></div>
       </dl>
-      <h2 className="mb-2 mt-5 font-bold">Sign gloss</h2>
-      <GlossSequence items={t.sequence} activeIndex={activeIndex} />
-      {t.unknown_signs.length > 0 && <p className="mt-3 font-bold" role="alert">⚠ Sign unavailable: {t.unknown_signs.join(", ")}</p>}
-      {t.notice && <p className="mt-2 text-base">{t.notice}</p>}
-      <p className="mt-4 text-sm">The gloss is a computational intermediate form, not an authoritative ISL translation.</p>
-    </section>
+      {t.unknown_signs.length > 0 && (
+        <div role="alert" className="mt-5 rounded-ctl bg-warn-soft p-4 text-sm text-warn">
+          <p className="font-semibold">Some signs aren’t available yet</p>
+          <p className="mt-1 font-bold">{t.unknown_signs.join(", ")}</p>
+          <p className="mt-1">The remaining sequence can still be played.</p>
+        </div>
+      )}
+      <div className="mt-5 space-y-1 text-xs text-muted">
+        {t.engine === "api" ? <p>Translation confidence · {Math.round(t.confidence * 100)}%</p> : <p>Processed with built-in fallback rules, not a language model.</p>}
+        {t.notice && t.unknown_signs.length === 0 && <p>{t.notice}</p>}
+        <p>The sign sequence is an intermediate representation, not an authoritative ISL translation.</p>
+      </div>
+    </GlassCard>
   );
 }

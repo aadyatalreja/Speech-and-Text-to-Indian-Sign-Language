@@ -1,5 +1,18 @@
 @tailwind base; @tailwind components; @tailwind utilities;
-body { @apply bg-paper text-ink font-sans text-lg; }
-:focus-visible { outline: 3px solid #17212B; outline-offset: 3px; }
-.btn { @apply rounded-lg px-5 py-3 font-bold border-2 border-ink transition-colors disabled:opacity-40; }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+body { @apply bg-[#F5F7FA] font-sans text-[15px] text-ink antialiased; min-height: 100vh; }
+/* Ambient background: two very large, very faint blurred glows. */
+body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(60vw 50vw at 12% -10%, rgba(79,70,229,.13), transparent 70%),
+              radial-gradient(50vw 45vw at 95% 25%, rgba(56,132,255,.10), transparent 70%); }
+@layer components {
+  .glass { background: rgba(255,255,255,.66); border: 1px solid rgba(255,255,255,.75);
+    backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    box-shadow: 0 10px 40px rgba(17,24,39,.06), inset 0 0 0 1px rgba(17,24,39,.04); }
+  .glass-strong { background: rgba(255,255,255,.88); }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-ctl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-40; }
+  .btn-primary { @apply btn bg-accent text-white shadow-sm hover:bg-accent-deep active:scale-[.98]; }
+  .btn-quiet { @apply btn text-muted hover:bg-black/5 hover:text-ink; }
+}
+@supports not (backdrop-filter: blur(1px)) { .glass { background: rgba(255,255,255,.95); } }
+:focus-visible { outline: 2px solid #4F46E5; outline-offset: 2px; }
+@media (prefers-reduced-motion: reduce) { *, ::before { animation: none !important; transition: none !important; } }

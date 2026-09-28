@@ -13,6 +13,8 @@ export function errorMessage(e: unknown): string {
   return "Translation service temporarily unavailable.";
 }
 
+export const health = () => http.get("/health").then(() => true).catch(() => false);
+
 export const translate = (text: string) =>
   http.post<Translation>("/translate", { text, source_language: "English", target_sign_language: "ISL" }).then((r) => r.data);
 

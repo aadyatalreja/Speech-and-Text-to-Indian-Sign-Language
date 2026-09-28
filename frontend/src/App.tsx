@@ -1,18 +1,27 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import Header from "./components/Header";
 import TextInput, { type InputMode } from "./components/TextInput";
 import ProcessingStatus from "./components/ProcessingStatus";
 import TranslationPanel from "./components/TranslationPanel";
 import AvatarPanel from "./components/AvatarPanel";
 import SignPlayer from "./components/SignPlayer";
-import HistoryPanel from "./components/HistoryPanel";
-import { errorMessage, generateVideo, streamTranslate, translate } from "./services/api";
+import HistoryDrawer, { type HistoryItem } from "./components/HistoryPanel";
+import { GlassCard, SectionHeader } from "./components/ui";
+import { errorMessage, generateVideo, health, streamTranslate, translate } from "./services/api";
 import { useSignPlayer } from "./hooks/useSignPlayer";
 import { useSpeech } from "./hooks/useSpeech";
 import type { SignItem, Stage, Translation } from "./types/translation";
 
 const HKEY = "signai.history";
-const loadHistory = (): string[] => { try { return JSON.parse(localStorage.getItem(HKEY) ?? "[]"); } catch { return []; } };
+const EXAMPLES = ["Where is the nearest hospital?", "Can you help me?", "I am going to college tomorrow."];
+const EMPTY = "Please enter a sentence.";
+const loadHistory = (): HistoryItem[] => {
+  try {
+    const raw = JSON.parse(localStorage.getItem(HKEY) ?? "[]") as (string | HistoryItem)[];
+    return raw.map((r) => (typeof r === "string" ? { text: r, ts: Date.now() } : r)); // older entries were plain strings
+  } catch { return []; }
+};
 
 export default function App() {
   const [text, setText] = useState("");
@@ -25,7 +34,9 @@ export default function App() {
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [t, setT] = useState<Translation | null>(null);
   const [items, setItems] = useState<SignItem[]>([]);
-  const [history, setHistory] = useState<string[]>(loadHistory);
+  const [history, setHistory] = useState<HistoryItem[]>(loadHistory);
+  const [drawer, setDrawer] = useState(false);
+  const [online, setOnline] = useState<boolean | null>(null);
   const closeWs = useRef<(() => void) | null>(null);
   const player = useSignPlayer(items);
   // Speech → text first: the recognised sentence fills the box, then goes through the normal translate flow.
@@ -33,17 +44,14 @@ export default function App() {
   const busy = stage === "understanding" || stage === "representing" || stage === "preparing";
   const current = player.index >= 0 ? items[player.index] ?? null : null;
 
-  useEffect(() => () => closeWs.current?.(), []);
+  useEffect(() => { health().then(setOnline); return () => closeWs.current?.(); }, []);
 
-  const remember = (s: string) => {
-    const next = [s, ...history.filter((h) => h !== s)].slice(0, 8);
-    setHistory(next);
-    try { localStorage.setItem(HKEY, JSON.stringify(next)); } catch { /* storage unavailable */ }
-  };
+  const save = (list: HistoryItem[]) => { setHistory(list); try { localStorage.setItem(HKEY, JSON.stringify(list)); } catch { /* storage unavailable */ } };
+  const remember = (s: string) => save([{ text: s, ts: Date.now() }, ...history.filter((h) => h.text !== s)].slice(0, 20));
 
   const run = async (input = text) => {
     const clean = input.trim();
-    if (!clean) { setError("Please enter a sentence."); setStage("error"); return; }
+    if (!clean) { setError(EMPTY); setStage("error"); return; }
     closeWs.current?.();
     setError(null); setVideoNote(null); setVideoUrl(null); setT(null); setItems([]); player.reset();
     setStage("understanding");
@@ -68,31 +76,64 @@ export default function App() {
     try {
       const res = await translate(clean);
       setStage("preparing"); setT(res); setItems(res.sequence);
-      try { setVideoUrl(await generateVideo(res.gloss)); } catch { setVideoNote("Video generation failed. The sign sequence is still available."); }
+      try { setVideoUrl(await generateVideo(res.gloss)); } catch { setVideoNote("No video available yet. The sign sequence is still available."); }
       setStage("ready");
     } catch (e) { setError(errorMessage(e)); setStage("error"); }
   };
 
-  const glossItems = useMemo(() => items, [items]);
+  const pick = (s: string) => { setText(s); run(s); };
+  const hardError = stage === "error" && error && error !== EMPTY;
+
   return (
-    <>
-      <Header />
-      <main className="mx-auto max-w-6xl space-y-6 px-6 py-8">
-        <TextInput value={speech.listening ? speech.interim : text} onChange={setText} onTranslate={() => run()} busy={busy} realtime={realtime} onRealtime={setRealtime}
-          mode={mode} onMode={(m) => { speech.cancel(); setMode(m); }} speech={speech} lang={lang} onLang={setLang} />
-        <ProcessingStatus stage={stage} />
-        {error && <p role="alert" className="rounded-lg border-2 border-ink bg-saffron p-3 font-bold">{error}</p>}
-        <div className="grid gap-6 lg:grid-cols-2">
-          <TranslationPanel t={t} activeIndex={player.index} />
-          <div>
-            <AvatarPanel item={current} playing={player.playing} videoUrl={videoUrl} />
-            {videoNote && <p className="mt-2 text-base">{videoNote}</p>}
-            <SignPlayer items={glossItems} index={player.index} progress={player.progress} playing={player.playing} speed={player.speed} c={player.controller} />
+    <MotionConfig reducedMotion="user">
+      <Header onHistory={() => setDrawer(true)} online={online} />
+      <main className="mx-auto max-w-5xl px-4 pb-24 pt-14 sm:pt-20">
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .35 }}>
+          <div className="mb-10 text-center">
+            <p className="mb-3 text-xs font-semibold tracking-widest text-accent">AI-POWERED SIGN LANGUAGE</p>
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Turn words into signs.</h1>
+            <p className="mx-auto mt-3 max-w-md text-base text-muted">Translate natural language into expressive Indian Sign Language.</p>
           </div>
+          <TextInput value={speech.listening ? speech.interim : text} onChange={setText} onTranslate={() => run()} busy={busy} realtime={realtime} onRealtime={setRealtime}
+            mode={mode} onMode={(m) => { speech.cancel(); setMode(m); }} speech={speech} lang={lang} onLang={setLang} hint={stage === "error" && error === EMPTY ? EMPTY : null} />
+        </motion.div>
+
+        <div className="mt-14" aria-live="polite">
+          <AnimatePresence mode="wait">
+            {busy && !t ? (
+              <motion.div key="busy" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}><ProcessingStatus stage={stage} /></motion.div>
+            ) : hardError ? (
+              <motion.div key="err" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
+                <GlassCard className="mx-auto max-w-md p-7 text-center" role="alert">
+                  <h2 className="text-lg font-semibold text-warn">Couldn’t translate that sentence</h2>
+                  <p className="mt-2 text-sm text-muted">{error}</p>
+                  <button className="btn-primary mt-5" onClick={() => run()}>Try again</button>
+                </GlassCard>
+              </motion.div>
+            ) : t ? (
+              <motion.div key="result" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: .3 }} className="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
+                <TranslationPanel t={t} activeIndex={player.index} />
+                <GlassCard aria-label="Sign Output" className="p-6">
+                  <SectionHeader title="Sign Output" />
+                  <AvatarPanel item={current} videoUrl={videoUrl} />
+                  {videoNote && <p className="mt-3 text-center text-xs text-muted">{videoNote}</p>}
+                  {!videoUrl && <SignPlayer items={items} index={player.index} progress={player.progress} playing={player.playing} speed={player.speed} c={player.controller} />}
+                </GlassCard>
+              </motion.div>
+            ) : (
+              <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center">
+                <h2 className="text-xl font-semibold tracking-tight">Translate your first sentence</h2>
+                <p className="mx-auto mt-2 max-w-sm text-sm text-muted">Type something above and we’ll turn it into an ISL sign sequence.</p>
+                <p className="mb-3 mt-8 text-xs text-muted">Try an example</p>
+                <div className="flex flex-wrap justify-center gap-2">
+                  {EXAMPLES.map((e) => <button key={e} onClick={() => pick(e)} disabled={busy} className="glass rounded-card px-4 py-2 text-sm hover:bg-white">“{e}”</button>)}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        {t && <section aria-label="Transcript" className="rounded-xl border-2 border-line p-5"><h2 className="font-bold">Transcript</h2><p>{t.original_text}</p><p className="mt-1">Gloss: {t.gloss.join(" ")}</p></section>}
-        <HistoryPanel items={history} onPick={(h) => { setText(h); run(h); }} />
       </main>
-    </>
+      <HistoryDrawer open={drawer} items={history} onPick={pick} onClear={() => save([])} onClose={() => setDrawer(false)} />
+    </MotionConfig>
   );
 }
