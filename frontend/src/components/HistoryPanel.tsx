@@ -16,7 +16,7 @@ export default function HistoryDrawer({ open, items, onPick, onClear, onClose }:
     <AnimatePresence>
       {open && (
         <>
-          <motion.div className="fixed inset-0 z-40 bg-slate-900/20" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} />
+          <motion.div className="fixed inset-0 z-40 bg-black/30 backdrop-blur-[2px]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} />
           <motion.aside role="dialog" aria-modal="true" aria-label="History" className="glass glass-strong fixed inset-y-3 right-3 z-50 flex w-[min(380px,calc(100vw-24px))] flex-col rounded-panel p-6"
             initial={{ x: 40, opacity: 0 }} animate={{ x: 0, opacity: 1 }} exit={{ x: 40, opacity: 0 }} transition={{ duration: .22 }}>
             <div className="mb-4 flex items-center justify-between"><h2 className="text-xl font-semibold tracking-tight">Recent translations</h2>

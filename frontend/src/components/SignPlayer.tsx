@@ -17,13 +17,13 @@ export default function SignPlayer({ items, index, progress, playing, speed, c }
       <ol className="mt-4 flex items-center gap-1 overflow-x-auto pb-1" aria-label="Sign timeline">
         {items.map((s, i) => (
           <li key={i} className="flex flex-1 items-center gap-1 last:flex-none" aria-current={i === index ? "step" : undefined}>
-            <span className={`whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-semibold transition ${i === index ? "bg-accent text-white" : i < index ? "text-ink" : "text-muted"} ${!s.available ? "line-through decoration-warn" : ""}`}>{s.gloss.replace("_", " ")}</span>
-            {i < items.length - 1 && <span className={`h-px min-w-3 flex-1 ${i < index ? "bg-accent" : "bg-black/15"}`} aria-hidden />}
+            <span className={`whitespace-nowrap rounded-full px-2.5 py-1 text-xs font-semibold transition ${i === index ? "bg-accent text-white shadow-glow" : i < index ? "text-ink" : "text-muted"} ${!s.available ? "line-through decoration-warn" : ""}`}>{s.gloss.replace("_", " ")}</span>
+            {i < items.length - 1 && <span className={`h-px min-w-3 flex-1 ${i < index ? "bg-accent" : "bg-line/20"}`} aria-hidden />}
           </li>
         ))}
       </ol>
-      <div className="mt-2 h-1 overflow-hidden rounded-full bg-black/10" role="progressbar" aria-label="Playback progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct}>
-        <div className="h-full bg-accent transition-[width] duration-100" style={{ width: `${pct}%` }} />
+      <div className="mt-2 h-1 overflow-hidden rounded-full bg-line/10" role="progressbar" aria-label="Playback progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct}>
+        <div className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2 shadow-glow transition-[width] duration-100" style={{ width: `${pct}%` }} />
       </div>
       <p className="mt-2 text-center text-xs tabular-nums text-muted">{state} · {fmt(done)} / {fmt(total)}</p>
 

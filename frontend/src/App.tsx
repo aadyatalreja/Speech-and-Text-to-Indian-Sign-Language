@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import Header from "./components/Header";
+import Particles from "./components/Particles";
 import TextInput, { type InputMode } from "./components/TextInput";
 import ProcessingStatus from "./components/ProcessingStatus";
 import TranslationPanel from "./components/TranslationPanel";
@@ -11,6 +12,7 @@ import { GlassCard, SectionHeader } from "./components/ui";
 import { errorMessage, generateVideo, health, streamTranslate, translate } from "./services/api";
 import { useSignPlayer } from "./hooks/useSignPlayer";
 import { useSpeech } from "./hooks/useSpeech";
+import { useTheme } from "./hooks/useTheme";
 import type { SignItem, Stage, Translation } from "./types/translation";
 
 const HKEY = "signai.history";
@@ -37,6 +39,7 @@ export default function App() {
   const [history, setHistory] = useState<HistoryItem[]>(loadHistory);
   const [drawer, setDrawer] = useState(false);
   const [online, setOnline] = useState<boolean | null>(null);
+  const { dark, toggle: toggleTheme } = useTheme();
   const closeWs = useRef<(() => void) | null>(null);
   const player = useSignPlayer(items);
   // Speech → text first: the recognised sentence fills the box, then goes through the normal translate flow.
@@ -86,12 +89,13 @@ export default function App() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <Header onHistory={() => setDrawer(true)} online={online} />
-      <main className="mx-auto max-w-5xl px-4 pb-24 pt-14 sm:pt-20">
+      <Particles dark={dark} />
+      <Header onHistory={() => setDrawer(true)} online={online} dark={dark} onToggleTheme={toggleTheme} />
+      <main className="relative mx-auto max-w-5xl px-4 pb-24 pt-14 sm:pt-20">
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .35 }}>
           <div className="mb-10 text-center">
-            <p className="mb-3 text-xs font-semibold tracking-widest text-accent">AI-POWERED SIGN LANGUAGE</p>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">Turn words into signs.</h1>
+            <p className="glass mx-auto mb-5 inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold tracking-widest text-accent-fg"><span className="h-1.5 w-1.5 rounded-full bg-accent shadow-glow" aria-hidden />AI-POWERED SIGN LANGUAGE</p>
+            <h1 className="text-gradient pb-1 text-4xl font-extrabold tracking-tight sm:text-6xl">Turn words into signs.</h1>
             <p className="mx-auto mt-3 max-w-md text-base text-muted">Translate natural language into expressive Indian Sign Language.</p>
           </div>
           <TextInput value={speech.listening ? speech.interim : text} onChange={setText} onTranslate={() => run()} busy={busy} realtime={realtime} onRealtime={setRealtime}
@@ -126,7 +130,7 @@ export default function App() {
                 <p className="mx-auto mt-2 max-w-sm text-sm text-muted">Type something above and we’ll turn it into an ISL sign sequence.</p>
                 <p className="mb-3 mt-8 text-xs text-muted">Try an example</p>
                 <div className="flex flex-wrap justify-center gap-2">
-                  {EXAMPLES.map((e) => <button key={e} onClick={() => pick(e)} disabled={busy} className="glass rounded-card px-4 py-2 text-sm hover:bg-white">“{e}”</button>)}
+                  {EXAMPLES.map((e) => <button key={e} onClick={() => pick(e)} disabled={busy} className="chip">“{e}”</button>)}
                 </div>
               </motion.div>
             )}

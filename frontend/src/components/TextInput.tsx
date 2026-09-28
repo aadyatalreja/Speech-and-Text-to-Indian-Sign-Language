@@ -23,7 +23,7 @@ export default function TextInput(p: Props) {
           placeholder={p.mode === "speak" ? "Your spoken sentence appears here…" : "Type a sentence, question, or phrase…"}
           onChange={(e) => p.onChange(e.target.value)}
           onKeyDown={(e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) p.onTranslate(); }}
-          className="w-full resize-none rounded-ctl border border-black/10 bg-white/70 p-4 text-lg leading-relaxed placeholder:text-slate-400" />
+          className="w-full resize-none rounded-ctl border border-line/10 bg-surface/60 p-4 text-lg leading-relaxed outline-none transition placeholder:text-muted/70 focus:border-accent/60 focus:bg-surface/80 focus:ring-4 focus:ring-accent/20" />
         <div className="mt-2 flex items-center justify-between text-xs text-muted">
           <span>English → ISL{!speech.supported && " · Speech input needs Chrome, Edge or Safari"}</span>
           <span aria-live="polite">{p.value.length} / 500</span>
@@ -33,12 +33,12 @@ export default function TextInput(p: Props) {
       <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
         {p.mode === "speak" && (
           <>
-            <button className={p.speech.listening ? "btn bg-ink text-white" : "btn bg-white text-ink ring-1 ring-black/10 hover:bg-white/80"} aria-pressed={speech.listening}
+            <button className={p.speech.listening ? "btn-primary" : "btn bg-raised/70 text-ink ring-1 ring-line/10 hover:bg-raised"} aria-pressed={speech.listening}
               onClick={speech.listening ? speech.stop : speech.start} disabled={p.busy}>
               {speech.listening ? "■ Stop listening" : "🎤 Start speaking"}
             </button>
             <label className="sr-only" htmlFor="lang">Speech language</label>
-            <select id="lang" className="rounded-ctl bg-white px-3 py-2.5 text-sm ring-1 ring-black/10" value={p.lang} onChange={(e) => p.onLang(e.target.value)} disabled={speech.listening}>
+            <select id="lang" className="rounded-ctl bg-raised/70 px-3 py-2.5 text-sm ring-1 ring-line/10" value={p.lang} onChange={(e) => p.onLang(e.target.value)} disabled={speech.listening}>
               {LANGS.map(([c, n]) => <option key={c} value={c}>{n}</option>)}
             </select>
           </>
@@ -49,7 +49,7 @@ export default function TextInput(p: Props) {
           options={[{ value: "video", label: "Video" }, { value: "rt", label: "Real-time" }]} />
       </div>
       <div className="mt-3 min-h-6 text-center text-sm" role="status" aria-live="polite">
-        {speech.listening && <span className="inline-flex items-center gap-2 font-medium text-accent"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-accent" />Listening… speak your sentence</span>}
+        {speech.listening && <span className="inline-flex items-center gap-2 font-medium text-accent-fg"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-accent shadow-glow" />Listening… speak your sentence</span>}
         {p.hint && !speech.listening && <span role="alert" className="font-medium text-warn">{p.hint}</span>}
         {speech.error && <span role="alert" className="font-medium text-warn">{speech.error}</span>}
       </div>

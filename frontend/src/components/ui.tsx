@@ -9,10 +9,10 @@ export const SectionHeader = ({ title, aside }: { title: string; aside?: ReactNo
 export function SegmentedControl<T extends string | number>({ label, value, options, onChange, disabled = [] }:
   { label: string; value: T; options: { value: T; label: string }[]; onChange: (v: T) => void; disabled?: T[] }) {
   return (
-    <div role="radiogroup" aria-label={label} className="inline-flex rounded-ctl bg-black/[.05] p-1">
+    <div role="radiogroup" aria-label={label} className="inline-flex rounded-ctl bg-line/[.07] p-1">
       {options.map((o) => (
         <button key={String(o.value)} role="radio" aria-checked={value === o.value} disabled={disabled.includes(o.value)} onClick={() => onChange(o.value)}
-          className={`rounded-[9px] px-3.5 py-1.5 text-sm font-semibold transition disabled:opacity-40 ${value === o.value ? "bg-white text-ink shadow-sm" : "text-muted hover:text-ink"}`}>
+          className={`rounded-[9px] px-3.5 py-1.5 text-sm font-semibold transition disabled:opacity-40 ${value === o.value ? "bg-raised text-ink shadow-sm ring-1 ring-line/5" : "text-muted hover:text-ink"}`}>
           {o.label}
         </button>
       ))}
@@ -22,6 +22,6 @@ export function SegmentedControl<T extends string | number>({ label, value, opti
 
 export const StatusIndicator = ({ ok, label }: { ok: boolean | null; label: string }) => (
   <span className="inline-flex items-center gap-2 text-sm font-medium text-muted" role="status">
-    <span className={`h-2 w-2 rounded-full ${ok === null ? "bg-slate-300" : ok ? "bg-emerald-500" : "bg-amber-500"}`} aria-hidden />{label}
+    <span className={`h-2 w-2 rounded-full ${ok === null ? "bg-line/30" : ok ? "bg-emerald-500 shadow-[0_0_8px_rgb(16_185_129/.8)]" : "bg-amber-500"}`} aria-hidden />{label}
   </span>
 );

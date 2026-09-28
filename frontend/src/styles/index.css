@@ -1,18 +1,61 @@
 @tailwind base; @tailwind components; @tailwind utilities;
-body { @apply bg-[#F5F7FA] font-sans text-[15px] text-ink antialiased; min-height: 100vh; }
-/* Ambient background: two very large, very faint blurred glows. */
-body::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background: radial-gradient(60vw 50vw at 12% -10%, rgba(79,70,229,.13), transparent 70%),
-              radial-gradient(50vw 45vw at 95% 25%, rgba(56,132,255,.10), transparent 70%); }
-@layer components {
-  .glass { background: rgba(255,255,255,.66); border: 1px solid rgba(255,255,255,.75);
-    backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4);
-    box-shadow: 0 10px 40px rgba(17,24,39,.06), inset 0 0 0 1px rgba(17,24,39,.04); }
-  .glass-strong { background: rgba(255,255,255,.88); }
-  .btn { @apply inline-flex items-center justify-center gap-2 rounded-ctl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-40; }
-  .btn-primary { @apply btn bg-accent text-white shadow-sm hover:bg-accent-deep active:scale-[.98]; }
-  .btn-quiet { @apply btn text-muted hover:bg-black/5 hover:text-ink; }
+
+/* Theme tokens: space-separated RGB channels so Tailwind alpha modifiers (bg-surface/70) work. */
+:root {
+  color-scheme: light;
+  --bg: 245 247 250; --ink: 17 24 39; --muted: 91 100 114; --line: 17 24 39;
+  --surface: 255 255 255; --raised: 255 255 255;
+  --accent: 79 70 229; --accent2: 124 58 237; --accent3: 14 165 233;
+  --accent-soft: 238 240 255; --accent-deep: 55 48 163; --accent-fg: 79 70 229;
+  --warn: 180 83 9; --warn-soft: 255 244 229;
+  --aurora-a: .10; --aurora-b: .08; --aurora-c: .06;
+  --glass-bg: rgba(255,255,255,.60); --glass-strong: rgba(255,255,255,.86); --glass-border: rgba(255,255,255,.85);
+  --glass-shadow: 0 12px 40px rgba(31,41,90,.08), inset 0 0 0 1px rgba(17,24,39,.04), inset 0 1px 0 rgba(255,255,255,.95);
 }
-@supports not (backdrop-filter: blur(1px)) { .glass { background: rgba(255,255,255,.95); } }
-:focus-visible { outline: 2px solid #4F46E5; outline-offset: 2px; }
-@media (prefers-reduced-motion: reduce) { *, ::before { animation: none !important; transition: none !important; } }
+.dark {
+  color-scheme: dark;
+  --bg: 8 10 24; --ink: 236 239 250; --muted: 154 163 186; --line: 255 255 255;
+  --surface: 20 23 52; --raised: 70 76 138;
+  --accent: 99 102 241; --accent2: 139 92 246; --accent3: 56 189 248;
+  --accent-soft: 43 46 105; --accent-deep: 79 70 229; --accent-fg: 165 180 252;
+  --warn: 251 191 36; --warn-soft: 66 48 14;
+  --aurora-a: .24; --aurora-b: .14; --aurora-c: .16;
+  --glass-bg: rgba(24,27,62,.50); --glass-strong: rgba(24,27,64,.88); --glass-border: rgba(255,255,255,.11);
+  --glass-shadow: 0 18px 50px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.02), inset 0 1px 0 rgba(255,255,255,.09);
+}
+
+body { @apply font-sans text-[15px] text-ink antialiased; background-color: rgb(var(--bg)); min-height: 100vh; }
+::selection { background: rgb(var(--accent) / .28); }
+
+/* Ambient aurora behind the particle canvas. */
+body::before { content: ""; position: fixed; inset: 0; z-index: -20; pointer-events: none;
+  background:
+    radial-gradient(60vw 50vw at 10% -10%, rgb(var(--accent) / var(--aurora-a)), transparent 70%),
+    radial-gradient(50vw 45vw at 96% 22%, rgb(var(--accent3) / var(--aurora-b)), transparent 70%),
+    radial-gradient(48vw 42vw at 38% 112%, rgb(var(--accent2) / var(--aurora-c)), transparent 70%); }
+
+@layer components {
+  .glass { background: var(--glass-bg); border: 1px solid var(--glass-border);
+    backdrop-filter: blur(22px) saturate(1.5); -webkit-backdrop-filter: blur(22px) saturate(1.5);
+    box-shadow: var(--glass-shadow); }
+  .glass-strong { background: var(--glass-strong); }
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-ctl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-40; }
+  .btn-primary { @apply btn text-white active:scale-[.98];
+    background-image: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent2)));
+    box-shadow: 0 6px 22px -6px rgb(var(--accent) / .65), inset 0 1px 0 rgba(255,255,255,.28); }
+  .btn-primary:hover:not(:disabled) { filter: brightness(1.08);
+    box-shadow: 0 10px 28px -6px rgb(var(--accent) / .8), inset 0 1px 0 rgba(255,255,255,.3); }
+  .btn-quiet { @apply btn text-muted hover:bg-line/10 hover:text-ink; }
+  .chip { @apply glass rounded-card px-4 py-2 text-sm transition duration-200 hover:bg-raised/60 disabled:opacity-50; }
+  .text-gradient { background-image: linear-gradient(110deg, rgb(var(--ink)) 0%, rgb(var(--accent-fg)) 48%, rgb(var(--accent3)) 100%);
+    -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .avatar-stage { background: linear-gradient(135deg, rgb(var(--accent) / .10), rgb(var(--surface) / .35) 50%, rgb(var(--accent3) / .10)); }
+  .stage-text { text-shadow: 0 0 36px rgb(var(--accent) / .35); }
+}
+@supports not (backdrop-filter: blur(1px)) { .glass { background: var(--glass-strong); } }
+:focus-visible { outline: 2px solid rgb(var(--accent-fg)); outline-offset: 2px; }
+
+/* Smooth colour cross-fade only while toggling the theme (class added briefly by useTheme). */
+.theme-anim, .theme-anim *, .theme-anim *::before, .theme-anim *::after {
+  transition: background-color .35s ease, border-color .35s ease, color .35s ease, box-shadow .35s ease, fill .35s ease !important; }
+@media (prefers-reduced-motion: reduce) { *, ::before, ::after, .theme-anim, .theme-anim * { animation: none !important; transition: none !important; } }

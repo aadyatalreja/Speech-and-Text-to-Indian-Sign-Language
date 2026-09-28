@@ -11,8 +11,8 @@ export default function ProcessingStatus({ stage }: { stage: Stage }) {
         {STEPS.map((s, i) => (
           <li key={s} className={`flex items-center gap-3 text-sm ${i > at ? "text-muted" : "text-ink"}`}>
             {i < at ? <span className="grid h-5 w-5 place-items-center rounded-full bg-accent text-[11px] text-white" aria-label="done">✓</span>
-              : i === at ? <motion.span className="h-5 w-5 rounded-full border-2 border-accent" animate={{ opacity: [1, .35, 1] }} transition={{ repeat: Infinity, duration: 1.4 }} aria-label="in progress" />
-              : <span className="h-5 w-5 rounded-full border-2 border-black/15" aria-label="waiting" />}
+              : i === at ? <motion.span className="h-5 w-5 rounded-full border-2 border-accent shadow-glow" animate={{ opacity: [1, .35, 1] }} transition={{ repeat: Infinity, duration: 1.4 }} aria-label="in progress" />
+              : <span className="h-5 w-5 rounded-full border-2 border-line/25" aria-label="waiting" />}
             {s}
           </li>
         ))}
