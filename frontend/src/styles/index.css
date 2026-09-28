@@ -1,0 +1,5 @@
+@tailwind base; @tailwind components; @tailwind utilities;
+body { @apply bg-paper text-ink font-sans text-lg; }
+:focus-visible { outline: 3px solid #17212B; outline-offset: 3px; }
+.btn { @apply rounded-lg px-5 py-3 font-bold border-2 border-ink transition-colors disabled:opacity-40; }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }

@@ -1,0 +1,282 @@
+{
+ "I": {
+  "id": "i",
+  "gloss": "I",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "YOU": {
+  "id": "you",
+  "gloss": "YOU",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "WE": {
+  "id": "we",
+  "gloss": "WE",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "HE": {
+  "id": "he",
+  "gloss": "HE",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "SHE": {
+  "id": "she",
+  "gloss": "SHE",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "HELLO": {
+  "id": "hello",
+  "gloss": "HELLO",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "GOOD": {
+  "id": "good",
+  "gloss": "GOOD",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "BAD": {
+  "id": "bad",
+  "gloss": "BAD",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "HELP": {
+  "id": "help",
+  "gloss": "HELP",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "GO": {
+  "id": "go",
+  "gloss": "GO",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "COME": {
+  "id": "come",
+  "gloss": "COME",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "EAT": {
+  "id": "eat",
+  "gloss": "EAT",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "DRINK": {
+  "id": "drink",
+  "gloss": "DRINK",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "WATER": {
+  "id": "water",
+  "gloss": "WATER",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "COLLEGE": {
+  "id": "college",
+  "gloss": "COLLEGE",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "SCHOOL": {
+  "id": "school",
+  "gloss": "SCHOOL",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "HOME": {
+  "id": "home",
+  "gloss": "HOME",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "TODAY": {
+  "id": "today",
+  "gloss": "TODAY",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "TOMORROW": {
+  "id": "tomorrow",
+  "gloss": "TOMORROW",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "YESTERDAY": {
+  "id": "yesterday",
+  "gloss": "YESTERDAY",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "YES": {
+  "id": "yes",
+  "gloss": "YES",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "NO": {
+  "id": "no",
+  "gloss": "NO",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "PLEASE": {
+  "id": "please",
+  "gloss": "PLEASE",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "THANK_YOU": {
+  "id": "thank_you",
+  "gloss": "THANK_YOU",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "SORRY": {
+  "id": "sorry",
+  "gloss": "SORRY",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "WHAT": {
+  "id": "what",
+  "gloss": "WHAT",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "WHERE": {
+  "id": "where",
+  "gloss": "WHERE",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "WHEN": {
+  "id": "when",
+  "gloss": "WHEN",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "WHY": {
+  "id": "why",
+  "gloss": "WHY",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "HOW": {
+  "id": "how",
+  "gloss": "HOW",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "HOSPITAL": {
+  "id": "hospital",
+  "gloss": "HOSPITAL",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "NAME": {
+  "id": "name",
+  "gloss": "NAME",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "UNDERSTAND": {
+  "id": "understand",
+  "gloss": "UNDERSTAND",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "NEED": {
+  "id": "need",
+  "gloss": "NEED",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "WANT": {
+  "id": "want",
+  "gloss": "WANT",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "SEE": {
+  "id": "see",
+  "gloss": "SEE",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "MY": {
+  "id": "my",
+  "gloss": "MY",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "YOUR": {
+  "id": "your",
+  "gloss": "YOUR",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "ME": {
+  "id": "me",
+  "gloss": "ME",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ },
+ "NOT": {
+  "id": "not",
+  "gloss": "NOT",
+  "asset_type": "demo",
+  "video": null,
+  "keypoints": null
+ }
+}
