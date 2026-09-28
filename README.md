@@ -1,4 +1,5 @@
-# SignAI — AI-Powered Text-to-Indian Sign Language Translation
+# Speech-and-Text-to-Indian-Sign-Language
+### <i> SignAI — AI-Powered Text-to-Indian Sign Language Translation </i>
 
 ## Project Overview
 SignAI takes English text, turns it into an intermediate sign-language gloss, looks each gloss up in a sign repository, builds a timed sign sequence, and plays it in a browser (video or animated avatar placeholder).
