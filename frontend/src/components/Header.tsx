@@ -2,8 +2,7 @@ import { StatusIndicator } from "./ui";
 import ThemeToggle from "./ThemeToggle";
 export const Logo = () => (
   <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden>
-    <defs><linearGradient id="logo-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stopColor="#6366F1" /><stop offset="1" stopColor="#8B5CF6" /></linearGradient></defs>
-    <rect width="28" height="28" rx="8" fill="url(#logo-g)" />
+    <rect width="28" height="28" rx="8" fill="rgb(var(--accent))" />
     <path d="M7 17c3-7 7-7 9-3s4 3 5-2" fill="none" stroke="#fff" strokeWidth="2.2" strokeLinecap="round" />
     <circle cx="21" cy="9" r="1.8" fill="#fff" opacity=".85" />
   </svg>

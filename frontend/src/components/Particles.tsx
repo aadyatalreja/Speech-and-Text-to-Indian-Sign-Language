@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 
 interface Orb { x: number; y: number; r: number; vx: number; vy: number; ph: number; sw: number; tw: number; hue: number; depth: number; alpha: number }
 const TAU = Math.PI * 2;
-const HUES = [238, 252, 266, 282, 205, 190]; // indigo → violet → sky, matches the accent palette
+const HUES = [18, 26, 34, 42]; // terracotta → amber, matches the accent palette
 
 /** Fixed full-screen canvas of fine, softly glowing particles. Pointer-transparent, pauses when the tab is hidden,
  *  drifts with a soft mouse parallax, and renders a single static frame under prefers-reduced-motion. */
@@ -66,10 +66,10 @@ export default function Particles({ dark }: { dark: boolean }) {
         }
         // fine point with a soft halo
         const g = ctx.createRadialGradient(px, py, 0, px, py, o.r * 7);
-        g.addColorStop(0, `hsla(${o.hue},90%,${L}%,${(d ? .32 : .22) * a})`);
+        g.addColorStop(0, `hsla(${o.hue},90%,${L}%,${(d ? .30 : .20) * a})`);
         g.addColorStop(1, `hsla(${o.hue},90%,${L}%,0)`);
         ctx.fillStyle = g; ctx.beginPath(); ctx.arc(px, py, o.r * 7, 0, TAU); ctx.fill();
-        ctx.fillStyle = d ? `rgba(255,255,255,${.75 * a})` : `hsla(${o.hue},80%,45%,${.55 * a})`;
+        ctx.fillStyle = d ? `hsla(${o.hue},100%,92%,${.8 * a})` : `hsla(${o.hue},80%,45%,${.55 * a})`;
         ctx.beginPath(); ctx.arc(px, py, o.r, 0, TAU); ctx.fill();
       }
       ctx.globalCompositeOperation = "source-over";

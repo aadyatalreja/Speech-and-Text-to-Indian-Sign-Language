@@ -94,8 +94,8 @@ export default function App() {
       <main className="relative mx-auto max-w-5xl px-4 pb-24 pt-14 sm:pt-20">
         <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .35 }}>
           <div className="mb-10 text-center">
-            <p className="glass mx-auto mb-5 inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs font-semibold tracking-widest text-accent-fg"><span className="h-1.5 w-1.5 rounded-full bg-accent shadow-glow" aria-hidden />AI-POWERED SIGN LANGUAGE</p>
-            <h1 className="text-gradient pb-1 text-4xl font-extrabold tracking-tight sm:text-6xl">Turn words into signs.</h1>
+            <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold tracking-widest text-accent-fg"><span className="h-1.5 w-1.5 rounded-full bg-accent" aria-hidden />AI-POWERED SIGN LANGUAGE</p>
+            <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-6xl">Turn words into signs.</h1>
             <p className="mx-auto mt-3 max-w-md text-base text-muted">Translate natural language into expressive Indian Sign Language.</p>
           </div>
           <TextInput value={speech.listening ? speech.interim : text} onChange={setText} onTranslate={() => run()} busy={busy} realtime={realtime} onRealtime={setRealtime}
@@ -126,7 +126,7 @@ export default function App() {
               </motion.div>
             ) : (
               <motion.div key="empty" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-center">
-                <h2 className="text-xl font-semibold tracking-tight">Translate your first sentence</h2>
+                <h2 className="font-display text-2xl font-semibold tracking-tight">Translate your first sentence</h2>
                 <p className="mx-auto mt-2 max-w-sm text-sm text-muted">Type something above and we’ll turn it into an ISL sign sequence.</p>
                 <p className="mb-3 mt-8 text-xs text-muted">Try an example</p>
                 <div className="flex flex-wrap justify-center gap-2">

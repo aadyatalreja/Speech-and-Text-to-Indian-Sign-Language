@@ -15,7 +15,7 @@ export default function TextInput(p: Props) {
     <div id="top">
       <GlassCard className="p-6 sm:p-7">
         <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
-          <label htmlFor="text" className="text-lg font-semibold tracking-tight">What would you like to translate?</label>
+          <label htmlFor="text" className="font-display text-lg font-semibold tracking-tight">What would you like to translate?</label>
           <SegmentedControl label="Input method" value={p.mode} onChange={p.onMode} disabled={speech.supported ? [] : ["speak"]}
             options={[{ value: "type", label: "Type" }, { value: "speak", label: "Speak" }]} />
         </div>
@@ -49,7 +49,7 @@ export default function TextInput(p: Props) {
           options={[{ value: "video", label: "Video" }, { value: "rt", label: "Real-time" }]} />
       </div>
       <div className="mt-3 min-h-6 text-center text-sm" role="status" aria-live="polite">
-        {speech.listening && <span className="inline-flex items-center gap-2 font-medium text-accent-fg"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-accent shadow-glow" />Listening… speak your sentence</span>}
+        {speech.listening && <span className="inline-flex items-center gap-2 font-medium text-accent-fg"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-accent" />Listening… speak your sentence</span>}
         {p.hint && !speech.listening && <span role="alert" className="font-medium text-warn">{p.hint}</span>}
         {speech.error && <span role="alert" className="font-medium text-warn">{speech.error}</span>}
       </div>

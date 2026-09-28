@@ -13,7 +13,7 @@ export function useTheme() {
     const r = document.documentElement;
     r.classList.toggle("dark", theme === "dark");
     r.style.colorScheme = theme;
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#080A18" : "#F5F7FA");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#141211" : "#FAF8F5");
   }, [theme]);
 
   useEffect(() => {

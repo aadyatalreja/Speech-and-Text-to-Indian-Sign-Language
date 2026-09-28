@@ -4,7 +4,7 @@ export const GlassCard = ({ children, className = "", strong = false, ...r }: { 
   <section {...r} className={`glass ${strong ? "glass-strong" : ""} rounded-panel ${className}`}>{children}</section>;
 
 export const SectionHeader = ({ title, aside }: { title: string; aside?: ReactNode }) =>
-  <div className="mb-4 flex items-center justify-between gap-3"><h2 className="text-xl font-semibold tracking-tight">{title}</h2>{aside}</div>;
+  <div className="mb-4 flex items-center justify-between gap-3"><h2 className="font-display text-xl font-semibold tracking-tight">{title}</h2>{aside}</div>;
 
 export function SegmentedControl<T extends string | number>({ label, value, options, onChange, disabled = [] }:
   { label: string; value: T; options: { value: T; label: string }[]; onChange: (v: T) => void; disabled?: T[] }) {
@@ -22,6 +22,6 @@ export function SegmentedControl<T extends string | number>({ label, value, opti
 
 export const StatusIndicator = ({ ok, label }: { ok: boolean | null; label: string }) => (
   <span className="inline-flex items-center gap-2 text-sm font-medium text-muted" role="status">
-    <span className={`h-2 w-2 rounded-full ${ok === null ? "bg-line/30" : ok ? "bg-emerald-500 shadow-[0_0_8px_rgb(16_185_129/.8)]" : "bg-amber-500"}`} aria-hidden />{label}
+    <span className={`h-2 w-2 rounded-full ${ok === null ? "bg-line/30" : ok ? "bg-emerald-500" : "bg-amber-500"}`} aria-hidden />{label}
   </span>
 );

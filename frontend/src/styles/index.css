@@ -1,27 +1,28 @@
 @tailwind base; @tailwind components; @tailwind utilities;
 
 /* Theme tokens: space-separated RGB channels so Tailwind alpha modifiers (bg-surface/70) work. */
+/* Warm paper / charcoal neutrals with a single terracotta accent. */
 :root {
   color-scheme: light;
-  --bg: 245 247 250; --ink: 17 24 39; --muted: 91 100 114; --line: 17 24 39;
+  --bg: 250 248 245; --ink: 28 25 23; --muted: 113 106 99; --line: 28 25 23;
   --surface: 255 255 255; --raised: 255 255 255;
-  --accent: 79 70 229; --accent2: 124 58 237; --accent3: 14 165 233;
-  --accent-soft: 238 240 255; --accent-deep: 55 48 163; --accent-fg: 79 70 229;
-  --warn: 180 83 9; --warn-soft: 255 244 229;
-  --aurora-a: .10; --aurora-b: .08; --aurora-c: .06;
-  --glass-bg: rgba(255,255,255,.60); --glass-strong: rgba(255,255,255,.86); --glass-border: rgba(255,255,255,.85);
-  --glass-shadow: 0 12px 40px rgba(31,41,90,.08), inset 0 0 0 1px rgba(17,24,39,.04), inset 0 1px 0 rgba(255,255,255,.95);
+  --accent: 194 65 12; --accent2: 194 65 12; --accent3: 217 119 6;
+  --accent-soft: 255 237 224; --accent-deep: 154 52 18; --accent-fg: 194 65 12;
+  --warn: 185 28 28; --warn-soft: 254 236 236;
+  --aurora-a: .07; --aurora-b: .06; --aurora-c: 0;
+  --glass-bg: rgba(255,255,255,.66); --glass-strong: rgba(255,255,255,.90); --glass-border: rgba(255,255,255,.9);
+  --glass-shadow: 0 8px 30px rgba(60,40,20,.07), inset 0 0 0 1px rgba(28,25,23,.05), inset 0 1px 0 rgba(255,255,255,.95);
 }
 .dark {
   color-scheme: dark;
-  --bg: 8 10 24; --ink: 236 239 250; --muted: 154 163 186; --line: 255 255 255;
-  --surface: 20 23 52; --raised: 70 76 138;
-  --accent: 99 102 241; --accent2: 139 92 246; --accent3: 56 189 248;
-  --accent-soft: 43 46 105; --accent-deep: 79 70 229; --accent-fg: 165 180 252;
-  --warn: 251 191 36; --warn-soft: 66 48 14;
-  --aurora-a: .24; --aurora-b: .14; --aurora-c: .16;
-  --glass-bg: rgba(24,27,62,.50); --glass-strong: rgba(24,27,64,.88); --glass-border: rgba(255,255,255,.11);
-  --glass-shadow: 0 18px 50px rgba(0,0,0,.5), 0 0 0 1px rgba(255,255,255,.02), inset 0 1px 0 rgba(255,255,255,.09);
+  --bg: 20 18 17; --ink: 245 241 236; --muted: 168 160 152; --line: 255 255 255;
+  --surface: 34 31 29; --raised: 72 66 61;
+  --accent: 194 65 12; --accent2: 194 65 12; --accent3: 217 119 6;
+  --accent-soft: 62 40 28; --accent-deep: 154 52 18; --accent-fg: 251 146 60;
+  --warn: 248 113 113; --warn-soft: 70 30 30;
+  --aurora-a: .13; --aurora-b: .08; --aurora-c: 0;
+  --glass-bg: rgba(40,36,33,.55); --glass-strong: rgba(36,33,30,.90); --glass-border: rgba(255,255,255,.09);
+  --glass-shadow: 0 14px 40px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.07);
 }
 
 body { @apply font-sans text-[15px] text-ink antialiased; background-color: rgb(var(--bg)); min-height: 100vh; }
@@ -31,8 +32,7 @@ body { @apply font-sans text-[15px] text-ink antialiased; background-color: rgb(
 body::before { content: ""; position: fixed; inset: 0; z-index: -20; pointer-events: none;
   background:
     radial-gradient(60vw 50vw at 10% -10%, rgb(var(--accent) / var(--aurora-a)), transparent 70%),
-    radial-gradient(50vw 45vw at 96% 22%, rgb(var(--accent3) / var(--aurora-b)), transparent 70%),
-    radial-gradient(48vw 42vw at 38% 112%, rgb(var(--accent2) / var(--aurora-c)), transparent 70%); }
+    radial-gradient(50vw 45vw at 96% 22%, rgb(var(--accent3) / var(--aurora-b)), transparent 70%); }
 
 @layer components {
   .glass { background: var(--glass-bg); border: 1px solid var(--glass-border);
@@ -40,15 +40,11 @@ body::before { content: ""; position: fixed; inset: 0; z-index: -20; pointer-eve
     box-shadow: var(--glass-shadow); }
   .glass-strong { background: var(--glass-strong); }
   .btn { @apply inline-flex items-center justify-center gap-2 rounded-ctl px-4 py-2.5 text-sm font-semibold transition disabled:cursor-not-allowed disabled:opacity-40; }
-  .btn-primary { @apply btn text-white active:scale-[.98];
-    background-image: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent2)));
-    box-shadow: 0 6px 22px -6px rgb(var(--accent) / .65), inset 0 1px 0 rgba(255,255,255,.28); }
-  .btn-primary:hover:not(:disabled) { filter: brightness(1.08);
-    box-shadow: 0 10px 28px -6px rgb(var(--accent) / .8), inset 0 1px 0 rgba(255,255,255,.3); }
+  .btn-primary { @apply btn text-white active:scale-[.98]; background-color: rgb(var(--accent));
+    box-shadow: 0 1px 2px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.14); }
+  .btn-primary:hover:not(:disabled) { background-color: rgb(var(--accent-deep)); }
   .btn-quiet { @apply btn text-muted hover:bg-line/10 hover:text-ink; }
   .chip { @apply glass rounded-card px-4 py-2 text-sm transition duration-200 hover:bg-raised/60 disabled:opacity-50; }
-  .text-gradient { background-image: linear-gradient(110deg, rgb(var(--ink)) 0%, rgb(var(--accent-fg)) 48%, rgb(var(--accent3)) 100%);
-    -webkit-background-clip: text; background-clip: text; color: transparent; }
   .avatar-stage { background: linear-gradient(135deg, rgb(var(--accent) / .10), rgb(var(--surface) / .35) 50%, rgb(var(--accent3) / .10)); }
   .stage-text { text-shadow: 0 0 36px rgb(var(--accent) / .35); }
 }

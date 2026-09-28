@@ -23,7 +23,7 @@ export default function SignPlayer({ items, index, progress, playing, speed, c }
         ))}
       </ol>
       <div className="mt-2 h-1 overflow-hidden rounded-full bg-line/10" role="progressbar" aria-label="Playback progress" aria-valuemin={0} aria-valuemax={100} aria-valuenow={pct}>
-        <div className="h-full rounded-full bg-gradient-to-r from-accent to-accent-2 shadow-glow transition-[width] duration-100" style={{ width: `${pct}%` }} />
+        <div className="h-full rounded-full bg-accent transition-[width] duration-100" style={{ width: `${pct}%` }} />
       </div>
       <p className="mt-2 text-center text-xs tabular-nums text-muted">{state} · {fmt(done)} / {fmt(total)}</p>
 
