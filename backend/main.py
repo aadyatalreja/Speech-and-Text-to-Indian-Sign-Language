@@ -14,6 +14,9 @@ app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173"],
 for r in (health.router, translation.router, video.router):
     app.include_router(r, prefix="/api")
 settings.GENERATED_PATH.mkdir(exist_ok=True)
+settings.SIGN_DATA_PATH.mkdir(parents=True, exist_ok=True)
+# sign videos and avatar clips; clips are loaded by the browser from /signs/<clip path>
+app.mount("/signs", StaticFiles(directory=settings.SIGN_DATA_PATH), name="signs")
 app.mount("/generated", StaticFiles(directory=settings.GENERATED_PATH), name="generated")
 
 @app.exception_handler(RequestValidationError)

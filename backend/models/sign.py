@@ -6,6 +6,7 @@ class Sign(BaseModel):
     asset_type: str = "demo"  # demo | dataset
     video: str | None = None
     keypoints: str | None = None
+    clip: str | None = None  # avatar clip JSON, relative to the signs folder (see frontend/src/avatar/types.ts)
 
 class SignSequenceItem(BaseModel):
     gloss: str
@@ -15,3 +16,4 @@ class SignSequenceItem(BaseModel):
     pause_after: float = 0.2
     asset_type: str = "demo"
     video_url: str | None = None
+    clip_url: str | None = None

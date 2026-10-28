@@ -79,11 +79,20 @@ Real AI: only in `LLM_PROVIDER=api` mode (gloss and intent from a language model
 The input panel has two modes: **Type** and **Speak**. In Speak mode the browser's Web Speech API converts speech to text (`useSpeech` hook), the text appears in the box, and it is then translated exactly like typed input. Works in Chrome, Edge and Safari; Firefox is unsupported and the Speak option is disabled. Chrome sends audio to an online speech service, so it needs an internet connection and is not private/offline. Microphone access requires `localhost` or HTTPS. Recognition quality for Indian English varies; the transcript is editable before re-translating.
 
 ## Limitations
-- No real ISL assets are bundled; playback shows text labels.
+- No real ISL assets are bundled. The avatar performs hand-authored demo motions for ~17 glosses and placeholder fingerspelling (not the ISL alphabet) for everything else; both are labelled on screen.
 - Gloss ordering is approximate and not reviewed by ISL linguists.
 - Mock rules cover simple English only.
 - Real-time mode streams the sequence over WebSocket; sign generation is instant, so its benefit shows once assets are heavy.
-- Speech input is not implemented.
+
+## 3D Avatar
+
+The Sign Output panel renders a rigged 3D signer with Three.js (lazy-loaded, no model file needed). Every `SignItem` is resolved in this order: (1) a clip from the backend (`clip_url`), (2) a bundled demo clip, (3) fingerspelling, so any gloss can be performed.
+
+- **Clip format**: JSON keyframes of wrist position, hand orientation, finger curls, head and brows. Schema in `frontend/src/avatar/types.ts`.
+- **Add a real sign**: record or take a dataset video, run MediaPipe Holistic to a landmarks JSON, then `python backend/tools/mediapipe_to_clip.py in.json backend/data/signs/clips/hello.json --gloss HELLO --notes "source, licence"`. Add `"clip": "clips/hello.json"` to its entry in `signs.json`. Real clips are labelled "sign from dataset clip".
+- **Clip lab**: `npm run dev`, then open `/lab.html` to scrub, loop and edit any clip live.
+- **Tests**: `npm test` (frontend), `pytest` (backend, includes the converter).
+- Falls back to the text stage when WebGL is unavailable.
 
 ## Future Work
-Replace `SignSequenceService` with a neural `SignGenerator` (gloss → pose sequence), retarget poses to a GLTF avatar in Three.js, train or fine-tune on an ISL dataset, add ISL-specific grammar evaluation with native signers.
+Replace `SignSequenceService` with a neural `SignGenerator` (gloss → pose sequence), swap the primitive rig for a skinned GLTF/VRM avatar (the `AvatarRig.applyPose` seam), train or fine-tune on an ISL dataset, add ISL-specific grammar evaluation with native signers.

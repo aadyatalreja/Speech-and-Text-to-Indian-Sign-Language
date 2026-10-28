@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { AnimatePresence, MotionConfig, motion } from "framer-motion";
 import Header from "./components/Header";
 import Particles from "./components/Particles";
@@ -6,6 +6,7 @@ import TextInput, { type InputMode } from "./components/TextInput";
 import ProcessingStatus from "./components/ProcessingStatus";
 import TranslationPanel from "./components/TranslationPanel";
 import AvatarPanel from "./components/AvatarPanel";
+import { retimeForAvatar } from "./avatar/library";
 import SignPlayer from "./components/SignPlayer";
 import HistoryDrawer, { type HistoryItem } from "./components/HistoryPanel";
 import { GlassCard, SectionHeader } from "./components/ui";
@@ -35,7 +36,9 @@ export default function App() {
   const [videoNote, setVideoNote] = useState<string | null>(null);
   const [videoUrl, setVideoUrl] = useState<string | null>(null);
   const [t, setT] = useState<Translation | null>(null);
-  const [items, setItems] = useState<SignItem[]>([]);
+  const [rawItems, setItems] = useState<SignItem[]>([]);
+  // fingerspelled glosses get longer timing so each letter is readable
+  const items = useMemo(() => retimeForAvatar(rawItems), [rawItems]);
   const [history, setHistory] = useState<HistoryItem[]>(loadHistory);
   const [drawer, setDrawer] = useState(false);
   const [online, setOnline] = useState<boolean | null>(null);
@@ -119,7 +122,7 @@ export default function App() {
                 <TranslationPanel t={t} activeIndex={player.index} />
                 <GlassCard aria-label="Sign Output" className="p-6">
                   <SectionHeader title="Sign Output" />
-                  <AvatarPanel item={current} videoUrl={videoUrl} />
+                  <AvatarPanel item={current} videoUrl={videoUrl} items={items} progress={player.progress} playing={player.playing} />
                   {videoNote && <p className="mt-3 text-center text-xs text-muted">{videoNote}</p>}
                   {!videoUrl && <SignPlayer items={items} index={player.index} progress={player.progress} playing={player.playing} speed={player.speed} c={player.controller} />}
                 </GlassCard>

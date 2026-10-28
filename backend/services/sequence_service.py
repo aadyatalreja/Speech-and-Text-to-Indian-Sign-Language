@@ -25,5 +25,6 @@ class SignSequenceService(SignGenerator):
                 duration=round((0.6 + 0.1 * len(g)) / speed, 2),
                 pause_after=0.0 if last else round(0.2 / speed, 2),
                 asset_type=sign.asset_type if sign else "none",
-                video_url=f"/signs/{sign.video}" if sign and sign.video else None))
+                video_url=f"/signs/{sign.video}" if sign and sign.video else None,
+                clip_url=f"/signs/{sign.clip}" if sign and sign.clip else None))
         return items, unknown

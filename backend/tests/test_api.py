@@ -24,3 +24,13 @@ def test_ws():
     with c.websocket_connect("/api/translate/stream") as ws:
         ws.send_json({"text": "Hello"})
         assert [ws.receive_json()["type"] for _ in range(3)] == ["understanding", "sign", "done"]
+
+def test_signs_static_mount_serves_clips(tmp_path):
+    from config import settings
+    clip = settings.SIGN_DATA_PATH / "clips" / "_pytest_clip.json"
+    clip.parent.mkdir(exist_ok=True)
+    clip.write_text('{"version":1}')
+    try:
+        assert c.get("/signs/clips/_pytest_clip.json").json() == {"version": 1}
+    finally:
+        clip.unlink()
