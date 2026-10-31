@@ -1,0 +1,10 @@
+{
+  "TODO: exact manifest source": {
+    "licence": "TODO: exact licence or owner permission reference",
+    "intended_use": "TODO: describe intended use",
+    "allow_processing": false,
+    "allow_redistribution": false,
+    "reviewer": "TODO: person checking rights",
+    "evidence": "TODO: public licence/permission evidence reference; do not put sensitive documents here"
+  }
+}

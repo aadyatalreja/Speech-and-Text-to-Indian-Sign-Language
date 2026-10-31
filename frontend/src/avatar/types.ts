@@ -54,6 +54,18 @@ export interface SignClip {
   keys: Keyframe[];
   /** free text: source, licence, signer, review status */
   notes?: string;
+  duration?: number;
+  source?: string | null;
+  licence?: string | null;
+  signer?: string | null;
+  review_status?: "unverified" | "in_review" | "verified";
+  spelling?: {
+    duration: number;
+    missing: string[];
+    unverified: string[];
+    textOnly: string[];
+    assets: { character: string; source: string; licence: string; signer: string; review_status: "unverified" | "in_review" | "verified" }[];
+  };
 }
 
 /** Fully resolved state of one hand at one instant. */

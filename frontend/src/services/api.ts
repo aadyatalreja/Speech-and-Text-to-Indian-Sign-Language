@@ -18,11 +18,12 @@ export const health = () => http.get("/health").then(() => true).catch(() => fal
 export const translate = (text: string) =>
   http.post<Translation>("/translate", { text, source_language: "English", target_sign_language: "ISL" }).then((r) => r.data);
 
+export interface GeneratedVideo { video_url: string; missing_glosses: string[]; notice: string | null }
 export const generateVideo = (sequence: string[]) =>
-  http.post<{ video_url: string }>("/generate-video", { sequence }).then((r) => r.data.video_url);
+  http.post<GeneratedVideo>("/generate-video", { sequence }, { timeout: 180000 }).then((r) => r.data);
 
 type StreamEvent =
-  | { type: "understanding"; intent: string; entities: Translation["entities"]; gloss: string[]; confidence: number; engine: string; notice: string | null }
+  | { type: "understanding"; intent: string; entities: Translation["entities"]; gloss: string[]; gloss_detail?: Translation["gloss_detail"]; sentence?: Translation["sentence"]; grammar_rules?: Translation["grammar_rules"]; confidence: number; engine: string; notice: string | null }
   | { type: "sign"; index: number; item: SignItem }
   | { type: "done"; unknown_signs: string[] }
   | { type: "error"; error: string };

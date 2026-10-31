@@ -16,6 +16,24 @@ def test_empty():
 def test_unknown_sign_api():
     r = c.post("/api/translate", json={"text": "I want quantum"}).json()
     assert "QUANTUM" in r["unknown_signs"] and r["notice"]
+    assert "FS:QUANTUM" in r["gloss"]
+
+
+def test_name_and_digits_api():
+    r = c.post("/api/translate", json={"text": "Priya 12"}).json()
+    assert r["gloss"] == ["FS:PRIYA", "FS:1", "FS:2"]
+    assert r["unknown_signs"] == ["PRIYA", "1", "2"]
+    assert "not the ISL alphabet" in r["notice"]
+
+
+def test_name_and_digits_stream():
+    with c.websocket_connect("/api/translate/stream") as ws:
+        ws.send_json({"text": "Priya 1"})
+        meta = ws.receive_json()
+        assert meta["gloss"] == ["FS:PRIYA", "FS:1"]
+        assert ws.receive_json()["item"]["gloss"] == "FS:PRIYA"
+        assert ws.receive_json()["item"]["gloss"] == "FS:1"
+        assert ws.receive_json()["unknown_signs"] == ["PRIYA", "1"]
 
 def test_video_without_assets():
     assert c.post("/api/generate-video", json={"sequence": ["I"]}).status_code == 422

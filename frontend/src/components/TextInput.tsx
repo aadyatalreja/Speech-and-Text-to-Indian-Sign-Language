@@ -43,10 +43,10 @@ export default function TextInput(p: Props) {
             </select>
           </>
         )}
-        <button className="btn-primary px-6" onClick={p.onTranslate} disabled={p.busy || speech.listening}>Translate to ISL →</button>
+        <button className="btn-primary px-6" onClick={p.onTranslate} disabled={p.busy || speech.listening}>Preview sign sequence →</button>
         <button className="btn-quiet" onClick={() => p.onChange("")} disabled={!p.value || speech.listening}>Clear</button>
-        <SegmentedControl label="Output mode" value={p.realtime ? "rt" : "video"} onChange={(v) => p.onRealtime(v === "rt")}
-          options={[{ value: "video", label: "Video" }, { value: "rt", label: "Real-time" }]} />
+        <SegmentedControl label="Translation mode" value={p.realtime ? "rt" : "video"} onChange={(v) => p.onRealtime(v === "rt")}
+          options={[{ value: "video", label: "Standard" }, { value: "rt", label: "Real-time" }]} />
       </div>
       <div className="mt-3 min-h-6 text-center text-sm" role="status" aria-live="polite">
         {speech.listening && <span className="inline-flex items-center gap-2 font-medium text-accent-fg"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-accent" />Listening… speak your sentence</span>}

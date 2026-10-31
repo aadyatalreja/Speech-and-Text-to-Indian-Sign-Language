@@ -1,0 +1,2 @@
+# Optional synthetic FFmpeg integration test; production still uses FFmpeg on PATH.
+imageio-ffmpeg==0.6.0

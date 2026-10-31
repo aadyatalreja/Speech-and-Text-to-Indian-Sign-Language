@@ -139,6 +139,22 @@ export function sampleClip(c: CompiledClip, t: number): AvatarPose {
 
 /* ---------- smoothing follower (gives co-articulation between signs and hides 50 ms progress steps) ---------- */
 
+export function mixPose(a: AvatarPose, b: AvatarPose, fraction: number): AvatarPose {
+  const f = clamp(fraction, 0, 1);
+  return { R: mixHand(a.R, b.R, f), L: mixHand(a.L, b.L, f), head: mixVec(a.head, b.head, f),
+    brow: lerp(a.brow, b.brow, f), mouth: lerp(a.mouth, b.mouth, f) };
+}
+
+/** Blend previous end into the next clip while retaining its current motion. */
+export function transitionPose(previous: AvatarPose | null, clip: CompiledClip, t: number, seconds: number, duration: number): AvatarPose {
+  const pose = sampleClip(clip, t);
+  if (!previous || seconds <= 0 || !Number.isFinite(duration) || duration <= 0) return pose;
+  const blend = smooth(clamp(t * duration / Math.min(seconds, duration / 2), 0, 1));
+  if (blend <= 0) return previous;
+  if (blend >= 1) return pose;
+  return mixPose(previous, pose, blend);
+}
+
 export class PoseFollower {
   current: AvatarPose = restPose();
 

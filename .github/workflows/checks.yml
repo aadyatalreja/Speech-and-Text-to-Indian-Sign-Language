@@ -1,0 +1,35 @@
+name: Checks and evaluation readiness
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: pip install -r backend/requirements.txt -r backend/requirements-video-test.txt
+      - run: python -m nltk.downloader wordnet
+      - run: python -m pytest -q
+        working-directory: backend
+      - run: python backend/tools/validate_signs.py
+      - run: npm install
+        working-directory: frontend
+      - run: npm test
+        working-directory: frontend
+      - run: npm run build
+        working-directory: frontend
+  evaluation-readiness:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install -r backend/requirements.txt
+      - run: python -m nltk.downloader wordnet
+      # Deliberate nonzero readiness failure while only placeholders exist.
+      - run: python eval/run_eval.py

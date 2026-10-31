@@ -1,0 +1,211 @@
+# Draft / unverified grammar. Legacy demo behavior is retained and labeled.
+# NMM templates remain disabled; no verified ISL linguistic rules are supplied.
+version: 1
+rules:
+- id: question_nmm_pending_review
+  source: 'TODO: supply a cited ISL reference and Deaf signer review'
+  review_status: unverified
+  enabled: false
+  needs_signer_review: true
+  when:
+    intent: question
+  span: sentence
+  nmm: {}
+- id: negation_nmm_pending_review
+  source: 'TODO: supply a cited ISL reference and Deaf signer review'
+  review_status: unverified
+  enabled: false
+  needs_signer_review: true
+  when:
+    negated: true
+  span: sentence
+  nmm: {}
+grammar:
+- source: Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic
+    reference
+  review_status: unverified
+  reviewer: null
+  enabled: true
+  id: legacy_function_word_filter
+  operation: drop_words
+  words:
+  - a
+  - am
+  - an
+  - are
+  - be
+  - been
+  - being
+  - can
+  - could
+  - did
+  - do
+  - does
+  - had
+  - has
+  - have
+  - is
+  - of
+  - shall
+  - the
+  - to
+  - was
+  - were
+  - will
+  - would
+  notes: English demo filter; repository matches always take precedence.
+- source: Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic
+    reference
+  review_status: unverified
+  reviewer: null
+  enabled: true
+  id: legacy_phrase_1
+  operation: phrase
+  english: hello
+  gloss:
+  - HELLO
+  intent: greeting
+- source: Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic
+    reference
+  review_status: unverified
+  reviewer: null
+  enabled: true
+  id: legacy_phrase_2
+  operation: phrase
+  english: thank you
+  gloss:
+  - THANK_YOU
+  intent: greeting
+- source: Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic
+    reference
+  review_status: unverified
+  reviewer: null
+  enabled: true
+  id: legacy_phrase_3
+  operation: phrase
+  english: i am going to school
+  gloss:
+  - I
+  - SCHOOL
+  - GO
+  intent: statement
+- source: Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic
+    reference
+  review_status: unverified
+  reviewer: null
+  enabled: true
+  id: legacy_phrase_4
+  operation: phrase
+  english: i need help
+  gloss:
+  - I
+  - HELP
+  - NEED
+  intent: request
+- source: Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic
+    reference
+  review_status: unverified
+  reviewer: null
+  enabled: true
+  id: legacy_phrase_5
+  operation: phrase
+  english: where is the hospital
+  gloss:
+  - HOSPITAL
+  - WHERE
+  intent: question
+- source: Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic
+    reference
+  review_status: unverified
+  reviewer: null
+  enabled: true
+  id: legacy_phrase_6
+  operation: phrase
+  english: can you help me
+  gloss:
+  - YOU
+  - HELP
+  - ME
+  intent: question
+- source: Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic
+    reference
+  review_status: unverified
+  reviewer: null
+  enabled: true
+  id: legacy_phrase_7
+  operation: phrase
+  english: see you tomorrow
+  gloss:
+  - TOMORROW
+  - SEE
+  - YOU
+  intent: statement
+- source: Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic
+    reference
+  review_status: unverified
+  reviewer: null
+  enabled: true
+  id: legacy_category_order
+  operation: order_categories
+  categories:
+  - time
+  - rest
+  - verb
+  - negation
+  - question
+- id: isl_word_order_pending_review
+  source: 'TODO: cited ISL reference and Deaf signer/linguist review required'
+  review_status: unverified
+  enabled: false
+  operation: pending
+  notes: No linguistic parameters supplied. Replace only after review; do not enable
+    this placeholder.
+- id: isl_question_position_pending_review
+  source: 'TODO: cited ISL reference and Deaf signer/linguist review required'
+  review_status: unverified
+  enabled: false
+  operation: pending
+  notes: No linguistic parameters supplied. Replace only after review; do not enable
+    this placeholder.
+- id: isl_negation_placement_pending_review
+  source: 'TODO: cited ISL reference and Deaf signer/linguist review required'
+  review_status: unverified
+  enabled: false
+  operation: pending
+  notes: No linguistic parameters supplied. Replace only after review; do not enable
+    this placeholder.
+- id: isl_time_first_pending_review
+  source: 'TODO: cited ISL reference and Deaf signer/linguist review required'
+  review_status: unverified
+  enabled: false
+  operation: pending
+  notes: No linguistic parameters supplied. Replace only after review; do not enable
+    this placeholder.
+- id: isl_topic_comment_pending_review
+  source: 'TODO: cited ISL reference and Deaf signer/linguist review required'
+  review_status: unverified
+  enabled: false
+  operation: pending
+  notes: No linguistic parameters supplied. Replace only after review; do not enable
+    this placeholder.
+- id: isl_copula_article_dropping_pending_review
+  source: 'TODO: cited ISL reference and Deaf signer/linguist review required'
+  review_status: unverified
+  enabled: false
+  operation: pending
+  notes: No linguistic parameters supplied. Replace only after review; do not enable
+    this placeholder.
+- id: isl_plural_repetition_pending_review
+  source: 'TODO: cited ISL reference and Deaf signer/linguist review required'
+  review_status: unverified
+  enabled: false
+  operation: pending
+  notes: No linguistic parameters supplied. Replace only after review; do not enable
+    this placeholder.
+- id: isl_pronoun_indexing_pending_review
+  source: 'TODO: cited ISL reference and Deaf signer/linguist review required'
+  review_status: unverified
+  enabled: false
+  operation: pending
+  notes: No linguistic parameters supplied. Replace only after review; do not enable
+    this placeholder.

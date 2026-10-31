@@ -11,19 +11,20 @@ CASES = {
 
 @pytest.mark.parametrize("text,gloss", CASES.items())
 def test_mock(text, gloss):
-    assert mock_transform(text).gloss == gloss
+    assert mock_transform(text).flat_gloss == gloss
 
 def test_other_sentences():
     for t in ["I do not understand.", "What is your name?", "I want water."]:
         r = mock_transform(t)
-        assert r.gloss and 0 <= r.confidence <= 1
+        assert r.flat_gloss and 0 <= r.confidence <= 1
 
 def test_malformed_json_recovery():
     r = parse_llm_json('Sure! ```json\n{"intent":"statement","gloss":["i","go home"],"confidence":0.8}\n```')
-    assert r.gloss == ["I", "GO_HOME"]
+    assert r.flat_gloss == ["I", "GO_HOME"]
     with pytest.raises(LLMError):
         parse_llm_json("nonsense")
 
 def test_unknown_sign_does_not_crash():
     seq, unknown = SignSequenceService().build(["I", "QUANTUM", "COMPUTER"])
     assert unknown == ["QUANTUM", "COMPUTER"] and len(seq) == 3 and not seq[1].available
+    assert seq[1].gloss == "FS:QUANTUM"

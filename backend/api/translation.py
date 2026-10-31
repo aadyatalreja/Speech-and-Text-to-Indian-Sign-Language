@@ -25,6 +25,9 @@ async def stream(ws: WebSocket):
         await ws.send_json({"type": "understanding", "intent": res.intent,
                             "entities": [e.model_dump() for e in res.entities],
                             "gloss": res.gloss, "confidence": res.confidence,
+                            "gloss_detail": [token.model_dump() for token in res.gloss_detail],
+                            "sentence": res.sentence.model_dump(),
+                            "grammar_rules": [rule.model_dump() for rule in res.grammar_rules],
                             "engine": res.engine, "notice": res.notice})
         for i, item in enumerate(res.sequence):
             await ws.send_json({"type": "sign", "index": i, "item": item.model_dump()})

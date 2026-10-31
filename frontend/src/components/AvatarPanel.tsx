@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
 import { lazy, Suspense, useEffect, useState } from "react";
 import type { SignItem } from "../types/translation";
-import { avatarLabel, prefetchClips } from "../avatar/library";
+import { avatarLabel, prefetchClips, videoLabel } from "../avatar/library";
 import type { CompiledClip } from "../avatar/pose";
 
 // three.js is only downloaded when a translation is shown
@@ -23,7 +23,10 @@ export default function AvatarPanel({ item, videoUrl, items = [], progress = 0, 
 
   useEffect(() => { if (items.length) void prefetchClips(items); }, [items]);
 
-  if (videoUrl) return <video src={videoUrl} controls className="aspect-video w-full rounded-card bg-black" aria-label="Generated sign video" />;
+  if (videoUrl) return <div>
+    <video src={videoUrl} controls className="aspect-video w-full rounded-card bg-black" aria-label="Generated sign video" />
+    <p className="mt-2 text-center text-xs text-muted">{videoLabel(items)}</p>
+  </div>;
 
   const label = item ? item.gloss.replace("_", " ") : "Ready";
   return (
@@ -45,10 +48,13 @@ export default function AvatarPanel({ item, videoUrl, items = [], progress = 0, 
       {!noGL && item && (
         <p className="pointer-events-none absolute left-3 top-3 rounded-full bg-surface/70 px-3 py-1 text-sm font-bold tracking-wide text-ink ring-1 ring-line/10 backdrop-blur">{label}</p>
       )}
+      {!!item?.nmm_rules?.length && <p className="absolute right-3 top-12 rounded-full bg-surface/80 px-3 py-1 text-xs text-muted">
+        {item.nmm_verified ? "NMM · reviewed rule" : "NMM · demo / not verified ISL"}
+      </p>}
       {item && !item.available && !noGL && clip?.clip.kind !== "fingerspell" && (
         <p className="absolute right-3 top-3 rounded-full bg-warn-soft px-3 py-1 text-xs font-semibold text-warn">Sign unavailable</p>
       )}
-      <p className="absolute bottom-3 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-surface/70 px-3 py-1 text-xs font-medium text-muted ring-1 ring-line/10 backdrop-blur">
+      <p className="absolute bottom-3 left-1/2 w-max max-w-[95%] -translate-x-1/2 rounded-full bg-surface/70 px-3 py-1 text-center text-xs font-medium text-muted ring-1 ring-line/10 backdrop-blur">
         {noGL ? "Demo Sign Renderer · not an actual ISL sign" : avatarLabel(item ? clip : null)}
       </p>
     </div>

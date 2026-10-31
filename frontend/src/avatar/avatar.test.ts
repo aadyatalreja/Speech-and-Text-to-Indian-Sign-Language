@@ -1,9 +1,9 @@
-import { describe, expect, it } from "vitest";
+import { describe, expect, it, vi } from "vitest";
 import * as THREE from "three";
 import { compileClip, eulerYXZToQuat, restPose, sampleClip, slerp } from "./pose";
-import { fingerspellClip, hasLetters, spellDuration } from "./alphabet";
+import { fingerspellClip, hasLetters, spellDuration, spellableLetters } from "./alphabet";
 import { DEMO_SIGNS } from "./demoSigns";
-import { getClip, retimeForAvatar, willFingerspell } from "./library";
+import { getClip, retimeForAvatar, willFingerspell, avatarLabel, prefetchClips, videoLabel } from "./library";
 import type { SignClip } from "./types";
 
 const item = (gloss: string, extra = {}) => ({ gloss, sign_id: null, available: true, duration: 1, pause_after: 0.2, asset_type: "demo", video_url: null, ...extra });
@@ -50,6 +50,45 @@ describe("clips", () => {
 });
 
 describe("resolution order and fingerspelling", () => {
+  it("keeps generated videos labeled until every repository item is verified", () => {
+    expect(videoLabel([])).toContain("not verified ISL");
+    expect(videoLabel([item("HELLO")])).toContain("not verified ISL");
+    expect(videoLabel([item("HELLO", { review_status: "verified" })])).toContain("reviewed assets");
+    expect(videoLabel([item("HELLO", { review_status: "verified" }), item("YOU", { review_status: "unverified" })])).toContain("not verified ISL");
+  });
+  it("labels imported dataset clips unverified unless repository review metadata verifies them", async () => {
+    const source: SignClip = { version: 1, id: "import-fixture", gloss: "FIXTURE", kind: "dataset",
+      review_status: "verified", keys: [{ t: 0, R: { p: [-0.3, 0, 0] }, L: { p: [0.3, 0, 0] } },
+        { t: 1, R: { p: [-0.3, 0.2, 0] }, L: { p: [0.3, 0.2, 0] } }] };
+    const mockFetch = vi.fn(async (url: RequestInfo | URL) => new Response(JSON.stringify(
+      String(url).endsWith("manifest.json") ? { version: 1, characters: {} } : source), { status: 200 }));
+    vi.stubGlobal("fetch", mockFetch);
+    try {
+      const draft = item("FIXTURE", { clip_url: "/signs/clips/import-fixture.json", review_status: "unverified" });
+      await prefetchClips([draft]);
+      const clip = getClip(draft);
+      expect(avatarLabel(clip)).toContain("not verified ISL");
+      expect(sampleClip(clip, 1).L.p).toEqual([0.3, 0.2, 0]);
+      const reviewed = item("FIXTURE", { clip_url: "/signs/clips/reviewed-fixture.json", review_status: "verified" });
+      await prefetchClips([reviewed]);
+      expect(avatarLabel(getClip(reviewed))).toContain("reviewed dataset clip");
+      expect(avatarLabel(getClip({ ...reviewed, review_status: "unverified" }))).toContain("not verified ISL");
+    } finally { vi.unstubAllGlobals(); }
+  });
+  it("treats FS: as metadata, never as letters or a demo sign", () => {
+    expect(spellableLetters("FS:PRIYA")).toEqual(spellableLetters("PRIYA"));
+    expect(spellDuration("FS:PRIYA")).toBe(spellDuration("PRIYA"));
+    expect(getClip(item("FS:HELLO")).clip.kind).toBe("fingerspell");
+    expect(willFingerspell(item("FS:HELLO"))).toBe(true);
+    expect(avatarLabel(getClip(item("FS:PRIYA")))).toContain("not the ISL alphabet");
+  });
+  it("keeps missing digits as text without fabricating handshapes", () => {
+    const clip = getClip(item("FS:1"));
+    expect(clip.clip.gloss).toBe("FS:1");
+    expect(hasLetters("FS:1")).toBe(false);
+    expect(clip.clip.keys.every((k) => k.R === null)).toBe(true);
+    expect(avatarLabel(clip)).toContain("Digits shown as text only");
+  });
   it("demo gloss uses the demo clip, unknown gloss is spelled", () => {
     expect(getClip(item("HELLO")).clip.kind).toBe("demo");
     expect(getClip(item("COLLEGE")).clip.kind).toBe("fingerspell");

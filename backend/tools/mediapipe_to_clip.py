@@ -258,6 +258,7 @@ def convert(data: dict, gloss: str, clip_id: str, notes: str = "", swap_hands: b
         keys.append(k)
     dur = (last - first) / float(data.get("fps", 25))
     return {"version": 1, "id": clip_id, "gloss": gloss.upper(), "kind": "dataset", "keys": keys,
+            "duration": round(dur, 6),
             "notes": (notes + f" | converted from {len(frames)} frames, {dur:.2f}s").strip(" |")}
 
 
