@@ -15,24 +15,28 @@ export function errorMessage(e: unknown): string {
 
 export const health = () => http.get("/health").then(() => true).catch(() => false);
 
-export const translate = (text: string) =>
-  http.post<Translation>("/translate", { text, source_language: "English", target_sign_language: "ISL" }).then((r) => r.data);
+export const translate = (text: string, source_language = "English") =>
+  http.post<Translation>("/translate", { text, source_language, target_sign_language: "ISL" }).then((r) => r.data);
 
+export interface GeneratedVideo { video_url: string; missing_glosses: string[]; notice: string | null }
 export const generateVideo = (sequence: string[]) =>
-  http.post<{ video_url: string }>("/generate-video", { sequence }).then((r) => r.data.video_url);
+  http.post<GeneratedVideo>("/generate-video", { sequence }, { timeout: 180000 }).then((r) => r.data);
 
 type StreamEvent =
-  | { type: "understanding"; intent: string; entities: Translation["entities"]; gloss: string[]; confidence: number; engine: string; notice: string | null }
+  | { type: "understanding"; english_text?: string; intent: string; entities: Translation["entities"]; gloss: string[]; gloss_detail?: Translation["gloss_detail"]; sentence?: Translation["sentence"]; grammar_rules?: Translation["grammar_rules"]; confidence: number; engine: string; notice: string | null }
   | { type: "sign"; index: number; item: SignItem }
   | { type: "done"; unknown_signs: string[] }
   | { type: "error"; error: string };
 
 /** Real-time mode: signs arrive one by one so playback can start before the last sign is sent. */
-export function streamTranslate(text: string, onEvent: (e: StreamEvent) => void): () => void {
+export function streamTranslate(text: string, onEvent: (e: StreamEvent) => void, source_language = "English"): () => void {
   const proto = location.protocol === "https:" ? "wss" : "ws";
   const ws = new WebSocket(`${proto}://${location.host}/api/translate/stream`);
-  ws.onopen = () => ws.send(JSON.stringify({ text }));
+  ws.onopen = () => ws.send(JSON.stringify({ text, source_language }));
   ws.onmessage = (m) => onEvent(JSON.parse(m.data));
   ws.onerror = () => onEvent({ type: "error", error: "Translation service temporarily unavailable." });
   return () => ws.close();
 }
+
+export interface SignReport { gloss: string; sign_id: string | null; sentence: string; note: string; timestamp: string }
+export const reportSign = (report: SignReport) => http.post<void>("/feedback", report);

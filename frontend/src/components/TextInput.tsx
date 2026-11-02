@@ -1,7 +1,7 @@
 import { GlassCard, SegmentedControl } from "./ui";
 export type InputMode = "type" | "speak";
 export interface SpeechState { supported: boolean; listening: boolean; error: string | null; start: () => void; stop: () => void }
-const LANGS = [["en-IN", "English (India)"], ["en-US", "English (US)"], ["en-GB", "English (UK)"]];
+const LANGS = [["en-IN", "English (India)"], ["en-US", "English (US)"], ["en-GB", "English (UK)"], ["hi-IN", "हिन्दी · experimental"], ["kn-IN", "ಕನ್ನಡ · experimental"]];
 
 interface Props {
   value: string; onChange: (v: string) => void; onTranslate: () => void; busy: boolean;
@@ -25,7 +25,7 @@ export default function TextInput(p: Props) {
           onKeyDown={(e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) p.onTranslate(); }}
           className="w-full resize-none rounded-ctl border border-line/10 bg-surface/60 p-4 text-lg leading-relaxed outline-none transition placeholder:text-muted/70 focus:border-accent/60 focus:bg-surface/80 focus:ring-4 focus:ring-accent/20" />
         <div className="mt-2 flex items-center justify-between text-xs text-muted">
-          <span>English → ISL{!speech.supported && " · Speech input needs Chrome, Edge or Safari"}</span>
+          <span>{p.lang.startsWith("en") ? "English → ISL" : "Experimental · English translation → ISL"}{!speech.supported && " · Speech input needs Chrome, Edge or Safari"}</span>
           <span aria-live="polite">{p.value.length} / 500</span>
         </div>
       </GlassCard>
@@ -34,19 +34,19 @@ export default function TextInput(p: Props) {
         {p.mode === "speak" && (
           <>
             <button className={p.speech.listening ? "btn-primary" : "btn bg-raised/70 text-ink ring-1 ring-line/10 hover:bg-raised"} aria-pressed={speech.listening}
-              onClick={speech.listening ? speech.stop : speech.start} disabled={p.busy}>
+              onClick={speech.listening ? speech.stop : speech.start} disabled={p.busy && !speech.listening}>
               {speech.listening ? "■ Stop listening" : "🎤 Start speaking"}
             </button>
-            <label className="sr-only" htmlFor="lang">Speech language</label>
+          </>
+        )}
+            <label className="sr-only" htmlFor="lang">Input and speech language</label>
             <select id="lang" className="rounded-ctl bg-raised/70 px-3 py-2.5 text-sm ring-1 ring-line/10" value={p.lang} onChange={(e) => p.onLang(e.target.value)} disabled={speech.listening}>
               {LANGS.map(([c, n]) => <option key={c} value={c}>{n}</option>)}
             </select>
-          </>
-        )}
-        <button className="btn-primary px-6" onClick={p.onTranslate} disabled={p.busy || speech.listening}>Translate to ISL →</button>
+        <button className="btn-primary px-6" onClick={p.onTranslate} disabled={p.busy || speech.listening}>Preview sign sequence →</button>
         <button className="btn-quiet" onClick={() => p.onChange("")} disabled={!p.value || speech.listening}>Clear</button>
-        <SegmentedControl label="Output mode" value={p.realtime ? "rt" : "video"} onChange={(v) => p.onRealtime(v === "rt")}
-          options={[{ value: "video", label: "Video" }, { value: "rt", label: "Real-time" }]} />
+        <SegmentedControl label="Translation mode" value={p.realtime ? "rt" : "video"} onChange={(v) => p.onRealtime(v === "rt")}
+          options={[{ value: "video", label: "Standard" }, { value: "rt", label: "Live" }]} />
       </div>
       <div className="mt-3 min-h-6 text-center text-sm" role="status" aria-live="polite">
         {speech.listening && <span className="inline-flex items-center gap-2 font-medium text-accent-fg"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-accent" />Listening… speak your sentence</span>}

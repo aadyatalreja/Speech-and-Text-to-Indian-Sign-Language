@@ -23,6 +23,7 @@ Clip space: origin mid-shoulders, unit = shoulder width, +x viewer right, +y up,
 viewer (the signer's right hand therefore has negative x). If the video was selfie-mirrored, or the
 hands come out swapped in the lab, pass --swap-hands.
 """
+
 from __future__ import annotations
 
 import argparse
@@ -39,20 +40,37 @@ NOSE, L_EAR, R_EAR, L_SHOULDER, R_SHOULDER = 0, 7, 8, 11, 12
 # MediaPipe hand landmark chains (wrist = 0)
 THUMB = (1, 2, 3, 4)
 FINGERS = ((5, 6, 7, 8), (9, 10, 11, 12), (13, 14, 15, 16), (17, 18, 19, 20))
-FULL_CURL_DEG = 240.0   # mcp 80 + pip 100 + dip 60, matches the avatar rig
+FULL_CURL_DEG = 240.0  # mcp 80 + pip 100 + dip 60, matches the avatar rig
 THUMB_CURL_DEG = 120.0
 FAN_DEG_PER_SPREAD = 11.5
 
 
 # ---------- small vector helpers ----------
-def sub(a: Vec, b: Vec) -> Vec: return (a[0] - b[0], a[1] - b[1], a[2] - b[2])
-def dot(a: Vec, b: Vec) -> float: return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
-def cross(a: Vec, b: Vec) -> Vec: return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
-def norm(a: Vec) -> float: return math.sqrt(dot(a, a))
+def sub(a: Vec, b: Vec) -> Vec:
+    return (a[0] - b[0], a[1] - b[1], a[2] - b[2])
+
+
+def dot(a: Vec, b: Vec) -> float:
+    return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]
+
+
+def cross(a: Vec, b: Vec) -> Vec:
+    return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
+
+
+def norm(a: Vec) -> float:
+    return math.sqrt(dot(a, a))
+
+
 def unit(a: Vec) -> Vec:
     n = norm(a)
     return (a[0] / n, a[1] / n, a[2] / n) if n > 1e-9 else (0.0, 0.0, 0.0)
-def clamp(v: float, lo: float, hi: float) -> float: return max(lo, min(hi, v))
+
+
+def clamp(v: float, lo: float, hi: float) -> float:
+    return max(lo, min(hi, v))
+
+
 def angle_deg(a: Vec, b: Vec) -> float:
     na, nb = norm(a), norm(b)
     if na < 1e-9 or nb < 1e-9:
@@ -91,7 +109,11 @@ class Frame:
 
     def __call__(self, lm: Sequence[float]) -> Vec:
         px, py, pz = lm[0] * self.w, lm[1] * self.h, lm[2] * self.w
-        return ((px - self.o[0]) / self.sw, -(py - self.o[1]) / self.sw, -(pz - self.o[2]) / self.sw)
+        return (
+            (px - self.o[0]) / self.sw,
+            -(py - self.o[1]) / self.sw,
+            -(pz - self.o[2]) / self.sw,
+        )
 
 
 def build_frame(frames: list[dict], width: float, height: float) -> Frame:
@@ -106,7 +128,9 @@ def build_frame(frames: list[dict], width: float, height: float) -> Frame:
         pa = (a[0] * width, a[1] * height, a[2] * width)
         pb = (b[0] * width, b[1] * height, b[2] * width)
         mids.append(tuple((pa[i] + pb[i]) / 2 for i in range(3)))
-        widths.append(math.hypot(pa[0] - pb[0], pa[1] - pb[1]))  # image-plane width: z is unreliable
+        widths.append(
+            math.hypot(pa[0] - pb[0], pa[1] - pb[1])
+        )  # image-plane width: z is unreliable
     if not mids:
         raise SystemExit("No frame has both shoulders visible; cannot normalise the signer.")
     origin = tuple(statistics.median(m[i] for m in mids) for i in range(3))
@@ -114,30 +138,54 @@ def build_frame(frames: list[dict], width: float, height: float) -> Frame:
 
 
 # ---------- hand analysis ----------
-def hand_state(pts: list[Vec], right: bool) -> dict:
+def hand_state(pts: list[Vec], right: bool, format: int = 1) -> dict:
     wrist = pts[0]
     centroid = tuple(sum(pts[i][k] for i in (5, 9, 13, 17)) / 4 for k in range(3))
-    fingers_dir = unit(sub(centroid, wrist))                     # wrist -> centre of the knuckles (the rig's finger axis)
+    fingers_dir = unit(
+        sub(centroid, wrist)
+    )  # wrist -> centre of the knuckles (the rig's finger axis)
     idx, pnk = sub(pts[5], wrist), sub(pts[17], wrist)
     normal = unit(cross(idx, pnk) if right else cross(pnk, idx))  # palm normal (out of the palm)
     x_axis = unit(cross(fingers_dir, normal))
-    z_axis = unit(cross(x_axis, fingers_dir))                     # re-orthogonalise
+    z_axis = unit(cross(x_axis, fingers_dir))  # re-orthogonalise
     q = matrix_to_quat(x_axis, fingers_dir, z_axis)
 
     curls = []
     thumb = [pts[i] for i in THUMB]
-    t_ang = angle_deg(sub(thumb[1], thumb[0]), sub(thumb[2], thumb[1])) + angle_deg(sub(thumb[2], thumb[1]), sub(thumb[3], thumb[2]))
+    t_ang = angle_deg(sub(thumb[1], thumb[0]), sub(thumb[2], thumb[1])) + angle_deg(
+        sub(thumb[2], thumb[1]), sub(thumb[3], thumb[2])
+    )
     curls.append(clamp(t_ang / THUMB_CURL_DEG, 0, 1))
     dirs = []
     for chain in FINGERS:
         mcp, pip, dip, tip = (pts[i] for i in chain)
-        total = (angle_deg(sub(mcp, wrist), sub(pip, mcp)) + angle_deg(sub(pip, mcp), sub(dip, pip)) + angle_deg(sub(dip, pip), sub(tip, dip)))
+        total = (
+            angle_deg(sub(mcp, wrist), sub(pip, mcp))
+            + angle_deg(sub(pip, mcp), sub(dip, pip))
+            + angle_deg(sub(dip, pip), sub(tip, dip))
+        )
         curls.append(clamp(total / FULL_CURL_DEG, 0, 1))
         dirs.append(sub(pip, mcp))
     fan = statistics.mean(angle_deg(dirs[i], dirs[i + 1]) for i in range(3))
     spread = clamp((fan - 3.0) / FAN_DEG_PER_SPREAD, 0, 1.5)
     thumb_out = clamp((angle_deg(sub(thumb[1], thumb[0]), sub(pts[5], wrist)) - 10.0) / 55.0, 0, 1)
-    return {"p": wrist, "q": q, "c": curls, "spread": spread, "thumbOut": thumb_out}
+    state = {"p": wrist, "q": q, "c": curls, "spread": spread, "thumbOut": thumb_out}
+    if format == 2:
+        joints = []
+        for chain in (THUMB, *FINGERS):
+            previous = sub(pts[chain[0]], wrist)
+            for start, end in zip(chain, chain[1:]):
+                direction = sub(pts[end], pts[start])
+                # Signed flexion about the palm X axis; splay remains the spread channel.
+                angle = math.atan2(
+                    dot(cross(unit(previous), unit(direction)), x_axis),
+                    dot(unit(previous), unit(direction)),
+                )
+                angle = clamp(angle, -math.pi / 2, math.pi * 2 / 3)
+                joints.append((math.sin(angle / 2), 0.0, 0.0, math.cos(angle / 2)))
+                previous = direction
+        state["fingers"] = joints
+    return state
 
 
 def head_angles(pose: list[list[float]], width: float, height: float) -> tuple[float, float] | None:
@@ -176,7 +224,7 @@ def fill(values: list):
 def smooth_hand(seq: list[dict], radius: int = 2) -> list[dict]:
     out = []
     for i in range(len(seq)):
-        win = seq[max(0, i - radius): i + radius + 1]
+        win = seq[max(0, i - radius) : i + radius + 1]
         ref_q = seq[i]["q"]
         qs = []
         for h in win:  # align quaternion signs before averaging
@@ -184,25 +232,68 @@ def smooth_hand(seq: list[dict], radius: int = 2) -> list[dict]:
             qs.append([sign * c for c in h["q"]])
         q = [statistics.mean(c) for c in zip(*qs)]
         n = math.sqrt(sum(c * c for c in q)) or 1.0
-        out.append({
-            "p": tuple(statistics.mean(h["p"][k] for h in win) for k in range(3)),
-            "q": tuple(c / n for c in q),
-            "c": [statistics.mean(h["c"][k] for h in win) for k in range(5)],
-            "spread": statistics.mean(h["spread"] for h in win),
-            "thumbOut": statistics.mean(h["thumbOut"] for h in win),
-        })
+        out.append(
+            {
+                "p": tuple(statistics.mean(h["p"][k] for h in win) for k in range(3)),
+                "q": tuple(c / n for c in q),
+                "c": [statistics.mean(h["c"][k] for h in win) for k in range(5)],
+                "spread": statistics.mean(h["spread"] for h in win),
+                "thumbOut": statistics.mean(h["thumbOut"] for h in win),
+            }
+        )
+    if "fingers" in seq[0]:
+        for i, state in enumerate(out):
+            window = seq[max(0, i - radius) : i + radius + 1]
+            joints = []
+            for joint in range(15):
+                ref = seq[i]["fingers"][joint]
+                aligned = []
+                for hand in window:
+                    q = hand["fingers"][joint]
+                    sign = 1 if sum(a * b for a, b in zip(ref, q)) >= 0 else -1
+                    aligned.append([sign * v for v in q])
+                average = [statistics.mean(values) for values in zip(*aligned)]
+                length = math.sqrt(sum(v * v for v in average)) or 1
+                joints.append(tuple(v / length for v in average))
+            state["fingers"] = joints
     return out
 
 
 def spec(h: dict) -> dict:
-    r = lambda v: round(v, 3)
-    return {"p": [r(v) for v in h["p"]], "q": [round(v, 4) for v in h["q"]], "shape": [r(v) for v in h["c"]],
-            "spread": r(h["spread"]), "thumbOut": r(h["thumbOut"])}
+    def r(v):
+        return round(v, 3)
+
+    return {
+        **(
+            {
+                "fingers": [[round(v, 6) for v in q] for q in h["fingers"]],
+                "wrist": [round(v, 6) for v in h["q"]],
+            }
+            if "fingers" in h
+            else {}
+        ),
+        "p": [r(v) for v in h["p"]],
+        "q": [round(v, 4) for v in h["q"]],
+        "shape": [r(v) for v in h["c"]],
+        "spread": r(h["spread"]),
+        "thumbOut": r(h["thumbOut"]),
+    }
 
 
 # ---------- main conversion ----------
-def convert(data: dict, gloss: str, clip_id: str, notes: str = "", swap_hands: bool = False,
-            max_keys: int = 24, min_detect: float = 0.3, trim_rest: bool = True) -> dict:
+def convert(
+    data: dict,
+    gloss: str,
+    clip_id: str,
+    notes: str = "",
+    swap_hands: bool = False,
+    max_keys: int = 24,
+    min_detect: float = 0.3,
+    trim_rest: bool = True,
+    format: int = 1,
+) -> dict:
+    if format not in (1, 2):
+        raise ValueError("format must be 1 or 2")
     frames = data["frames"]
     if len(frames) < 2:
         raise SystemExit("Need at least 2 frames.")
@@ -216,7 +307,11 @@ def convert(data: dict, gloss: str, clip_id: str, notes: str = "", swap_hands: b
     for f in frames:
         for src, dst in keymap.items():
             lm = f.get(src)
-            tracks[dst].append(hand_state([fr(p) for p in lm], right=(src == "right_hand")) if lm and len(lm) == 21 else None)
+            tracks[dst].append(
+                hand_state([fr(p) for p in lm], right=(src == "right_hand"), format=format)
+                if lm and len(lm) == 21
+                else None
+            )
 
     n = len(frames)
     kept: dict[str, list[dict]] = {}
@@ -224,7 +319,9 @@ def convert(data: dict, gloss: str, clip_id: str, notes: str = "", swap_hands: b
         if sum(v is not None for v in seq) / n < min_detect:
             continue
         filled = smooth_hand(fill(seq))  # type: ignore[arg-type]
-        if max(h["p"][1] for h in filled) < -0.9:   # hanging at the side the whole time: leave at rest
+        if (
+            max(h["p"][1] for h in filled) < -0.9
+        ):  # hanging at the side the whole time: leave at rest
             continue
         kept[side] = filled
     if not kept:
@@ -239,10 +336,14 @@ def convert(data: dict, gloss: str, clip_id: str, notes: str = "", swap_hands: b
 
     first, last = 0, n - 1
     if trim_rest:
+
         def active(i: int) -> bool:
             return any(h[i]["p"][1] > -0.9 for h in kept.values())
-        while first < last and not active(first): first += 1
-        while last > first and not active(last): last -= 1
+
+        while first < last and not active(first):
+            first += 1
+        while last > first and not active(last):
+            last -= 1
     idxs = list(range(first, last + 1))
     if len(idxs) > max_keys:
         idxs = [first + round(k * (last - first) / (max_keys - 1)) for k in range(max_keys)]
@@ -257,14 +358,34 @@ def convert(data: dict, gloss: str, clip_id: str, notes: str = "", swap_hands: b
             k["head"] = [round(head[i][1], 1), round(head[i][0], 1), 0]
         keys.append(k)
     dur = (last - first) / float(data.get("fps", 25))
-    return {"version": 1, "id": clip_id, "gloss": gloss.upper(), "kind": "dataset", "keys": keys,
-            "notes": (notes + f" | converted from {len(frames)} frames, {dur:.2f}s").strip(" |")}
+    return {
+        "version": format,
+        "id": clip_id,
+        "gloss": gloss.upper(),
+        "kind": "dataset",
+        "keys": keys,
+        "duration": round(dur, 6),
+        "notes": (
+            notes
+            + (
+                " | Experimental joint reconstruction; monocular depth is noisy; not verified ISL."
+                if format == 2
+                else ""
+            )
+            + f" | converted from {len(frames)} frames, {dur:.2f}s"
+        ).strip(" |"),
+    }
 
 
 def main(argv: list[str] | None = None) -> int:
-    ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("input"); ap.add_argument("output")
-    ap.add_argument("--gloss", required=True); ap.add_argument("--id")
+    ap = argparse.ArgumentParser(
+        description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter
+    )
+    ap.add_argument("input")
+    ap.add_argument("output")
+    ap.add_argument("--gloss", required=True)
+    ap.add_argument("--id")
+    ap.add_argument("--format", type=int, choices=[1, 2], default=1)
     ap.add_argument("--notes", default="", help="source, signer, licence, review status")
     ap.add_argument("--swap-hands", action="store_true")
     ap.add_argument("--max-keys", type=int, default=24)
@@ -272,10 +393,21 @@ def main(argv: list[str] | None = None) -> int:
     a = ap.parse_args(argv)
     with open(a.input, encoding="utf-8") as f:
         data = json.load(f)
-    clip = convert(data, a.gloss, a.id or a.gloss.lower(), a.notes, a.swap_hands, a.max_keys, trim_rest=not a.no_trim)
+    clip = convert(
+        data,
+        a.gloss,
+        a.id or a.gloss.lower(),
+        a.notes,
+        a.swap_hands,
+        a.max_keys,
+        trim_rest=not a.no_trim,
+        format=a.format,
+    )
     with open(a.output, "w", encoding="utf-8") as f:
         json.dump(clip, f, separators=(",", ":"))
-    print(f"wrote {a.output}: {len(clip['keys'])} keyframes, hands: {sorted(k for k in clip['keys'][0] if k in ('R', 'L'))}")
+    print(
+        f"wrote {a.output}: {len(clip['keys'])} keyframes, hands: {sorted(k for k in clip['keys'][0] if k in ('R', 'L'))}"
+    )
     return 0
 
 

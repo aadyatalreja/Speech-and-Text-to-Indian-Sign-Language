@@ -1,6 +1,7 @@
+import ReportSign from "./ReportSign";
 import { motion } from "framer-motion";
 import type { SignItem } from "../types/translation";
-export default function GlossSequence({ items, activeIndex }: { items: SignItem[]; activeIndex: number }) {
+export default function GlossSequence({ items, activeIndex, sentence = "" }: { items: SignItem[]; activeIndex: number; sentence?: string }) {
   return (
     <ol className="flex flex-wrap items-center gap-2" aria-label="Sign sequence">
       {items.map((s, i) => (
@@ -9,6 +10,7 @@ export default function GlossSequence({ items, activeIndex }: { items: SignItem[
           <span className={`rounded-ctl px-3 py-1.5 text-sm font-semibold ${i === activeIndex ? "bg-accent text-white shadow-glow" : s.available ? "bg-surface/70 ring-1 ring-line/10" : "bg-warn-soft text-warn ring-1 ring-warn/30"}`}>
             {s.gloss.replace("_", " ")}{!s.available && " ⚠"}
           </span>
+          <ReportSign item={s} sentence={sentence} />
           {i < items.length - 1 && <span className="text-muted" aria-hidden>→</span>}
         </motion.li>
       ))}

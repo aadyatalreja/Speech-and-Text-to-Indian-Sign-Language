@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { restPose } from "./pose";
+import { restPose, resolvedFace } from "./pose";
 import type { AvatarPose, HandState } from "./types";
 
 /**
@@ -43,6 +43,10 @@ export class AvatarRig {
   private arms: Record<"R" | "L", { upper: THREE.Mesh; fore: THREE.Mesh; elbow: THREE.Mesh }>;
   private head = new THREE.Group();
   private brows: THREE.Mesh[] = [];
+  private eyes: THREE.Mesh[] = [];
+  private lids: THREE.Mesh[] = [];
+  private shoulders: THREE.Mesh[] = [];
+  private shoulderRaise = { R: 0, L: 0 };
   private mouth: THREE.Mesh;
   private torso: THREE.Mesh;
   private mats: Record<string, THREE.MeshStandardMaterial>;
@@ -63,6 +67,7 @@ export class AvatarRig {
     for (const s of [-1, 1]) {
       const sh = new THREE.Mesh(new THREE.SphereGeometry(0.17, 16, 12), this.mats.shirt);
       sh.position.set(s * SHOULDER_X, 0, 0);
+      this.shoulders.push(sh);
       this.group.add(sh);
     }
 
@@ -79,6 +84,14 @@ export class AvatarRig {
     for (const s of [-1, 1]) {
       const eye = new THREE.Mesh(new THREE.SphereGeometry(0.032, 12, 10), this.mats.dark);
       eye.position.set(s * 0.105, 0.4, 0.265);
+      this.eyes.push(eye);
+      const white = new THREE.Mesh(new THREE.SphereGeometry(0.045, 12, 10), new THREE.MeshStandardMaterial({ color: "#fffaf0" }));
+      white.position.copy(eye.position); white.position.z -= 0.018;
+      const lid = new THREE.Mesh(new THREE.SphereGeometry(0.046, 12, 10), this.mats.skin);
+      lid.position.copy(eye.position); lid.position.z += 0.008;
+      lid.scale.set(1, 0.001, 0.5);
+      this.lids.push(lid);
+      this.head.add(white, lid);
       const brow = new THREE.Mesh(new THREE.CapsuleGeometry(0.012, 0.09, 4, 8), this.mats.hair);
       brow.rotation.z = Math.PI / 2;
       brow.position.set(s * 0.105, 0.48, 0.275);
@@ -170,7 +183,7 @@ export class AvatarRig {
     for (let i = 0; i < 4; i++) {
       const c = Math.min(1, Math.max(0, st.c[i + 1]));
       const [mcp, pip, dip] = h.fingers[i];
-      mcp.rotation.x = c * MCP; pip.rotation.x = c * PIP; dip.rotation.x = c * DIP;
+      mcp.rotation.set(c * MCP, 0, 0); pip.rotation.set(c * PIP, 0, 0); dip.rotation.set(c * DIP, 0, 0);
       // fan: index (nearest the thumb) tilts toward the thumb side, pinky away
       h.fingerBase[i].rotation.z = -h.side * (1.5 - i) * st.spread * 0.2;
     }
@@ -180,16 +193,19 @@ export class AvatarRig {
     h.thumbBase.rotation.z = -h.side * ((8 + 52 * out) * DEG * (1 - 0.7 * tc));
     h.thumbBase.rotation.y = h.side * (-0.5 * tc);
     h.thumbBase.rotation.x = tc * 0.55 + (1 - out) * 0.1;
-    h.thumbJoints[0].rotation.x = tc * 0.5;
-    h.thumbJoints[1].rotation.x = tc * 0.75;
-    h.thumbJoints[2].rotation.x = tc * 0.6;
+    h.thumbJoints[0].rotation.set(tc * 0.5, 0, 0);
+    h.thumbJoints[1].rotation.set(tc * 0.75, 0, 0);
+    h.thumbJoints[2].rotation.set(tc * 0.6, 0, 0);
+    if (st.fingers) {
+      [...h.thumbJoints, ...h.fingers.flat()].forEach((joint, i) => joint.quaternion.fromArray(st.fingers![i]).normalize());
+    }
   }
 
   /** Two-bone IK from shoulder to wrist; returns the elbow. Elbow is pushed down/out/back. */
   private solveArm(side: "R" | "L", wrist: THREE.Vector3) {
     const { a: S, b: pole, dir, q, up } = this.tmp;
     const sx = side === "R" ? -SHOULDER_X : SHOULDER_X;
-    S.set(sx, 0, 0);
+    S.set(sx, this.shoulderRaise[side], 0);
     dir.copy(wrist).sub(S);
     let d = dir.length();
     const dMax = UPPER + FORE - 1e-3, dMin = Math.abs(UPPER - FORE) + 1e-3;
@@ -218,7 +234,15 @@ export class AvatarRig {
     return wristC;
   }
 
-  applyPose(p: AvatarPose) {
+  applyPose(p: AvatarPose) { this.applyJoints(p); }
+
+  /** Resolved v1/v2 pose. Absent joints retain the original curl model. */
+  applyJoints(p: AvatarPose) {
+    const bounded = (v: number | undefined, lo: number, hi: number) => Math.max(lo, Math.min(hi, Number.isFinite(v) ? v! : 0));
+    this.shoulderRaise = { R: bounded(p.torso?.shoulder_raise_right, 0, 0.3), L: bounded(p.torso?.shoulder_raise_left, 0, 0.3) };
+    this.shoulders.forEach(sh => { sh.position.y = sh.position.x < 0 ? this.shoulderRaise.R : this.shoulderRaise.L; });
+    this.group.rotation.set(bounded(p.torso?.lean_x, -30, 30) * DEG, 0, bounded(p.torso?.lean_z, -30, 30) * DEG);
+    const face = resolvedFace(p);
     for (const side of ["R", "L"] as const) {
       const st = p[side];
       const w = this.solveArm(side, new THREE.Vector3(st.p[0], st.p[1], st.p[2]));
@@ -228,10 +252,27 @@ export class AvatarRig {
     }
     this.head.rotation.set(p.head[0] * DEG, p.head[1] * DEG, p.head[2] * DEG, "YXZ");
     this.brows.forEach((b, i) => {
-      b.position.y = 0.48 + 0.045 * p.brow;
-      b.rotation.z = Math.PI / 2 + (i === 0 ? 1 : -1) * -0.18 * Math.min(0, p.brow);
+      const down = bounded(i === 0 ? face.brow_down_right : face.brow_down_left, 0, 1);
+      b.position.y = 0.48 + 0.045 * (bounded(face.brow_inner_up, 0, 1) - down);
+      b.rotation.z = Math.PI / 2 + (i === 0 ? 1 : -1) * 0.18 * down;
     });
-    this.mouth.scale.y = 0.35 + 1.4 * p.mouth;
+    const round = bounded(face.mouth_round, 0, 1);
+    this.mouth.scale.set(1.2 + bounded(face.mouth_wide, 0, 1) * 0.8 - round * 0.55, 0.35 + 1.4 * bounded(face.mouth_open, 0, 1) + round * 0.4, 0.4 + round * 0.3);
+    this.eyes.forEach((eye, i) => {
+      eye.position.x = (i === 0 ? -1 : 1) * 0.105 + bounded(face.gaze_x, -1, 1) * 0.018;
+      eye.position.y = 0.4 + bounded(face.gaze_y, -1, 1) * 0.014;
+      eye.scale.y = 1 - 0.98 * bounded(face.eye_blink, 0, 1);
+      this.lids[i].scale.y = Math.max(0.001, bounded(face.eye_blink, 0, 1));
+    });
+  }
+
+  /** World targets for the optional experimental glTF retargeter. */
+  jointTargets() {
+    this.group.updateMatrixWorld(true);
+    return Object.fromEntries((["R", "L"] as const).map(side => {
+      const shoulder = new THREE.Vector3(side === "R" ? -SHOULDER_X : SHOULDER_X, this.shoulderRaise[side], 0).applyMatrix4(this.group.matrixWorld);
+      return [side, { shoulder, elbow: this.arms[side].elbow.getWorldPosition(new THREE.Vector3()), wrist: this.hands[side].root.getWorldPosition(new THREE.Vector3()), rotation: this.hands[side].root.getWorldQuaternion(new THREE.Quaternion()) }];
+    })) as Record<"R" | "L", { shoulder: THREE.Vector3; elbow: THREE.Vector3; wrist: THREE.Vector3; rotation: THREE.Quaternion }>;
   }
 
   /** Idle motion layered on top of any pose (breathing). */
@@ -247,6 +288,8 @@ export class AvatarRig {
 
   dispose() {
     this.group.traverse((o) => { const m = o as THREE.Mesh; m.geometry?.dispose?.(); });
-    Object.values(this.mats).forEach((m) => m.dispose());
+    const materials = new Set<THREE.Material>();
+    this.group.traverse(o => { const mat = (o as THREE.Mesh).material; if (mat) (Array.isArray(mat) ? mat : [mat]).forEach(m => materials.add(m)); });
+    materials.forEach(m => m.dispose());
   }
 }

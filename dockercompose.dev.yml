@@ -1,0 +1,15 @@
+services:
+  backend:
+    command: ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--reload", "--proxy-headers", "--forwarded-allow-ips", "*"]
+    volumes:
+      - ./backend:/app
+      - generated-videos:/app/generated
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.dev
+    environment: [BACKEND_URL=http://backend:8000]
+    ports: !override ["5173:5173"]
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules

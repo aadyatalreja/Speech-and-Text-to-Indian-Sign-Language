@@ -1,5 +1,5 @@
 import { HANDSHAPES, REST_SHAPE } from "./handshapes";
-import type { AvatarPose, Curls, HandSpec, HandState, Keyframe, Quat, SignClip, Vec3 } from "./types";
+import type { AvatarPose, Curls, HandSpec, HandState, KeyframeV2, Quat, SignClip, SignClipV2, FaceChannels, TorsoChannels, FingerJoints, Vec3 } from "./types";
 
 const DEG = Math.PI / 180;
 const clamp = (v: number, a: number, b: number) => Math.min(b, Math.max(a, v));
@@ -75,9 +75,11 @@ export interface CompiledClip {
   head: Track<Vec3>;
   brow: Track<number>;
   mouth: Track<number>;
+  face: Record<keyof FaceChannels, Track<number>>;
+  torso: Record<keyof TorsoChannels, Track<number>>;
 }
 
-function buildTrack<T>(keys: Keyframe[], pick: (k: Keyframe) => T | undefined, fallback: T): Track<T> {
+function buildTrack<T>(keys: KeyframeV2[], pick: (k: KeyframeV2) => T | undefined, fallback: T): Track<T> {
   const t: number[] = [], v: T[] = [];
   for (const k of keys) {
     const val = pick(k);
@@ -89,12 +91,19 @@ function buildTrack<T>(keys: Keyframe[], pick: (k: Keyframe) => T | undefined, f
 }
 
 export function compileClip(clip: SignClip): CompiledClip {
-  const keys = [...clip.keys].sort((a, b) => a.t - b.t);
+  const adapted = adaptClip(clip);
+  const keys = [...adapted.keys].sort((a, b) => a.t - b.t);
   const rest = restPose();
+  const previous = { R: rest.R, L: rest.L };
   const hand = (side: "R" | "L") => buildTrack<HandState>(keys, (k) => {
     const h = k[side];
     if (h === undefined) return undefined;
-    return h === null ? rest[side] : resolveHand(h);
+    if (h === null) { previous[side] = rest[side]; return rest[side]; }
+    const base = previous[side];
+    const resolved = resolveHand({ p: h.p ?? base.p, q: h.wrist ?? h.q ?? (h.rot ? undefined : base.q), rot: h.rot, shape: h.shape ?? base.c, spread: h.spread ?? base.spread, thumbOut: h.thumbOut ?? base.thumbOut });
+    resolved.fingers = h.fingers ?? base.fingers;
+    previous[side] = resolved;
+    return resolved;
   }, rest[side]);
   return {
     clip,
@@ -102,6 +111,8 @@ export function compileClip(clip: SignClip): CompiledClip {
     head: buildTrack<Vec3>(keys, (k) => k.head, [0, 0, 0]),
     brow: buildTrack<number>(keys, (k) => k.brow, 0),
     mouth: buildTrack<number>(keys, (k) => k.mouth, 0),
+    face: Object.fromEntries(FACE_KEYS.map(name => [name, buildTrack<number>(keys, k => k.face?.[name] ?? legacyFace(k)[name], 0)])) as CompiledClip["face"],
+    torso: Object.fromEntries(TORSO_KEYS.map(name => [name, buildTrack<number>(keys, k => k.torso?.[name], 0)])) as CompiledClip["torso"],
   };
 }
 
@@ -121,6 +132,7 @@ const mixHand = (a: HandState, b: HandState, f: number): HandState => ({
   c: a.c.map((x, i) => lerp(x, b.c[i], f)) as Curls,
   spread: lerp(a.spread, b.spread, f),
   thumbOut: lerp(a.thumbOut, b.thumbOut, f),
+  ...((a.fingers || b.fingers) ? { fingers: (a.fingers ?? curlJoints(a.c)).map((q, i) => slerp(q, (b.fingers ?? curlJoints(b.c))[i], f)) as FingerJoints } : {}),
 });
 const mixVec = (a: Vec3, b: Vec3, f: number): Vec3 => [lerp(a[0], b[0], f), lerp(a[1], b[1], f), lerp(a[2], b[2], f)];
 const mixNum = (a: number, b: number, f: number) => lerp(a, b, f);
@@ -134,10 +146,30 @@ export function sampleClip(c: CompiledClip, t: number): AvatarPose {
     head: sampleTrack(c.head, tt, mixVec),
     brow: sampleTrack(c.brow, tt, mixNum),
     mouth: sampleTrack(c.mouth, tt, mixNum),
+    face: Object.fromEntries(FACE_KEYS.map(name => [name, sampleTrack(c.face[name], tt, mixNum)])),
+    torso: Object.fromEntries(TORSO_KEYS.map(name => [name, sampleTrack(c.torso[name], tt, mixNum)])),
   };
 }
 
 /* ---------- smoothing follower (gives co-articulation between signs and hides 50 ms progress steps) ---------- */
+
+export function mixPose(a: AvatarPose, b: AvatarPose, fraction: number): AvatarPose {
+  const f = clamp(fraction, 0, 1);
+  return { R: mixHand(a.R, b.R, f), L: mixHand(a.L, b.L, f), head: mixVec(a.head, b.head, f),
+    brow: lerp(a.brow, b.brow, f), mouth: lerp(a.mouth, b.mouth, f),
+    face: Object.fromEntries(FACE_KEYS.map(name => [name, lerp(resolvedFace(a)[name] ?? 0, resolvedFace(b)[name] ?? 0, f)])),
+    torso: Object.fromEntries(TORSO_KEYS.map(name => [name, lerp(a.torso?.[name] ?? 0, b.torso?.[name] ?? 0, f)])) };
+}
+
+/** Blend previous end into the next clip while retaining its current motion. */
+export function transitionPose(previous: AvatarPose | null, clip: CompiledClip, t: number, seconds: number, duration: number): AvatarPose {
+  const pose = sampleClip(clip, t);
+  if (!previous || seconds <= 0 || !Number.isFinite(duration) || duration <= 0) return pose;
+  const blend = smooth(clamp(t * duration / Math.min(seconds, duration / 2), 0, 1));
+  if (blend <= 0) return previous;
+  if (blend >= 1) return pose;
+  return mixPose(previous, pose, blend);
+}
 
 export class PoseFollower {
   current: AvatarPose = restPose();
@@ -145,15 +177,53 @@ export class PoseFollower {
   /** Move `current` towards `target`. `k` is stiffness (1/s): higher = snappier. */
   follow(target: AvatarPose, dt: number, k = 16): AvatarPose {
     const f = 1 - Math.exp(-k * Math.min(dt, 0.1));
-    this.current = {
-      R: mixHand(this.current.R, target.R, f),
-      L: mixHand(this.current.L, target.L, f),
-      head: mixVec(this.current.head, target.head, f),
-      brow: lerp(this.current.brow, target.brow, f),
-      mouth: lerp(this.current.mouth, target.mouth, f),
-    };
+    this.current = mixPose(this.current, target, f);
     return this.current;
   }
 
   snap(target: AvatarPose) { this.current = target; }
+}
+
+export const FACE_KEYS: (keyof FaceChannels)[] = ["mouth_open", "mouth_wide", "mouth_round", "brow_inner_up", "brow_down_left", "brow_down_right", "eye_blink", "gaze_x", "gaze_y"];
+export const TORSO_KEYS: (keyof TorsoChannels)[] = ["lean_x", "lean_z", "shoulder_raise_left", "shoulder_raise_right"];
+function legacyFace(k: { mouth?: number; brow?: number }): FaceChannels {
+  return { mouth_open: k.mouth, brow_inner_up: k.brow == null ? undefined : Math.max(0, k.brow), brow_down_left: k.brow == null ? undefined : Math.max(0, -k.brow), brow_down_right: k.brow == null ? undefined : Math.max(0, -k.brow) };
+}
+export const resolvedFace = (pose: AvatarPose): FaceChannels => ({ ...legacyFace(pose), ...pose.face });
+export function curlJoints(c: Curls): FingerJoints {
+  return c.flatMap((value, finger) => (finger === 0 ? [0.5, 0.75, 0.6] : [80 * DEG, 100 * DEG, 60 * DEG]).map(angle => eulerYXZToQuat([clamp(value, 0, 1) * angle / DEG, 0, 0]))) as FingerJoints;
+}
+/** Additive adapter: v1 data is copied, never rewritten on disk or in caches. */
+export function adaptClip(clip: SignClip): SignClipV2 {
+  if (clip.version !== 1 && clip.version !== 2) throw new Error("Unsupported clip version");
+  if (!Array.isArray(clip.keys) || !clip.keys.length) throw new Error("Clip needs keyframes");
+  const result: SignClipV2 = { ...clip, version: 2, keys: clip.keys.map(key => ({ ...key, R: key.R == null ? key.R : { ...key.R }, L: key.L == null ? key.L : { ...key.L } })) };
+  if (clip.version === 1) {
+    result.keys = clip.keys.map(key => ({ ...key, ...Object.fromEntries((["R", "L"] as const).filter(side => key[side] != null).map(side => {
+      const h = resolveHand(key[side]!);
+      return [side, { p: h.p, q: h.q, shape: h.c, spread: h.spread, thumbOut: h.thumbOut }];
+    })) }));
+  }
+  if (clip.version === 2) {
+    const scalar = (value: number, lo: number, hi: number) => { if (!Number.isFinite(value) || value < lo || value > hi) throw new Error("v2 channel outside rig bounds"); };
+    const quaternion = (q: Quat) => { if (!Array.isArray(q) || q.length !== 4 || q.some(v => !Number.isFinite(v)) || Math.hypot(...q) < 1e-6) throw new Error("Invalid joint quaternion"); };
+    for (const key of result.keys) {
+      scalar(key.t, 0, 1);
+      for (const side of ["R", "L"] as const) {
+        const hand = key[side];
+        if (hand?.wrist) quaternion(hand.wrist);
+        if (hand?.q) quaternion(hand.q);
+        if (hand?.fingers) { if (hand.fingers.length !== 15) throw new Error("Expected 15 finger joints"); hand.fingers.forEach(quaternion); hand.fingers = hand.fingers.map(normQ) as FingerJoints; }
+      }
+      for (const [name, value] of Object.entries(key.face ?? {})) {
+        if (!FACE_KEYS.includes(name as keyof FaceChannels)) throw new Error("Unknown face channel");
+        scalar(value, name.startsWith("gaze_") ? -1 : 0, 1);
+      }
+      for (const [name, value] of Object.entries(key.torso ?? {})) {
+        if (!TORSO_KEYS.includes(name as keyof TorsoChannels)) throw new Error("Unknown torso channel");
+        scalar(value, name.startsWith("lean_") ? -30 : 0, name.startsWith("lean_") ? 30 : 0.3);
+      }
+    }
+  }
+  return result;
 }

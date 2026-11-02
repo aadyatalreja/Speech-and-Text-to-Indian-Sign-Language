@@ -24,3 +24,8 @@ Thumbs.db
 *.log
 
 PROJECT_STATUS.md
+.ruff_cache/
+backend/coverage.txt
+
+# Local opt-in feedback may contain user-entered text
+backend/data/feedback/

@@ -15,7 +15,7 @@ export default function Header({ onHistory, online, dark, onToggleTheme }: { onH
         <nav aria-label="Main" className="flex items-center gap-1">
           <a href="#top" className="btn-quiet">Translate</a>
           <button className="btn-quiet" onClick={onHistory}>History</button>
-          <span className="ml-2 hidden sm:inline"><StatusIndicator ok={online} label={online === null ? "ISL · Connecting" : online ? "ISL · Ready" : "ISL · Offline"} /></span>
+          <span className="ml-2 hidden sm:inline"><StatusIndicator ok={online} label={online === null ? "Service · Connecting" : online ? "Service · Ready" : "Service · Offline"} /></span>
           <ThemeToggle dark={dark} onToggle={onToggleTheme} />
         </nav>
       </div>

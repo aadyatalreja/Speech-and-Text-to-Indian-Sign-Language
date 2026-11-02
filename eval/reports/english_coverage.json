@@ -1,0 +1,3096 @@
+{
+  "description": "English repository coverage only; not ISL grammar, accuracy or signer evaluation.",
+  "definition": "FS tokens / emitted gloss tokens in successfully measured sentences. OOV ranking excludes name_heuristic and explicit tokens.",
+  "sentences": [
+    {
+      "sentence": "I am going to college tomorrow.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "COLLEGE",
+        "GO"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COLLEGE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where is the library on campus?",
+      "gloss": [
+        "FS:LIBRARY",
+        "FS:CAMPUS",
+        "WHERE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "FS:LIBRARY",
+          "fs_reason": "oov",
+          "lemma_tried": "library",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CAMPUS",
+          "fs_reason": "oov",
+          "lemma_tried": "campus",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The classroom is near the main gate.",
+      "gloss": [
+        "FS:CLASSROOM",
+        "FS:NEAR",
+        "FS:MAIN",
+        "FS:GATE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "FS:CLASSROOM",
+          "fs_reason": "oov",
+          "lemma_tried": "classroom",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NEAR",
+          "fs_reason": "oov",
+          "lemma_tried": "near",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAIN",
+          "fs_reason": "oov",
+          "lemma_tried": "main",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GATE",
+          "fs_reason": "oov",
+          "lemma_tried": "gate",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please help me find the science lab.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "FS:FIND",
+        "FS:SCIENCE",
+        "FS:LAB",
+        "HELP"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:FIND",
+          "fs_reason": "oov",
+          "lemma_tried": "find",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SCIENCE",
+          "fs_reason": "oov",
+          "lemma_tried": "science",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LAB",
+          "fs_reason": "oov",
+          "lemma_tried": "lab",
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need a notebook for class.",
+      "gloss": [
+        "I",
+        "FS:NOTEBOOK",
+        "FS:CLASS",
+        "NEED"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NOTEBOOK",
+          "fs_reason": "oov",
+          "lemma_tried": "notebook",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CLASS",
+          "fs_reason": "oov",
+          "lemma_tried": "class",
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Our exam starts at nine tomorrow.",
+      "gloss": [
+        "TOMORROW",
+        "FS:OUR",
+        "FS:EXAM",
+        "FS:STARTS",
+        "FS:NINE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:OUR",
+          "fs_reason": "name_heuristic",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:EXAM",
+          "fs_reason": "oov",
+          "lemma_tried": "exam",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:STARTS",
+          "fs_reason": "oov",
+          "lemma_tried": "start",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NINE",
+          "fs_reason": "oov",
+          "lemma_tried": "nine",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The teacher is waiting in the office.",
+      "gloss": [
+        "FS:TEACHER",
+        "FS:WAITING",
+        "FS:OFFICE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:TEACHER",
+          "fs_reason": "oov",
+          "lemma_tried": "teacher",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:WAITING",
+          "fs_reason": "oov",
+          "lemma_tried": "wait",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:OFFICE",
+          "fs_reason": "oov",
+          "lemma_tried": "office",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I left my bag in the lecture hall.",
+      "gloss": [
+        "I",
+        "FS:LEFT",
+        "MY",
+        "FS:BAG",
+        "FS:LECTURE",
+        "FS:HALL"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LEFT",
+          "fs_reason": "oov",
+          "lemma_tried": "leave",
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAG",
+          "fs_reason": "oov",
+          "lemma_tried": "bag",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LECTURE",
+          "fs_reason": "oov",
+          "lemma_tried": "lecture",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HALL",
+          "fs_reason": "oov",
+          "lemma_tried": "hall",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can we meet after the workshop?",
+      "gloss": [
+        "WE",
+        "FS:MEET",
+        "FS:AFTER",
+        "FS:WORKSHOP"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEET",
+          "fs_reason": "oov",
+          "lemma_tried": "meet",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AFTER",
+          "fs_reason": "oov",
+          "lemma_tried": "after",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:WORKSHOP",
+          "fs_reason": "oov",
+          "lemma_tried": "workshop",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The bus to campus is late.",
+      "gloss": [
+        "FS:BUS",
+        "FS:CAMPUS",
+        "FS:LATE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:BUS",
+          "fs_reason": "oov",
+          "lemma_tried": "bus",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CAMPUS",
+          "fs_reason": "oov",
+          "lemma_tried": "campus",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LATE",
+          "fs_reason": "oov",
+          "lemma_tried": "late",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I want to join the sports club.",
+      "gloss": [
+        "I",
+        "FS:JOIN",
+        "FS:SPORTS",
+        "FS:CLUB",
+        "WANT"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JOIN",
+          "fs_reason": "oov",
+          "lemma_tried": "join",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SPORTS",
+          "fs_reason": "oov",
+          "lemma_tried": "sport",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CLUB",
+          "fs_reason": "oov",
+          "lemma_tried": "club",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WANT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please tell me where the hostel is.",
+      "gloss": [
+        "PLEASE",
+        "FS:TELL",
+        "ME",
+        "FS:HOSTEL",
+        "WHERE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TELL",
+          "fs_reason": "oov",
+          "lemma_tried": "tell",
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOSTEL",
+          "fs_reason": "oov",
+          "lemma_tried": "hostel",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where is the nearest hospital?",
+      "gloss": [
+        "FS:NEAREST",
+        "HOSPITAL",
+        "WHERE"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "FS:NEAREST",
+          "fs_reason": "oov",
+          "lemma_tried": "near",
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOSPITAL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need help with this appointment.",
+      "gloss": [
+        "I",
+        "FS:APPOINTMENT",
+        "NEED",
+        "HELP"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APPOINTMENT",
+          "fs_reason": "oov",
+          "lemma_tried": "appointment",
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My mother has a fever today.",
+      "gloss": [
+        "TODAY",
+        "MY",
+        "FS:MOTHER",
+        "FS:FEVER"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "TODAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MOTHER",
+          "fs_reason": "oov",
+          "lemma_tried": "mother",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:FEVER",
+          "fs_reason": "oov",
+          "lemma_tried": "fever",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please call a doctor for my father.",
+      "gloss": [
+        "PLEASE",
+        "FS:CALL",
+        "FS:DOCTOR",
+        "MY",
+        "FS:FATHER"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CALL",
+          "fs_reason": "oov",
+          "lemma_tried": "call",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DOCTOR",
+          "fs_reason": "oov",
+          "lemma_tried": "doctor",
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:FATHER",
+          "fs_reason": "oov",
+          "lemma_tried": "father",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The nurse asked me to wait here.",
+      "gloss": [
+        "FS:NURSE",
+        "FS:ASKED",
+        "ME",
+        "FS:WAIT"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:NURSE",
+          "fs_reason": "oov",
+          "lemma_tried": "nurse",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ASKED",
+          "fs_reason": "oov",
+          "lemma_tried": "ask",
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:WAIT",
+          "fs_reason": "oov",
+          "lemma_tried": "wait",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need water and a place to sit.",
+      "gloss": [
+        "I",
+        "WATER",
+        "FS:PLACE",
+        "FS:SIT",
+        "NEED"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WATER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PLACE",
+          "fs_reason": "oov",
+          "lemma_tried": "place",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SIT",
+          "fs_reason": "oov",
+          "lemma_tried": "sit",
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where can I collect my medicine?",
+      "gloss": [
+        "I",
+        "FS:COLLECT",
+        "MY",
+        "FS:MEDICINE",
+        "WHERE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:COLLECT",
+          "fs_reason": "oov",
+          "lemma_tried": "collect",
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEDICINE",
+          "fs_reason": "oov",
+          "lemma_tried": "medicine",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My stomach hurts after eating.",
+      "gloss": [
+        "MY",
+        "FS:STOMACH",
+        "FS:HURTS",
+        "FS:AFTER",
+        "EAT"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:STOMACH",
+          "fs_reason": "oov",
+          "lemma_tried": "stomach",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HURTS",
+          "fs_reason": "oov",
+          "lemma_tried": "hurt",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AFTER",
+          "fs_reason": "oov",
+          "lemma_tried": "after",
+          "synonym_from": null
+        },
+        {
+          "gloss": "EAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The clinic opens at eight tomorrow.",
+      "gloss": [
+        "TOMORROW",
+        "FS:CLINIC",
+        "FS:OPENS",
+        "FS:EIGHT"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CLINIC",
+          "fs_reason": "oov",
+          "lemma_tried": "clinic",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:OPENS",
+          "fs_reason": "oov",
+          "lemma_tried": "open",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:EIGHT",
+          "fs_reason": "oov",
+          "lemma_tried": "eight",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please show me the emergency entrance.",
+      "gloss": [
+        "PLEASE",
+        "FS:SHOW",
+        "ME",
+        "FS:EMERGENCY",
+        "FS:ENTRANCE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SHOW",
+          "fs_reason": "oov",
+          "lemma_tried": "show",
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:EMERGENCY",
+          "fs_reason": "oov",
+          "lemma_tried": "emergency",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ENTRANCE",
+          "fs_reason": "oov",
+          "lemma_tried": "entrance",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I brought the reports from yesterday.",
+      "gloss": [
+        "YESTERDAY",
+        "I",
+        "FS:BROUGHT",
+        "FS:REPORTS"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "YESTERDAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BROUGHT",
+          "fs_reason": "oov",
+          "lemma_tried": "bring",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:REPORTS",
+          "fs_reason": "oov",
+          "lemma_tried": "report",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can my sister stay with me?",
+      "gloss": [
+        "MY",
+        "FS:SISTER",
+        "FS:STAY",
+        "ME"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SISTER",
+          "fs_reason": "oov",
+          "lemma_tried": "sister",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:STAY",
+          "fs_reason": "oov",
+          "lemma_tried": "stay",
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I want a ticket to the airport.",
+      "gloss": [
+        "I",
+        "FS:TICKET",
+        "FS:AIRPORT",
+        "WANT"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TICKET",
+          "fs_reason": "oov",
+          "lemma_tried": "ticket",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AIRPORT",
+          "fs_reason": "oov",
+          "lemma_tried": "airport",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WANT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where does this train stop?",
+      "gloss": [
+        "FS:TRAIN",
+        "FS:STOP",
+        "WHERE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "FS:TRAIN",
+          "fs_reason": "oov",
+          "lemma_tried": "train",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:STOP",
+          "fs_reason": "oov",
+          "lemma_tried": "stop",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The next bus arrives in ten minutes.",
+      "gloss": [
+        "FS:NEXT",
+        "FS:BUS",
+        "FS:ARRIVES",
+        "FS:TEN",
+        "FS:MINUTES"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "FS:NEXT",
+          "fs_reason": "oov",
+          "lemma_tried": "next",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BUS",
+          "fs_reason": "oov",
+          "lemma_tried": "bus",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ARRIVES",
+          "fs_reason": "oov",
+          "lemma_tried": "arrive",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TEN",
+          "fs_reason": "oov",
+          "lemma_tried": "ten",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MINUTES",
+          "fs_reason": "oov",
+          "lemma_tried": "minute",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please help me find my seat.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "FS:FIND",
+        "MY",
+        "FS:SEAT",
+        "HELP"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:FIND",
+          "fs_reason": "oov",
+          "lemma_tried": "find",
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SEAT",
+          "fs_reason": "oov",
+          "lemma_tried": "seat",
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I left my suitcase at the station.",
+      "gloss": [
+        "I",
+        "FS:LEFT",
+        "MY",
+        "FS:SUITCASE",
+        "FS:STATION"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LEFT",
+          "fs_reason": "oov",
+          "lemma_tried": "leave",
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SUITCASE",
+          "fs_reason": "oov",
+          "lemma_tried": "suitcase",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:STATION",
+          "fs_reason": "oov",
+          "lemma_tried": "station",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "We are going home tomorrow.",
+      "gloss": [
+        "TOMORROW",
+        "WE",
+        "HOME",
+        "GO"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Is the hotel near the market?",
+      "gloss": [
+        "FS:HOTEL",
+        "FS:NEAR",
+        "FS:MARKET"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:HOTEL",
+          "fs_reason": "oov",
+          "lemma_tried": "hotel",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NEAR",
+          "fs_reason": "oov",
+          "lemma_tried": "near",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MARKET",
+          "fs_reason": "oov",
+          "lemma_tried": "market",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need directions to the bus stand.",
+      "gloss": [
+        "I",
+        "FS:DIRECTIONS",
+        "FS:BUS",
+        "FS:STAND",
+        "NEED"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DIRECTIONS",
+          "fs_reason": "oov",
+          "lemma_tried": "direction",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BUS",
+          "fs_reason": "oov",
+          "lemma_tried": "bus",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:STAND",
+          "fs_reason": "oov",
+          "lemma_tried": "stand",
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can you tell me when to get off?",
+      "gloss": [
+        "YOU",
+        "FS:TELL",
+        "ME",
+        "FS:GET",
+        "FS:OFF",
+        "WHEN"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TELL",
+          "fs_reason": "oov",
+          "lemma_tried": "tell",
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GET",
+          "fs_reason": "oov",
+          "lemma_tried": "get",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:OFF",
+          "fs_reason": "oov",
+          "lemma_tried": "off",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHEN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My flight is delayed by two hours.",
+      "gloss": [
+        "MY",
+        "FS:FLIGHT",
+        "FS:DELAYED",
+        "FS:TWO",
+        "FS:HOURS"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:FLIGHT",
+          "fs_reason": "oov",
+          "lemma_tried": "flight",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DELAYED",
+          "fs_reason": "oov",
+          "lemma_tried": "delay",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TWO",
+          "fs_reason": "oov",
+          "lemma_tried": "two",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOURS",
+          "fs_reason": "oov",
+          "lemma_tried": "hour",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "There is a taxi outside the gate.",
+      "gloss": [
+        "FS:TAXI",
+        "FS:OUTSIDE",
+        "FS:GATE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:TAXI",
+          "fs_reason": "oov",
+          "lemma_tried": "taxi",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:OUTSIDE",
+          "fs_reason": "oov",
+          "lemma_tried": "outside",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GATE",
+          "fs_reason": "oov",
+          "lemma_tried": "gate",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please wait here while I buy a ticket.",
+      "gloss": [
+        "PLEASE",
+        "FS:WAIT",
+        "FS:WHILE",
+        "I",
+        "FS:BUY",
+        "FS:TICKET"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:WAIT",
+          "fs_reason": "oov",
+          "lemma_tried": "wait",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:WHILE",
+          "fs_reason": "oov",
+          "lemma_tried": "while",
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BUY",
+          "fs_reason": "oov",
+          "lemma_tried": "buy",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TICKET",
+          "fs_reason": "oov",
+          "lemma_tried": "ticket",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Yesterday I went to the market and bought vegetables.",
+      "gloss": [
+        "YESTERDAY",
+        "I",
+        "FS:MARKET",
+        "FS:BOUGHT",
+        "FS:VEGETABLES",
+        "GO"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "YESTERDAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MARKET",
+          "fs_reason": "oov",
+          "lemma_tried": "market",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BOUGHT",
+          "fs_reason": "oov",
+          "lemma_tried": "buy",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VEGETABLES",
+          "fs_reason": "oov",
+          "lemma_tried": "vegetable",
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "How much does this shirt cost?",
+      "gloss": [
+        "FS:MUCH",
+        "FS:SHIRT",
+        "FS:COST",
+        "HOW"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:MUCH",
+          "fs_reason": "oov",
+          "lemma_tried": "much",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SHIRT",
+          "fs_reason": "oov",
+          "lemma_tried": "shirt",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:COST",
+          "fs_reason": "oov",
+          "lemma_tried": "cost",
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I want to buy rice and milk.",
+      "gloss": [
+        "I",
+        "FS:BUY",
+        "FS:RICE",
+        "FS:MILK",
+        "WANT"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BUY",
+          "fs_reason": "oov",
+          "lemma_tried": "buy",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RICE",
+          "fs_reason": "oov",
+          "lemma_tried": "rice",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MILK",
+          "fs_reason": "oov",
+          "lemma_tried": "milk",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WANT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Do you have these shoes in blue?",
+      "gloss": [
+        "YOU",
+        "FS:SHOES",
+        "FS:BLUE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SHOES",
+          "fs_reason": "oov",
+          "lemma_tried": "shoe",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BLUE",
+          "fs_reason": "oov",
+          "lemma_tried": "blue",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please give me a smaller bag.",
+      "gloss": [
+        "PLEASE",
+        "FS:GIVE",
+        "ME",
+        "FS:SMALLER",
+        "FS:BAG"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GIVE",
+          "fs_reason": "oov",
+          "lemma_tried": "give",
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SMALLER",
+          "fs_reason": "oov",
+          "lemma_tried": "small",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAG",
+          "fs_reason": "oov",
+          "lemma_tried": "bag",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I paid for the groceries with cash.",
+      "gloss": [
+        "I",
+        "FS:PAID",
+        "FS:GROCERIES",
+        "FS:CASH"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PAID",
+          "fs_reason": "oov",
+          "lemma_tried": "pay",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GROCERIES",
+          "fs_reason": "oov",
+          "lemma_tried": "grocery",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CASH",
+          "fs_reason": "oov",
+          "lemma_tried": "cash",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where is the nearest fruit shop?",
+      "gloss": [
+        "FS:NEAREST",
+        "FS:FRUIT",
+        "FS:SHOP",
+        "WHERE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:NEAREST",
+          "fs_reason": "oov",
+          "lemma_tried": "near",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:FRUIT",
+          "fs_reason": "oov",
+          "lemma_tried": "fruit",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SHOP",
+          "fs_reason": "oov",
+          "lemma_tried": "shop",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "This bottle is for my sister.",
+      "gloss": [
+        "FS:BOTTLE",
+        "MY",
+        "FS:SISTER"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "FS:BOTTLE",
+          "fs_reason": "oov",
+          "lemma_tried": "bottle",
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SISTER",
+          "fs_reason": "oov",
+          "lemma_tried": "sister",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can I exchange that jacket tomorrow?",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "FS:EXCHANGE",
+        "FS:JACKET"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:EXCHANGE",
+          "fs_reason": "oov",
+          "lemma_tried": "exchange",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JACKET",
+          "fs_reason": "oov",
+          "lemma_tried": "jacket",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The shop is closed on Sunday.",
+      "gloss": [
+        "FS:SHOP",
+        "FS:CLOSED",
+        "FS:SUNDAY"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:SHOP",
+          "fs_reason": "oov",
+          "lemma_tried": "shop",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CLOSED",
+          "fs_reason": "oov",
+          "lemma_tried": "close",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SUNDAY",
+          "fs_reason": "name_heuristic",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need bread but not butter.",
+      "gloss": [
+        "I",
+        "FS:BREAD",
+        "FS:BUTTER",
+        "NEED",
+        "NOT"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BREAD",
+          "fs_reason": "oov",
+          "lemma_tried": "bread",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BUTTER",
+          "fs_reason": "oov",
+          "lemma_tried": "butter",
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NOT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please keep those apples in this basket.",
+      "gloss": [
+        "PLEASE",
+        "FS:KEEP",
+        "FS:APPLES",
+        "FS:BASKET"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KEEP",
+          "fs_reason": "oov",
+          "lemma_tried": "keep",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APPLES",
+          "fs_reason": "oov",
+          "lemma_tried": "apple",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BASKET",
+          "fs_reason": "oov",
+          "lemma_tried": "basket",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My father and mother are at home.",
+      "gloss": [
+        "MY",
+        "FS:FATHER",
+        "FS:MOTHER",
+        "HOME"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:FATHER",
+          "fs_reason": "oov",
+          "lemma_tried": "father",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MOTHER",
+          "fs_reason": "oov",
+          "lemma_tried": "mother",
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I am visiting my grandmother tomorrow.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "FS:VISITING",
+        "MY",
+        "FS:GRANDMOTHER"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VISITING",
+          "fs_reason": "oov",
+          "lemma_tried": "visit",
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GRANDMOTHER",
+          "fs_reason": "oov",
+          "lemma_tried": "grandmother",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My brother goes to college by bus.",
+      "gloss": [
+        "MY",
+        "FS:BROTHER",
+        "COLLEGE",
+        "FS:BUS",
+        "GO"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BROTHER",
+          "fs_reason": "oov",
+          "lemma_tried": "brother",
+          "synonym_from": null
+        },
+        {
+          "gloss": "COLLEGE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BUS",
+          "fs_reason": "oov",
+          "lemma_tried": "bus",
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please help my sister with her homework.",
+      "gloss": [
+        "PLEASE",
+        "MY",
+        "FS:SISTER",
+        "FS:HER",
+        "FS:HOMEWORK",
+        "HELP"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SISTER",
+          "fs_reason": "oov",
+          "lemma_tried": "sister",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HER",
+          "fs_reason": "oov",
+          "lemma_tried": "her",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOMEWORK",
+          "fs_reason": "oov",
+          "lemma_tried": "homework",
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "We eat dinner together in the evening.",
+      "gloss": [
+        "WE",
+        "FS:DINNER",
+        "FS:TOGETHER",
+        "FS:EVENING",
+        "EAT"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DINNER",
+          "fs_reason": "oov",
+          "lemma_tried": "dinner",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TOGETHER",
+          "fs_reason": "oov",
+          "lemma_tried": "together",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:EVENING",
+          "fs_reason": "oov",
+          "lemma_tried": "even",
+          "synonym_from": null
+        },
+        {
+          "gloss": "EAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I bought a gift for my cousin.",
+      "gloss": [
+        "I",
+        "FS:BOUGHT",
+        "FS:GIFT",
+        "MY",
+        "FS:COUSIN"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BOUGHT",
+          "fs_reason": "oov",
+          "lemma_tried": "buy",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GIFT",
+          "fs_reason": "oov",
+          "lemma_tried": "gift",
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:COUSIN",
+          "fs_reason": "oov",
+          "lemma_tried": "cousin",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The children are playing near the house.",
+      "gloss": [
+        "FS:CHILDREN",
+        "FS:PLAYING",
+        "FS:NEAR",
+        "FS:HOUSE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "FS:CHILDREN",
+          "fs_reason": "oov",
+          "lemma_tried": "child",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PLAYING",
+          "fs_reason": "oov",
+          "lemma_tried": "play",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NEAR",
+          "fs_reason": "oov",
+          "lemma_tried": "near",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOUSE",
+          "fs_reason": "oov",
+          "lemma_tried": "house",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My aunt is coming from the village.",
+      "gloss": [
+        "MY",
+        "FS:AUNT",
+        "FS:VILLAGE",
+        "COME"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AUNT",
+          "fs_reason": "oov",
+          "lemma_tried": "aunt",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VILLAGE",
+          "fs_reason": "oov",
+          "lemma_tried": "village",
+          "synonym_from": null
+        },
+        {
+          "gloss": "COME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can you call me after lunch?",
+      "gloss": [
+        "YOU",
+        "FS:CALL",
+        "ME",
+        "FS:AFTER",
+        "FS:LUNCH"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CALL",
+          "fs_reason": "oov",
+          "lemma_tried": "call",
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AFTER",
+          "fs_reason": "oov",
+          "lemma_tried": "after",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LUNCH",
+          "fs_reason": "oov",
+          "lemma_tried": "lunch",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I want to see my family this weekend.",
+      "gloss": [
+        "I",
+        "MY",
+        "FS:FAMILY",
+        "FS:WEEKEND",
+        "WANT",
+        "SEE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:FAMILY",
+          "fs_reason": "oov",
+          "lemma_tried": "family",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:WEEKEND",
+          "fs_reason": "oov",
+          "lemma_tried": "weekend",
+          "synonym_from": null
+        },
+        {
+          "gloss": "WANT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SEE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "We will go home if it rains.",
+      "gloss": [
+        "WE",
+        "HOME",
+        "FS:IT",
+        "FS:RAINS",
+        "GO"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IT",
+          "fs_reason": "oov",
+          "lemma_tried": "it",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAINS",
+          "fs_reason": "oov",
+          "lemma_tried": "rain",
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My grandfather likes tea or coffee in the morning.",
+      "gloss": [
+        "MY",
+        "FS:GRANDFATHER",
+        "FS:LIKES",
+        "FS:TEA",
+        "FS:COFFEE",
+        "FS:MORNING"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GRANDFATHER",
+          "fs_reason": "oov",
+          "lemma_tried": "grandfather",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LIKES",
+          "fs_reason": "oov",
+          "lemma_tried": "like",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TEA",
+          "fs_reason": "oov",
+          "lemma_tried": "tea",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:COFFEE",
+          "fs_reason": "oov",
+          "lemma_tried": "coffee",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MORNING",
+          "fs_reason": "oov",
+          "lemma_tried": "morning",
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    }
+  ],
+  "sentence_count": 60,
+  "error_count": 0,
+  "total_gloss_tokens": 269,
+  "fs_count": 159,
+  "fs_rate": 0.5910780669144982,
+  "top_oov_words": [
+    {
+      "word": "bus",
+      "frequency": 4,
+      "lemma_tried": "bus"
+    },
+    {
+      "word": "after",
+      "frequency": 3,
+      "lemma_tried": "after"
+    },
+    {
+      "word": "near",
+      "frequency": 3,
+      "lemma_tried": "near"
+    },
+    {
+      "word": "sister",
+      "frequency": 3,
+      "lemma_tried": "sister"
+    },
+    {
+      "word": "bag",
+      "frequency": 2,
+      "lemma_tried": "bag"
+    },
+    {
+      "word": "bought",
+      "frequency": 2,
+      "lemma_tried": "buy"
+    },
+    {
+      "word": "buy",
+      "frequency": 2,
+      "lemma_tried": "buy"
+    },
+    {
+      "word": "call",
+      "frequency": 2,
+      "lemma_tried": "call"
+    },
+    {
+      "word": "campus",
+      "frequency": 2,
+      "lemma_tried": "campus"
+    },
+    {
+      "word": "father",
+      "frequency": 2,
+      "lemma_tried": "father"
+    },
+    {
+      "word": "find",
+      "frequency": 2,
+      "lemma_tried": "find"
+    },
+    {
+      "word": "gate",
+      "frequency": 2,
+      "lemma_tried": "gate"
+    },
+    {
+      "word": "left",
+      "frequency": 2,
+      "lemma_tried": "leave"
+    },
+    {
+      "word": "market",
+      "frequency": 2,
+      "lemma_tried": "market"
+    },
+    {
+      "word": "mother",
+      "frequency": 2,
+      "lemma_tried": "mother"
+    },
+    {
+      "word": "nearest",
+      "frequency": 2,
+      "lemma_tried": "near"
+    },
+    {
+      "word": "shop",
+      "frequency": 2,
+      "lemma_tried": "shop"
+    },
+    {
+      "word": "tell",
+      "frequency": 2,
+      "lemma_tried": "tell"
+    },
+    {
+      "word": "ticket",
+      "frequency": 2,
+      "lemma_tried": "ticket"
+    },
+    {
+      "word": "wait",
+      "frequency": 2,
+      "lemma_tried": "wait"
+    },
+    {
+      "word": "airport",
+      "frequency": 1,
+      "lemma_tried": "airport"
+    },
+    {
+      "word": "apples",
+      "frequency": 1,
+      "lemma_tried": "apple"
+    },
+    {
+      "word": "appointment",
+      "frequency": 1,
+      "lemma_tried": "appointment"
+    },
+    {
+      "word": "arrives",
+      "frequency": 1,
+      "lemma_tried": "arrive"
+    },
+    {
+      "word": "asked",
+      "frequency": 1,
+      "lemma_tried": "ask"
+    },
+    {
+      "word": "aunt",
+      "frequency": 1,
+      "lemma_tried": "aunt"
+    },
+    {
+      "word": "basket",
+      "frequency": 1,
+      "lemma_tried": "basket"
+    },
+    {
+      "word": "blue",
+      "frequency": 1,
+      "lemma_tried": "blue"
+    },
+    {
+      "word": "bottle",
+      "frequency": 1,
+      "lemma_tried": "bottle"
+    },
+    {
+      "word": "bread",
+      "frequency": 1,
+      "lemma_tried": "bread"
+    },
+    {
+      "word": "brother",
+      "frequency": 1,
+      "lemma_tried": "brother"
+    },
+    {
+      "word": "brought",
+      "frequency": 1,
+      "lemma_tried": "bring"
+    },
+    {
+      "word": "butter",
+      "frequency": 1,
+      "lemma_tried": "butter"
+    },
+    {
+      "word": "cash",
+      "frequency": 1,
+      "lemma_tried": "cash"
+    },
+    {
+      "word": "children",
+      "frequency": 1,
+      "lemma_tried": "child"
+    },
+    {
+      "word": "class",
+      "frequency": 1,
+      "lemma_tried": "class"
+    },
+    {
+      "word": "classroom",
+      "frequency": 1,
+      "lemma_tried": "classroom"
+    },
+    {
+      "word": "clinic",
+      "frequency": 1,
+      "lemma_tried": "clinic"
+    },
+    {
+      "word": "closed",
+      "frequency": 1,
+      "lemma_tried": "close"
+    },
+    {
+      "word": "club",
+      "frequency": 1,
+      "lemma_tried": "club"
+    },
+    {
+      "word": "coffee",
+      "frequency": 1,
+      "lemma_tried": "coffee"
+    },
+    {
+      "word": "collect",
+      "frequency": 1,
+      "lemma_tried": "collect"
+    },
+    {
+      "word": "cost",
+      "frequency": 1,
+      "lemma_tried": "cost"
+    },
+    {
+      "word": "cousin",
+      "frequency": 1,
+      "lemma_tried": "cousin"
+    },
+    {
+      "word": "delayed",
+      "frequency": 1,
+      "lemma_tried": "delay"
+    },
+    {
+      "word": "dinner",
+      "frequency": 1,
+      "lemma_tried": "dinner"
+    },
+    {
+      "word": "directions",
+      "frequency": 1,
+      "lemma_tried": "direction"
+    },
+    {
+      "word": "doctor",
+      "frequency": 1,
+      "lemma_tried": "doctor"
+    },
+    {
+      "word": "eight",
+      "frequency": 1,
+      "lemma_tried": "eight"
+    },
+    {
+      "word": "emergency",
+      "frequency": 1,
+      "lemma_tried": "emergency"
+    },
+    {
+      "word": "entrance",
+      "frequency": 1,
+      "lemma_tried": "entrance"
+    },
+    {
+      "word": "evening",
+      "frequency": 1,
+      "lemma_tried": "even"
+    },
+    {
+      "word": "exam",
+      "frequency": 1,
+      "lemma_tried": "exam"
+    },
+    {
+      "word": "exchange",
+      "frequency": 1,
+      "lemma_tried": "exchange"
+    },
+    {
+      "word": "family",
+      "frequency": 1,
+      "lemma_tried": "family"
+    },
+    {
+      "word": "fever",
+      "frequency": 1,
+      "lemma_tried": "fever"
+    },
+    {
+      "word": "flight",
+      "frequency": 1,
+      "lemma_tried": "flight"
+    },
+    {
+      "word": "fruit",
+      "frequency": 1,
+      "lemma_tried": "fruit"
+    },
+    {
+      "word": "get",
+      "frequency": 1,
+      "lemma_tried": "get"
+    },
+    {
+      "word": "gift",
+      "frequency": 1,
+      "lemma_tried": "gift"
+    },
+    {
+      "word": "give",
+      "frequency": 1,
+      "lemma_tried": "give"
+    },
+    {
+      "word": "grandfather",
+      "frequency": 1,
+      "lemma_tried": "grandfather"
+    },
+    {
+      "word": "grandmother",
+      "frequency": 1,
+      "lemma_tried": "grandmother"
+    },
+    {
+      "word": "groceries",
+      "frequency": 1,
+      "lemma_tried": "grocery"
+    },
+    {
+      "word": "hall",
+      "frequency": 1,
+      "lemma_tried": "hall"
+    },
+    {
+      "word": "her",
+      "frequency": 1,
+      "lemma_tried": "her"
+    },
+    {
+      "word": "homework",
+      "frequency": 1,
+      "lemma_tried": "homework"
+    },
+    {
+      "word": "hostel",
+      "frequency": 1,
+      "lemma_tried": "hostel"
+    },
+    {
+      "word": "hotel",
+      "frequency": 1,
+      "lemma_tried": "hotel"
+    },
+    {
+      "word": "hours",
+      "frequency": 1,
+      "lemma_tried": "hour"
+    },
+    {
+      "word": "house",
+      "frequency": 1,
+      "lemma_tried": "house"
+    },
+    {
+      "word": "hurts",
+      "frequency": 1,
+      "lemma_tried": "hurt"
+    },
+    {
+      "word": "it",
+      "frequency": 1,
+      "lemma_tried": "it"
+    },
+    {
+      "word": "jacket",
+      "frequency": 1,
+      "lemma_tried": "jacket"
+    },
+    {
+      "word": "join",
+      "frequency": 1,
+      "lemma_tried": "join"
+    },
+    {
+      "word": "keep",
+      "frequency": 1,
+      "lemma_tried": "keep"
+    },
+    {
+      "word": "lab",
+      "frequency": 1,
+      "lemma_tried": "lab"
+    },
+    {
+      "word": "late",
+      "frequency": 1,
+      "lemma_tried": "late"
+    },
+    {
+      "word": "lecture",
+      "frequency": 1,
+      "lemma_tried": "lecture"
+    },
+    {
+      "word": "library",
+      "frequency": 1,
+      "lemma_tried": "library"
+    },
+    {
+      "word": "likes",
+      "frequency": 1,
+      "lemma_tried": "like"
+    },
+    {
+      "word": "lunch",
+      "frequency": 1,
+      "lemma_tried": "lunch"
+    },
+    {
+      "word": "main",
+      "frequency": 1,
+      "lemma_tried": "main"
+    },
+    {
+      "word": "medicine",
+      "frequency": 1,
+      "lemma_tried": "medicine"
+    },
+    {
+      "word": "meet",
+      "frequency": 1,
+      "lemma_tried": "meet"
+    },
+    {
+      "word": "milk",
+      "frequency": 1,
+      "lemma_tried": "milk"
+    },
+    {
+      "word": "minutes",
+      "frequency": 1,
+      "lemma_tried": "minute"
+    },
+    {
+      "word": "morning",
+      "frequency": 1,
+      "lemma_tried": "morning"
+    },
+    {
+      "word": "much",
+      "frequency": 1,
+      "lemma_tried": "much"
+    },
+    {
+      "word": "next",
+      "frequency": 1,
+      "lemma_tried": "next"
+    },
+    {
+      "word": "nine",
+      "frequency": 1,
+      "lemma_tried": "nine"
+    },
+    {
+      "word": "notebook",
+      "frequency": 1,
+      "lemma_tried": "notebook"
+    },
+    {
+      "word": "nurse",
+      "frequency": 1,
+      "lemma_tried": "nurse"
+    },
+    {
+      "word": "off",
+      "frequency": 1,
+      "lemma_tried": "off"
+    },
+    {
+      "word": "office",
+      "frequency": 1,
+      "lemma_tried": "office"
+    },
+    {
+      "word": "opens",
+      "frequency": 1,
+      "lemma_tried": "open"
+    },
+    {
+      "word": "outside",
+      "frequency": 1,
+      "lemma_tried": "outside"
+    },
+    {
+      "word": "paid",
+      "frequency": 1,
+      "lemma_tried": "pay"
+    },
+    {
+      "word": "place",
+      "frequency": 1,
+      "lemma_tried": "place"
+    },
+    {
+      "word": "playing",
+      "frequency": 1,
+      "lemma_tried": "play"
+    },
+    {
+      "word": "rains",
+      "frequency": 1,
+      "lemma_tried": "rain"
+    },
+    {
+      "word": "reports",
+      "frequency": 1,
+      "lemma_tried": "report"
+    },
+    {
+      "word": "rice",
+      "frequency": 1,
+      "lemma_tried": "rice"
+    },
+    {
+      "word": "science",
+      "frequency": 1,
+      "lemma_tried": "science"
+    },
+    {
+      "word": "seat",
+      "frequency": 1,
+      "lemma_tried": "seat"
+    },
+    {
+      "word": "shirt",
+      "frequency": 1,
+      "lemma_tried": "shirt"
+    },
+    {
+      "word": "shoes",
+      "frequency": 1,
+      "lemma_tried": "shoe"
+    },
+    {
+      "word": "show",
+      "frequency": 1,
+      "lemma_tried": "show"
+    },
+    {
+      "word": "sit",
+      "frequency": 1,
+      "lemma_tried": "sit"
+    },
+    {
+      "word": "smaller",
+      "frequency": 1,
+      "lemma_tried": "small"
+    },
+    {
+      "word": "sports",
+      "frequency": 1,
+      "lemma_tried": "sport"
+    },
+    {
+      "word": "stand",
+      "frequency": 1,
+      "lemma_tried": "stand"
+    },
+    {
+      "word": "starts",
+      "frequency": 1,
+      "lemma_tried": "start"
+    },
+    {
+      "word": "station",
+      "frequency": 1,
+      "lemma_tried": "station"
+    },
+    {
+      "word": "stay",
+      "frequency": 1,
+      "lemma_tried": "stay"
+    },
+    {
+      "word": "stomach",
+      "frequency": 1,
+      "lemma_tried": "stomach"
+    },
+    {
+      "word": "stop",
+      "frequency": 1,
+      "lemma_tried": "stop"
+    },
+    {
+      "word": "suitcase",
+      "frequency": 1,
+      "lemma_tried": "suitcase"
+    },
+    {
+      "word": "taxi",
+      "frequency": 1,
+      "lemma_tried": "taxi"
+    },
+    {
+      "word": "tea",
+      "frequency": 1,
+      "lemma_tried": "tea"
+    },
+    {
+      "word": "teacher",
+      "frequency": 1,
+      "lemma_tried": "teacher"
+    },
+    {
+      "word": "ten",
+      "frequency": 1,
+      "lemma_tried": "ten"
+    },
+    {
+      "word": "together",
+      "frequency": 1,
+      "lemma_tried": "together"
+    },
+    {
+      "word": "train",
+      "frequency": 1,
+      "lemma_tried": "train"
+    },
+    {
+      "word": "two",
+      "frequency": 1,
+      "lemma_tried": "two"
+    },
+    {
+      "word": "vegetables",
+      "frequency": 1,
+      "lemma_tried": "vegetable"
+    },
+    {
+      "word": "village",
+      "frequency": 1,
+      "lemma_tried": "village"
+    },
+    {
+      "word": "visiting",
+      "frequency": 1,
+      "lemma_tried": "visit"
+    },
+    {
+      "word": "waiting",
+      "frequency": 1,
+      "lemma_tried": "wait"
+    },
+    {
+      "word": "weekend",
+      "frequency": 1,
+      "lemma_tried": "weekend"
+    },
+    {
+      "word": "while",
+      "frequency": 1,
+      "lemma_tried": "while"
+    },
+    {
+      "word": "workshop",
+      "frequency": 1,
+      "lemma_tried": "workshop"
+    }
+  ]
+}
