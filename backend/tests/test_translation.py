@@ -35,5 +35,6 @@ def test_malformed_json_recovery():
 
 def test_unknown_sign_does_not_crash():
     seq, unknown = SignSequenceService().build(["I", "QUANTUM", "COMPUTER"])
-    assert unknown == ["QUANTUM", "COMPUTER"] and len(seq) == 3 and not seq[1].available
+    assert unknown == ["QUANTUM"] and len(seq) == 3 and not seq[1].available
+    assert seq[2].sign_id == "computer" and seq[2].asset_type == "demo"
     assert seq[1].gloss == "FS:QUANTUM"

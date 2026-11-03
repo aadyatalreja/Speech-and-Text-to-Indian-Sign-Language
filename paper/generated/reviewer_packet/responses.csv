@@ -1,0 +1,6 @@
+item_id,stimulus_sha256,gloss_acceptable,nmm_correct,comprehension,comments,reviewed_gloss,acceptable_alternatives,expected_nmm,signer_dialect,decision,signed_off
+item-001,364ca1724d3d3d441fb0d230a98076c6e31c680e356d6a5758a90f3d0bd31e4e,,,,,,,,,,
+item-002,f366c4a37b3623ffa216049e4b43a264d89cbb4b963a47afc2a41d753d531296,,,,,,,,,,
+item-003,6ae8b83b896d248285165f4c546dc8800fde52d267081cce58c91b72c0fdf234,,,,,,,,,,
+item-004,43e48e12290028a42319647a3123659279ff03207113d97f7abecd54d5e1cf9c,,,,,,,,,,
+item-005,f4ed401cdbebe3dcb1e8c9cce8013668ad80d11edc83c0d9cd3bdd5110d6a488,,,,,,,,,,

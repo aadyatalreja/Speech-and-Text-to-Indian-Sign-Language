@@ -1,0 +1,19 @@
+{
+  "id": 20,
+  "title": "Sign Language Transformers: Joint End-to-end Sign Language Recognition and Translation",
+  "authors": [
+    "Necati Cihan Camgoz",
+    "Oscar Koller",
+    "Simon Hadfield",
+    "Richard Bowden"
+  ],
+  "year": 2020,
+  "url": "https://arxiv.org/abs/2003.13830",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2003.13830",
+  "arxiv": "2003.13830",
+  "project_relevance": "Joint recognition and translation; back-translation context",
+  "verified_on": "2026-11-03"
+}

@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import type { SignItem } from "../types/translation";
 import { avatarLabel, prefetchClips, videoLabel } from "../avatar/library";
 import type { CompiledClip } from "../avatar/pose";
+import NmmStatus from "./NmmStatus";
 
 // three.js is only downloaded when a translation is shown
 const AvatarCanvas = lazy(() => import("../avatar/AvatarCanvas"));
@@ -26,12 +27,14 @@ export default function AvatarPanel({ item, videoUrl, items = [], progress = 0, 
   if (videoUrl) return <div>
     <video src={videoUrl} controls className="aspect-video w-full rounded-card bg-black" aria-label="Generated sign video" />
     <p className="mt-2 text-center text-xs text-muted">{videoLabel(items)}</p>
+    <NmmStatus item={item} />
   </div>;
 
   const label = item ? item.gloss.replace("_", " ") : "Ready";
   return (
+    <>
     <div className="relative grid aspect-video place-items-center overflow-hidden rounded-card avatar-stage ring-1 ring-line/10"
-      role="img" aria-label={item ? `Current sign ${item.gloss}` : "Sign output"}>
+      role="group" aria-label={item ? `Current sign ${item.gloss}` : "Sign output"}>
       <div className="pointer-events-none absolute -top-16 left-1/4 h-56 w-56 rounded-full bg-accent/20 blur-3xl" />
 
       {noGL ? (
@@ -48,9 +51,6 @@ export default function AvatarPanel({ item, videoUrl, items = [], progress = 0, 
       {!noGL && item && (
         <p className="pointer-events-none absolute left-3 top-3 rounded-full bg-surface/70 px-3 py-1 text-sm font-bold tracking-wide text-ink ring-1 ring-line/10 backdrop-blur">{label}</p>
       )}
-      {!!item?.nmm_rules?.length && <p className="absolute right-3 top-12 rounded-full bg-surface/80 px-3 py-1 text-xs text-muted">
-        {item.nmm_verified ? "NMM · reviewed rule" : "NMM · demo / not verified ISL"}
-      </p>}
       {item && !item.available && !noGL && clip?.clip.kind !== "fingerspell" && (
         <p className="absolute right-3 top-3 rounded-full bg-warn-soft px-3 py-1 text-xs font-semibold text-warn">Sign unavailable</p>
       )}
@@ -58,5 +58,7 @@ export default function AvatarPanel({ item, videoUrl, items = [], progress = 0, 
         {noGL ? "Demo Sign Renderer · not an actual ISL sign" : avatarLabel(item ? clip : null)}
       </p>
     </div>
+    <div className="mt-2"><NmmStatus item={item} /></div>
+    </>
   );
 }

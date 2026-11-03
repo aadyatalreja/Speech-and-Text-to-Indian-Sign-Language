@@ -1,0 +1,18 @@
+{
+  "id": 3,
+  "title": "INCLUDE",
+  "authors": [
+    "Advaith Sridhar",
+    "Rohith Gandhi Ganesan",
+    "Pratyush Kumar",
+    "Mitesh Khapra"
+  ],
+  "year": 2020,
+  "url": "https://doi.org/10.1145/3394171.3413528",
+  "doi": "10.1145/3394171.3413528",
+  "venue": "Proceedings of the 28th ACM International Conference on Multimedia",
+  "record_type": "proceedings-article",
+  "metadata_source": "https://api.crossref.org/works/10.1145/3394171.3413528",
+  "project_relevance": "ISL isolated-sign dataset; resource context",
+  "verified_on": "2026-11-03"
+}

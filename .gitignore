@@ -29,3 +29,7 @@ backend/coverage.txt
 
 # Local opt-in feedback may contain user-entered text
 backend/data/feedback/
+paper/.cache/
+eval/private/
+*.identities.private.json
+paper/generated-draft/

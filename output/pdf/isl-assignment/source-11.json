@@ -1,0 +1,18 @@
+{
+  "id": 11,
+  "title": "Continuous 3D Multi-Channel Sign Language Production via Progressive Transformers and Mixture Density Networks",
+  "authors": [
+    "Ben Saunders",
+    "Necati Cihan Camgoz",
+    "Richard Bowden"
+  ],
+  "year": 2021,
+  "url": "https://arxiv.org/abs/2103.06982",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2103.06982",
+  "arxiv": "2103.06982",
+  "project_relevance": "Continuous multi-channel production and evaluation",
+  "verified_on": "2026-11-03"
+}

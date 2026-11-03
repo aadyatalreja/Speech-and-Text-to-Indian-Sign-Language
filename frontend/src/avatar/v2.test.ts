@@ -62,7 +62,7 @@ describe("experimental v2 additive pose pipeline", () => {
     expect(internals.lids[0].scale.y).toBe(1);
     rig.applyPose(sampleClip(compileClip(v1),1));
     expect(internals.hands.R.fingers[0][0].quaternion.x).toBe(0);
-    expect(internals.lids[0].scale.y).toBe(0.001);
+    expect(internals.lids[0].scale.y).toBeGreaterThan(0.001); // Brow-driven cosmetic squint.
     expect(curlJoints([0,0,0,0,0])).toHaveLength(15);
     rig.dispose();
   });
@@ -75,6 +75,27 @@ describe("experimental v2 additive pose pipeline", () => {
     expect(() => parseNmm({mouth_shape:{wide:2}})).toThrow();
     expect(() => new GltfAvatar(new THREE.Group())).toThrow("Unsupported humanoid");
   });
+});
+
+it("renders legible raised/furrowed brows, head angles, mouth shapes and gaze without changing input poses", () => {
+  const rig = new AvatarRig({ skin: "#fff", shirt: "#888", hair: "#333", accent: "#ff0" });
+  const geometry = rig as unknown as { brows: THREE.Mesh[]; mouth: THREE.Mesh; head: THREE.Group; lids: THREE.Mesh[]; eyes: THREE.Mesh[] };
+  const raised = { ...restPose(), brow: 0.5, head: [5, 12, 3] as [number, number, number] };
+  const saved = JSON.stringify(raised);
+  rig.applyPose(raised);
+  expect(geometry.brows[0].position.y - 0.48).toBeGreaterThan(0.05);
+  expect(geometry.head.rotation.y).toBeCloseTo(14.4 * Math.PI / 180);
+  rig.applyPose({ ...restPose(), brow: -0.5, face: { mouth_open: 0.5, mouth_wide: 0.5, gaze_x: 1 } });
+  expect(geometry.brows[0].position.y).toBeLessThan(0.44);
+  expect(Math.PI / 2 - geometry.brows[0].rotation.z).toBeGreaterThan(0.3); // Inner ends lower for furrow.
+  expect(geometry.mouth.scale.y).toBeGreaterThan(1.5);
+  const wide = geometry.mouth.scale.x;
+  expect(geometry.lids[0].scale.y).toBeGreaterThan(0.2);
+  rig.applyPose({ ...restPose(), face: { mouth_round: 1 } });
+  expect(geometry.mouth.scale.x).toBeLessThan(wide);
+  expect(geometry.mouth.scale.y).toBeGreaterThan(1);
+  expect(JSON.stringify(raised)).toBe(saved);
+  rig.dispose();
 });
 
 it("legacy NMM overrides explicit v2 face channels", () => {

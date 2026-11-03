@@ -1,0 +1,18 @@
+{
+  "id": 10,
+  "title": "Adversarial Training for Multi-Channel Sign Language Production",
+  "authors": [
+    "Ben Saunders",
+    "Necati Cihan Camgoz",
+    "Richard Bowden"
+  ],
+  "year": 2020,
+  "url": "https://arxiv.org/abs/2008.12405",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2008.12405",
+  "arxiv": "2008.12405",
+  "project_relevance": "Manual and non-manual sign production",
+  "verified_on": "2026-11-03"
+}

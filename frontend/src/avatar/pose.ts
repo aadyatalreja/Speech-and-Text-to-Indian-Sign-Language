@@ -69,6 +69,7 @@ export function resolveHand(spec: HandSpec): HandState {
 
 interface Track<T> { t: number[]; v: T[] }
 export interface CompiledClip {
+  activeNmm: (keyof FaceChannels | "head")[];
   clip: SignClip;
   R: Track<HandState>;
   L: Track<HandState>;
@@ -107,6 +108,10 @@ export function compileClip(clip: SignClip): CompiledClip {
   }, rest[side]);
   return {
     clip,
+    activeNmm: [
+      ...(keys.some(k => k.head != null) ? ["head" as const] : []),
+      ...FACE_KEYS.filter(name => keys.some(k => k.face?.[name] != null || legacyFace(k)[name] != null)),
+    ],
     R: hand("R"), L: hand("L"),
     head: buildTrack<Vec3>(keys, (k) => k.head, [0, 0, 0]),
     brow: buildTrack<number>(keys, (k) => k.brow, 0),
@@ -141,6 +146,7 @@ const mixNum = (a: number, b: number, f: number) => lerp(a, b, f);
 export function sampleClip(c: CompiledClip, t: number): AvatarPose {
   const tt = clamp(t, 0, 1);
   return {
+    activeNmm: c.activeNmm,
     R: sampleTrack(c.R, tt, mixHand),
     L: sampleTrack(c.L, tt, mixHand),
     head: sampleTrack(c.head, tt, mixVec),
@@ -151,11 +157,12 @@ export function sampleClip(c: CompiledClip, t: number): AvatarPose {
   };
 }
 
-/* ---------- smoothing follower (gives co-articulation between signs and hides 50 ms progress steps) ---------- */
+/* Engine interpolation only, NOT reviewed ISL coarticulation. */
 
 export function mixPose(a: AvatarPose, b: AvatarPose, fraction: number): AvatarPose {
   const f = clamp(fraction, 0, 1);
-  return { R: mixHand(a.R, b.R, f), L: mixHand(a.L, b.L, f), head: mixVec(a.head, b.head, f),
+  return { activeNmm: f === 0 ? a.activeNmm : f === 1 ? b.activeNmm : [...new Set([...(a.activeNmm ?? []), ...(b.activeNmm ?? [])])],
+    R: mixHand(a.R, b.R, f), L: mixHand(a.L, b.L, f), head: mixVec(a.head, b.head, f),
     brow: lerp(a.brow, b.brow, f), mouth: lerp(a.mouth, b.mouth, f),
     face: Object.fromEntries(FACE_KEYS.map(name => [name, lerp(resolvedFace(a)[name] ?? 0, resolvedFace(b)[name] ?? 0, f)])),
     torso: Object.fromEntries(TORSO_KEYS.map(name => [name, lerp(a.torso?.[name] ?? 0, b.torso?.[name] ?? 0, f)])) };
@@ -165,10 +172,31 @@ export function mixPose(a: AvatarPose, b: AvatarPose, fraction: number): AvatarP
 export function transitionPose(previous: AvatarPose | null, clip: CompiledClip, t: number, seconds: number, duration: number): AvatarPose {
   const pose = sampleClip(clip, t);
   if (!previous || seconds <= 0 || !Number.isFinite(duration) || duration <= 0) return pose;
-  const blend = smooth(clamp(t * duration / Math.min(seconds, duration / 2), 0, 1));
+  const u = clamp(t * duration / Math.min(seconds, duration / 2), 0, 1);
+  const blend = u * u * u * (u * (u * 6 - 15) + 10); // C2 ease: zero endpoint acceleration.
   if (blend <= 0) return previous;
   if (blend >= 1) return pose;
-  return mixPose(previous, pose, blend);
+  const mixed = mixPose(previous, pose, blend);
+  // Small forward arc, bounded in shoulder widths, to avoid rigid straight-line travel.
+  // This is an engine path, not a linguistically reviewed movement modification.
+  for (const side of ["R", "L"] as const) {
+    const distance = Math.hypot(...pose[side].p.map((v, i) => v - previous[side].p[i]));
+    mixed[side].p[2] += Math.min(0.06, distance * 0.1) * 16 * blend ** 2 * (1 - blend) ** 2;
+  }
+  return mixed;
+}
+
+/** Nonlinguistic idle only during holds. Explicit zero is an authored channel too. */
+export function idlePose(pose: AvatarPose, seconds: number, holding: boolean): AvatarPose {
+  if (!holding) return pose;
+  const active = new Set(pose.activeNmm ?? []);
+  const face = resolvedFace(pose);
+  const phase = ((seconds % 4.6) + 4.6) % 4.6;
+  const blink = phase < 0.22 ? Math.sin(Math.PI * phase / 0.22) ** 2 : 0;
+  return { ...pose,
+    head: active.has("head") || pose.head.some(v => v !== 0) ? pose.head : [Math.sin(seconds * 1.1) * 0.45, Math.sin(seconds * 0.73) * 0.6, Math.sin(seconds * 0.9) * 0.25],
+    face: { ...face, eye_blink: active.has("eye_blink") || (face.eye_blink ?? 0) !== 0 ? face.eye_blink : blink },
+  };
 }
 
 export class PoseFollower {

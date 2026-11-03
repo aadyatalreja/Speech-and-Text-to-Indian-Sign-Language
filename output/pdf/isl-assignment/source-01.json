@@ -1,0 +1,17 @@
+{
+  "id": 1,
+  "title": "Sign Language Generation System Based on Indian Sign Language Grammar",
+  "authors": [
+    "Sugandhi",
+    "Parteek Kumar",
+    "Sanmeet Kaur"
+  ],
+  "year": 2020,
+  "url": "https://doi.org/10.1145/3384202",
+  "doi": "10.1145/3384202",
+  "venue": "ACM Transactions on Asian and Low-Resource Language Information Processing",
+  "record_type": "journal-article",
+  "metadata_source": "https://api.crossref.org/works/10.1145/3384202",
+  "project_relevance": "ISL grammar and avatar generation",
+  "verified_on": "2026-11-03"
+}

@@ -1,0 +1,1394 @@
+{
+  "version": 1,
+  "disclaimer": "Engineering stimuli only; all demo assets, expressions and interpolation remain NOT verified ISL. No judgements are prefilled.",
+  "configuration": {
+    "LLM_PROVIDER": "mock",
+    "LLM_ORDERING": "code",
+    "ENABLE_SYNONYM_FALLBACK": false,
+    "ENABLE_DEMO_INDIC_GLOSSARY": true,
+    "LLM_MODEL": "claude-sonnet-5-5"
+  },
+  "source_hashes": {
+    "backend/config.py": "8e0c7a878c5a3d6d8a0f8f0e8738f1620fde36903634bf3127f03b3198d3df86",
+    "backend/data/grammar/isl_rules.yaml": "5551c13788008a8556af9633533ab91e9539fdd6b9d3851df9fdb4d5674b5688",
+    "backend/data/lexicon/hi_en.json": "9aec1c618414b577b8004dece3c72bccf8ef30ac086a6da300483708d0bb52de",
+    "backend/data/lexicon/kn_en.json": "60ee2892cade0c7a94226ecc43d4d9bab92542faef88be5eaff1e398a2465a27",
+    "backend/data/signs/alphabet/manifest.json": "54bb52b8b5118d5f8d5064259d5868c50182c00d6bf14eb939395b680a279009",
+    "backend/data/signs/signs.json": "3fc5fb5fbcd4fd3e1d6a8a237661a3aef87b3ed5bb91667c400516ca8d436e7d",
+    "backend/models/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/models/alphabet.py": "2e5a785d81c71cff0fbcef3f6e997ca76767642cbd79a1ec9631ce0def23180c",
+    "backend/models/grammar.py": "efaab299978fa1786af7c57b4d4fcb39e332ca8636e1e421411fa461caebb9fc",
+    "backend/models/markers.py": "903ce37f97ec52507a157c9837174e2934801a80901c6ba8eec0b074edd9119b",
+    "backend/models/sign.py": "75f4c6ae2c8cfc1ece3d2c668a6e1cb3fe02348a1fd436b39a53cd252c539ce8",
+    "backend/models/translation.py": "71770882a5bec81b12ceeb8af371e6091716b1e0dd41aaae57fe3122ee96691d",
+    "backend/requirements.txt": "4cb4392143d27bf01f937c735cd6a40a6fb7b2e73e3336f997d7aa68e589a14f",
+    "backend/services/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "backend/services/english_service.py": "23a884742878674d96dbe8c08528c77c805adffec0cfdac6bb78f45fa3df8807",
+    "backend/services/file_cache.py": "df586ed6e51493e50520c7fe64c09bd9f2a4ba05958ab06ecc2bb7e7bc22b7c2",
+    "backend/services/generated_cleanup.py": "80e93c474153ae1474148b1b5595d26abb540a6c3bccf06f01ee4b2668e4e5ad",
+    "backend/services/gloss_service.py": "f28b38fb09031ae3de5ef5615ca24d06093b60653e4a6027bc5a467336206a37",
+    "backend/services/grammar_service.py": "dc8da855a2d9642bc09dcccd4292b0759fdf532ae5d8d38175f3749b49345106",
+    "backend/services/indic_service.py": "9608093d0c18598bca5a1626fbfbb7ebaf9e545dd10942822c2d41d7dcfe4e53",
+    "backend/services/llm_service.py": "f5c3616752d4e48090be85872e34a2144c898b78a036f30cb8101323e95463fb",
+    "backend/services/marker_service.py": "c1b421da7bbf36c716f9d612d9c9b4ffe089c2b2b5f975d6ec2d512e111371ad",
+    "backend/services/rate_limit.py": "8ff5695abf0535696159e3875d10914ee159f9011d3fbea9b6d0290410d056a2",
+    "backend/services/response_cache.py": "ef3116fd9a9f052eb4578bdec9ecd7872220a6be6f96b12278c48ea14a2254bf",
+    "backend/services/sequence_service.py": "59730d8176bd7dc01fddcf62301464bc2db309827393e597c327f360486845cf",
+    "backend/services/sign_repository.py": "7ca2e792667d39f5aad4373c984a5f8b40ac8f06e157d25610d1b9958756e717",
+    "backend/services/timing_service.py": "c39033d8c30cf9fcfddc4b5a65df03fbca7c2ba7bb465d46b5b89fa2e4b0b2e3",
+    "backend/services/video_service.py": "1dd041da81d9e48bbbaaae84524fb6d81ca8be137b803ded1311a6b5571ec6e8",
+    "backend/services/vocabulary_service.py": "45750ce5024cfbfc076d498f9e14a0f2aad478173cc4bc61091313c5712c8a0b",
+    "eval/__init__.py": "60792c1b882c9360319f6c42134b139e984aea109444dce6d3c859e5dc953c60",
+    "eval/ablation.py": "5686114afe23009dd50c6f55de45443e442b206eca0be5d246961458de4a7018",
+    "eval/isl_testset.jsonl": "50c180be9033e387b5f21058237998a3275f3138e56e3705a741f9facae2794d",
+    "eval/metrics.py": "c61bdad2e141bb9cb3248da480006f84d6daaec575434919630d45eb5927a31d",
+    "eval/reproduce.py": "4a4df18c2cb49b96c5ff7f5bd3f8a10dd6096dd9e9f424562e03112726ba186a",
+    "eval/review_packet.py": "791d2f0873a64a92c3a1423346ace69d2cd0b8d413611a92e76671b55e2a2b92",
+    "eval/run_eval.py": "199699253995aa55079ee43f570920ece52be19a6841cd7c9bda77cc3e8ea5ba",
+    "eval/study.py": "1b383c99c7aa7cda660c66c889a4a1e270f9e435af971c5be0be1988b1ab90fa",
+    "eval/tools/import_review_sheet.py": "75a077ce7f59b78d251e5a05d0997248eaf6a2866d7b8f36c9052b423157d4a1",
+    "eval/tools/make_review_sheet.py": "75605201195c9d8b7c2206c1b5194e92371dfee668df16522cabf44de3527001",
+    "frontend/package-lock.json": "1ab8c66561b379b53c2b96aa39dc06dff791d4e1986db46f0ecb5c526adc53b9",
+    "frontend/src/avatar/alphabet.ts": "2e992888813df129e7941a2b2d9f196180ff3da08fd92c24b84e731844e9db09",
+    "frontend/src/avatar/alphabetAssets.test.ts": "b95b371da18bfe23da73a53a28384cd6e8b257d478dc634de9eb9d6bbbeac0e2",
+    "frontend/src/avatar/alphabetAssets.ts": "5fa49c49c5d8e92d9cfbb4167c4203a035a3b0a1906af11ab78ecee5483d9ada",
+    "frontend/src/avatar/avatar.test.ts": "746b0fe4086bba66f498406475528cc5ea6de0e03edc2d3616dd7129ef7bfb6e",
+    "frontend/src/avatar/AvatarCanvas.tsx": "81f365fac681513f1ebf9ad33215d3830b6e6a5159b7149514030e2d7ea3b164",
+    "frontend/src/avatar/demoSigns.ts": "c7a83ced54d7c9c449aba66e485e103fc6ec8279aaf0a02fcd748d8a348fcc00",
+    "frontend/src/avatar/gltfRig.ts": "6bf91a7cf15a77c7b472d71076e96a85561c3628ae3c205a658dadc0298eacbb",
+    "frontend/src/avatar/handshapes.ts": "fbec6d7a65a7e12376cf7d95345c82d94773eb17a33120cf64cc913e244beadb",
+    "frontend/src/avatar/library.ts": "6a85a446755dbfbea6444c6e044284c081fb152a9e8be0b0a870abe35163e07c",
+    "frontend/src/avatar/nmm.test.ts": "58024fb74afecdc4cf050b6b0d2deaac2f30b6ce8deafc609311b17f076196f6",
+    "frontend/src/avatar/nmm.ts": "7b314c4c8b8dc4b42339a71073b5847df81784b1e85dfc41f0c23ea394e49ea2",
+    "frontend/src/avatar/pose.ts": "35e5f3a57e3a680a82ca9c9cff19309527be969e715342281e3b063697b82f5d",
+    "frontend/src/avatar/rig.ts": "999c419c130261a0cb20417073a3d0735959198f0532fec7a6500aceba85e3ee",
+    "frontend/src/avatar/transitions.test.ts": "9d2cf525b105dd2abc018c00d7e25792937bfbef1bc2eb9a393bf12c8db87957",
+    "frontend/src/avatar/types.ts": "01f27bfead1fd74e7b8d4ecba9a80d7cc17d192fa2f8f65a0115718517a16f93",
+    "frontend/src/avatar/v2.test.ts": "78f0c98d5cda2d37038099262e1f8412c329264c6c9fb9cbc0caae8976e8f246",
+    "paper/figures.py": "9569bf6e2ebcd48455b6fbef9cd59acb56dee70ca0e40055c6c38a7aab732640",
+    "paper/render_avatar.mjs": "9327e65c85c0c40be45be78230c56b7eb5278cb97840255769f0dffd3e26e1d8",
+    "paper/render_avatar.ts": "561afcb1edb0ecbedfe2ebcf0e8011efa628cbfe98c4434a123e1813186969b8",
+    "paper/requirements.txt": "b3d6ae8cb679064060107475696a1bb2a3e606388f22aa0a042f836ad40794b3",
+    "paper/svg_raster.py": "cdae61edce726ea09f4255c280192555d090052d82a0b56fcc32e92408f071fc"
+  },
+  "items": [
+    {
+      "item_id": "item-001",
+      "stimulus": {
+        "source_text": "I am going to college tomorrow.",
+        "source_language": "English",
+        "translation": {
+          "original_text": "I am going to college tomorrow.",
+          "english_text": "I am going to college tomorrow.",
+          "target_sign_language": "ISL",
+          "intent": "statement",
+          "entities": [
+            {
+              "text": "college",
+              "type": "LOCATION"
+            }
+          ],
+          "gloss": [
+            "TOMORROW",
+            "I",
+            "COLLEGE",
+            "GO"
+          ],
+          "gloss_detail": [
+            {
+              "gloss": "TOMORROW",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "I",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "COLLEGE",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "GO",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            }
+          ],
+          "sentence": {
+            "intent": "statement",
+            "question_type": null,
+            "negated": false,
+            "topic": null
+          },
+          "grammar_rules": [
+            {
+              "id": "legacy_function_word_filter",
+              "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+              "review_status": "unverified",
+              "reviewer": null
+            },
+            {
+              "id": "legacy_category_order",
+              "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+              "review_status": "unverified",
+              "reviewer": null
+            }
+          ],
+          "sequence": [
+            {
+              "gloss": "TOMORROW",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "tomorrow",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 0,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "I",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "i",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 1,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "COLLEGE",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "college",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 2,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "GO",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "go",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.0,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 3,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            }
+          ],
+          "unknown_signs": [],
+          "confidence": 0.6,
+          "engine": "mock",
+          "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter."
+        }
+      },
+      "stimulus_sha256": "364ca1724d3d3d441fb0d230a98076c6e31c680e356d6a5758a90f3d0bd31e4e",
+      "frame_strip": "frames/item-001.png",
+      "blinded_strip": "frames/item-001-blinded.png"
+    },
+    {
+      "item_id": "item-002",
+      "stimulus": {
+        "source_text": "Where is the nearest hospital?",
+        "source_language": "English",
+        "translation": {
+          "original_text": "Where is the nearest hospital?",
+          "english_text": "Where is the nearest hospital?",
+          "target_sign_language": "ISL",
+          "intent": "question",
+          "entities": [
+            {
+              "text": "hospital",
+              "type": "LOCATION"
+            }
+          ],
+          "gloss": [
+            "NEAR",
+            "HOSPITAL",
+            "WHERE"
+          ],
+          "gloss_detail": [
+            {
+              "gloss": "NEAR",
+              "nmm": {
+                "brow": 0.55,
+                "head": [
+                  -6.0,
+                  0.0,
+                  0.0
+                ],
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [
+                "question_nmm_pending_review"
+              ],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "HOSPITAL",
+              "nmm": {
+                "brow": 0.55,
+                "head": [
+                  -6.0,
+                  0.0,
+                  0.0
+                ],
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [
+                "question_nmm_pending_review"
+              ],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "WHERE",
+              "nmm": {
+                "brow": 0.55,
+                "head": [
+                  -6.0,
+                  0.0,
+                  0.0
+                ],
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [
+                "question_nmm_pending_review"
+              ],
+              "nmm_verified": false,
+              "reference": null
+            }
+          ],
+          "sentence": {
+            "intent": "question",
+            "question_type": "wh",
+            "negated": false,
+            "topic": null
+          },
+          "grammar_rules": [
+            {
+              "id": "legacy_function_word_filter",
+              "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+              "review_status": "unverified",
+              "reviewer": null
+            },
+            {
+              "id": "legacy_category_order",
+              "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+              "review_status": "unverified",
+              "reviewer": null
+            }
+          ],
+          "sequence": [
+            {
+              "gloss": "NEAR",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "near",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": 0.55,
+                "head": [
+                  -6.0,
+                  0.0,
+                  0.0
+                ],
+                "mouth": null
+              },
+              "nmm_rules": [
+                "question_nmm_pending_review"
+              ],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 0,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "HOSPITAL",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "hospital",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": 0.55,
+                "head": [
+                  -6.0,
+                  0.0,
+                  0.0
+                ],
+                "mouth": null
+              },
+              "nmm_rules": [
+                "question_nmm_pending_review"
+              ],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 1,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "WHERE",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "where",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.0,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": 0.55,
+                "head": [
+                  -6.0,
+                  0.0,
+                  0.0
+                ],
+                "mouth": null
+              },
+              "nmm_rules": [
+                "question_nmm_pending_review"
+              ],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 2,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            }
+          ],
+          "unknown_signs": [],
+          "confidence": 0.6,
+          "engine": "mock",
+          "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter. Demo / not verified ISL non-manual markers: question_nmm_pending_review."
+        }
+      },
+      "stimulus_sha256": "f366c4a37b3623ffa216049e4b43a264d89cbb4b963a47afc2a41d753d531296",
+      "frame_strip": "frames/item-002.png",
+      "blinded_strip": "frames/item-002-blinded.png"
+    },
+    {
+      "item_id": "item-003",
+      "stimulus": {
+        "source_text": "I want a ticket to the airport.",
+        "source_language": "English",
+        "translation": {
+          "original_text": "I want a ticket to the airport.",
+          "english_text": "I want a ticket to the airport.",
+          "target_sign_language": "ISL",
+          "intent": "statement",
+          "entities": [
+            {
+              "text": "ticket",
+              "type": "OBJECT"
+            },
+            {
+              "text": "airport",
+              "type": "LOCATION"
+            }
+          ],
+          "gloss": [
+            "I",
+            "TICKET",
+            "AIRPORT",
+            "WANT"
+          ],
+          "gloss_detail": [
+            {
+              "gloss": "I",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "TICKET",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "AIRPORT",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "WANT",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            }
+          ],
+          "sentence": {
+            "intent": "statement",
+            "question_type": null,
+            "negated": false,
+            "topic": null
+          },
+          "grammar_rules": [
+            {
+              "id": "legacy_function_word_filter",
+              "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+              "review_status": "unverified",
+              "reviewer": null
+            },
+            {
+              "id": "legacy_category_order",
+              "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+              "review_status": "unverified",
+              "reviewer": null
+            }
+          ],
+          "sequence": [
+            {
+              "gloss": "I",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "i",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 0,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "TICKET",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "ticket",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 1,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "AIRPORT",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "airport",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 2,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "WANT",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "want",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.0,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 3,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            }
+          ],
+          "unknown_signs": [],
+          "confidence": 0.6,
+          "engine": "mock",
+          "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter."
+        }
+      },
+      "stimulus_sha256": "6ae8b83b896d248285165f4c546dc8800fde52d267081cce58c91b72c0fdf234",
+      "frame_strip": "frames/item-003.png",
+      "blinded_strip": "frames/item-003-blinded.png"
+    },
+    {
+      "item_id": "item-004",
+      "stimulus": {
+        "source_text": "Yesterday I went to the market and bought vegetables.",
+        "source_language": "English",
+        "translation": {
+          "original_text": "Yesterday I went to the market and bought vegetables.",
+          "english_text": "Yesterday I went to the market and bought vegetables.",
+          "target_sign_language": "ISL",
+          "intent": "statement",
+          "entities": [
+            {
+              "text": "market",
+              "type": "LOCATION"
+            },
+            {
+              "text": "vegetables",
+              "type": "OBJECT"
+            }
+          ],
+          "gloss": [
+            "YESTERDAY",
+            "I",
+            "MARKET",
+            "VEGETABLE",
+            "GO",
+            "BUY"
+          ],
+          "gloss_detail": [
+            {
+              "gloss": "YESTERDAY",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "I",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "MARKET",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "VEGETABLE",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "GO",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "BUY",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            }
+          ],
+          "sentence": {
+            "intent": "statement",
+            "question_type": null,
+            "negated": false,
+            "topic": null
+          },
+          "grammar_rules": [
+            {
+              "id": "legacy_function_word_filter",
+              "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+              "review_status": "unverified",
+              "reviewer": null
+            },
+            {
+              "id": "demo_function_word_filter_2",
+              "source": "Demo English function-word filter only; not an ISL reference or ISL grammar.",
+              "review_status": "unverified",
+              "reviewer": null
+            },
+            {
+              "id": "legacy_category_order",
+              "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+              "review_status": "unverified",
+              "reviewer": null
+            }
+          ],
+          "sequence": [
+            {
+              "gloss": "YESTERDAY",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "yesterday",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 0,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "I",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "i",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 1,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "MARKET",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "market",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 2,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "VEGETABLE",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "vegetable",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 3,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "GO",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "go",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 4,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "BUY",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "buy",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.0,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 5,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            }
+          ],
+          "unknown_signs": [],
+          "confidence": 0.6,
+          "engine": "mock",
+          "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter."
+        }
+      },
+      "stimulus_sha256": "43e48e12290028a42319647a3123659279ff03207113d97f7abecd54d5e1cf9c",
+      "frame_strip": "frames/item-004.png",
+      "blinded_strip": "frames/item-004-blinded.png"
+    },
+    {
+      "item_id": "item-005",
+      "stimulus": {
+        "source_text": "My father and mother are at home.",
+        "source_language": "English",
+        "translation": {
+          "original_text": "My father and mother are at home.",
+          "english_text": "My father and mother are at home.",
+          "target_sign_language": "ISL",
+          "intent": "statement",
+          "entities": [
+            {
+              "text": "father",
+              "type": "OBJECT"
+            },
+            {
+              "text": "mother",
+              "type": "OBJECT"
+            },
+            {
+              "text": "home",
+              "type": "LOCATION"
+            }
+          ],
+          "gloss": [
+            "MY",
+            "FATHER",
+            "MOTHER",
+            "HOME"
+          ],
+          "gloss_detail": [
+            {
+              "gloss": "MY",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "FATHER",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "MOTHER",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            },
+            {
+              "gloss": "HOME",
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "fs": false,
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null
+            }
+          ],
+          "sentence": {
+            "intent": "statement",
+            "question_type": null,
+            "negated": false,
+            "topic": null
+          },
+          "grammar_rules": [
+            {
+              "id": "demo_function_word_filter_2",
+              "source": "Demo English function-word filter only; not an ISL reference or ISL grammar.",
+              "review_status": "unverified",
+              "reviewer": null
+            },
+            {
+              "id": "legacy_function_word_filter",
+              "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+              "review_status": "unverified",
+              "reviewer": null
+            }
+          ],
+          "sequence": [
+            {
+              "gloss": "MY",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "my",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 0,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "FATHER",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "father",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 1,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "MOTHER",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "mother",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.2,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 2,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            },
+            {
+              "gloss": "HOME",
+              "fs_reason": null,
+              "lemma_tried": null,
+              "synonym_from": null,
+              "sign_id": "home",
+              "available": true,
+              "duration": 1.2,
+              "pause_after": 0.0,
+              "asset_type": "demo",
+              "video_url": null,
+              "clip_url": null,
+              "nmm": {
+                "brow": null,
+                "head": null,
+                "mouth": null
+              },
+              "nmm_rules": [],
+              "nmm_verified": false,
+              "reference": null,
+              "source": null,
+              "licence": null,
+              "signer": null,
+              "review_status": "unverified",
+              "needs_manual_review": true,
+              "sequence_index": 3,
+              "timing_source": "demo_estimate",
+              "clip_duration": null,
+              "video_duration": null,
+              "transition_duration": 0.18
+            }
+          ],
+          "unknown_signs": [],
+          "confidence": 0.6,
+          "engine": "mock",
+          "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_function_word_filter."
+        }
+      },
+      "stimulus_sha256": "f4ed401cdbebe3dcb1e8c9cce8013668ad80d11edc83c0d9cd3bdd5110d6a488",
+      "frame_strip": "frames/item-005.png",
+      "blinded_strip": "frames/item-005-blinded.png"
+    }
+  ],
+  "render_hashes": {
+    "review.html": "b6a2c71d700a554a0b0f33798b7ddfa980cdbe82ac97b3c60d1edd9822fd38fc",
+    "frames/item-001.png": "faaa110c6ac130273392af9b5d5d00b1944d07f6759ea55d1622106b03f8f4d5",
+    "frames/item-002.png": "d5e07ff0eb81ec750f655161fa0b2c4015a754c57b2613a9c49e191d83016310",
+    "frames/item-003.png": "987ec246c8d16332b92d68a1040ab14a834327abbf1eb265ace8e48607e960c7",
+    "frames/item-004.png": "fb6a47ab34b856335fac3c24bbe80bd4726de73e3d26f477e5f8c6ad65d005c9",
+    "frames/item-005.png": "8fa920ce01c138a588649b8d3ed1fdbae3872adc6a2d743179da30696d906052",
+    "frames/item-001-blinded.png": "f437805c1456a9a59ee7677448812c91924f7777eac83e766d866dd57caafdc0",
+    "frames/item-002-blinded.png": "436727733cecec4ba7ddd2119097174130f21aed361122ae872c546845af4f7c",
+    "frames/item-003-blinded.png": "a1368dd2cc7273fd9201c5bea50744eaad06337c4bc2467547d57968deb50755",
+    "frames/item-004-blinded.png": "0f86f4fb7b232811fa3ca56bdc8a10a61f4074fd05f624782be3025d7651b0fe",
+    "frames/item-005-blinded.png": "273630f1b14a00396c335a72a2f4444d6d052d4b6a1049a8b3efeaf08b126cf8"
+  }
+}

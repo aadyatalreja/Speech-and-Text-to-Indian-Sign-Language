@@ -1,0 +1,18 @@
+{
+  "id": 9,
+  "title": "Progressive Transformers for End-to-End Sign Language Production",
+  "authors": [
+    "Ben Saunders",
+    "Necati Cihan Camgoz",
+    "Richard Bowden"
+  ],
+  "year": 2020,
+  "url": "https://arxiv.org/abs/2004.14874",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2004.14874",
+  "arxiv": "2004.14874",
+  "project_relevance": "Continuous text-to-pose production",
+  "verified_on": "2026-11-03"
+}

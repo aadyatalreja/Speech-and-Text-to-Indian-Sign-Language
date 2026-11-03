@@ -1,0 +1,18 @@
+{
+  "id": 21,
+  "title": "Data Augmentation for Sign Language Gloss Translation",
+  "authors": [
+    "Amit Moryossef",
+    "Kayo Yin",
+    "Graham Neubig",
+    "Yoav Goldberg"
+  ],
+  "year": 2021,
+  "url": "https://aclanthology.org/2021.mtsummit-at4ssl.1/",
+  "doi": "",
+  "venue": "Proceedings of the 1st International Workshop on Automatic Translation for Signed and Spoken Languages (AT4SSL)",
+  "record_type": "conference paper",
+  "metadata_source": "https://aclanthology.org/2021.mtsummit-at4ssl.1/",
+  "project_relevance": "Low-resource gloss translation and synthetic data",
+  "verified_on": "2026-11-03"
+}

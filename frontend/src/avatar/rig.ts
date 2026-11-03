@@ -19,6 +19,8 @@ const MCP = 80 * (Math.PI / 180), PIP = 100 * (Math.PI / 180), DIP = 60 * (Math.
 const DEG = Math.PI / 180;
 /** Hands are drawn 1.3x life-size: hands carry the language, so they must read at a glance. */
 const HAND_SCALE = 1.3;
+/** Display gains only, not linguistic amplitudes. PoseFollower smooths these inputs. */
+export const EXPRESSION_STYLE = { browRaise: 0.085, browLower: 0.065, browSlope: 0.48, headGain: 1.2, gazeSquint: 0.10, browSquint: 0.22 };
 
 export interface RigColors { skin: string; shirt: string; hair: string; accent: string }
 
@@ -92,7 +94,7 @@ export class AvatarRig {
       lid.scale.set(1, 0.001, 0.5);
       this.lids.push(lid);
       this.head.add(white, lid);
-      const brow = new THREE.Mesh(new THREE.CapsuleGeometry(0.012, 0.09, 4, 8), this.mats.hair);
+      const brow = new THREE.Mesh(new THREE.CapsuleGeometry(0.016, 0.10, 4, 8), this.mats.hair);
       brow.rotation.z = Math.PI / 2;
       brow.position.set(s * 0.105, 0.48, 0.275);
       this.brows.push(brow);
@@ -250,19 +252,27 @@ export class AvatarRig {
       this.poseHand(hand, st);
       hand.root.position.copy(w); // wrist snaps to the reachable point
     }
-    this.head.rotation.set(p.head[0] * DEG, p.head[1] * DEG, p.head[2] * DEG, "YXZ");
+    this.head.rotation.set(...p.head.map(v => bounded(v * EXPRESSION_STYLE.headGain, -90, 90) * DEG) as [number, number, number], "YXZ");
+    // Smooth monotone display response; channel sign/range and authored timing stay intact.
+    const response = (v: number | undefined) => Math.sin(bounded(v, 0, 1) * Math.PI / 2);
     this.brows.forEach((b, i) => {
-      const down = bounded(i === 0 ? face.brow_down_right : face.brow_down_left, 0, 1);
-      b.position.y = 0.48 + 0.045 * (bounded(face.brow_inner_up, 0, 1) - down);
-      b.rotation.z = Math.PI / 2 + (i === 0 ? 1 : -1) * 0.18 * down;
+      const down = response(i === 0 ? face.brow_down_right : face.brow_down_left);
+      const up = response(face.brow_inner_up);
+      b.position.y = 0.48 + EXPRESSION_STYLE.browRaise * up - EXPRESSION_STYLE.browLower * down;
+      b.position.x = (i === 0 ? -1 : 1) * (0.105 - 0.014 * down);
+      b.rotation.z = Math.PI / 2 + (i === 0 ? -1 : 1) * EXPRESSION_STYLE.browSlope * down;
     });
-    const round = bounded(face.mouth_round, 0, 1);
-    this.mouth.scale.set(1.2 + bounded(face.mouth_wide, 0, 1) * 0.8 - round * 0.55, 0.35 + 1.4 * bounded(face.mouth_open, 0, 1) + round * 0.4, 0.4 + round * 0.3);
+    const round = response(face.mouth_round);
+    this.mouth.scale.set(1.2 + response(face.mouth_wide) * 1.2 - round * 0.55, 0.28 + 2.1 * response(face.mouth_open) + round * 0.85, 0.4 + round * 0.3);
     this.eyes.forEach((eye, i) => {
-      eye.position.x = (i === 0 ? -1 : 1) * 0.105 + bounded(face.gaze_x, -1, 1) * 0.018;
-      eye.position.y = 0.4 + bounded(face.gaze_y, -1, 1) * 0.014;
-      eye.scale.y = 1 - 0.98 * bounded(face.eye_blink, 0, 1);
-      this.lids[i].scale.y = Math.max(0.001, bounded(face.eye_blink, 0, 1));
+      eye.position.x = (i === 0 ? -1 : 1) * 0.105 + bounded(face.gaze_x, -1, 1) * 0.024;
+      eye.position.y = 0.4 + bounded(face.gaze_y, -1, 1) * 0.020;
+      // Cosmetic squint from existing gaze/brow channels; no new semantic channel.
+      const tension = response(i === 0 ? face.brow_down_right : face.brow_down_left);
+      const squint = Math.max(Math.abs(bounded(face.gaze_x, -1, 1)), Math.abs(bounded(face.gaze_y, -1, 1))) * EXPRESSION_STYLE.gazeSquint + tension * EXPRESSION_STYLE.browSquint;
+      const closure = Math.max(squint, bounded(face.eye_blink, 0, 1));
+      eye.scale.y = 1 - 0.98 * closure;
+      this.lids[i].scale.y = Math.max(0.001, closure);
     });
   }
 

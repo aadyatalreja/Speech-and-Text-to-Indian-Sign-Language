@@ -1,0 +1,3551 @@
+{
+  "source_language": "kn-IN",
+  "pipeline": "Deterministic offline Indic-to-English demo glossary then English lookup/gloss; no model calls.",
+  "description": "English repository coverage and translation pipeline only; not ISL grammar, accuracy or signer evaluation.",
+  "definition": "FS tokens / emitted gloss tokens in successfully measured sentences. OOV ranking excludes name_heuristic and explicit tokens.",
+  "sentences": [
+    {
+      "sentence": "ನಾನು ನಾಳೆ ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ.",
+      "english_text": "i tomorrow ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಿದ್ದೇನೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಕಾಲೇಜಿಗೆ, ಹೋಗುತ್ತಿದ್ದೇನೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "FS:KAALEJIGE",
+        "FS:HOGUTTIDDENE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAALEJIGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOGUTTIDDENE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಆವರಣದಲ್ಲಿ ಗ್ರಂಥಾಲಯ ಎಲ್ಲಿದೆ?",
+      "english_text": "ಆವರಣದಲ್ಲಿ library ಎಲ್ಲಿದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಆವರಣದಲ್ಲಿ, ಎಲ್ಲಿದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:AAVARANADALLI",
+        "LIBRARY",
+        "FS:ELLIDE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "FS:AAVARANADALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LIBRARY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ELLIDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ತರಗತಿ ಮುಖ್ಯ ದ್ವಾರದ ಹತ್ತಿರ ಇದೆ.",
+      "english_text": "classroom ಮುಖ್ಯ ದ್ವಾರದ ಹತ್ತಿರ ಇದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮುಖ್ಯ, ದ್ವಾರದ, ಹತ್ತಿರ, ಇದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "CLASSROOM",
+        "FS:MUKHYA",
+        "FS:DVAARADA",
+        "FS:HATTIRA",
+        "FS:IDE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "CLASSROOM",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MUKHYA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DVAARADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HATTIRA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ದಯವಿಟ್ಟು ವಿಜ್ಞಾನ ಪ್ರಯೋಗಾಲಯವನ್ನು ಹುಡುಕಲು ನನಗೆ ಸಹಾಯ ಮಾಡಿ.",
+      "english_text": "please ವಿಜ್ಞಾನ ಪ್ರಯೋಗಾಲಯವನ್ನು ಹುಡುಕಲು me help ಮಾಡಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ವಿಜ್ಞಾನ, ಪ್ರಯೋಗಾಲಯವನ್ನು, ಹುಡುಕಲು, ಮಾಡಿ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "FS:VIJNYAANA",
+        "FS:PRAYOGAALAYAVANNU",
+        "FS:HUDUKALU",
+        "ME",
+        "FS:MAADI",
+        "HELP"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VIJNYAANA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PRAYOGAALAYAVANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUDUKALU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAADI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನಗೆ ತರಗತಿಗಾಗಿ ಒಂದು ನೋಟುಪುಸ್ತಕ ಬೇಕು.",
+      "english_text": "me ತರಗತಿಗಾಗಿ one notebook need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ತರಗತಿಗಾಗಿ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "FS:TARAGATIGAAGI",
+        "ONE",
+        "NOTEBOOK",
+        "NEED"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TARAGATIGAAGI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ONE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NOTEBOOK",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಮ್ಮ ಪರೀಕ್ಷೆ ನಾಳೆ ಒಂಬತ್ತು ಗಂಟೆಗೆ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ.",
+      "english_text": "our exam tomorrow nine ಗಂಟೆಗೆ ಪ್ರಾರಂಭವಾಗುತ್ತದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಗಂಟೆಗೆ, ಪ್ರಾರಂಭವಾಗುತ್ತದೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "OUR",
+        "EXAM",
+        "NINE",
+        "FS:GAMTEGE",
+        "FS:PRAARAMBHAVAAGUTTADE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "OUR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EXAM",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NINE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GAMTEGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PRAARAMBHAVAAGUTTADE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಶಿಕ್ಷಕರು ಕಚೇರಿಯಲ್ಲಿ ಕಾಯುತ್ತಿದ್ದಾರೆ.",
+      "english_text": "teacher ಕಚೇರಿಯಲ್ಲಿ ಕಾಯುತ್ತಿದ್ದಾರೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಕಚೇರಿಯಲ್ಲಿ, ಕಾಯುತ್ತಿದ್ದಾರೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TEACHER",
+        "FS:KACHERIYALLI",
+        "FS:KAAYUTTIDDAARE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "TEACHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KACHERIYALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAAYUTTIDDAARE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ನನ್ನ ಚೀಲವನ್ನು ಉಪನ್ಯಾಸ ಸಭಾಂಗಣದಲ್ಲಿ ಬಿಟ್ಟುಬಂದೆ.",
+      "english_text": "i my ಚೀಲವನ್ನು ಉಪನ್ಯಾಸ ಸಭಾಂಗಣದಲ್ಲಿ ಬಿಟ್ಟುಬಂದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಚೀಲವನ್ನು, ಉಪನ್ಯಾಸ, ಸಭಾಂಗಣದಲ್ಲಿ, ಬಿಟ್ಟುಬಂದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "MY",
+        "FS:CHIILAVANNU",
+        "FS:UPANYAASA",
+        "FS:SABHAAMGANADALLI",
+        "FS:BITTUBAMDE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CHIILAVANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:UPANYAASA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SABHAAMGANADALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BITTUBAMDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಕಾರ್ಯಾಗಾರದ ನಂತರ ನಾವು ಭೇಟಿಯಾಗಬಹುದೇ?",
+      "english_text": "ಕಾರ್ಯಾಗಾರದ ನಂತರ we ಭೇಟಿಯಾಗಬಹುದೇ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಕಾರ್ಯಾಗಾರದ, ನಂತರ, ಭೇಟಿಯಾಗಬಹುದೇ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:KAARYAAGAARADA",
+        "FS:NAMTARA",
+        "WE",
+        "FS:BHETIYAAGABAHUDE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:KAARYAAGAARADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NAMTARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BHETIYAAGABAHUDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಆವರಣಕ್ಕೆ ಹೋಗುವ ಬಸ್ ತಡವಾಗಿದೆ.",
+      "english_text": "ಆವರಣಕ್ಕೆ ಹೋಗುವ bus ತಡವಾಗಿದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಆವರಣಕ್ಕೆ, ಹೋಗುವ, ತಡವಾಗಿದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:AAVARANAKKE",
+        "FS:HOGUVA",
+        "BUS",
+        "FS:TADAVAAGIDE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:AAVARANAKKE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOGUVA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TADAVAAGIDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ಕ್ರೀಡಾ ಕ್ಲಬ್ ಸೇರಲು ಬಯಸುತ್ತೇನೆ.",
+      "english_text": "i ಕ್ರೀಡಾ ಕ್ಲಬ್ ಸೇರಲು ಬಯಸುತ್ತೇನೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಕ್ರೀಡಾ, ಕ್ಲಬ್, ಸೇರಲು, ಬಯಸುತ್ತೇನೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "FS:KRIIDAA",
+        "FS:KLAB",
+        "FS:SERALU",
+        "FS:BAYASUTTENE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KRIIDAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KLAB",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SERALU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAYASUTTENE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ದಯವಿಟ್ಟು ವಸತಿನಿಲಯ ಎಲ್ಲಿದೆ ಎಂದು ನನಗೆ ಹೇಳಿ.",
+      "english_text": "please hostel ಎಲ್ಲಿದೆ ಎಂದು me ಹೇಳಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಎಲ್ಲಿದೆ, ಎಂದು, ಹೇಳಿ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "HOSTEL",
+        "FS:ELLIDE",
+        "FS:EMDU",
+        "ME",
+        "FS:HELI"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOSTEL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ELLIDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:EMDU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HELI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಹತ್ತಿರದ ಆಸ್ಪತ್ರೆ ಎಲ್ಲಿದೆ?",
+      "english_text": "ಹತ್ತಿರದ hospital ಎಲ್ಲಿದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಹತ್ತಿರದ, ಎಲ್ಲಿದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:HATTIRADA",
+        "HOSPITAL",
+        "FS:ELLIDE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "FS:HATTIRADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOSPITAL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ELLIDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಈ ಅಪಾಯಿಂಟ್ಮೆಂಟ್‌ಗೆ ನನಗೆ ಸಹಾಯ ಬೇಕು.",
+      "english_text": "ಈ ಅಪಾಯಿಂಟ್ಮೆಂಟ್‌ಗೆ me help need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಈ, ಅಪಾಯಿಂಟ್ಮೆಂಟ್‌ಗೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:II",
+        "FS:APAAYIMTMEMT",
+        "FS:GE",
+        "ME",
+        "HELP",
+        "NEED"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:II",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APAAYIMTMEMT",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನ್ನ ತಾಯಿಗೆ ಇಂದು ಜ್ವರ ಇದೆ.",
+      "english_text": "my ತಾಯಿಗೆ today fever ಇದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ತಾಯಿಗೆ, ಇದೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TODAY",
+        "MY",
+        "FS:TAAYIGE",
+        "FEVER",
+        "FS:IDE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "TODAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TAAYIGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FEVER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ದಯವಿಟ್ಟು ನನ್ನ ತಂದೆಗೆ ವೈದ್ಯರನ್ನು ಕರೆಸಿ.",
+      "english_text": "please my ತಂದೆಗೆ ವೈದ್ಯರನ್ನು ಕರೆಸಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ತಂದೆಗೆ, ವೈದ್ಯರನ್ನು, ಕರೆಸಿ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "MY",
+        "FS:TAMDEGE",
+        "FS:VAIDYARANNU",
+        "FS:KARESI"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TAMDEGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VAIDYARANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KARESI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನರ್ಸ್ ನನಗೆ ಇಲ್ಲಿ ಕಾಯಲು ಹೇಳಿದರು.",
+      "english_text": "nurse me ಇಲ್ಲಿ ಕಾಯಲು ಹೇಳಿದರು",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಇಲ್ಲಿ, ಕಾಯಲು, ಹೇಳಿದರು. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "NURSE",
+        "ME",
+        "FS:ILLI",
+        "FS:KAAYALU",
+        "FS:HELIDARU"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "NURSE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ILLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAAYALU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HELIDARU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನಗೆ ನೀರು ಮತ್ತು ಕುಳಿತುಕೊಳ್ಳಲು ಸ್ಥಳ ಬೇಕು.",
+      "english_text": "me water ಮತ್ತು ಕುಳಿತುಕೊಳ್ಳಲು ಸ್ಥಳ need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮತ್ತು, ಕುಳಿತುಕೊಳ್ಳಲು, ಸ್ಥಳ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "WATER",
+        "FS:MATTU",
+        "FS:KULITUKOLLALU",
+        "FS:STHALA",
+        "NEED"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WATER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MATTU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KULITUKOLLALU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:STHALA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನ್ನ ಔಷಧಿಯನ್ನು ನಾನು ಎಲ್ಲಿ ಪಡೆಯಬಹುದು?",
+      "english_text": "my ಔಷಧಿಯನ್ನು i where ಪಡೆಯಬಹುದು",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಔಷಧಿಯನ್ನು, ಪಡೆಯಬಹುದು. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "FS:AUSHADHIYANNU",
+        "I",
+        "FS:PADEYABAHUDU",
+        "WHERE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AUSHADHIYANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PADEYABAHUDU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಊಟದ ನಂತರ ನನ್ನ ಹೊಟ್ಟೆ ನೋಯುತ್ತದೆ.",
+      "english_text": "ಊಟದ ನಂತರ my stomach ನೋಯುತ್ತದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಊಟದ, ನಂತರ, ನೋಯುತ್ತದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:UUTADA",
+        "FS:NAMTARA",
+        "MY",
+        "STOMACH",
+        "FS:NOYUTTADE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:UUTADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NAMTARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "STOMACH",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NOYUTTADE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಕ್ಲಿನಿಕ್ ನಾಳೆ ಎಂಟು ಗಂಟೆಗೆ ತೆರೆಯುತ್ತದೆ.",
+      "english_text": "ಕ್ಲಿನಿಕ್ tomorrow eight ಗಂಟೆಗೆ ತೆರೆಯುತ್ತದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಕ್ಲಿನಿಕ್, ಗಂಟೆಗೆ, ತೆರೆಯುತ್ತದೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "FS:KLINIK",
+        "EIGHT",
+        "FS:GAMTEGE",
+        "FS:TEREYUTTADE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KLINIK",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EIGHT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GAMTEGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TEREYUTTADE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ದಯವಿಟ್ಟು ತುರ್ತು ಪ್ರವೇಶದ್ವಾರವನ್ನು ನನಗೆ ತೋರಿಸಿ.",
+      "english_text": "please ತುರ್ತು ಪ್ರವೇಶದ್ವಾರವನ್ನು me ತೋರಿಸಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ತುರ್ತು, ಪ್ರವೇಶದ್ವಾರವನ್ನು, ತೋರಿಸಿ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "FS:TURTU",
+        "FS:PRAVESHADVAARAVANNU",
+        "ME",
+        "FS:TORISI"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TURTU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PRAVESHADVAARAVANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TORISI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ನಿನ್ನೆಯ ವರದಿಗಳನ್ನು ತಂದಿದ್ದೇನೆ.",
+      "english_text": "i ನಿನ್ನೆಯ ವರದಿಗಳನ್ನು ತಂದಿದ್ದೇನೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ನಿನ್ನೆಯ, ವರದಿಗಳನ್ನು, ತಂದಿದ್ದೇನೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "FS:NINNEYA",
+        "FS:VARADIGALANNU",
+        "FS:TAMDIDDENE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NINNEYA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VARADIGALANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TAMDIDDENE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನ್ನ ಸಹೋದರಿ ನನ್ನೊಂದಿಗೆ ಇರಬಹುದೇ?",
+      "english_text": "my sister ನನ್ನೊಂದಿಗೆ ಇರಬಹುದೇ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ನನ್ನೊಂದಿಗೆ, ಇರಬಹುದೇ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "SISTER",
+        "FS:NANNOMDIGE",
+        "FS:IRABAHUDE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SISTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NANNOMDIGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IRABAHUDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನಗೆ ವಿಮಾನನಿಲ್ದಾಣಕ್ಕೆ ಟಿಕೆಟ್ ಬೇಕು.",
+      "english_text": "me ವಿಮಾನನಿಲ್ದಾಣಕ್ಕೆ ticket need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ವಿಮಾನನಿಲ್ದಾಣಕ್ಕೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "FS:VIMAANANILDAANAKKE",
+        "TICKET",
+        "NEED"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VIMAANANILDAANAKKE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TICKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಈ ರೈಲು ಎಲ್ಲಿ ನಿಲ್ಲುತ್ತದೆ?",
+      "english_text": "ಈ train where ನಿಲ್ಲುತ್ತದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಈ, ನಿಲ್ಲುತ್ತದೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:II",
+        "TRAIN",
+        "FS:NILLUTTADE",
+        "WHERE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "FS:II",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TRAIN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NILLUTTADE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಮುಂದಿನ ಬಸ್ ಹತ್ತು ನಿಮಿಷಗಳಲ್ಲಿ ಬರುತ್ತದೆ.",
+      "english_text": "ಮುಂದಿನ bus ten ನಿಮಿಷಗಳಲ್ಲಿ ಬರುತ್ತದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮುಂದಿನ, ನಿಮಿಷಗಳಲ್ಲಿ, ಬರುತ್ತದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:MUMDINA",
+        "BUS",
+        "TEN",
+        "FS:NIMISHAGALALLI",
+        "FS:BARUTTADE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:MUMDINA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TEN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NIMISHAGALALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BARUTTADE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ದಯವಿಟ್ಟು ನನ್ನ ಆಸನ ಹುಡುಕಲು ಸಹಾಯ ಮಾಡಿ.",
+      "english_text": "please my seat ಹುಡುಕಲು help ಮಾಡಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಹುಡುಕಲು, ಮಾಡಿ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "MY",
+        "SEAT",
+        "FS:HUDUKALU",
+        "FS:MAADI",
+        "HELP"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SEAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUDUKALU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAADI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ನನ್ನ ಸೂಟ್‌ಕೇಸ್ ಅನ್ನು ನಿಲ್ದಾಣದಲ್ಲಿ ಬಿಟ್ಟುಬಂದೆ.",
+      "english_text": "i my ಸೂಟ್‌ಕೇಸ್ ಅನ್ನು ನಿಲ್ದಾಣದಲ್ಲಿ ಬಿಟ್ಟುಬಂದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಸೂಟ್‌ಕೇಸ್, ಅನ್ನು, ನಿಲ್ದಾಣದಲ್ಲಿ, ಬಿಟ್ಟುಬಂದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "MY",
+        "FS:SUUT",
+        "FS:KES",
+        "FS:ANNU",
+        "FS:NILDAANADALLI",
+        "FS:BITTUBAMDE"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SUUT",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KES",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NILDAANADALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BITTUBAMDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾವು ನಾಳೆ ಮನೆಗೆ ಹೋಗುತ್ತಿದ್ದೇವೆ.",
+      "english_text": "we tomorrow ಮನೆಗೆ ಹೋಗುತ್ತಿದ್ದೇವೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮನೆಗೆ, ಹೋಗುತ್ತಿದ್ದೇವೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "WE",
+        "FS:MANEGE",
+        "FS:HOGUTTIDDEVE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MANEGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOGUTTIDDEVE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಹೋಟೆಲ್ ಮಾರುಕಟ್ಟೆಯ ಹತ್ತಿರ ಇದೆಯೇ?",
+      "english_text": "hotel ಮಾರುಕಟ್ಟೆಯ ಹತ್ತಿರ ಇದೆಯೇ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮಾರುಕಟ್ಟೆಯ, ಹತ್ತಿರ, ಇದೆಯೇ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "HOTEL",
+        "FS:MAARUKATTEYA",
+        "FS:HATTIRA",
+        "FS:IDEYE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "HOTEL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAARUKATTEYA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HATTIRA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IDEYE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನಗೆ ಬಸ್ ನಿಲ್ದಾಣಕ್ಕೆ ದಾರಿ ಬೇಕು.",
+      "english_text": "me bus ನಿಲ್ದಾಣಕ್ಕೆ ದಾರಿ need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ನಿಲ್ದಾಣಕ್ಕೆ, ದಾರಿ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "BUS",
+        "FS:NILDAANAKKE",
+        "FS:DAARI",
+        "NEED"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NILDAANAKKE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DAARI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಯಾವಾಗ ಇಳಿಯಬೇಕು ಎಂದು ನೀವು ನನಗೆ ಹೇಳಬಹುದೇ?",
+      "english_text": "when ಇಳಿಯಬೇಕು ಎಂದು you me ಹೇಳಬಹುದೇ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಇಳಿಯಬೇಕು, ಎಂದು, ಹೇಳಬಹುದೇ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:ILIYABEKU",
+        "FS:EMDU",
+        "YOU",
+        "ME",
+        "FS:HELABAHUDE",
+        "WHEN"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:ILIYABEKU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:EMDU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HELABAHUDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHEN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನ್ನ ವಿಮಾನ ಎರಡು ಗಂಟೆ ತಡವಾಗಿದೆ.",
+      "english_text": "my ವಿಮಾನ two ಗಂಟೆ ತಡವಾಗಿದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ವಿಮಾನ, ಗಂಟೆ, ತಡವಾಗಿದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "FS:VIMAANA",
+        "TWO",
+        "FS:GAMTE",
+        "FS:TADAVAAGIDE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VIMAANA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TWO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GAMTE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TADAVAAGIDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ದ್ವಾರದ ಹೊರಗೆ ಒಂದು ಟ್ಯಾಕ್ಸಿ ಇದೆ.",
+      "english_text": "ದ್ವಾರದ ಹೊರಗೆ one taxi ಇದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ದ್ವಾರದ, ಹೊರಗೆ, ಇದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:DVAARADA",
+        "FS:HORAGE",
+        "ONE",
+        "TAXI",
+        "FS:IDE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:DVAARADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HORAGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ONE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TAXI",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ಟಿಕೆಟ್ ಖರೀದಿಸುವವರೆಗೆ ದಯವಿಟ್ಟು ಇಲ್ಲಿ ಕಾಯಿರಿ.",
+      "english_text": "i ticket ಖರೀದಿಸುವವರೆಗೆ please ಇಲ್ಲಿ ಕಾಯಿರಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಖರೀದಿಸುವವರೆಗೆ, ಇಲ್ಲಿ, ಕಾಯಿರಿ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "TICKET",
+        "FS:KHARIIDISUVAVAREGE",
+        "PLEASE",
+        "FS:ILLI",
+        "FS:KAAYIRI"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TICKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHARIIDISUVAVAREGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ILLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAAYIRI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಿನ್ನೆ ನಾನು ಮಾರುಕಟ್ಟೆಗೆ ಹೋಗಿ ತರಕಾರಿಗಳನ್ನು ಖರೀದಿಸಿದೆ.",
+      "english_text": "ನಿನ್ನೆ i ಮಾರುಕಟ್ಟೆಗೆ ಹೋಗಿ ತರಕಾರಿಗಳನ್ನು ಖರೀದಿಸಿದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ನಿನ್ನೆ, ಮಾರುಕಟ್ಟೆಗೆ, ಹೋಗಿ, ತರಕಾರಿಗಳನ್ನು, ಖರೀದಿಸಿದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:NINNE",
+        "I",
+        "FS:MAARUKATTEGE",
+        "FS:HOGI",
+        "FS:TARAKAARIGALANNU",
+        "FS:KHARIIDISIDE"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "FS:NINNE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAARUKATTEGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOGI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TARAKAARIGALANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHARIIDISIDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಈ ಶರ್ಟ್‌ನ ಬೆಲೆ ಎಷ್ಟು?",
+      "english_text": "ಈ ಶರ್ಟ್‌ನ price ಎಷ್ಟು",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಈ, ಶರ್ಟ್‌ನ, ಎಷ್ಟು. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:II",
+        "FS:SHART",
+        "FS:NA",
+        "PRICE",
+        "FS:ESHTU"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "FS:II",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SHART",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "PRICE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ESHTU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ಅಕ್ಕಿ ಮತ್ತು ಹಾಲು ಖರೀದಿಸಲು ಬಯಸುತ್ತೇನೆ.",
+      "english_text": "i rice ಮತ್ತು milk buy ಬಯಸುತ್ತೇನೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮತ್ತು, ಬಯಸುತ್ತೇನೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "RICE",
+        "FS:MATTU",
+        "MILK",
+        "FS:BAYASUTTENE",
+        "BUY"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "RICE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MATTU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MILK",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAYASUTTENE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಈ ಬೂಟುಗಳು ನೀಲಿ ಬಣ್ಣದಲ್ಲಿ ನಿಮ್ಮ ಬಳಿ ಇವೆಯೇ?",
+      "english_text": "ಈ ಬೂಟುಗಳು blue ಬಣ್ಣದಲ್ಲಿ ನಿಮ್ಮ ಬಳಿ ಇವೆಯೇ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಈ, ಬೂಟುಗಳು, ಬಣ್ಣದಲ್ಲಿ, ನಿಮ್ಮ, ಬಳಿ, ಇವೆಯೇ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:II",
+        "FS:BUUTUGALU",
+        "BLUE",
+        "FS:BANNADALLI",
+        "FS:NIMMA",
+        "FS:BALI",
+        "FS:IVEYE"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "FS:II",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BUUTUGALU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BLUE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BANNADALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NIMMA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BALI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IVEYE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ದಯವಿಟ್ಟು ನನಗೆ ಇನ್ನೂ ಚಿಕ್ಕ ಚೀಲ ಕೊಡಿ.",
+      "english_text": "please me ಇನ್ನೂ small bag ಕೊಡಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಇನ್ನೂ, ಕೊಡಿ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "FS:INNUU",
+        "SMALL",
+        "BAG",
+        "FS:KODI"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:INNUU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SMALL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BAG",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KODI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ದಿನಸಿಗೆ ನಗದು ಪಾವತಿಸಿದೆ.",
+      "english_text": "i ದಿನಸಿಗೆ cash ಪಾವತಿಸಿದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ದಿನಸಿಗೆ, ಪಾವತಿಸಿದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "FS:DINASIGE",
+        "CASH",
+        "FS:PAAVATISIDE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DINASIGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CASH",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PAAVATISIDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಹತ್ತಿರದ ಹಣ್ಣಿನ ಅಂಗಡಿ ಎಲ್ಲಿದೆ?",
+      "english_text": "ಹತ್ತಿರದ ಹಣ್ಣಿನ shop ಎಲ್ಲಿದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಹತ್ತಿರದ, ಹಣ್ಣಿನ, ಎಲ್ಲಿದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:HATTIRADA",
+        "FS:HANNINA",
+        "SHOP",
+        "FS:ELLIDE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:HATTIRADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HANNINA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SHOP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ELLIDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಈ ಬಾಟಲಿ ನನ್ನ ಸಹೋದರಿಗಾಗಿ.",
+      "english_text": "ಈ ಬಾಟಲಿ my ಸಹೋದರಿಗಾಗಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಈ, ಬಾಟಲಿ, ಸಹೋದರಿಗಾಗಿ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:II",
+        "FS:BAATALI",
+        "MY",
+        "FS:SAHODARIGAAGI"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:II",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAATALI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAHODARIGAAGI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ನಾಳೆ ಆ ಜಾಕೆಟ್ ಬದಲಾಯಿಸಬಹುದೇ?",
+      "english_text": "i tomorrow ಆ ಜಾಕೆಟ್ ಬದಲಾಯಿಸಬಹುದೇ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಆ, ಜಾಕೆಟ್, ಬದಲಾಯಿಸಬಹುದೇ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "FS:AA",
+        "FS:JAAKET",
+        "FS:BADALAAYISABAHUDE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JAAKET",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BADALAAYISABAHUDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಭಾನುವಾರ ಅಂಗಡಿ ಮುಚ್ಚಿರುತ್ತದೆ.",
+      "english_text": "sunday shop ಮುಚ್ಚಿರುತ್ತದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮುಚ್ಚಿರುತ್ತದೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "SUNDAY",
+        "SHOP",
+        "FS:MUCHCHIRUTTADE"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "SUNDAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SHOP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MUCHCHIRUTTADE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನಗೆ ಬ್ರೆಡ್ ಬೇಕು ಆದರೆ ಬೆಣ್ಣೆ ಬೇಡ.",
+      "english_text": "me bread need ಆದರೆ ಬೆಣ್ಣೆ ಬೇಡ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಆದರೆ, ಬೆಣ್ಣೆ, ಬೇಡ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "BREAD",
+        "FS:AADARE",
+        "FS:BENNE",
+        "FS:BEDA",
+        "NEED"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BREAD",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AADARE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BENNE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BEDA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ದಯವಿಟ್ಟು ಆ ಸೇಬುಗಳನ್ನು ಈ ಬುಟ್ಟಿಯಲ್ಲಿ ಇಡಿ.",
+      "english_text": "please ಆ ಸೇಬುಗಳನ್ನು ಈ ಬುಟ್ಟಿಯಲ್ಲಿ ಇಡಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಆ, ಸೇಬುಗಳನ್ನು, ಈ, ಬುಟ್ಟಿಯಲ್ಲಿ, ಇಡಿ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "FS:AA",
+        "FS:SEBUGALANNU",
+        "FS:II",
+        "FS:BUTTIYALLI",
+        "FS:IDI"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SEBUGALANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:II",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BUTTIYALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IDI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನ್ನ ತಂದೆ ಮತ್ತು ತಾಯಿ ಮನೆಯಲ್ಲಿದ್ದಾರೆ.",
+      "english_text": "my father ಮತ್ತು mother ಮನೆಯಲ್ಲಿದ್ದಾರೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮತ್ತು, ಮನೆಯಲ್ಲಿದ್ದಾರೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "FATHER",
+        "FS:MATTU",
+        "MOTHER",
+        "FS:MANEYALLIDDAARE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FATHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MATTU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MOTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MANEYALLIDDAARE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ನಾಳೆ ನನ್ನ ಅಜ್ಜಿಯನ್ನು ಭೇಟಿ ಮಾಡುತ್ತಿದ್ದೇನೆ.",
+      "english_text": "i tomorrow my ಅಜ್ಜಿಯನ್ನು ಭೇಟಿ ಮಾಡುತ್ತಿದ್ದೇನೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಅಜ್ಜಿಯನ್ನು, ಭೇಟಿ, ಮಾಡುತ್ತಿದ್ದೇನೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "MY",
+        "FS:AJJIYANNU",
+        "FS:BHETI",
+        "FS:MAADUTTIDDENE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AJJIYANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BHETI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAADUTTIDDENE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನ್ನ ಸಹೋದರ ಬಸ್‌ನಲ್ಲಿ ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಾನೆ.",
+      "english_text": "my brother ಬಸ್‌ನಲ್ಲಿ ಕಾಲೇಜಿಗೆ ಹೋಗುತ್ತಾನೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಬಸ್‌ನಲ್ಲಿ, ಕಾಲೇಜಿಗೆ, ಹೋಗುತ್ತಾನೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "BROTHER",
+        "FS:BAS",
+        "FS:NALLI",
+        "FS:KAALEJIGE",
+        "FS:HOGUTTAANE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BROTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAS",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAALEJIGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOGUTTAANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ದಯವಿಟ್ಟು ನನ್ನ ಸಹೋದರಿಗೆ ಅವಳ ಮನೆಕೆಲಸದಲ್ಲಿ ಸಹಾಯ ಮಾಡಿ.",
+      "english_text": "please my ಸಹೋದರಿಗೆ ಅವಳ ಮನೆಕೆಲಸದಲ್ಲಿ help ಮಾಡಿ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಸಹೋದರಿಗೆ, ಅವಳ, ಮನೆಕೆಲಸದಲ್ಲಿ, ಮಾಡಿ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "MY",
+        "FS:SAHODARIGE",
+        "FS:AVALA",
+        "FS:MANEKELASADALLI",
+        "FS:MAADI",
+        "HELP"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAHODARIGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AVALA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MANEKELASADALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAADI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾವು ಸಂಜೆ ಒಟ್ಟಿಗೆ ರಾತ್ರಿಯ ಊಟ ಮಾಡುತ್ತೇವೆ.",
+      "english_text": "we evening ಒಟ್ಟಿಗೆ ರಾತ್ರಿಯ eat ಮಾಡುತ್ತೇವೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಒಟ್ಟಿಗೆ, ರಾತ್ರಿಯ, ಮಾಡುತ್ತೇವೆ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "EVENING",
+        "WE",
+        "FS:OTTIGE",
+        "FS:RAATRIYA",
+        "FS:MAADUTTEVE",
+        "EAT"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "EVENING",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:OTTIGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAATRIYA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAADUTTEVE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನಾನು ನನ್ನ ಸಂಬಂಧಿಗೆ ಉಡುಗೊರೆ ಖರೀದಿಸಿದೆ.",
+      "english_text": "i my ಸಂಬಂಧಿಗೆ gift ಖರೀದಿಸಿದೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಸಂಬಂಧಿಗೆ, ಖರೀದಿಸಿದೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "MY",
+        "FS:SAMBAMDHIGE",
+        "GIFT",
+        "FS:KHARIIDISIDE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAMBAMDHIGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GIFT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHARIIDISIDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಮಕ್ಕಳು ಮನೆಯ ಹತ್ತಿರ ಆಟವಾಡುತ್ತಿದ್ದಾರೆ.",
+      "english_text": "child ಮನೆಯ ಹತ್ತಿರ ಆಟವಾಡುತ್ತಿದ್ದಾರೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮನೆಯ, ಹತ್ತಿರ, ಆಟವಾಡುತ್ತಿದ್ದಾರೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "CHILD",
+        "FS:MANEYA",
+        "FS:HATTIRA",
+        "FS:AATAVAADUTTIDDAARE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "CHILD",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MANEYA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HATTIRA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AATAVAADUTTIDDAARE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನ್ನ ಚಿಕ್ಕಮ್ಮ ಹಳ್ಳಿಯಿಂದ ಬರುತ್ತಿದ್ದಾರೆ.",
+      "english_text": "my ಚಿಕ್ಕಮ್ಮ ಹಳ್ಳಿಯಿಂದ ಬರುತ್ತಿದ್ದಾರೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಚಿಕ್ಕಮ್ಮ, ಹಳ್ಳಿಯಿಂದ, ಬರುತ್ತಿದ್ದಾರೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "FS:CHIKKAMMA",
+        "FS:HALLIYIMDA",
+        "FS:BARUTTIDDAARE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CHIKKAMMA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HALLIYIMDA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BARUTTIDDAARE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಮಧ್ಯಾಹ್ನದ ಊಟದ ನಂತರ ನೀವು ನನಗೆ ಕರೆ ಮಾಡಬಹುದೇ?",
+      "english_text": "ಮಧ್ಯಾಹ್ನದ ಊಟದ ನಂತರ you me ಕರೆ ಮಾಡಬಹುದೇ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮಧ್ಯಾಹ್ನದ, ಊಟದ, ನಂತರ, ಕರೆ, ಮಾಡಬಹುದೇ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:MADHYAAHNADA",
+        "FS:UUTADA",
+        "FS:NAMTARA",
+        "YOU",
+        "ME",
+        "FS:KARE",
+        "FS:MAADABAHUDE"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "FS:MADHYAAHNADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:UUTADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NAMTARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KARE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAADABAHUDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಈ ವಾರಾಂತ್ಯದಲ್ಲಿ ನಾನು ನನ್ನ ಕುಟುಂಬವನ್ನು ನೋಡಲು ಬಯಸುತ್ತೇನೆ.",
+      "english_text": "ಈ ವಾರಾಂತ್ಯದಲ್ಲಿ i my ಕುಟುಂಬವನ್ನು ನೋಡಲು ಬಯಸುತ್ತೇನೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಈ, ವಾರಾಂತ್ಯದಲ್ಲಿ, ಕುಟುಂಬವನ್ನು, ನೋಡಲು, ಬಯಸುತ್ತೇನೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:II",
+        "FS:VAARAAMTYADALLI",
+        "I",
+        "MY",
+        "FS:KUTUMBAVANNU",
+        "FS:NODALU",
+        "FS:BAYASUTTENE"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "FS:II",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VAARAAMTYADALLI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KUTUMBAVANNU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NODALU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAYASUTTENE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ಮಳೆ ಬಂದರೆ ನಾವು ಮನೆಗೆ ಹೋಗುತ್ತೇವೆ.",
+      "english_text": "ಮಳೆ ಬಂದರೆ we ಮನೆಗೆ ಹೋಗುತ್ತೇವೆ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಮಳೆ, ಬಂದರೆ, ಮನೆಗೆ, ಹೋಗುತ್ತೇವೆ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:MALE",
+        "FS:BAMDARE",
+        "WE",
+        "FS:MANEGE",
+        "FS:HOGUTTEVE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "FS:MALE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAMDARE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MANEGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOGUTTEVE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "ನನ್ನ ಅಜ್ಜನಿಗೆ ಬೆಳಿಗ್ಗೆ ಚಹಾ ಅಥವಾ ಕಾಫಿ ಇಷ್ಟ.",
+      "english_text": "my ಅಜ್ಜನಿಗೆ morning tea ಅಥವಾ coffee ಇಷ್ಟ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ಅಜ್ಜನಿಗೆ, ಅಥವಾ, ಇಷ್ಟ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MORNING",
+        "MY",
+        "FS:AJJANIGE",
+        "TEA",
+        "FS:ATHAVAA",
+        "COFFEE",
+        "FS:ISHTA"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "MORNING",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AJJANIGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TEA",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ATHAVAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COFFEE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ISHTA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    }
+  ],
+  "sentence_count": 60,
+  "error_count": 0,
+  "total_gloss_tokens": 308,
+  "fs_count": 178,
+  "fs_rate": 0.577922077922078,
+  "top_oov_words": [
+    {
+      "word": "ii",
+      "frequency": 7,
+      "lemma_tried": null
+    },
+    {
+      "word": "ellide",
+      "frequency": 4,
+      "lemma_tried": null
+    },
+    {
+      "word": "bayasuttene",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "hattira",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "ide",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "maadi",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "mattu",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "namtara",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "aa",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "bittubamde",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "dvaarada",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "emdu",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "gamtege",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "hattirada",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "hudukalu",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "illi",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "kaalejige",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "khariidiside",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "manege",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "tadavaagide",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "uutada",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "aadare",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "aatavaaduttiddaare",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "aavaranadalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "aavaranakke",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ajjanige",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ajjiyannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "annu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "apaayimtmemt",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "athavaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "aushadhiyannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "avala",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "baatali",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "badalaayisabahude",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bali",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bamdare",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bannadalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "baruttade",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "baruttiddaare",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bas",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "beda",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "benne",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bheti",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bhetiyaagabahude",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "buttiyalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "buutugalu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "chiilavannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "chikkamma",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "daari",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "dinasige",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "eshtu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "gamte",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ge",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "halliyimda",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hannina",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "helabahude",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "heli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "helidaru",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hogi",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hoguttaane",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hogutteve",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hoguttiddene",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hoguttiddeve",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hoguva",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "horage",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ideye",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "idi",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "iliyabeku",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "innuu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "irabahude",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ishta",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "iveye",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "jaaket",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kaaryaagaarada",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kaayalu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kaayiri",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kaayuttiddaare",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kacheriyalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kare",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "karesi",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kes",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "khariidisuvavarege",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "klab",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "klinik",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kodi",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kriidaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kulitukollalu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kutumbavannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "maadabahude",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "maadutteve",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "maaduttiddene",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "maarukattege",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "maarukatteya",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "madhyaahnada",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "male",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "manekelasadalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "maneya",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "maneyalliddaare",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "muchchiruttade",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "mukhya",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "mumdina",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "na",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "nalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "nannomdige",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "nildaanadalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "nildaanakke",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "nilluttade",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "nimishagalalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "nimma",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ninne",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ninneya",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "nodalu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "noyuttade",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ottige",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "paavatiside",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "padeyabahudu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "praarambhavaaguttade",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "praveshadvaaravannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "prayogaalayavannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "raatriya",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "sabhaamganadalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "sahodarigaagi",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "sahodarige",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "sambamdhige",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "sebugalannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "seralu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "shart",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "sthala",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "suut",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "taayige",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "tamdege",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "tamdiddene",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "taragatigaagi",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "tarakaarigalannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "tereyuttade",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "torisi",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "turtu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "upanyaasa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "vaaraamtyadalli",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "vaidyarannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "varadigalannu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "vijnyaana",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "vimaana",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "vimaananildaanakke",
+      "frequency": 1,
+      "lemma_tried": null
+    }
+  ]
+}

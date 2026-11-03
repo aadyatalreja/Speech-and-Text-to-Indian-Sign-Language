@@ -1,0 +1,22 @@
+{
+  "id": 5,
+  "title": "iSign: A Benchmark for Indian Sign Language Processing",
+  "authors": [
+    "Abhinav Joshi",
+    "Romit Mohanty",
+    "Mounika Kanakanti",
+    "Andesha Mangla",
+    "Sudeep Choudhary",
+    "Monali Barbate",
+    "Ashutosh Modi"
+  ],
+  "year": 2024,
+  "url": "https://arxiv.org/abs/2407.05404",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2407.05404",
+  "arxiv": "2407.05404",
+  "project_relevance": "ISL benchmark including text-to-pose",
+  "verified_on": "2026-11-03"
+}

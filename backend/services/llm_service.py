@@ -13,6 +13,7 @@ from models.markers import GlossToken
 from models.translation import LLMResult, Entity
 from models.grammar import GrammarUse
 from services.english_service import (
+    NUMBER_WORDS,
     english_words,
     resolve_word,
     number_tokens,
@@ -32,6 +33,7 @@ from services.grammar_service import (
 )
 from services import marker_service, grammar_service
 from services.response_cache import ResponseCache
+from services.indic_service import lexical_english, has_indic, romanize, ROMANIZATION_NOTICE
 
 log = logging.getLogger("signai.llm")
 _client = None
@@ -118,30 +120,39 @@ def mock_transform(text: str, repo: SignRepository | None = None) -> LLMResult:
                 entities.append(
                     Entity(text=" ".join(words[i : i + consumed]), type=sign.category.upper())
                 )
-        elif word.isdigit():
+        elif word.isdigit() or word.casefold() in NUMBER_WORDS:
             tokens.extend(
                 GlossToken(
                     gloss=token,
                     fs_reason="oov" if token.startswith("FS:") else None,
-                    lemma_tried=digit if token.startswith("FS:") else None,
+                    lemma_tried=(digit if word.isdigit() else tried_lemma(word))
+                    if token.startswith("FS:")
+                    else None,
                 )
-                for digit, token in zip(word, number_tokens(word, repo))
+                for digit, token in zip(
+                    word if word.isdigit() else str(NUMBER_WORDS[word.casefold()]),
+                    number_tokens(word, repo),
+                )
             )
         else:
-            name = potential_name(word, i)
-            lemma = None if name else tried_lemma(word)
+            indic = has_indic(word)
+            name = not indic and potential_name(word, i)
+            lemma = None if name or indic else tried_lemma(word)
             replacement = None
             # Capitalized words are conservatively excluded, including first-word names.
             if (
                 settings.ENABLE_SYNONYM_FALLBACK
                 and not name
+                and not indic
                 and not word[:1].isupper()
                 and not drop_rule(word, rules)
             ):
                 replacement = synonym_match(word, repo)
             tokens.append(
                 GlossToken(
-                    gloss=replacement.gloss if replacement else f"FS:{word.upper()}",
+                    gloss=replacement.gloss
+                    if replacement
+                    else f"FS:{romanize(word) if indic else word.upper()}",
                     fs_reason=None if replacement else "name_heuristic" if name else "oov",
                     lemma_tried=lemma,
                     synonym_from=word if replacement else None,
@@ -311,8 +322,10 @@ async def api_transform(text: str, repo: SignRepository | None = None) -> LLMRes
         raise LLMError("LLM request or output unavailable") from exc
 
 
-def result_notice(result):
+def result_notice(result, text=""):
     notices = [grammar_notice(result.grammar_rules)]
+    if has_indic(text) and any(token.fs for token in result.gloss):
+        notices.append(ROMANIZATION_NOTICE)
     substitutions = [
         f"{token.synonym_from} -> {token.gloss}" for token in result.gloss if token.synonym_from
     ]
@@ -330,16 +343,16 @@ async def understand(text: str) -> tuple[LLMResult, str, str | None]:
     if settings.LLM_PROVIDER == "api":
         try:
             result = await api_transform(text)
-            return result, "api", result_notice(result)
+            return result, "api", result_notice(result, text)
         except LLMError:
             log.warning("Falling back to mock")
             result = mock_transform(text)
             notice = "AI translation is temporarily unavailable. Switching to fallback mode."
-            if draft := result_notice(result):
+            if draft := result_notice(result, text):
                 notice += " " + draft
             return result, "mock-fallback", notice
     result = mock_transform(text)
-    return result, "mock", result_notice(result)
+    return result, "mock", result_notice(result, text)
 
 
 # Separate cache namespace, sharing the M4 client's lifetime and cache settings.
@@ -347,16 +360,20 @@ class EnglishInput(BaseModel):
     text: str = Field(min_length=1, max_length=500)
 
 
+def demo_english_input(text: str, language: str) -> tuple[str, str | None]:
+    """Offline half of english_input, shared by reproducible coverage runs."""
+    if language.strip().casefold() in {"english", "en", "en-in", "en-us", "en-gb"}:
+        return text, None
+    english, notice = lexical_english(text, language)
+    return english, "Machine-translated to English first; not verified. " + notice
+
+
 async def english_input(text: str, language: str) -> tuple[str, str | None]:
     if language.strip().casefold() in {"english", "en", "en-in", "en-us", "en-gb"}:
         return text, None
     notice = "Machine-translated to English first; not verified."
     if settings.LLM_PROVIDER != "api":
-        return (
-            text,
-            notice
-            + " Non-English input needs LLM_PROVIDER=api; treating input as English in mock mode.",
-        )
+        return demo_english_input(text, language)
     key = (
         "english-input-v1",
         text,
@@ -406,8 +423,5 @@ async def english_input(text: str, language: str) -> tuple[str, str | None]:
         return result.text, notice
     except Exception as exc:
         log.warning("English translation unavailable (%s)", type(exc).__name__)
-        return (
-            text,
-            notice
-            + " English translation failed; treating original input as English. Correct the intermediate sentence and retry.",
-        )
+        english, fallback_notice = lexical_english(text, language)
+        return english, notice + " English translation failed. " + fallback_notice

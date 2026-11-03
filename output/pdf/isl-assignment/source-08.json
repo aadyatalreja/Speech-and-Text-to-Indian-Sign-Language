@@ -1,0 +1,18 @@
+{
+  "id": 8,
+  "title": "A Gloss-driven Indian Sign Language Production System Using Learned Pose Representations",
+  "authors": [
+    "Suvajit Patra",
+    "Arkadip Maitra",
+    "Swami Punyeshwarananda",
+    "Soumitra Samanta"
+  ],
+  "year": 2026,
+  "url": "https://doi.org/10.24963/ijcai.2026/823",
+  "doi": "10.24963/ijcai.2026/823",
+  "venue": "Proceedings of the Thirty-Fifth International Joint Conference on Artificial Intelligence",
+  "record_type": "proceedings-article",
+  "metadata_source": "https://api.crossref.org/works/10.24963/ijcai.2026/823",
+  "project_relevance": "Gloss-driven ISL production with discrete pose representations",
+  "verified_on": "2026-11-03"
+}

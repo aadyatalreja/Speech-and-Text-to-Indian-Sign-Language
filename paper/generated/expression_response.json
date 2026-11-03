@@ -1,0 +1,160 @@
+{
+  "original_text": "Where is the hospital?",
+  "english_text": "Where is the hospital?",
+  "target_sign_language": "ISL",
+  "intent": "question",
+  "entities": [
+    {
+      "text": "hospital",
+      "type": "LOCATION"
+    }
+  ],
+  "gloss": [
+    "HOSPITAL",
+    "WHERE"
+  ],
+  "gloss_detail": [
+    {
+      "gloss": "HOSPITAL",
+      "nmm": {
+        "brow": 0.55,
+        "head": [
+          -6.0,
+          0.0,
+          0.0
+        ],
+        "mouth": null
+      },
+      "fs": false,
+      "fs_reason": null,
+      "lemma_tried": null,
+      "synonym_from": null,
+      "nmm_rules": [
+        "question_nmm_pending_review"
+      ],
+      "nmm_verified": false,
+      "reference": null
+    },
+    {
+      "gloss": "WHERE",
+      "nmm": {
+        "brow": 0.55,
+        "head": [
+          -6.0,
+          0.0,
+          0.0
+        ],
+        "mouth": null
+      },
+      "fs": false,
+      "fs_reason": null,
+      "lemma_tried": null,
+      "synonym_from": null,
+      "nmm_rules": [
+        "question_nmm_pending_review"
+      ],
+      "nmm_verified": false,
+      "reference": null
+    }
+  ],
+  "sentence": {
+    "intent": "question",
+    "question_type": "wh",
+    "negated": false,
+    "topic": null
+  },
+  "grammar_rules": [
+    {
+      "id": "legacy_function_word_filter",
+      "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+      "review_status": "unverified",
+      "reviewer": null
+    },
+    {
+      "id": "legacy_phrase_5",
+      "source": "Legacy SignAI engine demo, migrated from llm_service.py; not an ISL linguistic reference",
+      "review_status": "unverified",
+      "reviewer": null
+    }
+  ],
+  "sequence": [
+    {
+      "gloss": "HOSPITAL",
+      "fs_reason": null,
+      "lemma_tried": null,
+      "synonym_from": null,
+      "sign_id": "hospital",
+      "available": true,
+      "duration": 1.2,
+      "pause_after": 0.2,
+      "asset_type": "demo",
+      "video_url": null,
+      "clip_url": null,
+      "nmm": {
+        "brow": 0.55,
+        "head": [
+          -6.0,
+          0.0,
+          0.0
+        ],
+        "mouth": null
+      },
+      "nmm_rules": [
+        "question_nmm_pending_review"
+      ],
+      "nmm_verified": false,
+      "reference": null,
+      "source": null,
+      "licence": null,
+      "signer": null,
+      "review_status": "unverified",
+      "needs_manual_review": true,
+      "sequence_index": 0,
+      "timing_source": "demo_estimate",
+      "clip_duration": null,
+      "video_duration": null,
+      "transition_duration": 0.18
+    },
+    {
+      "gloss": "WHERE",
+      "fs_reason": null,
+      "lemma_tried": null,
+      "synonym_from": null,
+      "sign_id": "where",
+      "available": true,
+      "duration": 1.2,
+      "pause_after": 0.0,
+      "asset_type": "demo",
+      "video_url": null,
+      "clip_url": null,
+      "nmm": {
+        "brow": 0.55,
+        "head": [
+          -6.0,
+          0.0,
+          0.0
+        ],
+        "mouth": null
+      },
+      "nmm_rules": [
+        "question_nmm_pending_review"
+      ],
+      "nmm_verified": false,
+      "reference": null,
+      "source": null,
+      "licence": null,
+      "signer": null,
+      "review_status": "unverified",
+      "needs_manual_review": true,
+      "sequence_index": 1,
+      "timing_source": "demo_estimate",
+      "clip_duration": null,
+      "video_duration": null,
+      "transition_duration": 0.18
+    }
+  ],
+  "unknown_signs": [],
+  "confidence": 0.6,
+  "engine": "mock",
+  "notice": "Unverified grammar (demo rules): legacy_function_word_filter, legacy_phrase_5. Demo / not verified ISL non-manual markers: question_nmm_pending_review."
+}

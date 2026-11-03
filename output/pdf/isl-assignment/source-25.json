@@ -1,0 +1,16 @@
+{
+  "id": 25,
+  "title": "Machine translation from text to sign language: a systematic review",
+  "authors": [
+    "Navroz Kaur Kahlon",
+    "Williamjeet Singh"
+  ],
+  "year": 2021,
+  "url": "https://doi.org/10.1007/s10209-021-00823-1",
+  "doi": "10.1007/s10209-021-00823-1",
+  "venue": "Universal Access in the Information Society",
+  "record_type": "journal-article",
+  "metadata_source": "https://api.crossref.org/works/10.1007/s10209-021-00823-1",
+  "project_relevance": "Systematic review of text-to-sign translation",
+  "verified_on": "2026-11-03"
+}

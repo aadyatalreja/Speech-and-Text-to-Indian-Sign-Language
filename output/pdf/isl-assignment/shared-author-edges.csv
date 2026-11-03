@@ -1,0 +1,44 @@
+﻿source_id,target_id,strength,shared_authors
+4,5,2,Abhinav Joshi; Ashutosh Modi
+6,7,3,Arkadip Maitra; Soumitra Samanta; Suvajit Patra
+6,8,4,Arkadip Maitra; Soumitra Samanta; Suvajit Patra; Swami Punyeshwarananda
+7,8,3,Arkadip Maitra; Soumitra Samanta; Suvajit Patra
+9,10,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+9,11,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+9,12,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+9,13,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+9,14,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+9,15,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+9,19,2,Necati Cihan Camgoz; Richard Bowden
+9,20,2,Necati Cihan Camgoz; Richard Bowden
+10,11,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+10,12,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+10,13,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+10,14,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+10,15,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+10,19,2,Necati Cihan Camgoz; Richard Bowden
+10,20,2,Necati Cihan Camgoz; Richard Bowden
+11,12,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+11,13,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+11,14,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+11,15,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+11,19,2,Necati Cihan Camgoz; Richard Bowden
+11,20,2,Necati Cihan Camgoz; Richard Bowden
+12,13,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+12,14,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+12,15,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+12,19,2,Necati Cihan Camgoz; Richard Bowden
+12,20,2,Necati Cihan Camgoz; Richard Bowden
+13,14,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+13,15,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+13,19,2,Necati Cihan Camgoz; Richard Bowden
+13,20,2,Necati Cihan Camgoz; Richard Bowden
+14,15,3,Ben Saunders; Necati Cihan Camgoz; Richard Bowden
+14,19,2,Necati Cihan Camgoz; Richard Bowden
+14,20,2,Necati Cihan Camgoz; Richard Bowden
+15,19,2,Necati Cihan Camgoz; Richard Bowden
+15,20,2,Necati Cihan Camgoz; Richard Bowden
+17,19,1,Oscar Koller
+17,20,1,Oscar Koller
+18,21,3,Amit Moryossef; Kayo Yin; Yoav Goldberg
+19,20,4,Necati Cihan Camgoz; Oscar Koller; Richard Bowden; Simon Hadfield

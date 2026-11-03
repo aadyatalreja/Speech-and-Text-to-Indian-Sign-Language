@@ -27,8 +27,8 @@ def mock_api(monkeypatch, gloss):
     return requests
 
 
-def test_small_repository_sends_all_glosses():
-    repo = get_repository()
+def test_small_repository_sends_all_glosses(tmp_path):
+    repo = make_repo(tmp_path, count=40)
     assert select_vocabulary("anything", repo) == sorted(repo.list_glosses())
 
 

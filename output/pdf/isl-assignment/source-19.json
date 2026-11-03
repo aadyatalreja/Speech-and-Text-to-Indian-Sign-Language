@@ -1,0 +1,19 @@
+{
+  "id": 19,
+  "title": "Neural Sign Language Translation",
+  "authors": [
+    "Necati Cihan Camgoz",
+    "Simon Hadfield",
+    "Oscar Koller",
+    "Hermann Ney",
+    "Richard Bowden"
+  ],
+  "year": 2018,
+  "url": "https://openaccess.thecvf.com/content_cvpr_2018/html/Camgoz_Neural_Sign_Language_CVPR_2018_paper.html",
+  "doi": "",
+  "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+  "record_type": "conference paper",
+  "metadata_source": "https://openaccess.thecvf.com/content_cvpr_2018/html/Camgoz_Neural_Sign_Language_CVPR_2018_paper.html",
+  "project_relevance": "Neural translation and reverse-direction evaluation",
+  "verified_on": "2026-11-03"
+}

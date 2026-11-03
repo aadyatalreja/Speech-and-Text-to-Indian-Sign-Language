@@ -1,25 +1,40 @@
 # Draft / unverified grammar. Legacy demo behavior is retained and labeled.
-# NMM templates remain disabled; no verified ISL linguistic rules are supplied.
+# Enabled NMM values below are demo rig parameters, never verified ISL rules.
 version: 1
 rules:
 - id: question_nmm_pending_review
-  source: 'TODO: supply a cited ISL reference and Deaf signer review'
+  source: 'Demo wh rendering informed by Zeshan (2006), Regional variation in Indo-Pakistani Sign Language, section 3, p. 309, in Interrogative and Negative Constructions in Sign Languages (Ishara Press). TODO maintainer: fill local ISL variety/reference page/video and Deaf signer review; numeric values and sentence scope are not sourced measurements.'
   review_status: unverified
-  enabled: false
+  enabled: true
   needs_signer_review: true
   when:
-    intent: question
+    question_type: wh
   span: sentence
-  nmm: {}
-- id: negation_nmm_pending_review
-  source: 'TODO: supply a cited ISL reference and Deaf signer review'
+  nmm:
+    brow: 0.55 # TODO signer: confirm raised brows, amplitude and scope against p. 309/local variety.
+    head: [-6, 0, 0] # TODO signer: confirm chin-up direction, degrees and neutral yaw/roll.
+- id: yes_no_nmm_pending_review
+  source: 'Demo polar-question rendering; reference lead: Zeshan (2004), Interrogative constructions in signed languages, Language 80(1), pp. 7-39, IPSL example (3). TODO maintainer: fill exact local ISL reference/page/video and Deaf signer review; brow amplitude and pitch are illustrative, not established measurements.'
   review_status: unverified
-  enabled: false
+  enabled: true
+  needs_signer_review: true
+  when:
+    question_type: yes_no
+  span: sentence
+  nmm:
+    brow: 0.35 # TODO signer: confirm brow configuration/amplitude for local polar questions.
+    head: [5, 0, 0] # TODO signer: confirm forward-pitch proxy, degrees and neutral yaw/roll.
+- id: negation_nmm_pending_review
+  source: 'Demo negation rendering; reference lead: Zeshan (2000), Sign Language in Indo-Pakistan, section 4.3.1, pp. 111-115; Zeshan (2004), Interrogative constructions in signed languages, IPSL example (3), headshake. TODO maintainer: fill exact local ISL page/video and Deaf signer review; brow, sentence scope and shake timing/amplitude are unsourced demo choices.'
+  review_status: unverified
+  enabled: true
   needs_signer_review: true
   when:
     negated: true
   span: sentence
-  nmm: {}
+  nmm:
+    brow: -0.35 # TODO signer: confirm brow configuration/amplitude; not asserted by the headshake citation.
+    head: [0, 12, 0] # TODO signer: confirm yaw amplitude, neutral pitch/roll, temporal shake and sentence scope.
 grammar:
 - id: demo_function_word_filter_2
   source: Demo English function-word filter only; not an ISL reference or ISL grammar.

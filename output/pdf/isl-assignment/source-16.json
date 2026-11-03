@@ -1,0 +1,23 @@
+{
+  "id": 16,
+  "title": "How2Sign: A Large-scale Multimodal Dataset for Continuous American Sign Language",
+  "authors": [
+    "Amanda Duarte",
+    "Shruti Palaskar",
+    "Lucas Ventura",
+    "Deepti Ghadiyaram",
+    "Kenneth DeHaan",
+    "Florian Metze",
+    "Jordi Torres",
+    "Xavier Giro-i-Nieto"
+  ],
+  "year": 2020,
+  "url": "https://arxiv.org/abs/2008.08143",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2008.08143",
+  "arxiv": "2008.08143",
+  "project_relevance": "Continuous ASL multimodal corpus; comparative resource",
+  "verified_on": "2026-11-03"
+}

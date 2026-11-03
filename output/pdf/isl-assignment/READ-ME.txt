@@ -1,0 +1,54 @@
+Research Methodology Assignment 2
+Speech and Text to Indian Sign Language
+Prepared for Prajna M S, 1RVU23CSE340, on 3 November 2026.
+
+MAIN REPORT
+RM-Assignment-2-Speech-Text-to-ISL-Prajna-MS.pdf
+Assignment-editable.md contains editable text.
+
+CORPUS AND NETWORK
+ISL-25-papers.csv: 25 verified works, full authors, identifiers, relevance.
+ISL-25-papers.bib: bibliography import file.
+corpus.json: complete normalized metadata and paper degree/strength.
+source-01.json through source-25.json: downloaded metadata snapshots.
+shared-author-edges.csv: all 43 links and the authors shared by each pair.
+network-statistics.json: calculated graph metrics and author occurrences.
+ISL-VOSviewer-network.json: input with no preset coordinates or clusters.
+ISL-VOSviewer-computed.json: unmodified VOSviewer application export with
+computed coordinates and clusters. The export retains the original input
+repulsion parameter of 1 even though -1 was used in the observed final UI;
+the input file has been updated to -1. Preserve the screenshots as evidence
+of the observed final layout rather than assuming a rerun is identical.
+VOSviewer-full-network.jpg: actual application screenshot, 25 nodes,
+43 links, total weighted edge strength 112, 13 clusters.
+ResearchRabbit-graph.jpg: actual application screenshot from a Similar
+articles search (20 results requested) using 23 saved corpus works.
+
+NETWORK INTERPRETATION
+Paper nodes are linked by shared authors, not by citations. Names are
+normalized for case and diacritics. Density: 14.33%; mean degree: 3.44.
+The corpus is a purposive selection, not an exhaustive systematic review.
+Record years can differ from later conference/proceedings versions.
+
+RESEARCHRABBIT
+Collection:
+https://app.researchrabbit.ai/library/collection/efd67acf-4efe-49aa-8637-d6cce67b26d9
+Graph session:
+https://app.researchrabbit.ai/search/d9e9a9c6-4506-445a-a3b7-ba48e0b97d80/0
+
+The final saved assignment collection contains 23 of the 25 verified works.
+Papers [13] and [15] are not among its saved search inputs. Paper [15]
+appears in the retrieved related results. Two unrelated saved-record
+substitutions produced by import were removed from this collection.
+The original Speech/Text to ISL collection was preserved.
+
+Primary author record used to expand INCLUDE's short Crossref title:
+https://github.com/AI4Bharat/sign-language.ai4bharat.org/blob/master/docs/INCLUDE.md
+
+REPRODUCING THE FILES
+Scripts are included under scripts/. Run from the project root with Python.
+collect_literature.py requires internet access and saves metadata locally.
+build_corpus.py recreates CSV, BibTeX, author links, and graph statistics.
+make_report.py requires reportlab, pypdfium2, Pillow, Windows Arial fonts,
+and the two actual screenshots. It also renders the report for inspection.
+The PDF and graph screenshots were visually checked before delivery.

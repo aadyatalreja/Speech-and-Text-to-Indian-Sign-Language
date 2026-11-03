@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { mergeNmm, parseNmm } from "./nmm";
-import { compileClip, sampleClip } from "./pose";
+import { compileClip, idlePose, sampleClip, transitionPose, restPose } from "./pose";
 import type { SignClip } from "./types";
 
 // Numeric rig fixtures only; these are not ISL marker definitions.
@@ -36,4 +36,50 @@ describe("item non-manual marker playback and lab parsing", () => {
     { head: [0, 100, 0] }, { brow: NaN }, { mouth: Infinity }, { unknown: 1 }])("rejects invalid lab channels %j", (raw) => {
     expect(() => parseNmm(raw)).toThrow();
   });
+});
+
+it("animates the explicit demo negation rule with numeric yaw and preserves manual tracks", () => {
+  const nmm = { head: [0, 12, 0] as [number, number, number], brow: -0.35 };
+  const saved = JSON.stringify(clip);
+  const shake = compileClip(mergeNmm(clip, nmm, ["negation_nmm_pending_review"]));
+  expect(sampleClip(shake, 0.125).head[1]).toBeCloseTo(12);
+  expect(sampleClip(shake, 0.375).head[1]).toBeCloseTo(-12);
+  expect(sampleClip(shake, 1).head[1]).toBeCloseTo(0);
+  for (const t of [0, 0.125, 0.375, 1]) {
+    expect(sampleClip(shake, t).R).toEqual(sampleClip(compileClip(clip), t).R);
+    expect(sampleClip(shake, t).brow).toBe(-0.35);
+  }
+  expect(sampleClip(compileClip(mergeNmm(clip, nmm)), 0.375).head[1]).toBe(12);
+  expect(JSON.stringify(clip)).toBe(saved);
+});
+
+it("eases the first expression in and preserves common sentence channels through a two-sign boundary", () => {
+  const first = compileClip(mergeNmm(clip, { brow: 0.55, mouth: 0.3 }));
+  const second = compileClip(mergeNmm({ ...clip, id: "second" }, { brow: 0.55, mouth: 0.3 }));
+  expect(transitionPose(restPose(), first, 0, 0.2, 1).brow).toBe(0);
+  expect(transitionPose(restPose(), first, 0.1, 0.2, 1).brow).toBeCloseTo(0.275);
+  // Trailing INTER_SIGN_PAUSE holds the end sample; next onset starts from it.
+  const hold = sampleClip(first, 1);
+  for (const t of [0, 0.01, 0.1, 0.2, 1]) {
+    const next = transitionPose(hold, second, t, 0.2, 1);
+    expect(next.brow).toBeCloseTo(0.55);
+    expect(next.face!.brow_inner_up).toBeCloseTo(0.55);
+    expect(next.mouth).toBeCloseTo(0.3);
+  }
+});
+
+it("adds periodic idle blink and micro-movement only during holds and respects explicit neutral channels", () => {
+  const rest = restPose();
+  expect(idlePose(rest, 0.11, false)).toBe(rest);
+  const idle = idlePose(rest, 0.11, true);
+  expect(idle.face!.eye_blink).toBeCloseTo(1);
+  expect(idlePose(rest, 4.71, true).face!.eye_blink).toBeCloseTo(1);
+  expect(idlePose(rest, 1, true).face!.eye_blink).toBe(0);
+  expect(idle.head).not.toEqual(rest.head);
+  const authored = sampleClip(compileClip({ version: 2, id: "neutral", gloss: "SYNTHETIC", kind: "demo", keys: [{ t: 0, head: [0, 0, 0], face: { eye_blink: 0, gaze_x: 0.5 } }] }), 0);
+  const gated = idlePose(authored, 0.11, true);
+  expect(gated.head).toEqual([0, 0, 0]);
+  expect(gated.face!.eye_blink).toBe(0);
+  expect(gated.face!.gaze_x).toBe(0.5);
+  expect(rest.head).toEqual([0, 0, 0]);
 });

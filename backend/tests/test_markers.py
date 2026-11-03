@@ -46,13 +46,45 @@ def test_legacy_and_structured_gloss_inputs():
     assert parsed.flat_gloss == ["HELLO", "FS:PRIYA"]
 
 
-def test_bundled_rules_are_disabled_and_empty():
+def test_bundled_rules_are_demo_enabled_and_numeric():
     assert all(
-        not rule.enabled and not rule.nmm.model_dump(exclude_none=True) for rule in load_rules()
+        rule.enabled
+        and rule.nmm.model_dump(exclude_none=True)
+        and rule.needs_signer_review
+        and rule.review_status == "unverified"
+        and "TODO maintainer" in rule.source
+        for rule in load_rules()
     )
     result, notice = apply_markers(LLMResult(gloss=["HELLO"]), "Hello")
     assert result.gloss[0].nmm.model_dump(exclude_none=True) == {}
     assert notice is None
+
+
+@pytest.mark.parametrize(
+    "text,brow,head,rule",
+    [
+        ("Where is the hospital?", 0.55, (-6, 0, 0), "question_nmm_pending_review"),
+        ("Can you help me?", 0.35, (5, 0, 0), "yes_no_nmm_pending_review"),
+        ("I do not understand", -0.35, (0, 12, 0), "negation_nmm_pending_review"),
+    ],
+)
+def test_bundled_sentence_channels_remain_unverified(text, brow, head, rule):
+    from services.llm_service import mock_transform
+
+    result, notice = apply_markers(mock_transform(text), text)
+    assert result.gloss
+    for token in result.gloss:
+        assert token.nmm.brow == brow and token.nmm.head == head
+        assert rule in token.nmm_rules and token.nmm_verified is False
+    assert "Demo / not verified ISL non-manual markers" in notice
+    sequence, _ = SignSequenceService().build(result.gloss)
+    assert all(item.nmm_rules == [rule] and item.nmm_verified is False for item in sequence)
+
+
+def test_needs_signer_review_always_prevents_verification(tmp_path):
+    path = write_rules(tmp_path, [fixture_rule(review_status="verified", needs_signer_review=True)])
+    result, notice = apply_markers(LLMResult(intent="question", gloss=["GO"]), "Go?", path)
+    assert result.gloss[0].nmm_verified is False and "not verified ISL" in notice
 
 
 def test_sentence_question_span_and_toggle(tmp_path):
@@ -161,6 +193,7 @@ def test_nmm_validation(values):
         {"source": ""},
         {"review_status": "approved"},
         {"nmm": {}},
+        {"nmm": {"mouth_shape": {}}},
         {"when": {"imagined": True}},
         {"span": "gloss"},
     ],

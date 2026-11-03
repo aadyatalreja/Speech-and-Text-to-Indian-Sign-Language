@@ -17,6 +17,7 @@ from services import llm_service, marker_service, grammar_service
 from services.gloss_service import translate
 from services.response_cache import ResponseCache
 from services.sign_repository import get_repository
+from services.vocabulary_service import select_vocabulary
 
 
 def test_forced_tool_and_prompt_cache_blocks(monkeypatch, caplog):
@@ -26,7 +27,7 @@ def test_forced_tool_and_prompt_cache_blocks(monkeypatch, caplog):
     request = requests[0]
     assert request["tool_choice"] == {"type": "tool", "name": "emit_gloss"}
     schema = request["tools"][0]["input_schema"]["$defs"]["GlossToken"]["properties"]["gloss"]
-    assert schema["anyOf"][0]["enum"] == sorted(get_repository().list_glosses())
+    assert schema["anyOf"][0]["enum"] == select_vocabulary("hello", get_repository())
     assert schema["anyOf"][1]["pattern"].startswith("^FS:")
     assert request["system"][0]["cache_control"] == {"type": "ephemeral"}
     assert "English word order" in request["system"][0]["text"]

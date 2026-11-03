@@ -19,10 +19,26 @@ from tools.coverage_report import build_report, main, markdown
 FILTER_WORDS = "and but or for in on at with from by this that these those there here as if".split()
 
 
+@pytest.fixture
+def vocabulary_gaps(tmp_path, monkeypatch):
+    """Keep diagnostic gaps explicit as the production vocabulary grows."""
+    source = Path(__file__).parents[1] / "data/signs/signs.json"
+    entries = json.loads(source.read_text(encoding="utf-8"))
+    for gloss in ("BUY", "VEGETABLE", "NEAR"):
+        entries.pop(gloss)
+    path = tmp_path / "signs.json"
+    path.write_text(json.dumps(entries), encoding="utf-8")
+    repo = JsonSignRepository(path)
+    monkeypatch.setattr(llm_service, "get_repository", lambda: repo)
+
+
 @pytest.mark.parametrize("word", FILTER_WORDS)
 def test_demo_english_filter_words(word):
     result = llm_service.mock_transform(f"hello {word} water")
     assert f"FS:{word.upper()}" not in result.flat_gloss
+    if llm_service.get_repository().get_by_text(word):
+        assert word.upper() in result.flat_gloss
+        return  # Repository membership takes precedence over demo filtering.
     rule = next(rule for rule in result.grammar_rules if rule.id == "demo_function_word_filter_2")
     assert rule.review_status == "unverified" and "not an ISL" in rule.source
 
@@ -35,7 +51,7 @@ def test_new_filter_still_loses_to_repository_match(tmp_path):
     assert "demo_function_word_filter_2" not in {rule.id for rule in result.grammar_rules}
 
 
-def test_inflections_missing_vocabulary_are_measurable():
+def test_inflections_missing_vocabulary_are_measurable(vocabulary_gaps):
     result = llm_service.mock_transform("bought vegetables nearest")
     assert [(token.gloss, token.fs_reason, token.lemma_tried) for token in result.gloss] == [
         ("FS:BOUGHT", "oov", "buy"),
@@ -45,7 +61,7 @@ def test_inflections_missing_vocabulary_are_measurable():
     assert GlossToken(gloss="FS:HELLO").fs_reason == "explicit"
 
 
-def test_name_heuristic_and_rest_stream_diagnostics():
+def test_name_heuristic_and_rest_stream_diagnostics(vocabulary_gaps):
     client = TestClient(app)
     response = client.post("/api/translate", json={"text": "I see Priya"}).json()
     token = next(token for token in response["gloss_detail"] if token["gloss"] == "FS:PRIYA")
@@ -115,7 +131,7 @@ def test_wordnet_candidates_include_synonyms_and_one_hop_hypernyms(monkeypatch):
         english_service.synonym_candidates.cache_clear()
 
 
-def test_coverage_json_markdown_and_cli_fixture(tmp_path):
+def test_coverage_json_markdown_and_cli_fixture(tmp_path, vocabulary_gaps):
     fixture = tmp_path / "sentences.txt"
     fixture.write_text("bought vegetables\nbought vegetables\nHello\n\n", encoding="utf-8")
     report = build_report(fixture.read_text().splitlines())

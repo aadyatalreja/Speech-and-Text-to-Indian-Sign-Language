@@ -87,15 +87,17 @@ and [licence requirements](LICENSES.md).
 
 ```text
 python eval/tools/make_review_sheet.py --output review.csv
-python eval/tools/import_review_sheet.py review.csv --output eval/isl_testset.jsonl
+python eval/tools/import_review_sheet.py review.csv --output eval/private/draft.jsonl
 python eval/run_eval.py --output scores.json --markdown-output scores.md
 python eval/run_eval.py --check --tolerance 0.01
 ```
 
 A Deaf ISL signer fills reviewed_gloss with space-separated tokens, optional
 acceptable_alternatives separated by `|`, nmm_notes, reviewer, signer_dialect and
-comments. Empty glosses are rejected; only a nonempty reviewer marks a returned
-row verified. Blank reviewers remain unverified; verification is never inferred
+comments. Empty glosses are rejected. Legacy plain CSV conversion is drafting
+only and leaves rows unverified, even when a reviewer name is supplied. Use the
+hash-bound packet and explicit named sign-off/evidence workflow in
+[STUDY_PROTOCOL.md](STUDY_PROTOCOL.md) for verification. Verification is never inferred
 from the source or a plausible gloss. Intent labels are initially classified from
 English punctuation/negation and should be checked in the JSONL. Free-text NMM
 notes are preserved; empty numeric NMM objects do not claim numeric marker review.
@@ -128,11 +130,21 @@ request, including this first step; SDK retries and timeouts remain those of M4.
 
 Every such response carries “Machine-translated to English first; not verified.”
 and english_text. The UI lets you edit the intermediate sentence and re-run it as
-English. In mock mode a notice explains that non-English input needs
-LLM_PROVIDER=api and treats the original as English. API failures also use the
-original as English with an explicit failure notice. A fallback is not a successful
+English. Mock mode and API failures use the explicitly unverified demo lexical
+glossary, preserving and flagging unmapped tokens and romanizing them for FS.
+A fallback is not a successful
 machine translation or linguistic verification. With API mode, source text is sent
 to the configured Claude service; existing API data handling applies.
+
+## Reproducible paper artifacts and protocol
+
+See [the runnable signer/study protocol](STUDY_PROTOCOL.md) and
+[paper reproduction instructions](../paper/README.md). `python eval/reproduce.py`
+regenerates actual offline coverage tables/figures and blank review/study materials.
+The simulated API ablation is labeled as a transport fixture, never live-model or
+ISL-accuracy results. Gloss accuracy is not comprehension accuracy. Kappa and
+content-word coverage are computed only on eligible verified evaluation rows;
+the canonical placeholder set still produces `NO_VERIFIED_ROWS` and no scores.
 
 ## Experimental wrong-sign reports and privacy
 

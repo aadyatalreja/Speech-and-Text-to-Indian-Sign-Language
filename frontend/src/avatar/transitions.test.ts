@@ -18,3 +18,14 @@ it("retimes spelling to its actual composition duration even when the old estima
   const item = { gloss: "FS:A", duration: 20, pause_after: 0, available: false, sign_id: null, video_url: null, asset_type: "none" };
   expect(retimeForAvatar([item])[0].duration).toBe(spellDuration("FS:A"));
 });
+
+it("uses a bounded curved path and eases velocity at inter-sign endpoints", () => {
+  const previous = restPose(); previous.R.p = [-0.5, 0, 0.4];
+  const clip = compileClip({ version: 1, id: "second", gloss: "SYNTHETIC", kind: "demo", keys: [{ t: 0, R: { p: [0.5, 0, 0.4] } }] });
+  const middle = transitionPose(previous, clip, 0.1, 0.2, 1);
+  expect(middle.R.p[0]).toBeCloseTo(0);
+  expect(middle.R.p[2]).toBeCloseTo(0.46);
+  const early = transitionPose(previous, clip, 0.001, 0.2, 1);
+  expect(early.R.p[0] - previous.R.p[0]).toBeLessThan(0.00001);
+  expect(transitionPose(previous, clip, 0.2, 0.2, 1)).toEqual(sampleClip(clip, 0.2));
+});

@@ -85,6 +85,7 @@ jobs:
           fi
           exit "$status"
   docker-build:
+    # Coverage ablations have a separate informational job below.
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -102,3 +103,31 @@ jobs:
           exit 1
       - if: always()
         run: docker rm -f signai-backend || true
+  coverage-ablation-informational:
+    runs-on: ubuntu-latest
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.8'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24.13.0'
+      - run: pip install -r backend/requirements.txt
+      - run: python -m nltk.downloader wordnet
+      - name: Offline coverage ablation — no live-model inference
+        env:
+          PYTHONHASHSEED: '20261103'
+          LLM_PROVIDER: mock
+        run: python eval/ablation.py --output eval/reports/ablation.json
+      - name: Informational summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f eval/reports/ablation.md ]; then cat eval/reports/ablation.md >> "$GITHUB_STEP_SUMMARY"; fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: offline-coverage-ablation-not-isl-accuracy
+          path: eval/reports/ablation.*

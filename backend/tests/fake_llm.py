@@ -6,7 +6,7 @@ from unittest.mock import AsyncMock
 from services import llm_service
 
 
-def install_fake_api(monkeypatch, gloss=None, payload=None, error=None):
+def install_fake_api(monkeypatch, gloss=None, payload=None, error=None, tool_name="emit_gloss"):
     requests = []
 
     async def create(**kwargs):
@@ -17,7 +17,7 @@ def install_fake_api(monkeypatch, gloss=None, payload=None, error=None):
             content=[
                 SimpleNamespace(
                     type="tool_use",
-                    name="emit_gloss",
+                    name=tool_name,
                     input=payload
                     if payload is not None
                     else {"intent": "statement", "gloss": gloss, "confidence": 0.8},

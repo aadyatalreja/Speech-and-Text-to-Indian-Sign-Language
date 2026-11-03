@@ -1,0 +1,14 @@
+{
+  "python": "3.11.8",
+  "node": "v24.13.0",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "packages": {
+    "nltk": "3.9.1",
+    "pydantic": "2.9.2",
+    "anthropic": "0.75.0",
+    "matplotlib": "3.10.7"
+  },
+  "model_id_configured_not_called": "claude-sonnet-5-5",
+  "seed": 20261103,
+  "wordnet_zip_sha256": "cbda5ea6eef7f36a97a43d4a75f85e07fccbb4f23657d27b4ccbc93e2646ab59"
+}

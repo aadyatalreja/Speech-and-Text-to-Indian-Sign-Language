@@ -38,6 +38,10 @@ class Settings:
         if synonym not in {"true", "false"}:
             raise ValueError("ENABLE_SYNONYM_FALLBACK must be true or false")
         self.ENABLE_SYNONYM_FALLBACK = synonym == "true"
+        indic = env.get("ENABLE_DEMO_INDIC_GLOSSARY", "true").strip().lower()
+        if indic not in {"true", "false"}:
+            raise ValueError("ENABLE_DEMO_INDIC_GLOSSARY must be true or false")
+        self.ENABLE_DEMO_INDIC_GLOSSARY = indic == "true"
         self.LLM_MODEL = env.get("LLM_MODEL", DEFAULT_LLM_MODEL).strip()
         if not re.fullmatch(r"claude-[a-z0-9]+(?:-[a-z0-9]+)*", self.LLM_MODEL):
             raise ValueError("LLM_MODEL must be a Claude API model ID; see official model overview")

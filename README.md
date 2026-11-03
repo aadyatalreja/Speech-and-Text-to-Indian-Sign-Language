@@ -149,9 +149,40 @@ are contributed. See [the grammar review process](docs/ISL_GRAMMAR_REVIEW.md).
 
 NMM numeric values come only from configured YAML rules; model-supplied poses
 and verification claims are discarded. Shipped question/negation marker
-mappings are empty and disabled. English question/negation metadata does not
+mappings are enabled **demo values**, all unverified and requiring signer review.
+English question/negation metadata does not
 validate ISL NMM. Sentence rules span multiple tokens; gloss rules can override
 specific channels. Unspecified clip channels remain intact.
+
+The wh demo follows the raised-brow/chin-up description in Zeshan (2006),
+“Regional variation in Indo-Pakistani Sign Language,” §3, p. 309, in
+*Interrogative and Negative Constructions in Sign Languages* (Ishara Press).
+[Reference PDF](https://hmk.am/wp-content/uploads/2022/12/453832.pdf).
+Polar-question forward head position and negative headshake have a reference
+lead in Zeshan (2004), *Interrogative constructions in signed languages*,
+Language 80(1), 7–39, IPSL example (3). Neither reference establishes the rig's
+numeric degrees, brow amplitudes, temporal shake, or sentence-wide scope.
+Each YAML value has a TODO for local-variety evidence and Deaf signer review;
+polar brow and negative brow choices are illustrative. The shipped wh demo
+uses raised brows, not a cross-language assumption that wh must use furrowing.
+The existing **“Demo / not verified ISL non-manual markers”** notice remains;
+`needs_signer_review: true` keeps `nmm_verified` false. Both panels show current
+rule IDs and **“demo expression, not signer-verified”** when verification is absent.
+
+Procedural expression display gains amplify existing brow, mouth, gaze and head
+channels for legibility; cosmetic squint derives only from existing gaze/brow
+channels. There is no new linguistic channel. The explicit demo negation rule
+uses its numeric yaw as a two-cycle shake amplitude; other head-yaw values remain
+static poses. Cached clips are copied, never rewritten. Clip interpolation and
+the pose follower smooth expression onset/offset. Neutral idle adds periodic
+blink and sub-degree head movement only during holds, with explicit authored
+channels (including zero) taking priority. Both procedural and glTF playback
+receive the same smoothed pose; unsupported glTF assets retain procedural fallback.
+
+Inter-sign hand travel uses a bounded forward arc and a smooth acceleration
+envelope. Faces blend directly from the previous end pose into the next, retaining
+shared sentence markers through the trailing `INTER_SIGN_PAUSE` hold. These are
+**engine interpolation, NOT reviewed ISL coarticulation or native signing fluency**.
 
 ## English gap diagnostics and model processing
 
@@ -416,3 +447,71 @@ Non-English input is machine-translated to English first in API mode; the editab
 English intermediate and explicit unverified/failure notices are shown. Report
 buttons submit opt-in wrong-sign reports for human prioritization; no review status
 changes automatically. See [the review and privacy guide](docs/EVALUATION_AND_REVIEW.md).
+
+### Deterministic multilingual demo baseline
+
+The selector values are `en-IN`, `en-US`, `en-GB`, `hi-IN` and `kn-IN`.
+The same selection sets recognition `lang`, the typing area's `lang` attribute,
+and the API `source_language`. Speech transcripts retain Unicode scripts.
+Unavailable recognition or a browser-reported unsupported locale shows an
+accessible message asking the user to type; the app never retries in English.
+Browser support for a locale cannot be inferred reliably from API presence alone.
+
+API translation remains preferred and uses the existing model-result cache.
+Mock mode and API translation failures use `backend/data/lexicon/hi_en.json`
+or `kn_en.json`: **demo glossary, machine-assembled, not linguist-verified**.
+These small files were checked for English repository membership only; they
+have no linguistic review. Set `ENABLE_DEMO_INDIC_GLOSSARY=false` to disable
+lookup. The parsed glossaries reload on file changes. Fallback results do not
+enter the successful API-translation cache, allowing the API to recover.
+The notice still says “Machine-translated to English first; not verified.”
+This baseline maps words without reconstructing English grammar, inferring
+Kannada suffixes, or disambiguating Hindi `कल` (mapped to `tomorrow` here).
+Unmapped tokens remain unchanged in the editable intermediate and are listed
+in its notice. Correcting and rerunning the intermediate remains available.
+
+Before constructing an FS token, an unmapped Devanagari/Kannada word uses the
+project's deterministic, lossy ASCII abugida romanization. Basic consonants
+carry inherent `a` unless followed by a vowel mark or virama; long vowels use
+`aa`, `ii`, `uu`; anusvara/chandrabindu use `m`, visarga `h`. Retroflex/dental
+and some nasal distinctions collapse, nukta and joiners are ignored, and Hindi
+schwa deletion is not attempted. Unsupported code points become `U` plus their
+hex value rather than disappearing. Examples: `नमस्ते` → `NAMASTE`, `मदद` →
+`MADADA`, `ಕನ್ನಡ` → `KANNADA`, `ನಮಸ್ಕಾರ` → `NAMASKAARA`.
+This is a mechanical spelling aid, not ISO-15919, pronunciation, translation,
+or the ISL manual alphabet. FS stays within the existing ASCII token regex.
+The user sees a romanization notice and the existing disclaimer:
+“Missing letters use placeholder fingerspelling (not the ISL alphabet);
+missing digits are shown as text.”
+
+Parallel evaluation inputs have 60 aligned sentences per language, excluding
+their `#` header. Hindi and Kannada inputs are machine-assembled and pending
+native-speaker review. Reports measure **coverage and the translation pipeline,
+not ISL accuracy**. The coverage tool always uses the deterministic offline
+preprocessing and mock gloss path, irrespective of `LLM_PROVIDER`; it makes no
+model calls. FS rate counts FS gloss tokens, not rendered character clips.
+Romanization can increase representability without improving meaning.
+
+CI-friendly commands (use the project's Python environment):
+
+```sh
+python backend/tools/coverage_report.py eval/domain_sentences.txt --source-language en-IN --strict --json-output eval/reports/en.json --markdown-output eval/reports/en.md
+python backend/tools/coverage_report.py eval/domain_sentences_hi.txt --source-language hi-IN --strict --json-output eval/reports/hi.json --markdown-output eval/reports/hi.md
+python backend/tools/coverage_report.py eval/domain_sentences_kn.txt --source-language kn-IN --strict --json-output eval/reports/kn.json --markdown-output eval/reports/kn.md
+```
+
+`--strict` exits nonzero on input, measurement, or output errors. Reports retain
+the source sentence, editable intermediate, unmapped/romanization notices, FS
+rate, and OOV ranking so vocabulary gaps are visible.
+
+### Paper artifacts and independent review
+
+After the dependency setup in [paper/README.md](paper/README.md), run
+`python eval/reproduce.py` for the offline configuration-ablation table, actual
+pipeline figures, a blank rendered reviewer packet and overlapping study scaffold.
+See [STUDY_PROTOCOL.md](docs/STUDY_PROTOCOL.md) for consent, private attribution,
+hash-bound imports and pre-adjudication agreement. The API ablation branch is an
+explicitly simulated local transport, not live-model results. Gloss accuracy is
+not comprehension accuracy; the real placeholder testset still produces
+`NO_VERIFIED_ROWS` with exit 2 and no new scores. The generated blinded still-frame
+pilot is not yet a full-motion comprehension study.

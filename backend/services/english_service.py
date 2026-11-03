@@ -10,6 +10,12 @@ from models.sign import Sign
 from services.sign_repository import SignRepository
 
 _lemmatizer = WordNetLemmatizer()
+NUMBER_WORDS = dict(
+    zip(
+        "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty seventy eighty ninety hundred thousand".split(),
+        [*range(21), 30, 40, 50, 60, 70, 80, 90, 100, 1000],
+    )
+)
 _CONTRACTIONS = {
     "can't": "can not",
     "cannot": "can not",
@@ -35,7 +41,9 @@ def english_words(text: str) -> list[str]:
         text = re.sub(re.escape(suffix) + r"\b", expanded, text, flags=re.I)
     # 's is ambiguous (possessive/is/has): expand only common pronoun forms.
     text = re.sub(r"\b(he|she|it|that|there|what|who)'s\b", r"\1 is", text, flags=re.I)
-    return re.findall(r"[^\W\d_]+(?:'[^\W\d_]+)*|\d+", text, flags=re.UNICODE)
+    return re.findall(
+        r"(?:[^\W\d_]|[\u0900-\u0963\u0c80-\u0ce3])+(?:'[^\W\d_]+)*|\d+", text, flags=re.UNICODE
+    )
 
 
 @lru_cache(maxsize=2048)
@@ -74,6 +82,12 @@ def number_tokens(word: str, repo: SignRepository) -> list[str]:
     sign = repo.get_by_text(word)
     if sign:
         return [sign.gloss]
+    if word.casefold() in NUMBER_WORDS:
+        digits = str(NUMBER_WORDS[word.casefold()])
+        # Keep the original word for spelling if no numeric entry can help.
+        if not repo.get_by_text(digits) and not any(repo.get_by_text(d) for d in digits):
+            return [f"FS:{word.upper()}"]
+        return number_tokens(digits, repo)
     return [sign.gloss if (sign := repo.get_by_text(digit)) else f"FS:{digit}" for digit in word]
 
 

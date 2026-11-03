@@ -1,0 +1,21 @@
+{
+  "id": 23,
+  "title": "SignLLM: Sign Language Production Large Language Models",
+  "authors": [
+    "Sen Fang",
+    "Chen Chen",
+    "Lei Wang",
+    "Ce Zheng",
+    "Chunyu Sui",
+    "Yapeng Tian"
+  ],
+  "year": 2024,
+  "url": "https://arxiv.org/abs/2405.10718",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2405.10718",
+  "arxiv": "2405.10718",
+  "project_relevance": "Multilingual prompt-conditioned sign production",
+  "verified_on": "2026-11-03"
+}

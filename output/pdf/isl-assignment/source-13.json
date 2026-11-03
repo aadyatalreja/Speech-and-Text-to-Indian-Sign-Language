@@ -1,0 +1,18 @@
+{
+  "id": 13,
+  "title": "Skeletal Graph Self-Attention: Embedding a Skeleton Inductive Bias into Sign Language Production",
+  "authors": [
+    "Ben Saunders",
+    "Necati Cihan Camgoz",
+    "Richard Bowden"
+  ],
+  "year": 2021,
+  "url": "https://arxiv.org/abs/2112.05277",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2112.05277",
+  "arxiv": "2112.05277",
+  "project_relevance": "Skeleton structure in pose generation",
+  "verified_on": "2026-11-03"
+}

@@ -1,0 +1,7 @@
+{
+  "status": "NO_VERIFIED_ROWS",
+  "scores_fabricated": false,
+  "human_judgements": "NONE GENERATED",
+  "ablation_table": "eval/reports/ablation.md",
+  "disclaimer": "Gloss agreement/accuracy is not comprehension accuracy, naturalness, or verified ISL quality. Repository coverage includes unverified demos; verified asset coverage is separate."
+}

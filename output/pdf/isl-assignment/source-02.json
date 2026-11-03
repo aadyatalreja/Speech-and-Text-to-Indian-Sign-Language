@@ -1,0 +1,16 @@
+{
+  "id": 2,
+  "title": "English to Indian Sign Language Gloss Conversion Using a Rule-Based Approach",
+  "authors": [
+    "Malu S Nair",
+    "Sumam Mary Idicula"
+  ],
+  "year": 2022,
+  "url": "https://doi.org/10.1007/978-981-19-3951-8_55",
+  "doi": "10.1007/978-981-19-3951-8_55",
+  "venue": "Algorithms for Intelligent Systems; Proceedings of International Conference on Communication and Computational Technologies",
+  "record_type": "book-chapter",
+  "metadata_source": "https://api.crossref.org/works/10.1007/978-981-19-3951-8_55",
+  "project_relevance": "English-to-ISL gloss conversion",
+  "verified_on": "2026-11-03"
+}

@@ -1,0 +1,4417 @@
+{
+  "source_language": "hi-IN",
+  "pipeline": "Deterministic offline Indic-to-English demo glossary then English lookup/gloss; no model calls.",
+  "description": "English repository coverage and translation pipeline only; not ISL grammar, accuracy or signer evaluation.",
+  "definition": "FS tokens / emitted gloss tokens in successfully measured sentences. OOV ranking excludes name_heuristic and explicit tokens.",
+  "sentences": [
+    {
+      "sentence": "मैं कल कॉलेज जा रहा हूँ।",
+      "english_text": "i tomorrow college जा रहा हूँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: जा, रहा, हूँ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "COLLEGE",
+        "FS:JAA",
+        "FS:RAHAA",
+        "FS:HUUM"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COLLEGE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAHAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUUM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "परिसर में पुस्तकालय कहाँ है?",
+      "english_text": "campus में library where है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: में, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "CAMPUS",
+        "FS:MEM",
+        "LIBRARY",
+        "FS:HAI",
+        "WHERE"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "CAMPUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LIBRARY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कक्षा मुख्य द्वार के पास है।",
+      "english_text": "classroom मुख्य द्वार के पास है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: मुख्य, द्वार, के, पास, है. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "CLASSROOM",
+        "FS:MUKHYA",
+        "FS:DVAARA",
+        "FS:KE",
+        "FS:PAASA",
+        "FS:HAI"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "CLASSROOM",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MUKHYA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DVAARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PAASA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कृपया विज्ञान प्रयोगशाला ढूँढने में मेरी मदद करें।",
+      "english_text": "please विज्ञान laboratory ढूँढने में my help करें",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: विज्ञान, ढूँढने, में, करें. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "FS:VIJNYAANA",
+        "LABORATORY",
+        "FS:DHUUMDHANE",
+        "FS:MEM",
+        "MY",
+        "FS:KAREM",
+        "HELP"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VIJNYAANA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LABORATORY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DHUUMDHANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAREM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मुझे कक्षा के लिए एक कॉपी चाहिए।",
+      "english_text": "me classroom के लिए one notebook need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: के, लिए. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "CLASSROOM",
+        "FS:KE",
+        "FS:LIE",
+        "ONE",
+        "NOTEBOOK",
+        "NEED"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CLASSROOM",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LIE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ONE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NOTEBOOK",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "हमारी परीक्षा कल नौ बजे शुरू होती है।",
+      "english_text": "हमारी exam tomorrow nine बजे शुरू होती है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: हमारी, बजे, शुरू, होती, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "FS:HAMAARII",
+        "EXAM",
+        "NINE",
+        "FS:BAJE",
+        "FS:SHURUU",
+        "FS:HOTII",
+        "FS:HAI"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAMAARII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EXAM",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NINE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAJE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SHURUU",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOTII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "शिक्षक कार्यालय में इंतजार कर रहे हैं।",
+      "english_text": "teacher office में इंतजार कर रहे हैं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: में, इंतजार, कर, रहे, हैं. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TEACHER",
+        "OFFICE",
+        "FS:MEM",
+        "FS:IMTAJAARA",
+        "FS:KARA",
+        "FS:RAHE",
+        "FS:HAIM"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "TEACHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "OFFICE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IMTAJAARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAHE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैं अपना थैला व्याख्यान कक्ष में छोड़ आया।",
+      "english_text": "i अपना bag व्याख्यान कक्ष में छोड़ आया",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: अपना, व्याख्यान, कक्ष, में, छोड़, आया. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "FS:APANAA",
+        "BAG",
+        "FS:VYAAKHYAANA",
+        "FS:KAKSHA",
+        "FS:MEM",
+        "FS:CHHODA",
+        "FS:AAYAA"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APANAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BAG",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VYAAKHYAANA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAKSHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CHHODA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AAYAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "क्या हम कार्यशाला के बाद मिल सकते हैं?",
+      "english_text": "what we कार्यशाला के बाद मिल सकते हैं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: कार्यशाला, के, बाद, मिल, सकते, हैं. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "WE",
+        "FS:KAARYASHAALAA",
+        "FS:KE",
+        "FS:BAADA",
+        "FS:MILA",
+        "FS:SAKATE",
+        "FS:HAIM",
+        "WHAT"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAARYASHAALAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MILA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAKATE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "परिसर जाने वाली बस देर से है।",
+      "english_text": "campus जाने वाली bus देर से है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: जाने, वाली, देर, से, है. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "CAMPUS",
+        "FS:JAANE",
+        "FS:VAALII",
+        "BUS",
+        "FS:DERA",
+        "FS:SE",
+        "FS:HAI"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "CAMPUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JAANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VAALII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DERA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैं खेल क्लब में शामिल होना चाहता हूँ।",
+      "english_text": "i खेल क्लब में शामिल होना चाहता हूँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: खेल, क्लब, में, शामिल, होना, चाहता, हूँ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "FS:KHELA",
+        "FS:KLABA",
+        "FS:MEM",
+        "FS:SHAAMILA",
+        "FS:HONAA",
+        "FS:CHAAHATAA",
+        "FS:HUUM"
+      ],
+      "fs_count": 7,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHELA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KLABA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SHAAMILA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HONAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CHAAHATAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUUM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कृपया मुझे बताइए कि छात्रावास कहाँ है।",
+      "english_text": "please me बताइए कि hostel where है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: बताइए, कि, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "FS:BATAAIE",
+        "FS:KI",
+        "HOSTEL",
+        "FS:HAI",
+        "WHERE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BATAAIE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOSTEL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "सबसे नजदीकी अस्पताल कहाँ है?",
+      "english_text": "सबसे नजदीकी hospital where है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: सबसे, नजदीकी, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:SABASE",
+        "FS:NAJADIIKII",
+        "HOSPITAL",
+        "FS:HAI",
+        "WHERE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:SABASE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NAJADIIKII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOSPITAL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मुझे इस अपॉइंटमेंट के लिए मदद चाहिए।",
+      "english_text": "me इस अपॉइंटमेंट के लिए help need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: इस, अपॉइंटमेंट, के, लिए. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "FS:ISA",
+        "FS:APAU0949IMTAMEMTA",
+        "FS:KE",
+        "FS:LIE",
+        "HELP",
+        "NEED"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ISA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APAU0949IMTAMEMTA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LIE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मेरी माँ को आज बुखार है।",
+      "english_text": "my mother को today fever है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: को, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TODAY",
+        "MY",
+        "MOTHER",
+        "FS:KO",
+        "FEVER",
+        "FS:HAI"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "TODAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MOTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KO",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FEVER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कृपया मेरे पिता के लिए डॉक्टर को बुलाएँ।",
+      "english_text": "please my father के लिए doctor को बुलाएँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: के, लिए, को, बुलाएँ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "MY",
+        "FATHER",
+        "FS:KE",
+        "FS:LIE",
+        "DOCTOR",
+        "FS:KO",
+        "FS:BULAAEM"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FATHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LIE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "DOCTOR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KO",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BULAAEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "नर्स ने मुझे यहाँ इंतजार करने को कहा।",
+      "english_text": "nurse ने me यहाँ इंतजार करने को कहा",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ने, यहाँ, इंतजार, करने, को, कहा. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "NURSE",
+        "FS:NE",
+        "ME",
+        "FS:YAHAAM",
+        "FS:IMTAJAARA",
+        "FS:KARANE",
+        "FS:KO",
+        "FS:KAHAA"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "NURSE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:YAHAAM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IMTAJAARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KARANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KO",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAHAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मुझे पानी और बैठने की जगह चाहिए।",
+      "english_text": "me water और बैठने की जगह need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: और, बैठने, की, जगह. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "WATER",
+        "FS:AURA",
+        "FS:BAITHANE",
+        "FS:KII",
+        "FS:JAGAHA",
+        "NEED"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WATER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AURA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAITHANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JAGAHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैं अपनी दवा कहाँ ले सकता हूँ?",
+      "english_text": "i अपनी medicine where ले सकता हूँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: अपनी, ले, सकता, हूँ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "FS:APANII",
+        "MEDICINE",
+        "FS:LE",
+        "FS:SAKATAA",
+        "FS:HUUM",
+        "WHERE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APANII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MEDICINE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAKATAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUUM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "खाने के बाद मेरे पेट में दर्द होता है।",
+      "english_text": "खाने के बाद my stomach में pain होता है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: खाने, के, बाद, में, होता, है. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:KHAANE",
+        "FS:KE",
+        "FS:BAADA",
+        "MY",
+        "STOMACH",
+        "FS:MEM",
+        "PAIN",
+        "FS:HOTAA",
+        "FS:HAI"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "FS:KHAANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "STOMACH",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "PAIN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HOTAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "क्लिनिक कल आठ बजे खुलता है।",
+      "english_text": "क्लिनिक tomorrow eight बजे खुलता है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: क्लिनिक, बजे, खुलता, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "FS:KLINIKA",
+        "EIGHT",
+        "FS:BAJE",
+        "FS:KHULATAA",
+        "FS:HAI"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KLINIKA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EIGHT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAJE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHULATAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कृपया मुझे आपातकालीन प्रवेश द्वार दिखाएँ।",
+      "english_text": "please me आपातकालीन प्रवेश द्वार दिखाएँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: आपातकालीन, प्रवेश, द्वार, दिखाएँ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "FS:AAPAATAKAALIINA",
+        "FS:PRAVESHA",
+        "FS:DVAARA",
+        "FS:DIKHAAEM"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AAPAATAKAALIINA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PRAVESHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DVAARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DIKHAAEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैं कल की रिपोर्ट लाया हूँ।",
+      "english_text": "i tomorrow की रिपोर्ट लाया हूँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: की, रिपोर्ट, लाया, हूँ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "FS:KII",
+        "FS:RIPORTA",
+        "FS:LAAYAA",
+        "FS:HUUM"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RIPORTA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LAAYAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUUM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "क्या मेरी बहन मेरे साथ रह सकती है?",
+      "english_text": "what my sister my साथ रह सकती है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: साथ, रह, सकती, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "SISTER",
+        "MY",
+        "FS:SAATHA",
+        "FS:RAHA",
+        "FS:SAKATII",
+        "FS:HAI",
+        "WHAT"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SISTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAATHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAKATII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मुझे हवाईअड्डे का टिकट चाहिए।",
+      "english_text": "me airport का ticket need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: का. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "AIRPORT",
+        "FS:KAA",
+        "TICKET",
+        "NEED"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "AIRPORT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TICKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "यह ट्रेन कहाँ रुकती है?",
+      "english_text": "यह train where रुकती है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: यह, रुकती, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:YAHA",
+        "TRAIN",
+        "FS:RUKATII",
+        "FS:HAI",
+        "WHERE"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "FS:YAHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TRAIN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RUKATII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "अगली बस दस मिनट में आती है।",
+      "english_text": "अगली bus ten मिनट में आती है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: अगली, मिनट, में, आती, है. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:AGALII",
+        "BUS",
+        "TEN",
+        "FS:MINATA",
+        "FS:MEM",
+        "FS:AATII",
+        "FS:HAI"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "FS:AGALII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TEN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MINATA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AATII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कृपया मेरी सीट ढूँढने में मदद करें।",
+      "english_text": "please my seat ढूँढने में help करें",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: ढूँढने, में, करें. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "MY",
+        "SEAT",
+        "FS:DHUUMDHANE",
+        "FS:MEM",
+        "FS:KAREM",
+        "HELP"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SEAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DHUUMDHANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAREM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैं अपना सूटकेस स्टेशन पर छोड़ आया।",
+      "english_text": "i अपना सूटकेस station पर छोड़ आया",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: अपना, सूटकेस, पर, छोड़, आया. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "FS:APANAA",
+        "FS:SUUTAKESA",
+        "STATION",
+        "FS:PARA",
+        "FS:CHHODA",
+        "FS:AAYAA"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APANAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SUUTAKESA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "STATION",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CHHODA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AAYAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "हम कल घर जा रहे हैं।",
+      "english_text": "we tomorrow home जा रहे हैं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: जा, रहे, हैं. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "WE",
+        "HOME",
+        "FS:JAA",
+        "FS:RAHE",
+        "FS:HAIM"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAHE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "क्या होटल बाजार के पास है?",
+      "english_text": "what hotel market के पास है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: के, पास, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "HOTEL",
+        "MARKET",
+        "FS:KE",
+        "FS:PAASA",
+        "FS:HAI",
+        "WHAT"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "HOTEL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MARKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PAASA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मुझे बस अड्डे का रास्ता चाहिए।",
+      "english_text": "me bus अड्डे का रास्ता need",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: अड्डे, का, रास्ता. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "BUS",
+        "FS:ADDE",
+        "FS:KAA",
+        "FS:RAASTAA",
+        "NEED"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ADDE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAASTAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "क्या आप मुझे बता सकते हैं कि कब उतरना है?",
+      "english_text": "what you me बता सकते हैं कि when उतरना है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: बता, सकते, हैं, कि, उतरना, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "YOU",
+        "ME",
+        "FS:BATAA",
+        "FS:SAKATE",
+        "FS:HAIM",
+        "FS:KI",
+        "FS:UTARANAA",
+        "FS:HAI",
+        "WHAT",
+        "WHEN"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BATAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAKATE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:UTARANAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHEN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मेरी उड़ान दो घंटे देर से है।",
+      "english_text": "my उड़ान two घंटे देर से है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: उड़ान, घंटे, देर, से, है. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "FS:UDAANA",
+        "TWO",
+        "FS:GHAMTE",
+        "FS:DERA",
+        "FS:SE",
+        "FS:HAI"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:UDAANA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TWO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GHAMTE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DERA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "द्वार के बाहर एक टैक्सी है।",
+      "english_text": "द्वार के बाहर one taxi है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: द्वार, के, बाहर, है. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:DVAARA",
+        "FS:KE",
+        "FS:BAAHARA",
+        "ONE",
+        "TAXI",
+        "FS:HAI"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "FS:DVAARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAAHARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ONE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TAXI",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कृपया यहाँ इंतजार करें जब तक मैं टिकट खरीदता हूँ।",
+      "english_text": "please यहाँ इंतजार करें जब तक i ticket खरीदता हूँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: यहाँ, इंतजार, करें, जब, तक, खरीदता, हूँ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "FS:YAHAAM",
+        "FS:IMTAJAARA",
+        "FS:KAREM",
+        "FS:JABA",
+        "FS:TAKA",
+        "I",
+        "TICKET",
+        "FS:KHARIIDATAA",
+        "FS:HUUM"
+      ],
+      "fs_count": 7,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:YAHAAM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:IMTAJAARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAREM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JABA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TAKA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TICKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHARIIDATAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUUM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कल मैं बाजार गया और सब्जियाँ खरीदीं।",
+      "english_text": "tomorrow i market गया और vegetable खरीदीं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: गया, और, खरीदीं. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "MARKET",
+        "FS:GAYAA",
+        "FS:AURA",
+        "VEGETABLE",
+        "FS:KHARIIDIIM"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MARKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GAYAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AURA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "VEGETABLE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHARIIDIIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "इस कमीज की कीमत कितनी है?",
+      "english_text": "इस कमीज की price कितनी है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: इस, कमीज, की, कितनी, है. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:ISA",
+        "FS:KAMIIJA",
+        "FS:KII",
+        "PRICE",
+        "FS:KITANII",
+        "FS:HAI"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "FS:ISA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAMIIJA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "PRICE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KITANII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैं चावल और दूध खरीदना चाहता हूँ।",
+      "english_text": "i rice और milk buy चाहता हूँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: और, चाहता, हूँ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "RICE",
+        "FS:AURA",
+        "MILK",
+        "FS:CHAAHATAA",
+        "FS:HUUM",
+        "BUY"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "RICE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AURA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MILK",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CHAAHATAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUUM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "क्या आपके पास ये जूते नीले रंग में हैं?",
+      "english_text": "what आपके पास ये जूते नीले रंग में हैं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: आपके, पास, ये, जूते, नीले, रंग, में, हैं. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:AAPAKE",
+        "FS:PAASA",
+        "FS:YE",
+        "FS:JUUTE",
+        "FS:NIILE",
+        "FS:RAMGA",
+        "FS:MEM",
+        "FS:HAIM",
+        "WHAT"
+      ],
+      "fs_count": 8,
+      "gloss_detail": [
+        {
+          "gloss": "FS:AAPAKE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PAASA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:YE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JUUTE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NIILE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAMGA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कृपया मुझे एक छोटा थैला दें।",
+      "english_text": "please me one small bag दें",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: दें. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "ONE",
+        "SMALL",
+        "BAG",
+        "FS:DEM"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ONE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SMALL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BAG",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैंने किराने के सामान के लिए नकद भुगतान किया।",
+      "english_text": "मैंने किराने के सामान के लिए नकद भुगतान किया",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: मैंने, किराने, के, सामान, लिए, नकद, भुगतान, किया. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:MAIMNE",
+        "FS:KIRAANE",
+        "FS:KE",
+        "FS:SAAMAANA",
+        "FS:KE",
+        "FS:LIE",
+        "FS:NAKADA",
+        "FS:BHUGATAANA",
+        "FS:KIYAA"
+      ],
+      "fs_count": 9,
+      "gloss_detail": [
+        {
+          "gloss": "FS:MAIMNE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KIRAANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAAMAANA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LIE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NAKADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BHUGATAANA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KIYAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "सबसे नजदीकी फल की दुकान कहाँ है?",
+      "english_text": "सबसे नजदीकी fruit की shop where है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: सबसे, नजदीकी, की, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:SABASE",
+        "FS:NAJADIIKII",
+        "FRUIT",
+        "FS:KII",
+        "SHOP",
+        "FS:HAI",
+        "WHERE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "FS:SABASE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:NAJADIIKII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FRUIT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SHOP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "यह बोतल मेरी बहन के लिए है।",
+      "english_text": "यह बोतल my sister के लिए है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: यह, बोतल, के, लिए, है. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:YAHA",
+        "FS:BOTALA",
+        "MY",
+        "SISTER",
+        "FS:KE",
+        "FS:LIE",
+        "FS:HAI"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "FS:YAHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BOTALA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SISTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LIE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "क्या मैं कल वह जैकेट बदल सकता हूँ?",
+      "english_text": "what i tomorrow वह जैकेट बदल सकता हूँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: वह, जैकेट, बदल, सकता, हूँ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "FS:VAHA",
+        "FS:JAIKETA",
+        "FS:BADALA",
+        "FS:SAKATAA",
+        "FS:HUUM",
+        "WHAT"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:VAHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JAIKETA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BADALA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAKATAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUUM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "दुकान रविवार को बंद रहती है।",
+      "english_text": "shop sunday को बंद रहती है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: को, बंद, रहती, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "SUNDAY",
+        "SHOP",
+        "FS:KO",
+        "FS:BAMDA",
+        "FS:RAHATII",
+        "FS:HAI"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "SUNDAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SHOP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KO",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAMDA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAHATII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मुझे रोटी चाहिए लेकिन मक्खन नहीं।",
+      "english_text": "me bread need लेकिन मक्खन not",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: लेकिन, मक्खन. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "ME",
+        "BREAD",
+        "FS:LEKINA",
+        "FS:MAKKHANA",
+        "NEED",
+        "NOT"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BREAD",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LEKINA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAKKHANA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NOT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कृपया उन सेबों को इस टोकरी में रखें।",
+      "english_text": "please उन सेबों को इस टोकरी में रखें",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: उन, सेबों, को, इस, टोकरी, में, रखें. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "FS:UNA",
+        "FS:SEBOM",
+        "FS:KO",
+        "FS:ISA",
+        "FS:TOKARII",
+        "FS:MEM",
+        "FS:RAKHEM"
+      ],
+      "fs_count": 7,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:UNA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SEBOM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KO",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ISA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:TOKARII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAKHEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मेरे पिता और माँ घर पर हैं।",
+      "english_text": "my father और mother home पर हैं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: और, पर, हैं. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "FATHER",
+        "FS:AURA",
+        "MOTHER",
+        "HOME",
+        "FS:PARA",
+        "FS:HAIM"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FATHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AURA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MOTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैं कल अपनी दादी से मिलने जा रहा हूँ।",
+      "english_text": "i tomorrow अपनी grandmother से मिलने जा रहा हूँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: अपनी, से, मिलने, जा, रहा, हूँ. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "FS:APANII",
+        "GRANDMOTHER",
+        "FS:SE",
+        "FS:MILANE",
+        "FS:JAA",
+        "FS:RAHAA",
+        "FS:HUUM"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APANII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GRANDMOTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MILANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAHAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUUM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मेरा भाई बस से कॉलेज जाता है।",
+      "english_text": "my brother bus से college जाता है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: से, जाता, है. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "BROTHER",
+        "BUS",
+        "FS:SE",
+        "COLLEGE",
+        "FS:JAATAA",
+        "FS:HAI"
+      ],
+      "fs_count": 3,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BROTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COLLEGE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JAATAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "कृपया मेरी बहन को उसके गृहकार्य में मदद करें।",
+      "english_text": "please my sister को उसके गृहकार्य में help करें",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: को, उसके, गृहकार्य, में, करें. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "PLEASE",
+        "MY",
+        "SISTER",
+        "FS:KO",
+        "FS:USAKE",
+        "FS:GRIHAKAARYA",
+        "FS:MEM",
+        "FS:KAREM",
+        "HELP"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SISTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KO",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:USAKE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GRIHAKAARYA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAREM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "हम शाम को साथ में रात का खाना खाते हैं।",
+      "english_text": "we evening को साथ में night का eat खाते हैं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: को, साथ, में, का, खाते, हैं. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "EVENING",
+        "NIGHT",
+        "WE",
+        "FS:KO",
+        "FS:SAATHA",
+        "FS:MEM",
+        "FS:KAA",
+        "FS:KHAATE",
+        "FS:HAIM",
+        "EAT"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "EVENING",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NIGHT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KO",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAATHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MEM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHAATE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैंने अपने चचेरे भाई के लिए उपहार खरीदा।",
+      "english_text": "मैंने अपने चचेरे brother के लिए gift खरीदा",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: मैंने, अपने, चचेरे, के, लिए, खरीदा. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:MAIMNE",
+        "FS:APANE",
+        "FS:CHACHERE",
+        "BROTHER",
+        "FS:KE",
+        "FS:LIE",
+        "GIFT",
+        "FS:KHARIIDAA"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "FS:MAIMNE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CHACHERE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BROTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:LIE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GIFT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHARIIDAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "बच्चे घर के पास खेल रहे हैं।",
+      "english_text": "child home के पास खेल रहे हैं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: के, पास, खेल, रहे, हैं. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "CHILD",
+        "HOME",
+        "FS:KE",
+        "FS:PAASA",
+        "FS:KHELA",
+        "FS:RAHE",
+        "FS:HAIM"
+      ],
+      "fs_count": 5,
+      "gloss_detail": [
+        {
+          "gloss": "CHILD",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PAASA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHELA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAHE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मेरी चाची गाँव से आ रही हैं।",
+      "english_text": "my चाची गाँव से आ रही हैं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: चाची, गाँव, से, आ, रही, हैं. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MY",
+        "FS:CHAACHII",
+        "FS:GAAMVA",
+        "FS:SE",
+        "FS:AA",
+        "FS:RAHII",
+        "FS:HAIM"
+      ],
+      "fs_count": 6,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CHAACHII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GAAMVA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:AA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:RAHII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "क्या आप दोपहर के खाने के बाद मुझे फोन कर सकते हैं?",
+      "english_text": "what you दोपहर के खाने के बाद me फोन कर सकते हैं",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: दोपहर, के, खाने, बाद, फोन, कर, सकते, हैं. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "YOU",
+        "FS:DOPAHARA",
+        "FS:KE",
+        "FS:KHAANE",
+        "FS:KE",
+        "FS:BAADA",
+        "ME",
+        "FS:PHONA",
+        "FS:KARA",
+        "FS:SAKATE",
+        "FS:HAIM",
+        "WHAT"
+      ],
+      "fs_count": 9,
+      "gloss_detail": [
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DOPAHARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KHAANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAADA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PHONA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAKATE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAIM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मैं इस सप्ताहांत अपने परिवार से मिलना चाहता हूँ।",
+      "english_text": "i इस सप्ताहांत अपने family से मिलना चाहता हूँ",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: इस, सप्ताहांत, अपने, से, मिलना, चाहता, हूँ. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "I",
+        "FS:ISA",
+        "FS:SAPTAAHAAMTA",
+        "FS:APANE",
+        "FAMILY",
+        "FS:SE",
+        "FS:MILANAA",
+        "FS:CHAAHATAA",
+        "FS:HUUM"
+      ],
+      "fs_count": 7,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:ISA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SAPTAAHAAMTA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:APANE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FAMILY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:SE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MILANAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:CHAAHATAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUUM",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "अगर बारिश हुई तो हम घर जाएँगे।",
+      "english_text": "अगर बारिश हुई तो we home जाएँगे",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: अगर, बारिश, हुई, तो, जाएँगे. Unverified grammar (demo rules): legacy_function_word_filter. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "FS:AGARA",
+        "FS:BAARISHA",
+        "FS:HUII",
+        "WE",
+        "HOME",
+        "FS:JAAEMGE"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "FS:AGARA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:BAARISHA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HUII",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:JAAEMGE",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "मेरे दादा को सुबह चाय या कॉफी पसंद है।",
+      "english_text": "my grandfather को morning tea या coffee पसंद है",
+      "notice": "Machine-translated to English first; not verified. demo glossary, machine-assembled, not linguist-verified. Word lookup only; English word order is not reconstructed. Unmapped tokens preserved: को, या, पसंद, है. Unverified grammar (demo rules): legacy_category_order. Unmapped Indic words were romanized/transliterated for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text.",
+      "gloss": [
+        "MORNING",
+        "MY",
+        "GRANDFATHER",
+        "FS:KO",
+        "TEA",
+        "FS:YAA",
+        "COFFEE",
+        "FS:PASAMDA",
+        "FS:HAI"
+      ],
+      "fs_count": 4,
+      "gloss_detail": [
+        {
+          "gloss": "MORNING",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GRANDFATHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:KO",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TEA",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:YAA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COFFEE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PASAMDA",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:HAI",
+          "fs_reason": "oov",
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    }
+  ],
+  "sentence_count": 60,
+  "error_count": 0,
+  "total_gloss_tokens": 436,
+  "fs_count": 270,
+  "fs_rate": 0.6192660550458715,
+  "top_oov_words": [
+    {
+      "word": "hai",
+      "frequency": 22,
+      "lemma_tried": null
+    },
+    {
+      "word": "ke",
+      "frequency": 15,
+      "lemma_tried": null
+    },
+    {
+      "word": "mem",
+      "frequency": 12,
+      "lemma_tried": null
+    },
+    {
+      "word": "haim",
+      "frequency": 10,
+      "lemma_tried": null
+    },
+    {
+      "word": "huum",
+      "frequency": 9,
+      "lemma_tried": null
+    },
+    {
+      "word": "ko",
+      "frequency": 8,
+      "lemma_tried": null
+    },
+    {
+      "word": "lie",
+      "frequency": 6,
+      "lemma_tried": null
+    },
+    {
+      "word": "se",
+      "frequency": 6,
+      "lemma_tried": null
+    },
+    {
+      "word": "aura",
+      "frequency": 4,
+      "lemma_tried": null
+    },
+    {
+      "word": "isa",
+      "frequency": 4,
+      "lemma_tried": null
+    },
+    {
+      "word": "karem",
+      "frequency": 4,
+      "lemma_tried": null
+    },
+    {
+      "word": "kii",
+      "frequency": 4,
+      "lemma_tried": null
+    },
+    {
+      "word": "paasa",
+      "frequency": 4,
+      "lemma_tried": null
+    },
+    {
+      "word": "baada",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "chaahataa",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "dvaara",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "imtajaara",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "jaa",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "kaa",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "rahe",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "sakate",
+      "frequency": 3,
+      "lemma_tried": null
+    },
+    {
+      "word": "aayaa",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "apanaa",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "apane",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "apanii",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "baje",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "chhoda",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "dera",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "dhuumdhane",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "kara",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "khaane",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "khela",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "ki",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "maimne",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "najadiikii",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "para",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "rahaa",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "saatha",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "sabase",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "sakataa",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "yaha",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "yahaam",
+      "frequency": 2,
+      "lemma_tried": null
+    },
+    {
+      "word": "aa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "aapaatakaaliina",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "aapake",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "aatii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "adde",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "agalii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "agara",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "apau0949imtamemta",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "baahara",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "baarisha",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "badala",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "baithane",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bamda",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bataa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bataaie",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bhugataana",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "botala",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "bulaaem",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "chaachii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "chachere",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "dem",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "dikhaaem",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "dopahara",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "gaamva",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "gayaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ghamte",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "grihakaarya",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hamaarii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "honaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hotaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "hotii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "huii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "jaaemge",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "jaane",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "jaataa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "jaba",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "jagaha",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "jaiketa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "juute",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kaaryashaalaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kahaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kaksha",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kamiija",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "karane",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "khaate",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "khariidaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "khariidataa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "khariidiim",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "khulataa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kiraane",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kitanii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "kiyaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "klaba",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "klinika",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "laayaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "le",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "lekina",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "makkhana",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "mila",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "milanaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "milane",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "minata",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "mukhya",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "nakada",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ne",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "niile",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "pasamda",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "phona",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "pravesha",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "raastaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "raha",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "rahatii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "rahii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "rakhem",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ramga",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "riporta",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "rukatii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "saamaana",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "sakatii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "saptaahaamta",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "sebom",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "shaamila",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "shuruu",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "suutakesa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "taka",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "tokarii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "udaana",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "una",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "usake",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "utaranaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "vaalii",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "vaha",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "vijnyaana",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "vyaakhyaana",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "yaa",
+      "frequency": 1,
+      "lemma_tried": null
+    },
+    {
+      "word": "ye",
+      "frequency": 1,
+      "lemma_tried": null
+    }
+  ]
+}

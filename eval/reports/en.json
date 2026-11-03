@@ -1,0 +1,2640 @@
+{
+  "source_language": "en-IN",
+  "pipeline": "Deterministic offline Indic-to-English demo glossary then English lookup/gloss; no model calls.",
+  "description": "English repository coverage and translation pipeline only; not ISL grammar, accuracy or signer evaluation.",
+  "definition": "FS tokens / emitted gloss tokens in successfully measured sentences. OOV ranking excludes name_heuristic and explicit tokens.",
+  "sentences": [
+    {
+      "sentence": "I am going to college tomorrow.",
+      "english_text": "I am going to college tomorrow.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "COLLEGE",
+        "GO"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COLLEGE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where is the library on campus?",
+      "english_text": "Where is the library on campus?",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "LIBRARY",
+        "CAMPUS",
+        "WHERE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "LIBRARY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CAMPUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The classroom is near the main gate.",
+      "english_text": "The classroom is near the main gate.",
+      "notice": "Unverified grammar (demo rules): legacy_function_word_filter.",
+      "gloss": [
+        "CLASSROOM",
+        "NEAR",
+        "FS:MAIN",
+        "GATE"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "CLASSROOM",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEAR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:MAIN",
+          "fs_reason": "oov",
+          "lemma_tried": "main",
+          "synonym_from": null
+        },
+        {
+          "gloss": "GATE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please help me find the science lab.",
+      "english_text": "Please help me find the science lab.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "LABORATORY",
+        "HELP",
+        "FIND"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LABORATORY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FIND",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need a notebook for class.",
+      "english_text": "I need a notebook for class.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "NOTEBOOK",
+        "CLASS",
+        "NEED"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NOTEBOOK",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CLASS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Our exam starts at nine tomorrow.",
+      "english_text": "Our exam starts at nine tomorrow.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order.",
+      "gloss": [
+        "TOMORROW",
+        "OUR",
+        "EXAM",
+        "NINE",
+        "START"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "OUR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EXAM",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NINE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "START",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The teacher is waiting in the office.",
+      "english_text": "The teacher is waiting in the office.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "TEACHER",
+        "OFFICE",
+        "WAIT"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TEACHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "OFFICE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WAIT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I left my bag in the lecture hall.",
+      "english_text": "I left my bag in the lecture hall.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "MY",
+        "BAG",
+        "LECTURE_HALL",
+        "LEAVE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BAG",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LECTURE_HALL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LEAVE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can we meet after the workshop?",
+      "english_text": "Can we meet after the workshop?",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "AFTER",
+        "WE",
+        "WORKSHOP",
+        "MEET"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "AFTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WORKSHOP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MEET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The bus to campus is late.",
+      "english_text": "The bus to campus is late.",
+      "notice": "Unverified grammar (demo rules): legacy_function_word_filter.",
+      "gloss": [
+        "BUS",
+        "CAMPUS",
+        "LATE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CAMPUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LATE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I want to join the sports club.",
+      "english_text": "I want to join the sports club.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "SPORT",
+        "CLUB",
+        "WANT",
+        "JOIN"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SPORT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CLUB",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WANT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "JOIN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please tell me where the hostel is.",
+      "english_text": "Please tell me where the hostel is.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "HOSTEL",
+        "TELL",
+        "WHERE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOSTEL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TELL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where is the nearest hospital?",
+      "english_text": "Where is the nearest hospital?",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "NEAR",
+        "HOSPITAL",
+        "WHERE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "NEAR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOSPITAL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need help with this appointment.",
+      "english_text": "I need help with this appointment.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order.",
+      "gloss": [
+        "I",
+        "THIS",
+        "APPOINTMENT",
+        "NEED",
+        "HELP"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "THIS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "APPOINTMENT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My mother has a fever today.",
+      "english_text": "My mother has a fever today.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "TODAY",
+        "MY",
+        "MOTHER",
+        "FEVER"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TODAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MOTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FEVER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please call a doctor for my father.",
+      "english_text": "Please call a doctor for my father.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "PLEASE",
+        "DOCTOR",
+        "MY",
+        "FATHER",
+        "CALL"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "DOCTOR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FATHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CALL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The nurse asked me to wait here.",
+      "english_text": "The nurse asked me to wait here.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "NURSE",
+        "ME",
+        "ASK",
+        "WAIT"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "NURSE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ASK",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WAIT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need water and a place to sit.",
+      "english_text": "I need water and a place to sit.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "WATER",
+        "FS:PLACE",
+        "NEED",
+        "SIT"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WATER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:PLACE",
+          "fs_reason": "oov",
+          "lemma_tried": "place",
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SIT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where can I collect my medicine?",
+      "english_text": "Where can I collect my medicine?",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "MY",
+        "MEDICINE",
+        "COLLECT",
+        "WHERE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MEDICINE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COLLECT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My stomach hurts after eating.",
+      "english_text": "My stomach hurts after eating.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order.",
+      "gloss": [
+        "AFTER",
+        "MY",
+        "STOMACH",
+        "HURT",
+        "EAT"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "AFTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "STOMACH",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HURT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The clinic opens at eight tomorrow.",
+      "english_text": "The clinic opens at eight tomorrow.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "TOMORROW",
+        "CLINIC",
+        "EIGHT",
+        "OPEN"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CLINIC",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EIGHT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "OPEN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please show me the emergency entrance.",
+      "english_text": "Please show me the emergency entrance.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "EMERGENCY",
+        "ENTRANCE",
+        "SHOW"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EMERGENCY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ENTRANCE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SHOW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I brought the reports from yesterday.",
+      "english_text": "I brought the reports from yesterday.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "YESTERDAY",
+        "I",
+        "REPORT",
+        "BRING"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "YESTERDAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "REPORT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BRING",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can my sister stay with me?",
+      "english_text": "Can my sister stay with me?",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_function_word_filter.",
+      "gloss": [
+        "MY",
+        "SISTER",
+        "FS:STAY",
+        "ME"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SISTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:STAY",
+          "fs_reason": "oov",
+          "lemma_tried": "stay",
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I want a ticket to the airport.",
+      "english_text": "I want a ticket to the airport.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "TICKET",
+        "AIRPORT",
+        "WANT"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TICKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "AIRPORT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WANT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where does this train stop?",
+      "english_text": "Where does this train stop?",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "THIS",
+        "TRAIN",
+        "STOP",
+        "WHERE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "THIS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TRAIN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "STOP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The next bus arrives in ten minutes.",
+      "english_text": "The next bus arrives in ten minutes.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "MINUTE",
+        "NEXT",
+        "BUS",
+        "TEN",
+        "ARRIVE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "MINUTE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEXT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TEN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ARRIVE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please help me find my seat.",
+      "english_text": "Please help me find my seat.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "MY",
+        "SEAT",
+        "HELP",
+        "FIND"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SEAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FIND",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I left my suitcase at the station.",
+      "english_text": "I left my suitcase at the station.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "MY",
+        "SUITCASE",
+        "STATION",
+        "LEAVE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SUITCASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "STATION",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LEAVE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "We are going home tomorrow.",
+      "english_text": "We are going home tomorrow.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "TOMORROW",
+        "WE",
+        "HOME",
+        "GO"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Is the hotel near the market?",
+      "english_text": "Is the hotel near the market?",
+      "notice": "Unverified grammar (demo rules): legacy_function_word_filter.",
+      "gloss": [
+        "HOTEL",
+        "NEAR",
+        "MARKET"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "HOTEL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEAR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MARKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need directions to the bus stand.",
+      "english_text": "I need directions to the bus stand.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "FS:DIRECTIONS",
+        "BUS_STAND",
+        "NEED"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:DIRECTIONS",
+          "fs_reason": "oov",
+          "lemma_tried": "direction",
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS_STAND",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can you tell me when to get off?",
+      "english_text": "Can you tell me when to get off?",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "YOU",
+        "ME",
+        "FS:GET",
+        "FS:OFF",
+        "TELL",
+        "WHEN"
+      ],
+      "fs_count": 2,
+      "gloss_detail": [
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:GET",
+          "fs_reason": "oov",
+          "lemma_tried": "get",
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:OFF",
+          "fs_reason": "oov",
+          "lemma_tried": "off",
+          "synonym_from": null
+        },
+        {
+          "gloss": "TELL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHEN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My flight is delayed by two hours.",
+      "english_text": "My flight is delayed by two hours.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "HOUR",
+        "MY",
+        "FLIGHT",
+        "LATE",
+        "TWO"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "HOUR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FLIGHT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LATE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TWO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "There is a taxi outside the gate.",
+      "english_text": "There is a taxi outside the gate.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_function_word_filter.",
+      "gloss": [
+        "TAXI",
+        "FS:OUTSIDE",
+        "GATE"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "TAXI",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:OUTSIDE",
+          "fs_reason": "oov",
+          "lemma_tried": "outside",
+          "synonym_from": null
+        },
+        {
+          "gloss": "GATE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please wait here while I buy a ticket.",
+      "english_text": "Please wait here while I buy a ticket.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "PLEASE",
+        "FS:WHILE",
+        "I",
+        "TICKET",
+        "WAIT",
+        "BUY"
+      ],
+      "fs_count": 1,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FS:WHILE",
+          "fs_reason": "oov",
+          "lemma_tried": "while",
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TICKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WAIT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Yesterday I went to the market and bought vegetables.",
+      "english_text": "Yesterday I went to the market and bought vegetables.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "YESTERDAY",
+        "I",
+        "MARKET",
+        "VEGETABLE",
+        "GO",
+        "BUY"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "YESTERDAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MARKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "VEGETABLE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "How much does this shirt cost?",
+      "english_text": "How much does this shirt cost?",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "MUCH",
+        "THIS",
+        "SHIRT",
+        "COST",
+        "HOW"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "MUCH",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "THIS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SHIRT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COST",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I want to buy rice and milk.",
+      "english_text": "I want to buy rice and milk.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "RICE",
+        "MILK",
+        "WANT",
+        "BUY"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "RICE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MILK",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WANT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Do you have these shoes in blue?",
+      "english_text": "Do you have these shoes in blue?",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_function_word_filter.",
+      "gloss": [
+        "YOU",
+        "THESE",
+        "SHOE",
+        "BLUE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "THESE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SHOE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BLUE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please give me a smaller bag.",
+      "english_text": "Please give me a smaller bag.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "PLEASE",
+        "ME",
+        "SMALL",
+        "BAG",
+        "GIVE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SMALL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BAG",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GIVE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I paid for the groceries with cash.",
+      "english_text": "I paid for the groceries with cash.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "GROCERY",
+        "CASH",
+        "PAY"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GROCERY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CASH",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "PAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Where is the nearest fruit shop?",
+      "english_text": "Where is the nearest fruit shop?",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "NEAR",
+        "FRUIT",
+        "SHOP",
+        "WHERE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "NEAR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FRUIT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SHOP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WHERE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "This bottle is for my sister.",
+      "english_text": "This bottle is for my sister.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_function_word_filter.",
+      "gloss": [
+        "THIS",
+        "BOTTLE",
+        "MY",
+        "SISTER"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "THIS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BOTTLE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SISTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can I exchange that jacket tomorrow?",
+      "english_text": "Can I exchange that jacket tomorrow?",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "THAT",
+        "JACKET",
+        "EXCHANGE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "THAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "JACKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EXCHANGE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The shop is closed on Sunday.",
+      "english_text": "The shop is closed on Sunday.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "SUNDAY",
+        "SHOP",
+        "CLOSED"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "SUNDAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SHOP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CLOSED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I need bread but not butter.",
+      "english_text": "I need bread but not butter.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order.",
+      "gloss": [
+        "I",
+        "BREAD",
+        "BUTTER",
+        "NEED",
+        "NOT"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BREAD",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUTTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEED",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NOT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please keep those apples in this basket.",
+      "english_text": "Please keep those apples in this basket.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order.",
+      "gloss": [
+        "PLEASE",
+        "THOSE",
+        "APPLE",
+        "THIS",
+        "BASKET",
+        "KEEP"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "THOSE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "APPLE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "THIS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BASKET",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "KEEP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My father and mother are at home.",
+      "english_text": "My father and mother are at home.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_function_word_filter.",
+      "gloss": [
+        "MY",
+        "FATHER",
+        "MOTHER",
+        "HOME"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FATHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MOTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I am visiting my grandmother tomorrow.",
+      "english_text": "I am visiting my grandmother tomorrow.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "TOMORROW",
+        "I",
+        "MY",
+        "GRANDMOTHER",
+        "VISIT"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "TOMORROW",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GRANDMOTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "VISIT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My brother goes to college by bus.",
+      "english_text": "My brother goes to college by bus.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "MY",
+        "BROTHER",
+        "COLLEGE",
+        "BUS",
+        "GO"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BROTHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COLLEGE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Please help my sister with her homework.",
+      "english_text": "Please help my sister with her homework.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order.",
+      "gloss": [
+        "PLEASE",
+        "MY",
+        "SISTER",
+        "HER",
+        "HOMEWORK",
+        "HELP"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "PLEASE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SISTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOMEWORK",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HELP",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "We eat dinner together in the evening.",
+      "english_text": "We eat dinner together in the evening.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "EVENING",
+        "WE",
+        "DINNER",
+        "TOGETHER",
+        "EAT"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "EVENING",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "DINNER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TOGETHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "EAT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I bought a gift for my cousin.",
+      "english_text": "I bought a gift for my cousin.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "I",
+        "GIFT",
+        "MY",
+        "COUSIN",
+        "BUY"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GIFT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COUSIN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "BUY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "The children are playing near the house.",
+      "english_text": "The children are playing near the house.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "CHILD",
+        "NEAR",
+        "HOUSE",
+        "PLAY"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "CHILD",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "NEAR",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOUSE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "PLAY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My aunt is coming from the village.",
+      "english_text": "My aunt is coming from the village.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "MY",
+        "AUNT",
+        "VILLAGE",
+        "COME"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "AUNT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "VILLAGE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "Can you call me after lunch?",
+      "english_text": "Can you call me after lunch?",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "AFTER",
+        "YOU",
+        "ME",
+        "LUNCH",
+        "CALL"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "AFTER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "YOU",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "ME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LUNCH",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "CALL",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "I want to see my family this weekend.",
+      "english_text": "I want to see my family this weekend.",
+      "notice": "Unverified grammar (demo rules): legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "WEEKEND",
+        "I",
+        "MY",
+        "FAMILY",
+        "THIS",
+        "WANT",
+        "SEE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "WEEKEND",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "I",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "FAMILY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "THIS",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "WANT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "SEE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "We will go home if it rains.",
+      "english_text": "We will go home if it rains.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "WE",
+        "HOME",
+        "IT",
+        "GO",
+        "RAIN"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "WE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "HOME",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "IT",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GO",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "RAIN",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    },
+    {
+      "sentence": "My grandfather likes tea or coffee in the morning.",
+      "english_text": "My grandfather likes tea or coffee in the morning.",
+      "notice": "Unverified grammar (demo rules): demo_function_word_filter_2, legacy_category_order, legacy_function_word_filter.",
+      "gloss": [
+        "MORNING",
+        "MY",
+        "GRANDFATHER",
+        "TEA",
+        "COFFEE",
+        "LIKE"
+      ],
+      "fs_count": 0,
+      "gloss_detail": [
+        {
+          "gloss": "MORNING",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "MY",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "GRANDFATHER",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "TEA",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "COFFEE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        },
+        {
+          "gloss": "LIKE",
+          "fs_reason": null,
+          "lemma_tried": null,
+          "synonym_from": null
+        }
+      ],
+      "error": null
+    }
+  ],
+  "sentence_count": 60,
+  "error_count": 0,
+  "total_gloss_tokens": 275,
+  "fs_count": 8,
+  "fs_rate": 0.02909090909090909,
+  "top_oov_words": [
+    {
+      "word": "directions",
+      "frequency": 1,
+      "lemma_tried": "direction"
+    },
+    {
+      "word": "get",
+      "frequency": 1,
+      "lemma_tried": "get"
+    },
+    {
+      "word": "main",
+      "frequency": 1,
+      "lemma_tried": "main"
+    },
+    {
+      "word": "off",
+      "frequency": 1,
+      "lemma_tried": "off"
+    },
+    {
+      "word": "outside",
+      "frequency": 1,
+      "lemma_tried": "outside"
+    },
+    {
+      "word": "place",
+      "frequency": 1,
+      "lemma_tried": "place"
+    },
+    {
+      "word": "stay",
+      "frequency": 1,
+      "lemma_tried": "stay"
+    },
+    {
+      "word": "while",
+      "frequency": 1,
+      "lemma_tried": "while"
+    }
+  ]
+}

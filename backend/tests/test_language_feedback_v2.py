@@ -59,7 +59,7 @@ def test_failure_fallback_and_english_never_calls_translation(monkeypatch):
     create = fake_client(monkeypatch)
     create.side_effect = RuntimeError("synthetic failure")
     english, notice = asyncio.run(llm_service.english_input("नमस्ते", "Hindi"))
-    assert english == "नमस्ते" and "failed" in notice
+    assert english == "hello" and "failed" in notice and "demo glossary" in notice
     for language in ("English", "en-IN", "en-US", "en-GB"):
         assert asyncio.run(llm_service.english_input("Hello", language)) == ("Hello", None)
     assert create.await_count == 1
@@ -67,11 +67,11 @@ def test_failure_fallback_and_english_never_calls_translation(monkeypatch):
 
 def test_mock_notice_and_websocket_english_intermediate():
     result = asyncio.run(translate(TranslationRequest(text="ನಮಸ್ಕಾರ", source_language="kn-IN")))
-    assert result.english_text == "ನಮಸ್ಕಾರ" and "LLM_PROVIDER=api" in result.notice
+    assert result.english_text == "hello" and "demo glossary" in result.notice
     with TestClient(app).websocket_connect("/api/translate/stream") as ws:
         ws.send_json({"text": "नमस्ते", "source_language": "hi-IN"})
         first = ws.receive_json()
-        assert first["english_text"] == "नमस्ते" and "not verified" in first["notice"]
+        assert first["english_text"] == "hello" and "not verified" in first["notice"]
         while ws.receive_json()["type"] != "done":
             pass
 
@@ -162,12 +162,12 @@ def test_new_markers_reject_out_of_bounds(value):
         NonManualMarkers(**value)
 
 
-def test_shipped_markers_stay_empty_and_disabled():
+def test_shipped_markers_remain_demo_and_need_review():
     from services.marker_service import load_rules
 
     for rule in load_rules():
-        assert not rule.enabled
-        assert not rule.nmm.model_dump(exclude_none=True)
+        assert rule.enabled and rule.nmm.model_dump(exclude_none=True)
+        assert rule.review_status == "unverified" and rule.needs_signer_review
 
 
 def test_non_english_http_uses_intermediate_and_rate_limit_before_second_call(monkeypatch):

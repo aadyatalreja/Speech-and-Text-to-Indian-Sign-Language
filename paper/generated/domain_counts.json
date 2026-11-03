@@ -1,0 +1,91 @@
+{
+  "languages": [
+    "English",
+    "Hindi",
+    "Kannada"
+  ],
+  "counts": [
+    [
+      {
+        "domain": "Campus",
+        "tokens": 50,
+        "fs_tokens": 1
+      },
+      {
+        "domain": "Hospital",
+        "tokens": 53,
+        "fs_tokens": 2
+      },
+      {
+        "domain": "Travel",
+        "tokens": 55,
+        "fs_tokens": 5
+      },
+      {
+        "domain": "Shopping",
+        "tokens": 56,
+        "fs_tokens": 0
+      },
+      {
+        "domain": "Family",
+        "tokens": 61,
+        "fs_tokens": 0
+      }
+    ],
+    [
+      {
+        "domain": "Campus",
+        "tokens": 85,
+        "fs_tokens": 53
+      },
+      {
+        "domain": "Hospital",
+        "tokens": 83,
+        "fs_tokens": 49
+      },
+      {
+        "domain": "Travel",
+        "tokens": 82,
+        "fs_tokens": 48
+      },
+      {
+        "domain": "Shopping",
+        "tokens": 86,
+        "fs_tokens": 56
+      },
+      {
+        "domain": "Family",
+        "tokens": 100,
+        "fs_tokens": 64
+      }
+    ],
+    [
+      {
+        "domain": "Campus",
+        "tokens": 58,
+        "fs_tokens": 34
+      },
+      {
+        "domain": "Hospital",
+        "tokens": 58,
+        "fs_tokens": 32
+      },
+      {
+        "domain": "Travel",
+        "tokens": 61,
+        "fs_tokens": 32
+      },
+      {
+        "domain": "Shopping",
+        "tokens": 62,
+        "fs_tokens": 39
+      },
+      {
+        "domain": "Family",
+        "tokens": 69,
+        "fs_tokens": 41
+      }
+    ]
+  ],
+  "disclaimer": "Executed offline coverage reports, grouped by the committed 12-sentence blocks for campus/hospital/travel/shopping/family. Cells show repository-membership coverage and FS-token rate, weighted by emitted gloss-token counts. No estimates or human judgements are added. Demos and lexical translation remain unverified; this is NOT ISL accuracy or comprehension."
+}

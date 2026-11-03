@@ -1,0 +1,18 @@
+{
+  "id": 4,
+  "title": "ISLTranslate: Dataset for Translating Indian Sign Language",
+  "authors": [
+    "Abhinav Joshi",
+    "Susmit Agrawal",
+    "Ashutosh Modi"
+  ],
+  "year": 2023,
+  "url": "https://arxiv.org/abs/2307.05440",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2307.05440",
+  "arxiv": "2307.05440",
+  "project_relevance": "ISL continuous translation dataset; reverse-direction resource",
+  "verified_on": "2026-11-03"
+}

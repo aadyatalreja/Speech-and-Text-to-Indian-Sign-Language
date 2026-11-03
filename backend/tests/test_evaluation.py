@@ -170,7 +170,7 @@ def test_review_sheet_round_trip_reviewer_required(tmp_path):
     output = tmp_path / "rows.jsonl"
     import_review_sheet.main([str(sheet), "--output", str(output)])
     result = [json.loads(line) for line in output.read_text().splitlines()]
-    assert [r["review_status"] for r in result] == ["verified", "unverified"]
+    assert [r["review_status"] for r in result] == ["unverified", "unverified"]
     assert result[0]["acceptable_alternatives"] == [["HI"], ["WELCOME"]]
     rows[0]["reviewed_gloss"] = ""
     with sheet.open("w", newline="") as stream:

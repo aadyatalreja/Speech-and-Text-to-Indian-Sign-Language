@@ -1,7 +1,7 @@
 import { GlassCard, SegmentedControl } from "./ui";
 export type InputMode = "type" | "speak";
 export interface SpeechState { supported: boolean; listening: boolean; error: string | null; start: () => void; stop: () => void }
-const LANGS = [["en-IN", "English (India)"], ["en-US", "English (US)"], ["en-GB", "English (UK)"], ["hi-IN", "हिन्दी · experimental"], ["kn-IN", "ಕನ್ನಡ · experimental"]];
+export const LANGS = [["en-IN", "English (India)"], ["en-US", "English (US)"], ["en-GB", "English (UK)"], ["hi-IN", "हिन्दी · experimental"], ["kn-IN", "ಕನ್ನಡ · experimental"]];
 
 interface Props {
   value: string; onChange: (v: string) => void; onTranslate: () => void; busy: boolean;
@@ -19,13 +19,13 @@ export default function TextInput(p: Props) {
           <SegmentedControl label="Input method" value={p.mode} onChange={p.onMode} disabled={speech.supported ? [] : ["speak"]}
             options={[{ value: "type", label: "Type" }, { value: "speak", label: "Speak" }]} />
         </div>
-        <textarea id="text" rows={3} maxLength={500} value={p.value} readOnly={speech.listening}
+        <textarea lang={p.lang} id="text" rows={3} maxLength={500} value={p.value} readOnly={speech.listening}
           placeholder={p.mode === "speak" ? "Your spoken sentence appears here…" : "Type a sentence, question, or phrase…"}
           onChange={(e) => p.onChange(e.target.value)}
           onKeyDown={(e) => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) p.onTranslate(); }}
           className="w-full resize-none rounded-ctl border border-line/10 bg-surface/60 p-4 text-lg leading-relaxed outline-none transition placeholder:text-muted/70 focus:border-accent/60 focus:bg-surface/80 focus:ring-4 focus:ring-accent/20" />
         <div className="mt-2 flex items-center justify-between text-xs text-muted">
-          <span>{p.lang.startsWith("en") ? "English → ISL" : "Experimental · English translation → ISL"}{!speech.supported && " · Speech input needs Chrome, Edge or Safari"}</span>
+          <span>{p.lang.startsWith("en") ? "English → ISL" : "Experimental · English translation → ISL"}</span>
           <span aria-live="polite">{p.value.length} / 500</span>
         </div>
       </GlassCard>

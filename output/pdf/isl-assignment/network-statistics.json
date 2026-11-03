@@ -1,0 +1,234 @@
+{
+  "nodes": 25,
+  "edges": 43,
+  "total_link_strength": 112,
+  "density": 0.14333333333333334,
+  "mean_degree": 3.44,
+  "authors": [
+    {
+      "name": "Necati Cihan Camgoz",
+      "papers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+      ]
+    },
+    {
+      "name": "Richard Bowden",
+      "papers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        19,
+        20
+      ]
+    },
+    {
+      "name": "Ben Saunders",
+      "papers": [
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15
+      ]
+    },
+    {
+      "name": "Arkadip Maitra",
+      "papers": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "Oscar Koller",
+      "papers": [
+        17,
+        19,
+        20
+      ]
+    },
+    {
+      "name": "Soumitra Samanta",
+      "papers": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "Suvajit Patra",
+      "papers": [
+        6,
+        7,
+        8
+      ]
+    },
+    {
+      "name": "Abhinav Joshi",
+      "papers": [
+        4,
+        5
+      ]
+    },
+    {
+      "name": "Amit Moryossef",
+      "papers": [
+        18,
+        21
+      ]
+    },
+    {
+      "name": "Ashutosh Modi",
+      "papers": [
+        4,
+        5
+      ]
+    },
+    {
+      "name": "Kayo Yin",
+      "papers": [
+        18,
+        21
+      ]
+    },
+    {
+      "name": "Simon Hadfield",
+      "papers": [
+        19,
+        20
+      ]
+    },
+    {
+      "name": "Swami Punyeshwarananda",
+      "papers": [
+        6,
+        8
+      ]
+    },
+    {
+      "name": "Yoav Goldberg",
+      "papers": [
+        18,
+        21
+      ]
+    }
+  ],
+  "top_papers": [
+    {
+      "id": 19,
+      "title": "Neural Sign Language Translation",
+      "authors": [
+        "Necati Cihan Camgoz",
+        "Simon Hadfield",
+        "Oscar Koller",
+        "Hermann Ney",
+        "Richard Bowden"
+      ],
+      "year": 2018,
+      "url": "https://openaccess.thecvf.com/content_cvpr_2018/html/Camgoz_Neural_Sign_Language_CVPR_2018_paper.html",
+      "doi": "",
+      "venue": "Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition",
+      "record_type": "conference paper",
+      "metadata_source": "https://openaccess.thecvf.com/content_cvpr_2018/html/Camgoz_Neural_Sign_Language_CVPR_2018_paper.html",
+      "project_relevance": "Neural translation and reverse-direction evaluation",
+      "verified_on": "2026-11-03",
+      "degree": 9,
+      "total_link_strength": 19
+    },
+    {
+      "id": 20,
+      "title": "Sign Language Transformers: Joint End-to-end Sign Language Recognition and Translation",
+      "authors": [
+        "Necati Cihan Camgoz",
+        "Oscar Koller",
+        "Simon Hadfield",
+        "Richard Bowden"
+      ],
+      "year": 2020,
+      "url": "https://arxiv.org/abs/2003.13830",
+      "doi": "",
+      "venue": "arXiv preprint",
+      "record_type": "preprint record",
+      "metadata_source": "https://arxiv.org/abs/2003.13830",
+      "arxiv": "2003.13830",
+      "project_relevance": "Joint recognition and translation; back-translation context",
+      "verified_on": "2026-11-03",
+      "degree": 9,
+      "total_link_strength": 19
+    },
+    {
+      "id": 9,
+      "title": "Progressive Transformers for End-to-End Sign Language Production",
+      "authors": [
+        "Ben Saunders",
+        "Necati Cihan Camgoz",
+        "Richard Bowden"
+      ],
+      "year": 2020,
+      "url": "https://arxiv.org/abs/2004.14874",
+      "doi": "",
+      "venue": "arXiv preprint",
+      "record_type": "preprint record",
+      "metadata_source": "https://arxiv.org/abs/2004.14874",
+      "arxiv": "2004.14874",
+      "project_relevance": "Continuous text-to-pose production",
+      "verified_on": "2026-11-03",
+      "degree": 8,
+      "total_link_strength": 22
+    },
+    {
+      "id": 10,
+      "title": "Adversarial Training for Multi-Channel Sign Language Production",
+      "authors": [
+        "Ben Saunders",
+        "Necati Cihan Camgoz",
+        "Richard Bowden"
+      ],
+      "year": 2020,
+      "url": "https://arxiv.org/abs/2008.12405",
+      "doi": "",
+      "venue": "arXiv preprint",
+      "record_type": "preprint record",
+      "metadata_source": "https://arxiv.org/abs/2008.12405",
+      "arxiv": "2008.12405",
+      "project_relevance": "Manual and non-manual sign production",
+      "verified_on": "2026-11-03",
+      "degree": 8,
+      "total_link_strength": 22
+    },
+    {
+      "id": 11,
+      "title": "Continuous 3D Multi-Channel Sign Language Production via Progressive Transformers and Mixture Density Networks",
+      "authors": [
+        "Ben Saunders",
+        "Necati Cihan Camgoz",
+        "Richard Bowden"
+      ],
+      "year": 2021,
+      "url": "https://arxiv.org/abs/2103.06982",
+      "doi": "",
+      "venue": "arXiv preprint",
+      "record_type": "preprint record",
+      "metadata_source": "https://arxiv.org/abs/2103.06982",
+      "arxiv": "2103.06982",
+      "project_relevance": "Continuous multi-channel production and evaluation",
+      "verified_on": "2026-11-03",
+      "degree": 8,
+      "total_link_strength": 22
+    }
+  ]
+}

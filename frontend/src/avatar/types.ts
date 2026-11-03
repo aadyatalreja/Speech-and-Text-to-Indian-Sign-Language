@@ -79,6 +79,8 @@ export interface HandState {
 }
 
 export interface AvatarPose {
+  /** Authored channels (including explicit zero); idle must never replace them. */
+  activeNmm?: (keyof FaceChannels | "head")[];
   R: HandState;
   L: HandState;
   head: Vec3;

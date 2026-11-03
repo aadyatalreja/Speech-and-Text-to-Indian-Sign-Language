@@ -1,0 +1,17 @@
+{
+  "notes": "demo glossary, machine-assembled, not linguist-verified",
+  "provenance": "Manually inspected for schema and English repository membership only. No native-speaker or linguist review; lexical lookup is not sentence translation or ISL grammar.",
+  "review_status": "unverified",
+  "entries": {
+    "नमस्ते": "hello", "मैं": "i", "मुझे": "me", "हम": "we", "आप": "you", "मेरा": "my", "मेरी": "my", "मेरे": "my",
+    "मदद": "help", "चाहिए": "need", "कृपया": "please", "पानी": "water", "खाना": "eat", "पीना": "drink", "जाना": "go", "आना": "come",
+    "कहाँ": "where", "कब": "when", "कौन": "who", "क्या": "what", "क्यों": "why", "कैसे": "how", "नहीं": "not", "हाँ": "yes",
+    "आज": "today", "कल": "tomorrow", "सुबह": "morning", "शाम": "evening", "रात": "night", "रविवार": "sunday",
+    "कॉलेज": "college", "विद्यालय": "school", "परिसर": "campus", "पुस्तकालय": "library", "कक्षा": "classroom", "परीक्षा": "exam", "शिक्षक": "teacher", "कार्यालय": "office", "छात्रावास": "hostel", "प्रयोगशाला": "laboratory", "कॉपी": "notebook",
+    "अस्पताल": "hospital", "डॉक्टर": "doctor", "नर्स": "nurse", "दवा": "medicine", "बुखार": "fever", "दर्द": "pain", "पेट": "stomach", "नियुक्ति": "appointment",
+    "बस": "bus", "ट्रेन": "train", "टिकट": "ticket", "हवाईअड्डे": "airport", "हवाईअड्डा": "airport", "स्टेशन": "station", "टैक्सी": "taxi", "होटल": "hotel", "सीट": "seat",
+    "बाजार": "market", "दुकान": "shop", "खरीदना": "buy", "चावल": "rice", "दूध": "milk", "रोटी": "bread", "फल": "fruit", "सब्जियाँ": "vegetable", "पैसे": "cash", "कीमत": "price", "नीला": "blue", "छोटा": "small", "थैला": "bag",
+    "घर": "home", "परिवार": "family", "माँ": "mother", "पिता": "father", "बहन": "sister", "भाई": "brother", "दादी": "grandmother", "दादा": "grandfather", "बच्चे": "child", "उपहार": "gift", "चाय": "tea", "कॉफी": "coffee",
+    "एक": "one", "दो": "two", "तीन": "three", "आठ": "eight", "नौ": "nine", "दस": "ten"
+  }
+}

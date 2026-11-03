@@ -1,0 +1,17 @@
+{
+  "notes": "demo glossary, machine-assembled, not linguist-verified",
+  "provenance": "Manually inspected for schema and English repository membership only. No native-speaker or linguist review; lexical lookup is not sentence translation or ISL grammar.",
+  "review_status": "unverified",
+  "entries": {
+    "ನಮಸ್ಕಾರ": "hello", "ನಾನು": "i", "ನನಗೆ": "me", "ನಾವು": "we", "ನೀವು": "you", "ನನ್ನ": "my", "ನಮ್ಮ": "our",
+    "ಸಹಾಯ": "help", "ಬೇಕು": "need", "ದಯವಿಟ್ಟು": "please", "ನೀರು": "water", "ಊಟ": "eat", "ಕುಡಿಯಲು": "drink", "ಹೋಗಲು": "go", "ಬರಲು": "come",
+    "ಎಲ್ಲಿ": "where", "ಯಾವಾಗ": "when", "ಯಾರು": "who", "ಏನು": "what", "ಏಕೆ": "why", "ಹೇಗೆ": "how", "ಇಲ್ಲ": "not", "ಹೌದು": "yes",
+    "ಇಂದು": "today", "ನಾಳೆ": "tomorrow", "ಬೆಳಿಗ್ಗೆ": "morning", "ಸಂಜೆ": "evening", "ರಾತ್ರಿ": "night", "ಭಾನುವಾರ": "sunday",
+    "ಕಾಲೇಜು": "college", "ಶಾಲೆ": "school", "ಆವರಣ": "campus", "ಗ್ರಂಥಾಲಯ": "library", "ತರಗತಿ": "classroom", "ಪರೀಕ್ಷೆ": "exam", "ಶಿಕ್ಷಕರು": "teacher", "ಕಚೇರಿ": "office", "ವಸತಿನಿಲಯ": "hostel", "ಪ್ರಯೋಗಾಲಯ": "laboratory", "ನೋಟುಪುಸ್ತಕ": "notebook",
+    "ಆಸ್ಪತ್ರೆ": "hospital", "ವೈದ್ಯರು": "doctor", "ನರ್ಸ್": "nurse", "ಔಷಧಿ": "medicine", "ಜ್ವರ": "fever", "ನೋವು": "pain", "ಹೊಟ್ಟೆ": "stomach", "ಅಪಾಯಿಂಟ್ಮೆಂಟ್": "appointment",
+    "ಬಸ್": "bus", "ರೈಲು": "train", "ಟಿಕೆಟ್": "ticket", "ವಿಮಾನನಿಲ್ದಾಣ": "airport", "ನಿಲ್ದಾಣ": "station", "ಟ್ಯಾಕ್ಸಿ": "taxi", "ಹೋಟೆಲ್": "hotel", "ಆಸನ": "seat",
+    "ಮಾರುಕಟ್ಟೆ": "market", "ಅಂಗಡಿ": "shop", "ಖರೀದಿಸಲು": "buy", "ಅಕ್ಕಿ": "rice", "ಹಾಲು": "milk", "ಬ್ರೆಡ್": "bread", "ಹಣ್ಣು": "fruit", "ತರಕಾರಿ": "vegetable", "ನಗದು": "cash", "ಬೆಲೆ": "price", "ನೀಲಿ": "blue", "ಚಿಕ್ಕ": "small", "ಚೀಲ": "bag",
+    "ಮನೆ": "home", "ಕುಟುಂಬ": "family", "ತಾಯಿ": "mother", "ತಂದೆ": "father", "ಸಹೋದರಿ": "sister", "ಸಹೋದರ": "brother", "ಅಜ್ಜಿ": "grandmother", "ಅಜ್ಜ": "grandfather", "ಮಕ್ಕಳು": "child", "ಉಡುಗೊರೆ": "gift", "ಚಹಾ": "tea", "ಕಾಫಿ": "coffee",
+    "ಒಂದು": "one", "ಎರಡು": "two", "ಮೂರು": "three", "ಎಂಟು": "eight", "ಒಂಬತ್ತು": "nine", "ಹತ್ತು": "ten"
+  }
+}

@@ -29,7 +29,11 @@ shoulder_raise_left/right in shoulder widths (0..0.3). Each scalar has its own
 track so omitted channels hold. Unmentioned extension channels are neutral.
 Legacy brow/mouth channels still animate the procedural face. Item NMM may add
 `gaze: [x,y]` and `mouth_shape: {open,wide,round}` with the same bounds; validators
-reject nonfinite/out-of-range values. Shipped NMM rules remain empty and disabled.
+reject nonfinite/out-of-range values. Shipped question/negation NMM rules are enabled
+demo rig values, unverified and requiring signer review. Numeric amplitudes,
+sentence scope and the engine-generated headshake remain illustrative. Current
+rule IDs and an unverified-expression badge are shown below the avatar; see the
+README for reference leads, review TODOs and interpolation limitations.
 Numeric channels and meshes do not establish meaningful ISL non-manual grammar.
 
 ## Converter and lab

@@ -1,0 +1,4 @@
+reviewer_id,item_id,manifest_sha256,meaning_response,comprehension,comments
+R01,item-003,9024abf0471349a5a8936fe24b418cf90f02806e8040b6ab7c651dff676a9b9d,,,
+R01,item-005,9024abf0471349a5a8936fe24b418cf90f02806e8040b6ab7c651dff676a9b9d,,,
+R01,item-001,9024abf0471349a5a8936fe24b418cf90f02806e8040b6ab7c651dff676a9b9d,,,

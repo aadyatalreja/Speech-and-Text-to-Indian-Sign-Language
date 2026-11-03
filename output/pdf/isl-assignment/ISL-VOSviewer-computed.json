@@ -1,0 +1,533 @@
+{
+    "config": {
+        "parameters": {
+            "largest_component": false,
+            "attraction": 2,
+            "repulsion": 1,
+            "resolution": 1,
+            "min_cluster_size": 1,
+            "merge_small_clusters": true
+        }
+    },
+    "network": {
+        "items": [
+            {
+                "id": 1,
+                "label": "[01] Sugandhi 2020",
+                "description": "Sign Language Generation System Based on Indian Sign Language Grammar",
+                "url": "https://doi.org/10.1145/3384202",
+                "x": -0.7632592734699152,
+                "y": -0.7122085428929708,
+                "cluster": 6,
+                "scores": {
+                    "Year": 2020
+                }
+            },
+            {
+                "id": 2,
+                "label": "[02] Nair 2022",
+                "description": "English to Indian Sign Language Gloss Conversion Using a Rule-Based Approach",
+                "url": "https://doi.org/10.1007/978-981-19-3951-8_55",
+                "x": 1.0320975992982988,
+                "y": -0.23489568190175147,
+                "cluster": 7,
+                "scores": {
+                    "Year": 2022
+                }
+            },
+            {
+                "id": 3,
+                "label": "[03] Sridhar 2020",
+                "description": "INCLUDE: A Large Scale Dataset for Indian Sign Language Recognition",
+                "url": "https://doi.org/10.1145/3394171.3413528",
+                "x": -0.5028782926657387,
+                "y": 0.8860558443025925,
+                "cluster": 8,
+                "scores": {
+                    "Year": 2020
+                }
+            },
+            {
+                "id": 4,
+                "label": "[04] Joshi 2023",
+                "description": "ISLTranslate: Dataset for Translating Indian Sign Language",
+                "url": "https://arxiv.org/abs/2307.05440",
+                "x": -0.9008957437464692,
+                "y": 0.4369168138423166,
+                "cluster": 4,
+                "scores": {
+                    "Year": 2023
+                }
+            },
+            {
+                "id": 5,
+                "label": "[05] Joshi 2024",
+                "description": "iSign: A Benchmark for Indian Sign Language Processing",
+                "url": "https://arxiv.org/abs/2407.05404",
+                "x": -0.8975847961267887,
+                "y": 0.3856977281753225,
+                "cluster": 4,
+                "scores": {
+                    "Year": 2024
+                }
+            },
+            {
+                "id": 6,
+                "label": "[06] Patra 2024",
+                "description": "Hierarchical Windowed Graph Attention Network and a Large Scale Dataset for Isolated Indian Sign Language Recognition",
+                "url": "https://arxiv.org/abs/2407.14224",
+                "x": 0.7458011252899795,
+                "y": 0.36649478540246216,
+                "cluster": 2,
+                "scores": {
+                    "Year": 2024
+                }
+            },
+            {
+                "id": 7,
+                "label": "[07] Patra 2025",
+                "description": "A Continuous Indian Sign Language Production System from Isolated Signs",
+                "url": "https://doi.org/10.1109/ICSCC66177.2025.11233467",
+                "x": 0.8430767362057435,
+                "y": 0.3606518438587291,
+                "cluster": 2,
+                "scores": {
+                    "Year": 2025
+                }
+            },
+            {
+                "id": 8,
+                "label": "[08] Patra 2026",
+                "description": "A Gloss-driven Indian Sign Language Production System Using Learned Pose Representations",
+                "url": "https://doi.org/10.24963/ijcai.2026/823",
+                "x": 0.7949565139799478,
+                "y": 0.44577760996289195,
+                "cluster": 2,
+                "scores": {
+                    "Year": 2026
+                }
+            },
+            {
+                "id": 9,
+                "label": "[09] Saunders 2020",
+                "description": "Progressive Transformers for End-to-End Sign Language Production",
+                "url": "https://arxiv.org/abs/2004.14874",
+                "x": 0.017017061996730413,
+                "y": -0.2132493867655715,
+                "cluster": 1,
+                "scores": {
+                    "Year": 2020
+                }
+            },
+            {
+                "id": 10,
+                "label": "[10] Saunders 2020",
+                "description": "Adversarial Training for Multi-Channel Sign Language Production",
+                "url": "https://arxiv.org/abs/2008.12405",
+                "x": -0.14830253602449997,
+                "y": -0.2563628547330039,
+                "cluster": 1,
+                "scores": {
+                    "Year": 2020
+                }
+            },
+            {
+                "id": 11,
+                "label": "[11] Saunders 2021",
+                "description": "Continuous 3D Multi-Channel Sign Language Production via Progressive Transformers and Mixture Density Networks",
+                "url": "https://arxiv.org/abs/2103.06982",
+                "x": -0.09729523763071193,
+                "y": -0.13506194435225577,
+                "cluster": 1,
+                "scores": {
+                    "Year": 2021
+                }
+            },
+            {
+                "id": 12,
+                "label": "[12] Saunders 2021",
+                "description": "Mixed SIGNals: Sign Language Production via a Mixture of Motion Primitives",
+                "url": "https://arxiv.org/abs/2107.11317",
+                "x": -0.10933087945099207,
+                "y": -0.01630372407147341,
+                "cluster": 1,
+                "scores": {
+                    "Year": 2021
+                }
+            },
+            {
+                "id": 13,
+                "label": "[13] Saunders 2021",
+                "description": "Skeletal Graph Self-Attention: Embedding a Skeleton Inductive Bias into Sign Language Production",
+                "url": "https://arxiv.org/abs/2112.05277",
+                "x": -0.25142950224525207,
+                "y": -0.0016554719562741126,
+                "cluster": 1,
+                "scores": {
+                    "Year": 2021
+                }
+            },
+            {
+                "id": 14,
+                "label": "[14] Saunders 2022",
+                "description": "Signing at Scale: Learning to Co-Articulate Signs for Large-Scale Photo-Realistic Sign Language Production",
+                "url": "https://arxiv.org/abs/2203.15354",
+                "x": -0.2539629538356005,
+                "y": -0.14469979177047432,
+                "cluster": 1,
+                "scores": {
+                    "Year": 2022
+                }
+            },
+            {
+                "id": 15,
+                "label": "[15] Saunders 2020",
+                "description": "Everybody Sign Now: Translating Spoken Language to Photo Realistic Sign Language Video",
+                "url": "https://arxiv.org/abs/2011.09846",
+                "x": 0.052390080881770676,
+                "y": -0.0713452855711517,
+                "cluster": 1,
+                "scores": {
+                    "Year": 2020
+                }
+            },
+            {
+                "id": 16,
+                "label": "[16] Duarte 2020",
+                "description": "How2Sign: A Large-scale Multimodal Dataset for Continuous American Sign Language",
+                "url": "https://arxiv.org/abs/2008.08143",
+                "x": -1.0174620858271728,
+                "y": -0.23710142646135643,
+                "cluster": 9,
+                "scores": {
+                    "Year": 2020
+                }
+            },
+            {
+                "id": 17,
+                "label": "[17] Bragg 2019",
+                "description": "Sign Language Recognition, Generation, and Translation: An Interdisciplinary Perspective",
+                "url": "https://arxiv.org/abs/1908.08597",
+                "x": -0.006893103487164516,
+                "y": 0.25127201051276854,
+                "cluster": 3,
+                "scores": {
+                    "Year": 2019
+                }
+            },
+            {
+                "id": 18,
+                "label": "[18] Yin 2021",
+                "description": "Including Signed Languages in Natural Language Processing",
+                "url": "https://arxiv.org/abs/2105.05222",
+                "x": 0.6523640595188648,
+                "y": -0.599657825309148,
+                "cluster": 5,
+                "scores": {
+                    "Year": 2021
+                }
+            },
+            {
+                "id": 19,
+                "label": "[19] Camgoz 2018",
+                "description": "Neural Sign Language Translation",
+                "url": "https://openaccess.thecvf.com/content_cvpr_2018/html/Camgoz_Neural_Sign_Language_CVPR_2018_paper.html",
+                "x": -0.11456633806412574,
+                "y": 0.13665132745672312,
+                "cluster": 3,
+                "scores": {
+                    "Year": 2018
+                }
+            },
+            {
+                "id": 20,
+                "label": "[20] Camgoz 2020",
+                "description": "Sign Language Transformers: Joint End-to-end Sign Language Recognition and Translation",
+                "url": "https://arxiv.org/abs/2003.13830",
+                "x": 0.019121263259965476,
+                "y": 0.09434130305291342,
+                "cluster": 3,
+                "scores": {
+                    "Year": 2020
+                }
+            },
+            {
+                "id": 21,
+                "label": "[21] Moryossef 2021",
+                "description": "Data Augmentation for Sign Language Gloss Translation",
+                "url": "https://aclanthology.org/2021.mtsummit-at4ssl.1/",
+                "x": 0.6460916941474506,
+                "y": -0.6576787844880573,
+                "cluster": 5,
+                "scores": {
+                    "Year": 2021
+                }
+            },
+            {
+                "id": 22,
+                "label": "[22] Ma 2024",
+                "description": "Multi-Channel Spatio-Temporal Transformer for Sign Language Production",
+                "url": "https://aclanthology.org/2024.lrec-main.1022/",
+                "x": 0.19418893302886206,
+                "y": -1.015820835033772,
+                "cluster": 10,
+                "scores": {
+                    "Year": 2024
+                }
+            },
+            {
+                "id": 23,
+                "label": "[23] Fang 2024",
+                "description": "SignLLM: Sign Language Production Large Language Models",
+                "url": "https://arxiv.org/abs/2405.10718",
+                "x": -0.0426982752059266,
+                "y": 0.9789584263346588,
+                "cluster": 11,
+                "scores": {
+                    "Year": 2024
+                }
+            },
+            {
+                "id": 24,
+                "label": "[24] Rastgoo 2024",
+                "description": "A survey on recent advances in Sign Language Production",
+                "url": "https://doi.org/10.1016/j.eswa.2023.122846",
+                "x": 0.42112322313264755,
+                "y": 0.934320724974249,
+                "cluster": 12,
+                "scores": {
+                    "Year": 2024
+                }
+            },
+            {
+                "id": 25,
+                "label": "[25] Kahlon 2021",
+                "description": "Machine translation from text to sign language: a systematic review",
+                "url": "https://doi.org/10.1007/s10209-021-00823-1",
+                "x": -0.31166927295989916,
+                "y": -0.9810968625683616,
+                "cluster": 13,
+                "scores": {
+                    "Year": 2021
+                }
+            }
+        ],
+        "links": [
+            {
+                "source_id": 4,
+                "target_id": 5,
+                "strength": 2
+            },
+            {
+                "source_id": 6,
+                "target_id": 7,
+                "strength": 3
+            },
+            {
+                "source_id": 6,
+                "target_id": 8,
+                "strength": 4
+            },
+            {
+                "source_id": 7,
+                "target_id": 8,
+                "strength": 3
+            },
+            {
+                "source_id": 9,
+                "target_id": 10,
+                "strength": 3
+            },
+            {
+                "source_id": 9,
+                "target_id": 11,
+                "strength": 3
+            },
+            {
+                "source_id": 9,
+                "target_id": 12,
+                "strength": 3
+            },
+            {
+                "source_id": 9,
+                "target_id": 13,
+                "strength": 3
+            },
+            {
+                "source_id": 9,
+                "target_id": 14,
+                "strength": 3
+            },
+            {
+                "source_id": 9,
+                "target_id": 15,
+                "strength": 3
+            },
+            {
+                "source_id": 9,
+                "target_id": 19,
+                "strength": 2
+            },
+            {
+                "source_id": 9,
+                "target_id": 20,
+                "strength": 2
+            },
+            {
+                "source_id": 10,
+                "target_id": 11,
+                "strength": 3
+            },
+            {
+                "source_id": 10,
+                "target_id": 12,
+                "strength": 3
+            },
+            {
+                "source_id": 10,
+                "target_id": 13,
+                "strength": 3
+            },
+            {
+                "source_id": 10,
+                "target_id": 14,
+                "strength": 3
+            },
+            {
+                "source_id": 10,
+                "target_id": 15,
+                "strength": 3
+            },
+            {
+                "source_id": 10,
+                "target_id": 19,
+                "strength": 2
+            },
+            {
+                "source_id": 10,
+                "target_id": 20,
+                "strength": 2
+            },
+            {
+                "source_id": 11,
+                "target_id": 12,
+                "strength": 3
+            },
+            {
+                "source_id": 11,
+                "target_id": 13,
+                "strength": 3
+            },
+            {
+                "source_id": 11,
+                "target_id": 14,
+                "strength": 3
+            },
+            {
+                "source_id": 11,
+                "target_id": 15,
+                "strength": 3
+            },
+            {
+                "source_id": 11,
+                "target_id": 19,
+                "strength": 2
+            },
+            {
+                "source_id": 11,
+                "target_id": 20,
+                "strength": 2
+            },
+            {
+                "source_id": 12,
+                "target_id": 13,
+                "strength": 3
+            },
+            {
+                "source_id": 12,
+                "target_id": 14,
+                "strength": 3
+            },
+            {
+                "source_id": 12,
+                "target_id": 15,
+                "strength": 3
+            },
+            {
+                "source_id": 12,
+                "target_id": 19,
+                "strength": 2
+            },
+            {
+                "source_id": 12,
+                "target_id": 20,
+                "strength": 2
+            },
+            {
+                "source_id": 13,
+                "target_id": 14,
+                "strength": 3
+            },
+            {
+                "source_id": 13,
+                "target_id": 15,
+                "strength": 3
+            },
+            {
+                "source_id": 13,
+                "target_id": 19,
+                "strength": 2
+            },
+            {
+                "source_id": 13,
+                "target_id": 20,
+                "strength": 2
+            },
+            {
+                "source_id": 14,
+                "target_id": 15,
+                "strength": 3
+            },
+            {
+                "source_id": 14,
+                "target_id": 19,
+                "strength": 2
+            },
+            {
+                "source_id": 14,
+                "target_id": 20,
+                "strength": 2
+            },
+            {
+                "source_id": 15,
+                "target_id": 19,
+                "strength": 2
+            },
+            {
+                "source_id": 15,
+                "target_id": 20,
+                "strength": 2
+            },
+            {
+                "source_id": 17,
+                "target_id": 19,
+                "strength": 1
+            },
+            {
+                "source_id": 17,
+                "target_id": 20,
+                "strength": 1
+            },
+            {
+                "source_id": 18,
+                "target_id": 21,
+                "strength": 3
+            },
+            {
+                "source_id": 19,
+                "target_id": 20,
+                "strength": 4
+            }
+        ]
+    }
+}

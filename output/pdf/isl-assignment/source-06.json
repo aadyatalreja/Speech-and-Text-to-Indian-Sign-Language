@@ -1,0 +1,22 @@
+{
+  "id": 6,
+  "title": "Hierarchical Windowed Graph Attention Network and a Large Scale Dataset for Isolated Indian Sign Language Recognition",
+  "authors": [
+    "Suvajit Patra",
+    "Arkadip Maitra",
+    "Megha Tiwari",
+    "K. Kumaran",
+    "Swathy Prabhu",
+    "Swami Punyeshwarananda",
+    "Soumitra Samanta"
+  ],
+  "year": 2024,
+  "url": "https://arxiv.org/abs/2407.14224",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2407.14224",
+  "arxiv": "2407.14224",
+  "project_relevance": "ISL isolated-sign dataset and pose modelling",
+  "verified_on": "2026-11-03"
+}

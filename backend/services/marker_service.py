@@ -41,11 +41,18 @@ class MarkerRule(BaseModel):
 
     @model_validator(mode="after")
     def check_rule(self):
+        def numeric(value):
+            if isinstance(value, dict):
+                return any(numeric(item) for item in value.values())
+            if isinstance(value, (list, tuple)):
+                return any(numeric(item) for item in value)
+            return isinstance(value, (int, float)) and not isinstance(value, bool)
+
         if not self.id.strip() or not self.source.strip():
             raise ValueError("Rule id and source must not be blank")
         if self.span == "gloss" and not self.glosses:
             raise ValueError("Gloss span requires glosses")
-        if self.enabled and not self.nmm.model_dump(exclude_none=True):
+        if self.enabled and not numeric(self.nmm.model_dump(exclude_none=True)):
             raise ValueError("Enabled marker rule requires numeric nmm channels")
         return self
 

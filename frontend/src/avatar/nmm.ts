@@ -1,6 +1,6 @@
 import type { NonManualMarkers } from "../types/translation";
 import { adaptClip } from "./pose";
-import type { SignClip, Vec3 } from "./types";
+import type { KeyframeV2, SignClip, Vec3 } from "./types";
 
 /** Rig channel validation, not a linguistic rule or sign definition. */
 export function parseNmm(raw: unknown): NonManualMarkers {
@@ -35,9 +35,23 @@ export function parseNmm(raw: unknown): NonManualMarkers {
  * A sentence rule supplies the same channels to all items in that sentence.
  * Shared cached clip/keyframes remain untouched.
  */
-export function mergeNmm(clip: SignClip, nmm?: NonManualMarkers): SignClip {
+export function mergeNmm(clip: SignClip, nmm?: NonManualMarkers, rules: string[] = []): SignClip {
   const values = parseNmm(nmm ?? {});
   if (!Object.keys(values).length) return clip;
+  if (values.head && rules.includes("negation_nmm_pending_review")) {
+    // Explicit demo-rule animation, never inferred from a gloss or from head yaw alone.
+    // Existing numeric yaw is the amplitude; timing/scope need signer review.
+    const merged = adaptClip(mergeNmm(clip, values));
+    const original = new Map(merged.keys.map(key => [key.t, key]));
+    const times = [...new Set([...original.keys(), ...Array.from({ length: 17 }, (_, i) => i / 16)])].sort((a, b) => a - b);
+    const keys: KeyframeV2[] = times.map(t => {
+      return { ...original.get(t), t,
+        // Only head is resampled; sparse manual and face tracks retain their authored keys.
+        head: [values.head![0], values.head![1] * Math.sin(4 * Math.PI * t), values.head![2]],
+      };
+    });
+    return { ...merged, keys };
+  }
   const channels = {
     ...(values.brow != null ? { brow: values.brow } : {}),
     ...(values.head != null ? { head: values.head } : {}),

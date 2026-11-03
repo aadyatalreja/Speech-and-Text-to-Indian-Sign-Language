@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 import type { SignItem } from "../types/translation";
 import { getClip } from "./library";
-import { PoseFollower, restPose, sampleClip, compileClip, transitionPose, type CompiledClip } from "./pose";
+import { PoseFollower, restPose, sampleClip, compileClip, transitionPose, idlePose, type CompiledClip } from "./pose";
 import type { AvatarPose } from "./types";
 import { mergeNmm } from "./nmm";
 import { loadGltfAvatar, type GltfAvatar } from "./gltfRig";
@@ -110,18 +110,20 @@ export default function AvatarCanvas({ item, progress, playing, override, previo
         lastProgress = pr;
         if (clip !== markedSource || it !== markedItem) {
           markedSource = clip; markedItem = it;
-          const merged = mergeNmm(clip.clip, it.nmm);
+          const merged = mergeNmm(clip.clip, it.nmm, it.nmm_rules);
           markedClip = merged === clip.clip ? clip : compileClip(merged);
         }
         const sign = it.duration / Math.max(0.001, it.duration + it.pause_after);
-        target = transitionPose(previous ? sampleClip(previous, 1) : previousEnd, markedClip ?? clip,
+        target = transitionPose(previous ? sampleClip(previous, 1) : previousEnd ?? idle, markedClip ?? clip,
           Math.min(1, pr / sign), it.transition_duration ?? 0.18, it.duration);
       } else {
         previousEnd = null; sequenceKey = ""; lastProgress = 0;
         markedSource = null; markedItem = null; markedClip = null;
       }
       if (clip !== lastClip) { lastClip = clip; cb.current.onClip?.(clip); }
-      const resolved = follower.follow(target, dt, it ? 18 : 9);
+      const hold = !it || !live.current.playing || pr * (it.duration + it.pause_after) >= it.duration;
+      // Both procedural and glTF receive the same smoothed channels and gated idle.
+      const resolved = follower.follow(idlePose(target, now / 1000, hold), dt, it ? 18 : 9);
       rig.applyJoints(resolved);
       if (model) {
         try { model.apply(resolved, rig); }

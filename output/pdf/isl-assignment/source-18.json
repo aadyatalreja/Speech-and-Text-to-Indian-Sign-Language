@@ -1,0 +1,20 @@
+{
+  "id": 18,
+  "title": "Including Signed Languages in Natural Language Processing",
+  "authors": [
+    "Kayo Yin",
+    "Amit Moryossef",
+    "Julie Hochgesang",
+    "Yoav Goldberg",
+    "Malihe Alikhani"
+  ],
+  "year": 2021,
+  "url": "https://arxiv.org/abs/2105.05222",
+  "doi": "",
+  "venue": "arXiv preprint",
+  "record_type": "preprint record",
+  "metadata_source": "https://arxiv.org/abs/2105.05222",
+  "arxiv": "2105.05222",
+  "project_relevance": "Linguistically informed sign language processing",
+  "verified_on": "2026-11-03"
+}

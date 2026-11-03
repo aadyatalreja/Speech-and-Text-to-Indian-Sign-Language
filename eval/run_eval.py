@@ -11,6 +11,7 @@ from pydantic import BaseModel, ConfigDict, Field, model_validator
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
+sys.path.insert(0, str(ROOT))
 
 # CLI bootstrap must precede imports from the backend source tree.
 from models.markers import NonManualMarkers  # noqa: E402
@@ -18,11 +19,24 @@ from models.translation import TranslationRequest  # noqa: E402
 from services.gloss_service import translate  # noqa: E402
 from services.sign_repository import get_repository  # noqa: E402
 from services.timing_service import asset_path  # noqa: E402
+from eval.metrics import (  # noqa: E402
+    Judgement,
+    DISCLAIMER,
+    CONTENT_POLICY,
+    edit_distance,
+    content_coverage,
+    reviewer_agreement,
+)  # noqa: E402
 
 
 class EvalRow(BaseModel):
     model_config = ConfigDict(extra="forbid")
     english: str = Field(min_length=1)
+    item_id: str | None = None
+    source_language: str = "English"
+    content_words: list[str] | None = None
+    judgements: list[Judgement] = Field(default_factory=list)
+    review_history: list[dict] = Field(default_factory=list)
     expected_gloss: list[str] = Field(default_factory=list)
     acceptable_alternatives: list[list[str]] = Field(default_factory=list)
     intent: Literal["statement", "question", "negation"] = "statement"
@@ -62,16 +76,6 @@ def load_rows(path):
     ]
 
 
-def edit_distance(a, b):
-    previous = list(range(len(b) + 1))
-    for i, x in enumerate(a, 1):
-        current = [i]
-        for j, y in enumerate(b, 1):
-            current.append(min(current[-1] + 1, previous[j] + 1, previous[j - 1] + (x != y)))
-        previous = current
-    return previous[-1]
-
-
 def real_asset(token, repo):
     if token.startswith("FS:"):
         return False
@@ -87,7 +91,11 @@ def real_asset(token, repo):
 
 
 async def evaluate(rows, translator=translate, repo=None):
-    verified = [row for row in rows if row.review_status == "verified" and not row.placeholder]
+    verified = [
+        row
+        for row in rows
+        if row.review_status == "verified" and not row.placeholder and (row.reviewer or "").strip()
+    ]
     if not verified:
         raise ValueError("NO_VERIFIED_ROWS: no signer-reviewed evaluation rows; no scores produced")
     repo = repo or get_repository()
@@ -95,7 +103,9 @@ async def evaluate(rows, translator=translate, repo=None):
     engines, notices = set(), set()
     details = []
     for row in verified:
-        response = await translator(TranslationRequest(text=row.english))
+        response = await translator(
+            TranslationRequest(text=row.english, source_language=row.source_language)
+        )
         predicted = response.gloss
         actual_nmm = [item.nmm.model_dump(exclude_none=True) for item in response.gloss_detail]
         expected_nmm = [item.model_dump(exclude_none=True) for item in row.expected_nmm]
@@ -129,12 +139,21 @@ async def evaluate(rows, translator=translate, repo=None):
                 "gloss": predicted,
                 "exact_match": matched,
                 "edit_distance": edits,
+                **content_coverage(response.english_text or row.english, repo, row.content_words),
             }
         )
     return {
         "verified_rows": len(verified),
         "ignored_rows": len(rows) - len(verified),
         "gloss_word_error_rate": distance / max(1, reference_tokens),
+        "gloss_token_accuracy": 1 - distance / max(1, reference_tokens),
+        "gloss_token_accuracy_definition": "1 minus corpus WER; may be negative when insertions exceed reference length. Exact sequence match is gloss_exact_match.",
+        "content_word_coverage": sum(d["resolved_content_words"] for d in details)
+        / sum(d["content_words"] for d in details)
+        if sum(d["content_words"] for d in details)
+        else None,
+        "content_coverage_definition": CONTENT_POLICY,
+        "inter_annotator_agreement": reviewer_agreement(verified),
         "out_of_vocabulary_rate": sum(d["oov_tokens"] for d in details) / max(1, generated),
         "per_intent": {
             intent: {
@@ -161,7 +180,7 @@ async def evaluate(rows, translator=translate, repo=None):
         "coverage_definition": "Fraction of predicted gloss tokens with existing verified non-demo assets",
         "nmm_definition": "Per-sentence exact match of aligned per-token configured numeric channels",
         "fingerspell_definition": "Fraction of sequence items explicitly marked FS; browser-only demo fallback is not measured",
-        "limitations": "Gloss/NMM agreement and asset coverage do not establish signer comprehension or natural ISL quality.",
+        "limitations": DISCLAIMER,
         "rows": details,
     }
 
@@ -241,7 +260,9 @@ def main(argv=None):
         if report["verified_rows"] < 20
         else ""
     )
-    markdown = first + "\n\n" + warning + "\n\n```json\n" + rendered + "\n```\n"
+    markdown = (
+        first + "\n\n" + DISCLAIMER + "\n\n" + warning + "\n\n```json\n" + rendered + "\n```\n"
+    )
     if args.markdown_output:
         args.markdown_output.write_text(markdown, encoding="utf-8")
     elif args.output:

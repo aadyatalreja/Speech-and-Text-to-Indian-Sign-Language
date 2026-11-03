@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[2]))
 from run_eval import EvalRow
 
 
@@ -40,7 +41,8 @@ def convert(path):
                     acceptable_alternatives=alternatives,
                     expected_nmm=[{} for _ in gloss],
                     reviewer=reviewer or None,
-                    review_status="verified" if reviewer else "unverified",
+                    # Legacy sheets have no bound stimulus or explicit sign-off.
+                    review_status="unverified",
                     signer_dialect=row.get("signer_dialect", ""),
                     comments=row.get("comments", ""),
                     nmm_notes=row.get("nmm_notes", ""),
@@ -53,11 +55,27 @@ def convert(path):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("sheet", type=Path)
+    parser.add_argument("--packet", type=Path)
+    parser.add_argument(
+        "--reviewer", default="", help="Consented name; stored only in private attribution sidecar"
+    )
+    parser.add_argument("--reviewer-id", default="", help="Study pseudonym, e.g. R01")
+    parser.add_argument("--evidence", default="", help="Private sign-off evidence reference")
     parser.add_argument(
         "--output", type=Path, default=Path(__file__).resolve().parents[1] / "isl_testset.jsonl"
     )
     args = parser.parse_args(argv)
+    if args.packet:
+        from eval.review_packet import import_packet
+
+        import_packet(
+            args.packet, args.sheet, args.output, args.reviewer, args.reviewer_id, args.evidence
+        )
+        return 0
     rows = convert(args.sheet)
+    if args.output.exists():
+        raise ValueError("Refusing to overwrite an existing dataset with a legacy draft sheet")
+    args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text("".join(json.dumps(row) + "\n" for row in rows), encoding="utf-8")
     return 0
 
