@@ -9,6 +9,7 @@ BASE = Path(__file__).parent
 load_dotenv(BASE.parent / ".env", override=False)
 
 DEFAULT_LLM_MODEL = "claude-sonnet-5-5"  # official model overview checked 2026-10-31
+DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile"  # Groq-hosted model ID; confirm in your Groq console
 
 
 def numeric(env, name, default, low, high):
@@ -22,8 +23,8 @@ class Settings:
     def __init__(self, environ=None):
         env = os.environ if environ is None else environ
         self.LLM_PROVIDER = env.get("LLM_PROVIDER", "mock")
-        if self.LLM_PROVIDER not in {"mock", "api"}:
-            raise ValueError("LLM_PROVIDER must be mock or api")
+        if self.LLM_PROVIDER not in {"mock", "api", "groq"}:
+            raise ValueError("LLM_PROVIDER must be mock, api or groq")
         self.LLM_API_KEY = env.get("LLM_API_KEY", "")
         self.LLM_TIMEOUT_SECONDS = numeric(env, "LLM_TIMEOUT_SECONDS", 20, 0.1, 300)
         self.LLM_MAX_RETRIES = int(env.get("LLM_MAX_RETRIES", "2"))
@@ -42,9 +43,18 @@ class Settings:
         if indic not in {"true", "false"}:
             raise ValueError("ENABLE_DEMO_INDIC_GLOSSARY must be true or false")
         self.ENABLE_DEMO_INDIC_GLOSSARY = indic == "true"
-        self.LLM_MODEL = env.get("LLM_MODEL", DEFAULT_LLM_MODEL).strip()
-        if not re.fullmatch(r"claude-[a-z0-9]+(?:-[a-z0-9]+)*", self.LLM_MODEL):
-            raise ValueError("LLM_MODEL must be a Claude API model ID; see official model overview")
+        if self.LLM_PROVIDER == "groq":
+            # Groq serves open models through an OpenAI-compatible API; LLM_API_KEY holds the Groq key.
+            self.LLM_MODEL = env.get("LLM_MODEL", DEFAULT_GROQ_MODEL).strip()
+            if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._/:-]*", self.LLM_MODEL):
+                raise ValueError("LLM_MODEL must be a Groq model ID, e.g. llama-3.3-70b-versatile")
+        else:
+            self.LLM_MODEL = env.get("LLM_MODEL", DEFAULT_LLM_MODEL).strip()
+            if not re.fullmatch(r"claude-[a-z0-9]+(?:-[a-z0-9]+)*", self.LLM_MODEL):
+                raise ValueError(
+                    "LLM_MODEL must be a Claude API model ID; see official model overview"
+                )
+        self.GROQ_BASE_URL = env.get("GROQ_BASE_URL", "https://api.groq.com/openai/v1").rstrip("/")
         self.LLM_MAX_TOKENS = int(env.get("LLM_MAX_TOKENS", "2048"))
         if not 256 <= self.LLM_MAX_TOKENS <= 8192:
             raise ValueError("LLM_MAX_TOKENS must be within 256..8192")
