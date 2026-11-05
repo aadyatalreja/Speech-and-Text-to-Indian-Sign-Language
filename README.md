@@ -20,7 +20,7 @@ English text / browser speech transcription
   → signer video or SignClip v1 → AvatarRig.applyPose
 ```
 
-Backend: FastAPI, Pydantic, NLTK WordNet, optional Anthropic Messages API, FFmpeg.
+Backend: FastAPI, Pydantic, NLTK WordNet, optional Anthropic Messages API or Groq API, FFmpeg.
 Frontend: React/Vite/TypeScript, Tailwind, Three.js. `SignRepository`,
 `SignGenerator`, `AvatarRig.applyPose`, and SignClip v1 remain extension seams.
 New clip metadata/duration fields are additive; legacy repository entries load.
@@ -73,9 +73,9 @@ Authentication and public HTTPS hosting still need deployment configuration.
 
 | Setting | Default | Meaning |
 | --- | --- | --- |
-| `LLM_PROVIDER` | `mock` | `mock` or `api` |
-| `LLM_API_KEY` | empty | Backend-only Anthropic key; not needed in mock mode |
-| `LLM_MODEL` | `claude-sonnet-5-5` | Claude Messages API model ID |
+| `LLM_PROVIDER` | `mock` | `mock`, `api` (Anthropic Claude) or `groq` (Groq, OpenAI-compatible API) |
+| `LLM_API_KEY` | empty | Backend-only key for the chosen provider (Anthropic or Groq); not needed in mock mode |
+| `LLM_MODEL` | `claude-sonnet-5-5` (`openai/gpt-oss-120b` when `LLM_PROVIDER=groq`) | Claude model ID, or a Groq model ID your account can use |
 | `LLM_MAX_TOKENS` | `2048` | Output budget for structured gloss JSON, 256–8192 |
 | `LLM_TIMEOUT_SECONDS` | `20` | SDK timeout per attempt, 0.1–300 seconds; retries can extend total request time. |
 | `LLM_MAX_RETRIES` | `2` | SDK retries with exponential backoff, 0–10. |
@@ -107,6 +107,32 @@ python backend/tools/check_model.py
 No model request is made by that command without a key. API failures retain the
 `mock-fallback` engine and a user-facing notice; no paid API call was required
 for the software tests. Valid older Claude IDs can still be supplied via env.
+
+### Using Groq instead of Anthropic
+
+Set these in the project-root `.env` (copy `.env.example`), then restart the backend:
+
+```text
+LLM_PROVIDER=groq
+LLM_API_KEY=your-groq-key
+LLM_MODEL=openai/gpt-oss-120b
+LLM_MAX_TOKENS=4096
+```
+
+Both the Hindi/Kannada → English step and the English → gloss step then call
+Groq's chat-completions endpoint (`GROQ_BASE_URL`, default
+`https://api.groq.com/openai/v1`) in JSON mode. Responses report
+`"engine": "groq"`. Nothing is sent to Anthropic in this mode.
+
+- Model availability differs per account. List yours with a read-only request to
+  `<GROQ_BASE_URL>/models` and set `LLM_MODEL` to a chat model from that list.
+  An unavailable model makes every call fail and fall back to `mock-fallback`.
+- The gpt-oss models reason before answering, which can use up a small token budget.
+  If answers are cut off, raise `LLM_MAX_TOKENS` (up to 8192).
+- Retries apply to HTTP 429 and 5xx responses using `LLM_MAX_RETRIES`.
+- Translation quality for Hindi and Kannada depends on the model, is not
+  linguist-verified, and has not been evaluated here. Output remains unverified ISL.
+- The Anthropic code path is still in the repository (used with `LLM_PROVIDER=api`).
 
 ## API compatibility
 

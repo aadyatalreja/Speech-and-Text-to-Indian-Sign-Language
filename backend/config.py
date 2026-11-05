@@ -9,7 +9,7 @@ BASE = Path(__file__).parent
 load_dotenv(BASE.parent / ".env", override=False)
 
 DEFAULT_LLM_MODEL = "claude-sonnet-5-5"  # official model overview checked 2026-10-31
-DEFAULT_GROQ_MODEL = "llama-3.3-70b-versatile"  # Groq-hosted model ID; confirm in your Groq console
+DEFAULT_GROQ_MODEL = "openai/gpt-oss-120b"  # Groq-hosted model ID; confirm in your Groq console
 
 
 def numeric(env, name, default, low, high):
@@ -47,7 +47,7 @@ class Settings:
             # Groq serves open models through an OpenAI-compatible API; LLM_API_KEY holds the Groq key.
             self.LLM_MODEL = env.get("LLM_MODEL", DEFAULT_GROQ_MODEL).strip()
             if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._/:-]*", self.LLM_MODEL):
-                raise ValueError("LLM_MODEL must be a Groq model ID, e.g. llama-3.3-70b-versatile")
+                raise ValueError("LLM_MODEL must be a Groq model ID, e.g. openai/gpt-oss-120b")
         else:
             self.LLM_MODEL = env.get("LLM_MODEL", DEFAULT_LLM_MODEL).strip()
             if not re.fullmatch(r"claude-[a-z0-9]+(?:-[a-z0-9]+)*", self.LLM_MODEL):
