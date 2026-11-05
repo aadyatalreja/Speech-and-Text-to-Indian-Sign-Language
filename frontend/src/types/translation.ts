@@ -1,8 +1,10 @@
+import type { SignClip } from "../avatar/types";
+
 export interface NonManualMarkers { brow?: number | null; head?: [number, number, number] | null; mouth?: number | null; gaze?: [number, number] | null; mouth_shape?: { open?: number | null; wide?: number | null; round?: number | null } | null }
 export interface GlossToken { fs_reason?: "oov" | "name_heuristic" | "model_unknown" | "explicit" | null; lemma_tried?: string | null; synonym_from?: string | null; gloss: string; nmm: NonManualMarkers; fs: boolean; nmm_rules: string[]; nmm_verified: boolean; reference?: string | null }
 export interface GrammarUse { id: string; source: string; review_status: "unverified" | "in_review" | "verified"; reviewer: string | null }
 export interface SentenceMetadata { intent: string; question_type: "wh" | "yes_no" | null; negated: boolean; topic: string | null }
-export interface SignItem { gloss: string; sign_id: string | null; available: boolean; duration: number; pause_after: number; asset_type: string; video_url: string | null; clip_url?: string | null; nmm?: NonManualMarkers; nmm_rules?: string[]; nmm_verified?: boolean; source?: string | null; licence?: string | null; signer?: string | null; review_status?: "unverified" | "in_review" | "verified"; needs_manual_review?: boolean; sequence_index?: number; timing_source?: string; clip_duration?: number | null; video_duration?: number | null; transition_duration?: number }
+export interface SignItem { gloss: string; fs_reason?: GlossToken["fs_reason"]; sign_id: string | null; available: boolean; duration: number; pause_after: number; asset_type: string; video_url: string | null; clip_url?: string | null; inline_clip?: SignClip | null; nmm?: NonManualMarkers; nmm_rules?: string[]; nmm_verified?: boolean; source?: string | null; licence?: string | null; signer?: string | null; review_status?: "unverified" | "in_review" | "verified"; needs_manual_review?: boolean; sequence_index?: number; timing_source?: string; clip_duration?: number | null; video_duration?: number | null; transition_duration?: number }
 export interface Entity { text: string; type: string }
 export interface Translation {
   english_text?: string | null;

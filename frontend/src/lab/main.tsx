@@ -32,6 +32,8 @@ function Lab() {
   const [t, setT] = useState(Number(params.get("t") ?? 0));
   const [loop, setLoop] = useState(false);
   const [secs, setSecs] = useState(2);
+  const [recorded, setRecorded] = useState<{ gloss: string; clip_url: string }[]>([]);
+  const [clipError, setClipError] = useState<string | null>(null);
   const [previousGloss, setPreviousGloss] = useState("");
   const [transitionSeconds, setTransitionSeconds] = useState(0.18);
   const previousClip = useMemo(() => {
@@ -61,6 +63,34 @@ function Lab() {
   }, []);
 
   useEffect(() => {
+    const controller = new AbortController();
+    fetch("/api/avatar-clips", { signal: controller.signal })
+      .then(response => {
+        if (!response.ok) throw new Error("Could not load the imported clip list.");
+        return response.json();
+      })
+      .then(setRecorded)
+      .catch(() => { if (!controller.signal.aborted) setClipError("Could not load the imported clip list."); });
+    return () => controller.abort();
+  }, []);
+
+  async function previewRecorded(url: string) {
+    setClipError(null);
+    try {
+      const response = await fetch(url);
+      if (!response.ok) throw new Error("Could not load that imported clip.");
+      const clip: SignClip = await response.json();
+      compileClip(clip);
+      setLoop(false);
+      setT(0);
+      setSecs(clip.duration ?? 2);
+      setJson(JSON.stringify(clip, null, 1));
+    } catch {
+      setClipError("Could not load that imported clip.");
+    }
+  }
+
+  useEffect(() => {
     if (!loop) return;
     const start = performance.now();
     const tick = (n: number) => { setT((((n - start) / 1000) / secs) % 1); raf.current = requestAnimationFrame(tick); };
@@ -84,6 +114,15 @@ function Lab() {
         <div className="mt-2 flex flex-wrap gap-1">
           {LAB_CLIPS.map((s) => <button key={s.id} className="btn-quiet !px-2 !py-1 text-xs" onClick={() => setJson(JSON.stringify(s, null, 1))}>{s.gloss}</button>)}
         </div>
+        {recorded.length > 0 && <label className="mt-3 block text-sm">
+          Imported signer clips ({recorded.length}){" "}
+          <select className="rounded border border-line/20 bg-surface p-1" value=""
+            onChange={event => { if (event.target.value) void previewRecorded(event.target.value); }}>
+            <option value="">Choose a sign</option>
+            {recorded.map(clip => <option key={clip.gloss} value={clip.clip_url}>{clip.gloss}</option>)}
+          </select>
+        </label>}
+        {clipError && <p role="status" className="mt-2 text-xs text-warn">{clipError}</p>}
         {parsed.c?.clip.kind === "fingerspell" && <p className="mt-2 text-xs text-muted">{spellingLabel(parsed.c.clip)}</p>}
         <label className="mt-4 block text-sm">Previous clip for transition preview <select className="rounded border border-line/20 bg-surface p-1" value={previousGloss} onChange={(e) => setPreviousGloss(e.target.value)}>
           <option value="">None</option>{LAB_CLIPS.map((clip) => <option key={clip.id} value={clip.gloss}>{clip.gloss} · demo</option>)}

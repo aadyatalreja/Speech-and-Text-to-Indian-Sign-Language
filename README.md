@@ -544,3 +544,57 @@ sentences. ISL accuracy evaluation still requires gloss or signer-comprehension
 references. For avatar research, iSign's paired sentence poses can serve as
 reference trajectories once access and applicable reuse terms are established.
 See [dataset permissions](docs/LICENSES.md) for the playback import policy.
+
+### Private iSign avatar playback
+
+For local research, SignAI can request one matching animation from a private
+worker. The dataset and Hugging Face credentials stay on the research host.
+Enable this only for a private, authorized setup covered by the applicable
+dataset access terms. Keep the worker and the local SignAI app bound to loopback
+and use an SSH tunnel between them. See [dataset permissions](docs/LICENSES.md)
+and the [iSign dataset card](https://huggingface.co/datasets/Exploration-Lab/iSign).
+
+On the **research host**, accept the dataset access conditions using your own
+Hugging Face account. Place the official CSV and a small extracted set of
+matching `<UID>.pose` files there. The dataset card lists the four split pose
+archive parts if you need the complete archive. A video download is optional.
+Keep these files outside the Git checkout. From a copy of this project on the host,
+with a Python virtual environment active, run the following in a Linux shell.
+
+```bash
+python -m pip install -r backend/requirements.txt pose-format
+export SIGN_AI_ISIGN_CSV=/private/isign/iSign_v1.1.csv
+export SIGN_AI_ISIGN_POSES=/private/isign/poses
+export SIGN_AI_ISIGN_TEXT_COLUMN='<English column from the CSV header>'
+# Set SIGN_AI_ISIGN_UID_COLUMN if the UID header differs from uid.
+read -rs -p 'Private worker token (at least 32 characters): ' SIGN_AI_ISIGN_TOKEN
+export SIGN_AI_ISIGN_TOKEN
+python -m uvicorn isign_worker:app --app-dir backend --host 127.0.0.1 --port 8765
+```
+
+Use a generated random secret for the worker token. It is separate from the
+Hugging Face token. From your Windows PC, open a dedicated PowerShell terminal
+and leave the tunnel running.
+
+```powershell
+ssh -N -L 127.0.0.1:8765:127.0.0.1:8765 user@research-host
+```
+
+In the PowerShell terminal that starts the **local backend**, set the tunnel
+URL and enter the same worker token when prompted.
+
+```powershell
+$env:SIGN_AI_ISIGN_URL = 'http://127.0.0.1:8765'
+$env:SIGN_AI_ISIGN_TOKEN = [System.Net.NetworkCredential]::new('', (Read-Host 'Worker token' -AsSecureString)).Password
+.\.venv\Scripts\python.exe -m uvicorn main:app --app-dir backend --host 127.0.0.1 --port 8000
+```
+
+Start the frontend as usual. Enter a sentence whose CSV UID has an extracted
+pose and press Play. A hit displays the source UID and exact-match status and
+streams the converted clip through the normal avatar path. The worker matches
+normalized English text and supports single-signer, three-coordinate MediaPipe
+Holistic components. It reconstructs wrist and finger motion from landmarks,
+with avatar arm IK and estimated head angles. Retargeting quality and coordinate
+assumptions still need real-sample verification. A miss or worker failure
+continues through repository lookup. Words without a playable sign fall back to labeled avatar fingerspelling. This first milestone uses exact
+retrieval. Semantic matching and held-out evaluation are separate milestones.

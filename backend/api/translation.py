@@ -9,6 +9,7 @@ from services.rate_limit import check_rate
 from pydantic import ValidationError
 from models.translation import TranslationRequest, TranslationResponse
 from services.gloss_service import translate
+from services.isign import retrieve_isign
 
 log = logging.getLogger("signai.api")
 router = APIRouter()
@@ -38,6 +39,13 @@ async def stream(ws: WebSocket):
         return
     try:
         req = TranslationRequest(**(await ws.receive_json()))
+        if match := await retrieve_isign(req):
+            await ws.send_json(
+                {"type": "understanding", **match.model_dump(exclude={"sequence", "unknown_signs"})}
+            )
+            await ws.send_json({"type": "sign", "index": 0, "item": match.sequence[0].model_dump()})
+            await ws.send_json({"type": "done", "unknown_signs": []})
+            return
         english, input_notice = await llm_service.english_input(req.text, req.source_language)
         res, engine, notice = await llm_service.understand(english)
         notice = " ".join(filter(None, [input_notice, notice])) or None
@@ -46,7 +54,7 @@ async def stream(ws: WebSocket):
         if any(token.gloss.startswith("FS:") for token in res.gloss):
             notice = (
                 (notice + " " if notice else "")
-                + "Unknown words use FS: character spelling. Character playback depends on available clips and avatar poses."
+                + "The avatar uses labeled fingerspelling for words without a playable sign. Digits can use avatar digit poses."
             )
         await ws.send_json(
             {

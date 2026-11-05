@@ -33,3 +33,6 @@ paper/.cache/
 eval/private/
 *.identities.private.json
 paper/generated-draft/
+
+# Local sign registry import lock
+.bulk-import.lock

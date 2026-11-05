@@ -1,3 +1,4 @@
+import { eulerYXZToQuat } from "./pose";
 import type { HandSpec, Keyframe, SignClip, Vec3 } from "./types";
 
 /**
@@ -17,18 +18,34 @@ const FWD_PALM_UP: Vec3 = [-90, 0, 180];       // fingers forward, palm up
 const FWD_PALM_DOWN: Vec3 = [90, 0, 0];        // fingers forward, palm down
 
 // Wrist positions assume the hand is drawn 1.3x: a flat hand is ~0.72 shoulder-widths from wrist to fingertip.
-const selfPoint: SignClip[] = ["I", "ME"].map((g) => clip(g, [
-  { t: 0, R: h([-0.55, -0.6, 1.0], [-60, 10, 0], "point") },
-  { t: 0.45, R: h([-0.12, -0.3, 0.95], [-70, 15, 0], "point") },
-  { t: 1, R: h([-0.12, -0.3, 0.95], [-70, 15, 0], "point") },
-]));
+const selfPoint = clip("I", [
+  // Bring the pointing hand in across the torso and aim it back at the chest.
+  { t: 0, R: h([-0.46, -0.62, 0.75], [-62, -25, 0], "point") },
+  { t: 0.45, R: h([-0.18, -0.53, 0.66], [-70, -17, 0], "point") },
+  { t: 1, R: h([-0.18, -0.53, 0.66], [-70, -17, 0], "point") },
+]);
+
+// Twist around the local index axis so the finger stays aimed at the chest.
+function twistedPoint(p: Vec3, aim: Vec3, degrees: number): HandSpec {
+  const [x, y, z, w] = eulerYXZToQuat(aim);
+  const angle = degrees * Math.PI / 360;
+  const c = Math.cos(angle), s = Math.sin(angle);
+  return { p, shape: "point", q: [x * c - z * s, y * c + w * s, z * c + x * s, w * c - y * s] };
+}
 
 export const DEMO_SIGNS: SignClip[] = [
-  ...selfPoint,
+  selfPoint,
+  clip("ME", [
+    { t: 0, R: twistedPoint([-0.46, -0.62, 0.75], [-62, -25, 0], 0) },
+    { t: 0.22, R: twistedPoint([-0.32, -0.57, 0.7], [-66, -21, 0], -90) },
+    { t: 0.45, R: twistedPoint([-0.18, -0.53, 0.66], [-70, -17, 0], -180) },
+    { t: 1, R: twistedPoint([-0.18, -0.53, 0.66], [-70, -17, 0], -180) },
+  ]),
   clip("YOU", [
-    { t: 0, R: h([-0.35, -0.2, 0.35], FWD_PALM_DOWN, "point") },
-    { t: 0.5, R: h([-0.35, -0.2, 0.7], FWD_PALM_DOWN, "point") },
-    { t: 1, R: h([-0.35, -0.2, 0.7], FWD_PALM_DOWN, "point") },
+    // Extend away from the torso, with a slight offset so the finger is visible head-on.
+    { t: 0, R: h([-0.42, -0.32, 0.4], [78, -24, 0], "point") },
+    { t: 0.5, R: h([-0.68, -0.27, 0.94], [78, -24, 0], "point") },
+    { t: 1, R: h([-0.68, -0.27, 0.94], [78, -24, 0], "point") },
   ]),
   clip("MY", [
     { t: 0, R: h([-0.4, -0.35, 0.75], UP_PALM_BACK, "flat") },

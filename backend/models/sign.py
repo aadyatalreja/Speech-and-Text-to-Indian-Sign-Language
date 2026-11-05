@@ -57,6 +57,7 @@ class SignSequenceItem(BaseModel):
     asset_type: str = "demo"
     video_url: str | None = None
     clip_url: str | None = None
+    inline_clip: dict | None = None
     nmm: NonManualMarkers = Field(default_factory=NonManualMarkers)
     nmm_rules: list[str] = Field(default_factory=list)
     nmm_verified: bool = False

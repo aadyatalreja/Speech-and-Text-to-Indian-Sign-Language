@@ -139,3 +139,14 @@ def test_cli_roundtrip(tmp_path):
     assert m.main([str(src), str(dst), "--gloss", "hello", "--notes", "synthetic"]) == 0
     out = json.loads(dst.read_text())
     assert out["gloss"] == "HELLO" and out["notes"].startswith("synthetic")
+
+
+def test_retarget_uses_body_wrist_depth_and_keeps_hand_in_front():
+    data = frames(12, lambda t: hand(0, at=(-0.3, -0.3, -1.2)))
+    for index, frame in enumerate(data["frames"]):
+        depth = -0.1 if index < 6 else 0.95
+        frame["pose"][16] = [*to_img((-0.3, -0.3, depth)), 1.0]
+    clip = m.convert(data, "depth", "depth")
+    depth = [key["R"]["p"][2] for key in clip["keys"]]
+    assert min(depth) >= 0.52
+    assert max(depth) > 0.9

@@ -15,7 +15,7 @@ it("starts exactly at previous end and reaches the next motion without a rest sn
   expect(transitionPose(previous, compiled, 0, 0, 2)).toEqual(sampleClip(compiled, 0));
 });
 it("retimes spelling to its actual composition duration even when the old estimate was longer", () => {
-  const item = { gloss: "FS:A", duration: 20, pause_after: 0, available: false, sign_id: null, video_url: null, asset_type: "none" };
+  const item = { gloss: "FS:A", fs_reason: "explicit" as const, duration: 20, pause_after: 0, available: false, sign_id: null, video_url: null, asset_type: "none" };
   expect(retimeForAvatar([item])[0].duration).toBe(spellDuration("FS:A"));
 });
 

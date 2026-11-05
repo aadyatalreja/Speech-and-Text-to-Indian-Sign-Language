@@ -304,14 +304,27 @@ def convert(
     if swap_hands:
         keymap = {"right_hand": "L", "left_hand": "R"}
     tracks: dict[str, list] = {"R": [], "L": []}
-    for f in frames:
-        for src, dst in keymap.items():
-            lm = f.get(src)
-            tracks[dst].append(
-                hand_state([fr(p) for p in lm], right=(src == "right_hand"), format=format)
-                if lm and len(lm) == 21
-                else None
+    for frame in frames:
+        body = frame.get("pose")
+        for source, side in keymap.items():
+            landmarks = frame.get(source)
+            if not landmarks or len(landmarks) != 21:
+                tracks[side].append(None)
+                continue
+            hand = hand_state(
+                [fr(point) for point in landmarks], right=source == "right_hand", format=format
             )
+            # Hand landmark z is relative to its own wrist. Use body wrist depth
+            # for position, while preserving hand-relative depth for orientation.
+            wrist_index = 16 if source == "right_hand" else 15
+            depth = 0.65
+            if body and len(body) > wrist_index:
+                wrist = body[wrist_index]
+                if (len(wrist) < 4 or wrist[3] >= 0.5) and math.isfinite(wrist[2]):
+                    depth = clamp(fr(wrist)[2], 0.52, 1.05)
+            x, y, _ = hand["p"]
+            hand["p"] = (x, y, depth)
+            tracks[side].append(hand)
 
     n = len(frames)
     kept: dict[str, list[dict]] = {}

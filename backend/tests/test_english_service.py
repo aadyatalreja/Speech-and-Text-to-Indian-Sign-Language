@@ -197,6 +197,10 @@ def test_demo_repository_metadata_and_number_coverage():
         "quantity",
     }
     for entry in entries.values():
+        if entry["asset_type"] != "demo":
+            assert entry["clip"] or entry["video"]
+            assert entry["source"] and entry["licence"] and entry["signer"]
+            continue
         assert set(entry) == fields
         assert entry["category"] in categories
         assert entry["asset_type"] == "demo" and entry["review_status"] == "unverified"

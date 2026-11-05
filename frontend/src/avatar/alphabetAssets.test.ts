@@ -100,7 +100,7 @@ describe("spelled word composition", () => {
     vi.resetModules();
     const { alphabetAssets } = await import("./alphabetAssets");
     const { getClip, retimeForAvatar, avatarLabel } = await import("./library");
-    const item = { gloss: "FS:A", sign_id: null, available: false, duration: 0.6, pause_after: 0,
+    const item = { gloss: "FS:A", fs_reason: "explicit" as const, sign_id: null, available: false, duration: 0.6, pause_after: 0,
       asset_type: "none", video_url: null };
     const before = getClip(item);
     await alphabetAssets.load(fetcher({ A: entry("A") }));

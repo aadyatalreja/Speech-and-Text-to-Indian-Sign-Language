@@ -9,7 +9,7 @@ it("renders an accessible muted explanation for an OOV token", () => {
   const t: Translation = { original_text: "bought", target_sign_language: "ISL", intent: "statement", entities: [], gloss: [token.gloss], gloss_detail: [token], sequence: [], unknown_signs: [], confidence: 0.6, engine: "mock", notice: null };
   const html = renderToStaticMarkup(<TranslationPanel t={t} activeIndex={-1} />);
   expect(html).toContain('aria-label="Token diagnostics"');
-  expect(html).toContain("no sign in repository — spelled; tried lemma &#x27;buy&#x27;");
+  expect(html).toContain("no sign in repository; tried lemma &#x27;buy&#x27;");
 });
 
 it("explains names, model unknowns, explicit spelling and substitutions", () => {

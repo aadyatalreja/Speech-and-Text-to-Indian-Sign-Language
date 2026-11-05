@@ -8,9 +8,9 @@ import NmmStatus from "./NmmStatus";
 export function tokenDiagnostic(token: GlossToken): string {
   const parts: string[] = [];
   if (token.fs_reason) parts.push({
-    oov: "no sign in repository — spelled",
+    oov: "no sign in repository",
     name_heuristic: "kept as a possible name",
-    model_unknown: "unknown model gloss — spelled",
+    model_unknown: "unknown model gloss",
     explicit: "explicitly supplied for spelling",
   }[token.fs_reason]);
   if (token.lemma_tried) parts.push(`tried lemma '${token.lemma_tried}'`);
@@ -56,11 +56,11 @@ export default function TranslationPanel({ t, activeIndex, onCorrectEnglish }: {
         <div role="alert" className="mt-5 rounded-ctl bg-warn-soft p-4 text-sm text-warn">
           <p className="font-semibold">Some signs aren’t available yet</p>
           <p className="mt-1 font-bold">{t.unknown_signs.join(", ")}</p>
-          <p className="mt-1">FS: marks character spelling. The player uses available character clips and animates missing letters and digits with unreviewed chart-based poses.</p>
+          <p className="mt-1">The avatar fingerspells words without a playable sign. Spelling is labeled in the player.</p>
         </div>
       )}
       <div className="mt-5 space-y-1 text-xs text-muted">
-        {t.engine !== "api" && <p>Processed with built-in fallback rules.</p>}
+        {t.engine.startsWith("mock") && <p>Processed with built-in fallback rules.</p>}
         {t.notice && <p>{t.notice}</p>}
         <p>The sign sequence is an intermediate representation, not an authoritative ISL translation.</p>
       </div>

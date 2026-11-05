@@ -52,7 +52,7 @@ def videos(tmp_path):
         "a/Good-morning/1.mp4",
         "a/Good-morning/2.mp4",
         "b/Good_morning/1.mp4",
-        "b/Hello/1.mp4",
+        "b/54. Hello/1.mp4",
     ):
         path = root / relative
         path.parent.mkdir(parents=True, exist_ok=True)

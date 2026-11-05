@@ -77,9 +77,9 @@ describe("resolution order and fingerspelling", () => {
   });
   it("treats FS: as metadata, never as letters or a demo sign", () => {
     expect(spellDuration("FS:PRIYA")).toBe(spellDuration("PRIYA"));
-    expect(getClip(item("FS:HELLO")).clip.kind).toBe("fingerspell");
-    expect(willFingerspell(item("FS:HELLO"))).toBe(true);
-    expect(avatarLabel(getClip(item("FS:PRIYA")))).toContain("Chart-based avatar poses (unreviewed)");
+    expect(getClip(item("FS:HELLO", { fs_reason: "explicit" })).clip.kind).toBe("fingerspell");
+    expect(willFingerspell(item("FS:HELLO", { fs_reason: "explicit" }))).toBe(true);
+    expect(avatarLabel(getClip(item("FS:PRIYA", { fs_reason: "explicit" })))).toContain("Chart-based avatar poses (unreviewed)");
   });
   it("animates digits without imported assets", () => {
     const clip = getClip(item("FS:1"));
@@ -88,9 +88,10 @@ describe("resolution order and fingerspelling", () => {
     expect(clip.clip.keys.some((k) => k.R != null)).toBe(true);
     expect(avatarLabel(clip)).toContain("Chart-based avatar poses (unreviewed)");
   });
-  it("demo gloss uses the demo clip, unknown gloss is spelled", () => {
+  it("demo gloss uses the demo clip, unknown gloss is fingerspelled", () => {
     expect(getClip(item("HELLO")).clip.kind).toBe("demo");
     expect(getClip(item("COLLEGE")).clip.kind).toBe("fingerspell");
+    expect(getClip(item("FS:WATER", { fs_reason: "oov" })).clip.kind).toBe("fingerspell");
     expect(willFingerspell(item("COLLEGE"))).toBe(true);
     expect(willFingerspell(item("HELLO"))).toBe(false);
   });
@@ -107,8 +108,46 @@ describe("resolution order and fingerspelling", () => {
   it("retimes only fingerspelled items and keeps identity otherwise", () => {
     const demoOnly = [item("HELLO")];
     expect(retimeForAvatar(demoOnly)).toBe(demoOnly);
-    const out = retimeForAvatar([item("COLLEGE", { duration: 1.3 })]);
+    const out = retimeForAvatar([item("FS:COLLEGE", { duration: 1.3, fs_reason: "explicit" })]);
     expect(out[0].duration).toBeCloseTo(spellDuration("COLLEGE"), 5);
     expect(out[0].duration).toBeGreaterThan(1.3);
   });
+});
+
+it("plays an inline iSign clip through the existing avatar compiler", () => {
+  const inlineClip: SignClip = { version: 2, id: "fixture-1", gloss: "ISIGN_SEQUENCE", kind: "dataset",
+    duration: 2, keys: [{ t: 0, R: { p: [-0.2, 0, 0.5] } }, { t: 1, R: { p: [-0.2, 0.2, 0.5] } }] };
+  const result = item("ISIGN_SEQUENCE", { inline_clip: inlineClip });
+  expect(sampleClip(getClip(result), 1).R.p).toEqual([-0.2, 0.2, 0.5]);
+  expect(retimeForAvatar([result])[0].duration).toBe(2);
+  expect(willFingerspell(result)).toBe(false);
+});
+
+
+it("points ME toward the body and YOU away from it", () => {
+  const me = sampleClip(getClip(item("ME")), 1).R;
+  const you = sampleClip(getClip(item("YOU")), 1).R;
+  const pointingDirection = (hand: typeof me) =>
+    new THREE.Vector3(0, 1, 0).applyQuaternion(new THREE.Quaternion(...hand.q));
+  expect(pointingDirection(me).z).toBeLessThan(-0.8);
+  expect(pointingDirection(you).z).toBeGreaterThan(0.8);
+  expect(me.p[0] - you.p[0]).toBeGreaterThan(0.4);
+});
+
+it("turns ME upside down while keeping the same final pointing direction as I", () => {
+  const i = sampleClip(getClip(item("I")), 1).R;
+  const me = sampleClip(getClip(item("ME")), 1).R;
+  const rotate = (axis: THREE.Vector3, hand: typeof me) =>
+    axis.applyQuaternion(new THREE.Quaternion(...hand.q));
+  expect(rotate(new THREE.Vector3(0, 1, 0), me).dot(rotate(new THREE.Vector3(0, 1, 0), i))).toBeCloseTo(1);
+  expect(rotate(new THREE.Vector3(0, 0, 1), me).dot(rotate(new THREE.Vector3(0, 0, 1), i))).toBeCloseTo(-1);
+});
+
+it("keeps the hand-authored ME and YOU poses when dataset entries advertise clips", () => {
+  for (const gloss of ["ME", "YOU"]) {
+    const original = getClip(item(gloss));
+    const imported = item(gloss, { asset_type: "dataset", clip_url: "/signs/clips/imported.json" });
+    expect(getClip(imported)).toBe(original);
+    expect(willFingerspell(imported)).toBe(false);
+  }
 });

@@ -5,18 +5,19 @@ import { alphabetAssets } from "./alphabetAssets";
 import { compileClip, type CompiledClip } from "./pose";
 import type { SignClip } from "./types";
 
-/**
- * Resolves a backend SignItem to something the avatar can perform. Order:
- *   1. a clip served by the backend (item.clip_url)  -> kind "dataset" (or whatever the file says)
- *   2. a bundled demo clip for the gloss             -> kind "demo"
- *   3. fingerspelling the gloss                      -> kind "fingerspell"
- * So every gloss can be performed; unknown ones are spelled instead of skipped.
- */
+const unavailable = compileClip({
+  version: 1, id: "unavailable", gloss: "UNAVAILABLE", kind: "demo",
+  notes: "No sign animation available",
+  keys: [{ t: 0, L: null, R: null }],
+});
 
+const inline = new WeakMap<SignClip, CompiledClip>();
 const remote = new Map<string, CompiledClip>();       // by url
 const remoteViews = new WeakMap<CompiledClip, Map<string, CompiledClip>>();
 const failed = new Set<string>();
 const demo = new Map(DEMO_SIGNS.map((c) => [c.gloss.toUpperCase(), compileClip(c)]));
+// These two gestures use the hand-authored versions selected for this avatar.
+const preferredDemo = new Set(["ME", "YOU"]);
 const spelled = new Map<string, CompiledClip>();
 let clipRevision = 0;
 const clipListeners = new Set<() => void>();
@@ -33,7 +34,7 @@ function validate(raw: unknown): SignClip {
 
 export async function prefetchClips(items: SignItem[]): Promise<void> {
   await alphabetAssets.load();
-  const urls = [...new Set(items.map((i) => i.clip_url).filter((u): u is string => !!u && !remote.has(u) && !failed.has(u)))];
+  const urls = [...new Set(items.filter((item) => !preferredDemo.has(item.gloss.toUpperCase())).map((item) => item.clip_url).filter((u): u is string => !!u && !remote.has(u) && !failed.has(u)))];
   await Promise.all(urls.map(async (u) => {
     try {
       const r = await fetch(u);
@@ -46,7 +47,22 @@ export async function prefetchClips(items: SignItem[]): Promise<void> {
 }
 
 export function getClip(item: SignItem): CompiledClip {
-  const explicitFs = item.gloss.toUpperCase().startsWith("FS:");
+  if (item.inline_clip) {
+    let compiled = inline.get(item.inline_clip);
+    if (!compiled) {
+      try {
+        compiled = compileClip(validate(item.inline_clip));
+      } catch {
+        compiled = unavailable;
+      }
+      inline.set(item.inline_clip, compiled);
+    }
+    return compiled;
+  }
+  const gloss = item.gloss.toUpperCase();
+  const explicitFs = gloss.startsWith("FS:");
+  const demoClip = demo.get(gloss);
+  if (demoClip && preferredDemo.has(gloss)) return demoClip;
   if (!explicitFs && item.clip_url) {
     const c = remote.get(item.clip_url);
     if (c) {
@@ -59,19 +75,22 @@ export function getClip(item: SignItem): CompiledClip {
       if (!view) { view = compileClip({ ...c.clip, ...metadata }); views.set(key, view); }
       return view;
     }
+    if (item.asset_type === "dataset" && !failed.has(item.clip_url)) return unavailable;
   }
-  const d = !explicitFs && demo.get(item.gloss.toUpperCase());
-  if (d) return d;
+  if (!explicitFs && demoClip) return demoClip;
+  if (!willFingerspell(item)) return unavailable;
   const source = fingerspellClip(item.gloss);
   let s = spelled.get(item.gloss);
   if (!s || s.clip !== source) { s = compileClip(source); spelled.set(item.gloss, s); }
   return s;
 }
 
-/** True when this item will be fingerspelled (no real or demo clip is known for it). */
+/** A missing sign can be spelled when its gloss contains letters or digits. */
 export function willFingerspell(item: SignItem): boolean {
-  if (item.gloss.toUpperCase().startsWith("FS:")) return true;
-  return !(item.clip_url && !failed.has(item.clip_url)) && !demo.has(item.gloss.toUpperCase()) && hasLetters(item.gloss);
+  const gloss = item.gloss.toUpperCase();
+  if (item.inline_clip || demo.has(gloss)) return false;
+  if (!gloss.startsWith("FS:") && item.clip_url && !failed.has(item.clip_url)) return false;
+  return hasLetters(gloss);
 }
 
 /**
@@ -93,6 +112,7 @@ export function retimeForAvatar(items: SignItem[]): SignItem[] {
 
 export const avatarLabel = (c: CompiledClip | null) =>
   !c ? "Demo Sign Renderer · not an actual ISL sign"
+  : c.clip.id === unavailable.clip.id ? "No sign animation available"
   : c.clip.kind === "dataset" ? (c.clip.review_status === "verified"
     ? "Avatar · reviewed dataset clip" : "Dataset clip · demo / not verified ISL")
   : c.clip.kind === "fingerspell" ? spellingLabel(c.clip)

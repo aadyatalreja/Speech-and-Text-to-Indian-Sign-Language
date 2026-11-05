@@ -29,7 +29,7 @@ def build_rows(root, licence, source, signer_note, limit=None):
     for video in sorted(root.glob("*/*/*"), key=lambda p: p.as_posix()):
         if not video.is_file() or video.suffix.lower() not in EXTENSIONS:
             continue
-        word = video.parent.name.strip()
+        word = re.sub(r"^\d+\.\s+", "", video.parent.name.strip())
         gloss = re.sub(r"[^A-Z0-9]+", "_", word.upper()).strip("_")
         if not gloss or gloss in seen:
             continue

@@ -49,6 +49,17 @@ def alphabet():
     }
 
 
+@router.get("/api/avatar-clips")
+def avatar_clips():
+    return [
+        {"gloss": sign.gloss, "clip_url": f"/signs/{sign.clip}"}
+        for sign in sorted(get_repository().search(""), key=lambda sign: sign.gloss)
+        if sign.clip
+        and sign.review_decision != "rejected"
+        and sign.clip_review_decision != "rejected"
+    ]
+
+
 @router.get("/signs/{relative:path}")
 def sign_asset(relative: str):
     root = settings.SIGN_DATA_PATH.resolve()

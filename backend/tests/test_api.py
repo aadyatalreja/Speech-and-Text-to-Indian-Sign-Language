@@ -28,7 +28,7 @@ def test_name_and_digits_api():
     r = c.post("/api/translate", json={"text": "Priya 12"}).json()
     assert r["gloss"] == ["FS:PRIYA", "1", "2"]
     assert r["unknown_signs"] == ["PRIYA"]
-    assert "Character playback depends on available clips and avatar poses" in r["notice"]
+    assert "Digits can use avatar digit poses" in r["notice"]
 
 
 def test_name_and_digits_stream():
