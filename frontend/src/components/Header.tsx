@@ -13,7 +13,6 @@ export default function Header({ onHistory, online, dark, onToggleTheme }: { onH
       <div className="glass glass-strong flex w-full items-center justify-between rounded-card px-4 py-2.5">
         <a href="#top" className="flex items-center gap-2.5 rounded-ctl text-lg font-bold tracking-tight"><Logo />SignAI</a>
         <nav aria-label="Main" className="flex items-center gap-1">
-          <a href="#top" className="btn-quiet">Translate</a>
           <button className="btn-quiet" onClick={onHistory}>History</button>
           <span className="ml-2 hidden sm:inline"><StatusIndicator ok={online} label={online === null ? "Service · Connecting" : online ? "Service · Ready" : "Service · Offline"} /></span>
           <ThemeToggle dark={dark} onToggle={onToggleTheme} />

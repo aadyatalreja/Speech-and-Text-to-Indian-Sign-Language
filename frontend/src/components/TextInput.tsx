@@ -1,7 +1,7 @@
 import { GlassCard, SegmentedControl } from "./ui";
 export type InputMode = "type" | "speak";
 export interface SpeechState { supported: boolean; listening: boolean; error: string | null; start: () => void; stop: () => void }
-export const LANGS = [["en-IN", "English (India)"], ["en-US", "English (US)"], ["en-GB", "English (UK)"], ["hi-IN", "हिन्दी · experimental"], ["kn-IN", "ಕನ್ನಡ · experimental"]];
+export const LANGS = [["en-IN", "English"], ["hi-IN", "हिन्दी · experimental"], ["kn-IN", "ಕನ್ನಡ · experimental"]];
 
 interface Props {
   value: string; onChange: (v: string) => void; onTranslate: () => void; busy: boolean;

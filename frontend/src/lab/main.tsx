@@ -1,6 +1,10 @@
 import { StrictMode, useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import AvatarCanvas from "../avatar/AvatarCanvas";
+import { isCharacterId } from "../avatar/characters";
+
+// preview a signer look with ?character=arav|anya|dev|devi
+const LAB_CHARACTER = (() => { const c = new URLSearchParams(window.location.search).get("character"); return isCharacterId(c) ? c : "arav"; })();
 import { SYNTHETIC_V2 } from "./syntheticV2";
 import { DEMO_SIGNS } from "../avatar/demoSigns";
 import { fingerspellClip, spellingLabel } from "../avatar/alphabet";
@@ -102,7 +106,7 @@ function Lab() {
     <div className="mx-auto grid max-w-5xl gap-4 p-4 lg:grid-cols-[3fr_2fr]">
       <div>
         <div className="relative aspect-video overflow-hidden rounded-card avatar-stage ring-1 ring-line/10" id="stage">
-          {parsed.c && <AvatarCanvas item={labItem} progress={t} playing={loop} override={parsed.c} previousOverride={previousClip} />}
+          {parsed.c && <AvatarCanvas item={labItem} progress={t} playing={loop} override={parsed.c} previousOverride={previousClip} character={LAB_CHARACTER} />}
           <p className="absolute bottom-3 left-3 rounded-full bg-surface/80 px-3 py-1 text-xs text-muted">Experimental rig preview · SYNTHETIC fixtures are not ISL</p>
         </div>
         <div className="mt-3 flex items-center gap-3 text-sm">

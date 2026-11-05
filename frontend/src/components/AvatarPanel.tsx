@@ -3,6 +3,7 @@ import { lazy, Suspense, useEffect, useState } from "react";
 import type { SignItem } from "../types/translation";
 import { avatarLabel, prefetchClips, videoLabel } from "../avatar/library";
 import type { CompiledClip } from "../avatar/pose";
+import type { CharacterId } from "../avatar/rig";
 import NmmStatus from "./NmmStatus";
 
 // three.js is only downloaded when a translation is shown
@@ -15,10 +16,11 @@ interface Props {
   items?: SignItem[];
   progress?: number;
   playing?: boolean;
+  character?: CharacterId;
 }
 
 /** 3D signer. Falls back to the text stage if WebGL is unavailable. Video output still wins when present. */
-export default function AvatarPanel({ item, videoUrl, items = [], progress = 0, playing = false }: Props) {
+export default function AvatarPanel({ item, videoUrl, items = [], progress = 0, playing = false, character = "arav" }: Props) {
   const [clip, setClip] = useState<CompiledClip | null>(null);
   const [noGL, setNoGL] = useState(false);
 
@@ -44,7 +46,7 @@ export default function AvatarPanel({ item, videoUrl, items = [], progress = 0, 
         </AnimatePresence>
       ) : (
         <Suspense fallback={<p className="relative text-sm text-muted">Loading avatar…</p>}>
-          <AvatarCanvas item={item} progress={progress} playing={playing} onClip={setClip} onUnsupported={() => setNoGL(true)} />
+          <AvatarCanvas item={item} progress={progress} playing={playing} onClip={setClip} onUnsupported={() => setNoGL(true)} character={character} />
         </Suspense>
       )}
 
@@ -54,9 +56,6 @@ export default function AvatarPanel({ item, videoUrl, items = [], progress = 0, 
       {item && !item.available && !noGL && clip?.clip.kind !== "fingerspell" && (
         <p className="absolute right-3 top-3 rounded-full bg-warn-soft px-3 py-1 text-xs font-semibold text-warn">Sign unavailable</p>
       )}
-      <p className="absolute bottom-3 left-1/2 w-max max-w-[95%] -translate-x-1/2 rounded-full bg-surface/70 px-3 py-1 text-center text-xs font-medium text-muted ring-1 ring-line/10 backdrop-blur">
-        {noGL ? "Demo Sign Renderer · not an actual ISL sign" : avatarLabel(item ? clip : null)}
-      </p>
     </div>
     <div className="mt-2"><NmmStatus item={item} /></div>
     </>

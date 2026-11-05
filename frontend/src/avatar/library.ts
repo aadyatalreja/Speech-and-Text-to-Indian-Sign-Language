@@ -111,7 +111,7 @@ export function retimeForAvatar(items: SignItem[]): SignItem[] {
 }
 
 export const avatarLabel = (c: CompiledClip | null) =>
-  !c ? "Demo Sign Renderer · not an actual ISL sign"
+  !c ? ""
   : c.clip.id === unavailable.clip.id ? "No sign animation available"
   : c.clip.kind === "dataset" ? (c.clip.review_status === "verified"
     ? "Avatar · reviewed dataset clip" : "Dataset clip · demo / not verified ISL")

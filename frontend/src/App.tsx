@@ -6,24 +6,21 @@ import TextInput, { type InputMode } from "./components/TextInput";
 import ProcessingStatus from "./components/ProcessingStatus";
 import TranslationPanel from "./components/TranslationPanel";
 import AvatarPanel from "./components/AvatarPanel";
-import SignerVideo from "./components/SignerVideo";
 import { retimeForAvatar, getClipRevision, subscribeClips } from "./avatar/library";
 import { alphabetAssets } from "./avatar/alphabetAssets";
 import SignPlayer from "./components/SignPlayer";
 import HistoryDrawer, { type HistoryItem } from "./components/HistoryPanel";
 import { GlassCard, SectionHeader, SegmentedControl } from "./components/ui";
-import { errorMessage, generateVideo, health, streamTranslate, translate } from "./services/api";
+import { errorMessage, health, streamTranslate, translate } from "./services/api";
 import { useSignPlayer } from "./hooks/useSignPlayer";
-import { useVideoPlayer } from "./hooks/useVideoPlayer";
-import { allVideos, anyVideos, missingVideos } from "./services/videoPlayback";
-import { avatarLabel, getClip, videoLabel } from "./avatar/library";
 import { scheduleLivePreview, liveRetryUntil } from "./services/livePreview";
 import { useSpeech } from "./hooks/useSpeech";
 import { useTheme } from "./hooks/useTheme";
 import type { SignItem, Stage, Translation } from "./types/translation";
+import { CHARACTERS, isCharacterId, type CharacterId } from "./avatar/characters";
 
 const HKEY = "signai.history";
-const EXAMPLES = ["Where is the nearest hospital?", "Can you help me?", "I am going to college tomorrow."];
+const EXAMPLES = ["Where is the nearest hospital?", "Can you help me?", "I am going to college tomorrow.", "I am going to the hospital tomorrow morning.", "Please help me, where is the doctor?"];
 const EMPTY = "Please enter a sentence.";
 const loadHistory = (): HistoryItem[] => {
   try {
@@ -39,10 +36,16 @@ export default function App() {
   const [lang, setLang] = useState("en-IN");
   const [stage, setStage] = useState<Stage>("idle");
   const [error, setError] = useState<string | null>(null);
-  const [videoNote, setVideoNote] = useState<string | null>(null);
-  const [videoUrl, setVideoUrl] = useState<string | null>(null);
-  const [generating, setGenerating] = useState(false);
-  const [outputPreference, setOutputPreference] = useState<"video" | "avatar" | null>(null);
+  const [character, setCharacter] = useState<CharacterId>(() => {
+    try {
+      const saved = localStorage.getItem("signai.character");
+      return saved === "female" ? "anya" : isCharacterId(saved) ? saved : "arav";   // "female" = older saved value
+    } catch { return "arav"; }
+  });
+  const pickCharacter = (value: CharacterId) => {
+    setCharacter(value);
+    try { localStorage.setItem("signai.character", value); } catch { /* storage unavailable */ }
+  };
   const [streamComplete, setStreamComplete] = useState(true);
   const [pausedUntil, setPausedUntil] = useState(0);
   const lastFinal = useRef("");
@@ -60,22 +63,15 @@ export default function App() {
   const { dark, toggle: toggleTheme } = useTheme();
   const closeWs = useRef<(() => void) | null>(null);
   const avatarPlayer = useSignPlayer(items);
-  const videoPlayer = useVideoPlayer(rawItems);
-  const outputMode = outputPreference ?? (streamComplete && allVideos(rawItems) ? "video" : "avatar");
-  const player = outputMode === "video" ? videoPlayer : avatarPlayer;
-  const playbackItems = outputMode === "video" ? videoPlayer.displayItems : items;
-  useEffect(() => {
-    if (outputMode === "video") avatarPlayer.controller.pause(); else videoPlayer.controller.pause();
-  }, [outputMode]);
+  const player = avatarPlayer;
+  const playbackItems = items;
   const [reviewTranscript, setReviewTranscript] = useState(false);
   const invalidate = () => {
     ++runId.current;
     closeWs.current?.();
     pendingFinal.current = null;
     avatarPlayer.reset();
-    videoPlayer.reset();
     setT(null); setItems([]); setStage("idle"); setError(null);
-    setVideoNote(null); setVideoUrl(null); setGenerating(false);
   };
   const speech = useSpeech(lang, (heard) => {
     setText(heard.slice(0, 500));
@@ -114,8 +110,8 @@ export default function App() {
     pendingFinal.current = null;
     closeWs.current?.();
     const requestId = ++runId.current;
-    setError(null); setVideoNote(null); setVideoUrl(null); setGenerating(false); setOutputPreference(null);
-    setStreamComplete(!realtime); setT(null); setItems([]); avatarPlayer.reset(); videoPlayer.reset();
+    setError(null);
+    setStreamComplete(!realtime); setT(null); setItems([]); avatarPlayer.reset();
     setStage("understanding");
     if (realtime) {
       let meta: Translation | null = null;
@@ -153,12 +149,6 @@ export default function App() {
     } catch (e) { if (requestId === runId.current) { setError(errorMessage(e)); setStage("error"); } }
   };
 
-  const playbackLabels = useMemo(() => (outputMode === "video" ? rawItems : items).map(item =>
-    outputMode === "avatar" ? avatarLabel(getClip(item))
-      : item.video_url ? videoLabel([item]) : "Text only / no signer video"
-  ), [outputMode, rawItems, items, alphabetRevision, clipRevision]);
-  const coverage = new Map<string, number>();
-  for (const label of playbackLabels) coverage.set(label, (coverage.get(label) ?? 0) + 1);
   const latestRun = useRef(run);
   latestRun.current = run;
   useEffect(() => {
@@ -177,20 +167,6 @@ export default function App() {
     }, Math.max(0, pausedUntil - Date.now()));
     return () => window.clearTimeout(timer);
   }, [pausedUntil]);
-
-  const exportVideo = async () => {
-    if (!t) return;
-    const requestId = runId.current;
-    setGenerating(true); setVideoNote(null); setVideoUrl(null);
-    try {
-      const result = await generateVideo(t.gloss);
-      if (requestId === runId.current) {
-        setVideoUrl(result.video_url);
-        setVideoNote(result.missing_glosses.length ? `Partial export · skipped ${result.missing_glosses.join(", ")}.` : result.notice);
-      }
-    } catch (e) { if (requestId === runId.current) setVideoNote(errorMessage(e)); }
-    finally { if (requestId === runId.current) setGenerating(false); }
-  };
 
   const pick = (s: string) => { setText(s); run(s); };
   const hardError = stage === "error" && error && error !== EMPTY;
@@ -228,29 +204,16 @@ export default function App() {
               <motion.div key="result" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} transition={{ duration: .3 }} className="grid gap-6 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)]">
                 <TranslationPanel t={t} activeIndex={player.index} onCorrectEnglish={(english) => { setText(english); setLang("en-IN"); void run(english, false, "English"); }} />
                 <GlassCard aria-label="Sign Output" className="p-6">
-                  <SectionHeader title="Sign Output" />
-                  <div className="mb-4"><SegmentedControl<"video" | "avatar"> label="Sign output mode" value={outputMode}
-                    options={[{ value: "video", label: "Real signer videos" }, { value: "avatar", label: "Avatar" }]}
-                    disabled={anyVideos(rawItems) ? [] : ["video"]} onChange={(value) => {
-                      avatarPlayer.reset(); videoPlayer.reset(); setOutputPreference(value);
-                    }} /></div>
-                  {coverage.size > 0 && <details className="mb-4 text-xs text-muted">
-                    <summary className="cursor-pointer">{Array.from(coverage, ([label, count]) => `${count} × ${label}`).join(" • ")}</summary>
-                    <ol className="mt-2 list-decimal space-y-1 pl-5">
-                      {playbackItems.map((item, index) => <li key={index}>{item.gloss} · {playbackLabels[index]}</li>)}
-                    </ol>
-                  </details>}
-                  {outputMode === "video" ? <SignerVideo item={current} items={rawItems} mediaRef={videoPlayer.mediaRef} gap={videoPlayer.phase === "gap"} /> :
-                    <AvatarPanel item={current} videoUrl={null} items={items} progress={player.progress} playing={player.playing} />}
-                  {outputMode === "video" && missingVideos(rawItems).length > 0 && <p role="status" className="mt-3 text-xs text-warn">No signer video; shown as text: {missingVideos(rawItems).join(", ")}.</p>}
-                  {outputMode === "video" && videoPlayer.error && <p role="alert" className="mt-3 text-sm text-warn">{videoPlayer.error}</p>}
+                  <SectionHeader title="Sign Output" aside={
+                    <label className="flex items-center gap-2 text-xs font-medium text-muted">
+                      Signer
+                      <select value={character} onChange={e => pickCharacter(e.target.value as CharacterId)}
+                        className="rounded-ctl border border-line/15 bg-raised px-3 py-1.5 text-sm font-semibold text-ink shadow-sm focus:outline-none focus:ring-2 focus:ring-accent/40">
+                        {CHARACTERS.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+                      </select>
+                    </label>} />
+                  <AvatarPanel item={current} videoUrl={null} items={items} progress={player.progress} playing={player.playing} character={character} />
                   <SignPlayer items={playbackItems} index={player.index} progress={player.progress} playing={player.playing} speed={player.speed} c={player.controller} />
-                  <button className="btn-quiet mt-4" disabled={generating || !streamComplete || !anyVideos(rawItems)} onClick={exportVideo}>
-                    {generating ? "Generating video…" : "Generate combined video"}
-                  </button>
-                  {videoNote && <p role="status" className="mt-3 text-xs text-warn">{videoNote}</p>}
-                  {videoUrl && <div className="mt-3"><video src={videoUrl} controls className="aspect-video w-full rounded-card bg-black" aria-label="Combined sign video" />
-                    <p className="mt-2 text-center text-xs text-muted">{videoLabel(rawItems.filter(item => item.video_url))}</p></div>}
                 </GlassCard>
               </motion.div>
             ) : (

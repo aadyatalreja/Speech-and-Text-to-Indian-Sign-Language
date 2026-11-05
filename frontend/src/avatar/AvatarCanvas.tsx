@@ -6,7 +6,7 @@ import { PoseFollower, restPose, sampleClip, compileClip, transitionPose, idlePo
 import type { AvatarPose } from "./types";
 import { mergeNmm } from "./nmm";
 import { loadGltfAvatar, type GltfAvatar } from "./gltfRig";
-import { AvatarRig, type RigColors } from "./rig";
+import { AvatarRig, type CharacterId, type RigColors } from "./rig";
 
 interface Props {
   /** sign being performed, or null for idle */
@@ -21,6 +21,8 @@ interface Props {
   onClip?: (c: CompiledClip | null) => void;
   /** reports WebGL failure so the caller can fall back to the text stage */
   onUnsupported?: () => void;
+  /** cosmetic look of the signer; poses are identical */
+  character?: CharacterId;
 }
 
 const cssRgb = (name: string, fallback: string) => {
@@ -29,10 +31,10 @@ const cssRgb = (name: string, fallback: string) => {
 };
 const colors = (): RigColors => ({ skin: "#e3b393", shirt: cssRgb("--accent", "#c2410c"), hair: "#2b2220", accent: cssRgb("--accent3", "#d97706") });
 
-export default function AvatarCanvas({ item, progress, playing, override, previousOverride, onClip, onUnsupported }: Props) {
+export default function AvatarCanvas({ item, progress, playing, override, previousOverride, onClip, onUnsupported, character = "arav" }: Props) {
   const host = useRef<HTMLDivElement>(null);
-  const live = useRef({ item, progress, playing, override, previousOverride });
-  live.current = { item, progress, playing, override, previousOverride };
+  const live = useRef({ item, progress, playing, override, previousOverride, character });
+  live.current = { item, progress, playing, override, previousOverride, character };
   const cb = useRef({ onClip, onUnsupported });
   cb.current = { onClip, onUnsupported };
 
@@ -124,6 +126,7 @@ export default function AvatarCanvas({ item, progress, playing, override, previo
       const hold = !it || !live.current.playing || pr * (it.duration + it.pause_after) >= it.duration;
       // Both procedural and glTF receive the same smoothed channels and gated idle.
       const resolved = follower.follow(idlePose(target, now / 1000, hold), dt, it ? 18 : 9);
+      rig.setCharacter(live.current.character);
       rig.applyJoints(resolved);
       if (model) {
         try { model.apply(resolved, rig); }

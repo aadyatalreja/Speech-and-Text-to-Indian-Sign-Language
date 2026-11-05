@@ -2,8 +2,16 @@ import { useEffect, useState } from "react";
 import type { GlossToken, Translation } from "../types/translation";
 import GlossSequence from "./GlossSequence";
 import { GlassCard, SectionHeader } from "./ui";
-import { unverifiedGrammar } from "../services/grammar";
 import NmmStatus from "./NmmStatus";
+
+// Hide two boilerplate sentences from the displayed notice; other notices stay visible.
+export function displayNotice(notice: string | null | undefined): string {
+  return (notice ?? "")
+    .replace("Machine-translated to English first; not verified.", "")
+    .replace(/Unverified grammar \(demo rules\):[^.]*\./, "")
+    .replace(/\s{2,}/g, " ")
+    .trim();
+}
 
 export function tokenDiagnostic(token: GlossToken): string {
   const parts: string[] = [];
@@ -22,13 +30,9 @@ export default function TranslationPanel({ t, activeIndex, onCorrectEnglish }: {
   const [english, setEnglish] = useState(t.english_text ?? t.original_text);
   useEffect(() => setEnglish(t.english_text ?? t.original_text), [t.english_text, t.original_text]);
   const ctx = t.entities.map((e) => e.text[0].toUpperCase() + e.text.slice(1)).join(" · ");
-  const draftGrammar = unverifiedGrammar(t.grammar_rules);
   return (
     <GlassCard aria-label="AI Understanding" className="p-6">
       <SectionHeader title="AI Understanding" />
-      {draftGrammar.length > 0 && <p role="status" className="mb-3 rounded-ctl bg-warn-soft p-3 text-xs text-warn">
-        Unverified grammar · demo rules: {draftGrammar.join(", ")}
-      </p>}
       <p className="text-lg leading-snug text-ink">“{t.original_text}”</p>
       {t.english_text != null && (t.english_text !== t.original_text || t.notice?.includes("Machine-translated")) && <div className="mt-3 text-sm">
         <label htmlFor="english-intermediate">English intermediate · experimental</label>
@@ -61,8 +65,6 @@ export default function TranslationPanel({ t, activeIndex, onCorrectEnglish }: {
       )}
       <div className="mt-5 space-y-1 text-xs text-muted">
         {t.engine.startsWith("mock") && <p>Processed with built-in fallback rules.</p>}
-        {t.notice && <p>{t.notice}</p>}
-        <p>The sign sequence is an intermediate representation, not an authoritative ISL translation.</p>
       </div>
     </GlassCard>
   );
