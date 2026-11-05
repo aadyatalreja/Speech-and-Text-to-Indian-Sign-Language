@@ -81,6 +81,10 @@ export default function App() {
     setText(heard.slice(0, 500));
     setReviewTranscript(true);
   });
+  useEffect(() => {
+    if (speech.error && !speech.interim.trim()) setReviewTranscript(false);
+  }, [speech.error, speech.interim]);
+
   const changeText = (value: string) => {
     invalidate();
     lastFinal.current = "";
@@ -203,8 +207,8 @@ export default function App() {
             <p className="mx-auto mt-3 max-w-md text-base text-muted">Explore English-to-gloss playback · experimental, not verified ISL.</p>
           </div>
           <TextInput value={speech.listening ? speech.interim : text} onChange={changeText} onTranslate={() => { if (!speech.listening) void run(); }} busy={busy} realtime={realtime} onRealtime={setRealtime}
-            mode={mode} onMode={(m) => { speech.cancel(); setMode(m); }} speech={{ ...speech, start: () => { invalidate(); setReviewTranscript(true); speech.start(); } }} lang={lang} onLang={(value) => { invalidate(); lastFinal.current = ""; setLang(value); }} hint={stage === "error" && error === EMPTY ? EMPTY : null} />
-          {reviewTranscript && !speech.listening && !speech.error && <p className="mt-2 text-sm text-muted" role="status">Review or edit the transcript, then select Preview sign sequence.</p>}
+            mode={mode} onMode={(m) => { speech.cancel(); setReviewTranscript(false); setMode(m); }} speech={{ ...speech, start: () => { invalidate(); setReviewTranscript(true); speech.start(); } }} lang={lang} onLang={(value) => { invalidate(); lastFinal.current = ""; setLang(value); }} hint={stage === "error" && error === EMPTY ? EMPTY : null} />
+          {reviewTranscript && !speech.listening && (!speech.error || speech.interim.trim()) && <p className="mt-2 text-sm text-muted" role="status">Review or edit the transcript, then select Preview sign sequence.</p>}
           {realtime && <p className="mt-2 text-xs text-muted" role="status">{pausedUntil > Date.now() ? `Live paused by rate limit until ${new Date(pausedUntil).toLocaleTimeString()}.` : "Live previews typed text · Speech waits for your review."}</p>}
         </motion.div>
 

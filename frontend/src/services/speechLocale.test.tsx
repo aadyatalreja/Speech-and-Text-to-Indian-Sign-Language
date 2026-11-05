@@ -51,3 +51,12 @@ it("ignores delayed results and errors from a cancelled recognizer", () => {
   recognition.onend!();
   for (const callback of Object.values(callbacks)) expect(callback).not.toHaveBeenCalled();
 });
+
+it("keeps an interim transcript when recognition ends before a final result", () => {
+  const callbacks = { interim: vi.fn(), final: vi.fn(), error: vi.fn(), end: vi.fn() };
+  const { recognition } = createSpeechSession(FakeRecognition, "en-IN", callbacks);
+  recognition.onresult!({ resultIndex: 0, results: [{ isFinal: false, 0: { transcript: " hello " } }] });
+  recognition.onend!();
+  expect(callbacks.final).toHaveBeenCalledWith("hello");
+  expect(callbacks.error).not.toHaveBeenCalled();
+});

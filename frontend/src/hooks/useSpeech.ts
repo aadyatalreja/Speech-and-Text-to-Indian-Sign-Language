@@ -30,6 +30,7 @@ export function createSpeechSession(Ctor: RecognitionConstructor, lang: string, 
 }) {
   const r = new Ctor();
   let finalText = "";
+  let latestText = "";
   let finished = false;
   r.lang = lang; r.interimResults = true; r.continuous = false; r.maxAlternatives = 1;
   r.onresult = e => {
@@ -40,22 +41,38 @@ export function createSpeechSession(Ctor: RecognitionConstructor, lang: string, 
       const part = e.results[i][0].transcript;
       if (e.results[i].isFinal) finalText += part; else interimText += part;
     }
-    callbacks.interim(finalText + interimText);
+    latestText = finalText + interimText;
+    callbacks.interim(latestText);
   };
   r.onerror = e => {
     if (finished) return;
     finished = true;
     callbacks.end();
-    if (e.error !== "aborted") callbacks.error(ERRORS[e.error] ?? "Speech recognition failed. Please type instead.");
+    if (e.error !== "aborted") {
+      if (e.error === "network" && latestText.trim()) callbacks.final(latestText.trim());
+      else callbacks.interim("");
+      callbacks.error(ERRORS[e.error] ?? "Speech recognition failed. Please type instead.");
+    }
   };
   r.onend = () => {
     if (finished) return;
     finished = true;
     callbacks.end();
-    if (finalText.trim()) callbacks.final(finalText);
+    if (latestText.trim()) callbacks.final(latestText.trim());
     else callbacks.error(ERRORS["no-speech"]);
   };
-  return { recognition: r, cancel: () => { if (finished) return; finished = true; r.abort(); } };
+  return {
+    recognition: r,
+    stop: () => {
+      if (finished) return;
+      try { r.stop(); } catch { r.onend?.(); }
+    },
+    cancel: () => {
+      if (finished) return;
+      finished = true;
+      try { r.abort(); } catch { /* The recognizer may not have started. */ }
+    },
+  };
 }
 
 /** Speech -> text, preserving the recognizer's Unicode transcript. */
@@ -87,7 +104,7 @@ export function useSpeech(lang: string, onFinal: (text: string) => void) {
     }
   }, [Ctor, lang]);
 
-  const stop = useCallback(() => { session.current?.recognition.stop(); }, []);
+  const stop = useCallback(() => { session.current?.stop(); }, []);
   const cancel = useCallback(() => { session.current?.cancel(); setListening(false); setInterim(""); }, []);
   useEffect(() => { setError(null); return () => session.current?.cancel(); }, [lang]);
   return { supported: Boolean(Ctor), listening, interim, error: error ?? (!Ctor ? ERRORS.unavailable : null), start, stop, cancel };
