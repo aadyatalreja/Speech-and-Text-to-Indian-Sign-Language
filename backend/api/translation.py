@@ -46,7 +46,7 @@ async def stream(ws: WebSocket):
         if any(token.gloss.startswith("FS:") for token in res.gloss):
             notice = (
                 (notice + " " if notice else "")
-                + "Unknown words use FS: character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are text."
+                + "Unknown words use FS: character spelling. Character playback depends on available clips and avatar poses."
             )
         await ws.send_json(
             {

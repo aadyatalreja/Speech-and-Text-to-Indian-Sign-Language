@@ -56,11 +56,11 @@ export default function TranslationPanel({ t, activeIndex, onCorrectEnglish }: {
         <div role="alert" className="mt-5 rounded-ctl bg-warn-soft p-4 text-sm text-warn">
           <p className="font-semibold">Some signs aren’t available yet</p>
           <p className="mt-1 font-bold">{t.unknown_signs.join(", ")}</p>
-          <p className="mt-1">FS: marks character spelling. Reviewed alphabet clips are used when available; missing or unreviewed characters stay labelled. Missing digit clips are text only.</p>
+          <p className="mt-1">FS: marks character spelling. The player uses available character clips and animates missing letters and digits with unreviewed chart-based poses.</p>
         </div>
       )}
       <div className="mt-5 space-y-1 text-xs text-muted">
-        {t.engine === "api" ? <p>Translation confidence · {Math.round(t.confidence * 100)}%</p> : <p>Processed with built-in fallback rules, not a language model.</p>}
+        {t.engine !== "api" && <p>Processed with built-in fallback rules.</p>}
         {t.notice && <p>{t.notice}</p>}
         <p>The sign sequence is an intermediate representation, not an authoritative ISL translation.</p>
       </div>

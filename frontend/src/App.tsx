@@ -16,7 +16,7 @@ import { errorMessage, generateVideo, health, streamTranslate, translate } from 
 import { useSignPlayer } from "./hooks/useSignPlayer";
 import { useVideoPlayer } from "./hooks/useVideoPlayer";
 import { allVideos, anyVideos, missingVideos } from "./services/videoPlayback";
-import { videoLabel } from "./avatar/library";
+import { avatarLabel, getClip, videoLabel } from "./avatar/library";
 import { scheduleLivePreview, liveRetryUntil } from "./services/livePreview";
 import { useSpeech } from "./hooks/useSpeech";
 import { useTheme } from "./hooks/useTheme";
@@ -67,8 +67,25 @@ export default function App() {
   useEffect(() => {
     if (outputMode === "video") avatarPlayer.controller.pause(); else videoPlayer.controller.pause();
   }, [outputMode]);
-  // Speech → text first: the recognised sentence fills the box, then goes through the normal translate flow.
-  const speech = useSpeech(lang, (heard) => { setText(heard); run(heard); });
+  const [reviewTranscript, setReviewTranscript] = useState(false);
+  const invalidate = () => {
+    ++runId.current;
+    closeWs.current?.();
+    pendingFinal.current = null;
+    avatarPlayer.reset();
+    videoPlayer.reset();
+    setT(null); setItems([]); setStage("idle"); setError(null);
+    setVideoNote(null); setVideoUrl(null); setGenerating(false);
+  };
+  const speech = useSpeech(lang, (heard) => {
+    setText(heard.slice(0, 500));
+    setReviewTranscript(true);
+  });
+  const changeText = (value: string) => {
+    invalidate();
+    lastFinal.current = "";
+    setText(value);
+  };
   const busy = stage === "understanding" || stage === "representing" || stage === "preparing";
   const current = player.index >= 0 ? playbackItems[player.index] ?? null : null;
 
@@ -80,7 +97,12 @@ export default function App() {
   const run = async (input = text, preview = false, inputLanguage = lang) => {
     const clean = input.trim();
     if (!clean) { setError(EMPTY); setStage("error"); return; }
-    if (!preview) { lastFinal.current = clean; remember(clean); }
+    if (!preview) {
+      speech.cancel();
+      setReviewTranscript(false);
+      lastFinal.current = clean;
+      remember(clean);
+    }
     if (realtime && Date.now() < pausedUntil) {
       if (!preview) pendingFinal.current = clean;
       return;
@@ -127,17 +149,21 @@ export default function App() {
     } catch (e) { if (requestId === runId.current) { setError(errorMessage(e)); setStage("error"); } }
   };
 
-  const liveInput = speech.listening ? speech.interim : text;
+  const playbackLabels = useMemo(() => (outputMode === "video" ? rawItems : items).map(item =>
+    outputMode === "avatar" ? avatarLabel(getClip(item))
+      : item.video_url ? videoLabel([item]) : "Text only / no signer video"
+  ), [outputMode, rawItems, items, alphabetRevision, clipRevision]);
+  const coverage = new Map<string, number>();
+  for (const label of playbackLabels) coverage.set(label, (coverage.get(label) ?? 0) + 1);
   const latestRun = useRef(run);
   latestRun.current = run;
   useEffect(() => {
-    if (!realtime) return;
-    if (!speech.listening && liveInput.trim() === lastFinal.current) return;
-    return scheduleLivePreview(liveInput, pausedUntil, () => {
+    if (!realtime || speech.listening || reviewTranscript || text.trim() === lastFinal.current) return;
+    return scheduleLivePreview(text, pausedUntil, () => {
       ++runId.current;
       closeWs.current?.();
     }, (value) => { void latestRun.current(value, true); });
-  }, [liveInput, realtime, pausedUntil, speech.listening, lang]);
+  }, [text, realtime, pausedUntil, speech.listening, reviewTranscript, lang]);
   useEffect(() => {
     if (!pausedUntil) return;
     const timer = window.setTimeout(() => {
@@ -156,7 +182,7 @@ export default function App() {
       const result = await generateVideo(t.gloss);
       if (requestId === runId.current) {
         setVideoUrl(result.video_url);
-        setVideoNote(result.notice ?? (result.missing_glosses.length ? `Missing signer videos skipped: ${result.missing_glosses.join(", ")}.` : null));
+        setVideoNote(result.missing_glosses.length ? `Partial export · skipped ${result.missing_glosses.join(", ")}.` : result.notice);
       }
     } catch (e) { if (requestId === runId.current) setVideoNote(errorMessage(e)); }
     finally { if (requestId === runId.current) setGenerating(false); }
@@ -176,9 +202,10 @@ export default function App() {
             <h1 className="font-display text-4xl font-semibold tracking-tight sm:text-6xl">Turn words into signs.</h1>
             <p className="mx-auto mt-3 max-w-md text-base text-muted">Explore English-to-gloss playback · experimental, not verified ISL.</p>
           </div>
-          <TextInput value={speech.listening ? speech.interim : text} onChange={setText} onTranslate={() => run()} busy={busy} realtime={realtime} onRealtime={setRealtime}
-            mode={mode} onMode={(m) => { speech.cancel(); setMode(m); }} speech={speech} lang={lang} onLang={setLang} hint={stage === "error" && error === EMPTY ? EMPTY : null} />
-          {realtime && <p className="mt-2 text-xs text-muted" role="status">{pausedUntil > Date.now() ? `Live paused by rate limit until ${new Date(pausedUntil).toLocaleTimeString()}.` : "live preview · Final text is saved when you translate or finish speaking."}</p>}
+          <TextInput value={speech.listening ? speech.interim : text} onChange={changeText} onTranslate={() => { if (!speech.listening) void run(); }} busy={busy} realtime={realtime} onRealtime={setRealtime}
+            mode={mode} onMode={(m) => { speech.cancel(); setMode(m); }} speech={{ ...speech, start: () => { invalidate(); setReviewTranscript(true); speech.start(); } }} lang={lang} onLang={(value) => { invalidate(); lastFinal.current = ""; setLang(value); }} hint={stage === "error" && error === EMPTY ? EMPTY : null} />
+          {reviewTranscript && !speech.listening && !speech.error && <p className="mt-2 text-sm text-muted" role="status">Review or edit the transcript, then select Preview sign sequence.</p>}
+          {realtime && <p className="mt-2 text-xs text-muted" role="status">{pausedUntil > Date.now() ? `Live paused by rate limit until ${new Date(pausedUntil).toLocaleTimeString()}.` : "Live previews typed text · Speech waits for your review."}</p>}
         </motion.div>
 
         <div className="mt-14" aria-live="polite">
@@ -203,6 +230,12 @@ export default function App() {
                     disabled={anyVideos(rawItems) ? [] : ["video"]} onChange={(value) => {
                       avatarPlayer.reset(); videoPlayer.reset(); setOutputPreference(value);
                     }} /></div>
+                  {coverage.size > 0 && <details className="mb-4 text-xs text-muted">
+                    <summary className="cursor-pointer">{Array.from(coverage, ([label, count]) => `${count} × ${label}`).join(" • ")}</summary>
+                    <ol className="mt-2 list-decimal space-y-1 pl-5">
+                      {playbackItems.map((item, index) => <li key={index}>{item.gloss} · {playbackLabels[index]}</li>)}
+                    </ol>
+                  </details>}
                   {outputMode === "video" ? <SignerVideo item={current} items={rawItems} mediaRef={videoPlayer.mediaRef} gap={videoPlayer.phase === "gap"} /> :
                     <AvatarPanel item={current} videoUrl={null} items={items} progress={player.progress} playing={player.playing} />}
                   {outputMode === "video" && missingVideos(rawItems).length > 0 && <p role="status" className="mt-3 text-xs text-warn">No signer video; shown as text: {missingVideos(rawItems).join(", ")}.</p>}
@@ -213,7 +246,7 @@ export default function App() {
                   </button>
                   {videoNote && <p role="status" className="mt-3 text-xs text-warn">{videoNote}</p>}
                   {videoUrl && <div className="mt-3"><video src={videoUrl} controls className="aspect-video w-full rounded-card bg-black" aria-label="Combined sign video" />
-                    <p className="mt-2 text-center text-xs text-muted">{videoLabel(rawItems)}</p></div>}
+                    <p className="mt-2 text-center text-xs text-muted">{videoLabel(rawItems.filter(item => item.video_url))}</p></div>}
                 </GlassCard>
               </motion.div>
             ) : (

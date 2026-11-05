@@ -135,7 +135,7 @@ def test_corrected_api_tokens_reach_rest_and_stream(monkeypatch):
     assert body["engine"] == "api" and body["gloss"] == expected
     assert [item["gloss"] for item in body["sequence"]] == expected
     assert body["unknown_signs"] == ["INVENTED_SIGN", "PRIYA"]
-    assert "placeholder fingerspelling" in body["notice"]
+    assert "Character playback depends on available clips and avatar poses" in body["notice"]
     with client.websocket_connect("/api/translate/stream") as ws:
         ws.send_json({"text": "Hello Priya"})
         assert ws.receive_json()["gloss"] == expected

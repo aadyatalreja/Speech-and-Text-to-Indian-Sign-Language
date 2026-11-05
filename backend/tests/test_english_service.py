@@ -134,14 +134,18 @@ def test_missing_wordnet_has_actionable_error(monkeypatch):
 @pytest.mark.parametrize(
     "text, entries, expected",
     [
-        ("three", ["THREE", "3"], ["THREE"]),
+        ("three", ["THREE", "3"], ["3"]),
         ("three", ["3"], ["3"]),
         ("30", ["3", "0"], ["3", "0"]),
         ("105", ["1", "0", "5"], ["1", "0", "5"]),
         ("0011", ["0", "1"], ["0", "0", "1", "1"]),
         ("thirty", ["3", "0"], ["3", "0"]),
         ("hundred", ["1", "0"], ["1", "0", "0"]),
-        ("three", ["OTHER"], ["FS:THREE"]),
+        ("three", ["OTHER"], ["FS:3"]),
+        ("one", ["ONE"], ["FS:1"]),
+        ("twenty-one", ["1", "2"], ["2", "1"]),
+        ("one hundred and five", ["0", "1", "5"], ["1", "0", "5"]),
+        ("zero zero seven", ["0", "7"], ["0", "0", "7"]),
     ],
 )
 def test_number_word_and_digit_precedence(tmp_path, text, entries, expected):
@@ -153,7 +157,7 @@ def test_number_word_and_digit_precedence(tmp_path, text, entries, expected):
     for token in result.gloss:
         if token.fs:
             assert token.fs_reason == "oov"
-            assert token.lemma_tried == "three"
+            assert token.lemma_tried == token.gloss[3:]
         else:
             assert token.fs_reason is None
 
@@ -200,8 +204,8 @@ def test_demo_repository_metadata_and_number_coverage():
         assert "no verified ISL asset" in entry["notes"]
     assert all(entries[str(digit)]["category"] == "quantity" for digit in range(10))
     assert mock_transform("three three 00105").flat_gloss == [
-        "THREE",
-        "THREE",
+        "3",
+        "3",
         "0",
         "0",
         "1",

@@ -28,7 +28,7 @@ def test_name_and_digits_api():
     r = c.post("/api/translate", json={"text": "Priya 12"}).json()
     assert r["gloss"] == ["FS:PRIYA", "1", "2"]
     assert r["unknown_signs"] == ["PRIYA"]
-    assert "not the ISL alphabet" in r["notice"]
+    assert "Character playback depends on available clips and avatar poses" in r["notice"]
 
 
 def test_name_and_digits_stream():
@@ -39,6 +39,19 @@ def test_name_and_digits_stream():
         assert ws.receive_json()["item"]["gloss"] == "FS:PRIYA"
         assert ws.receive_json()["item"]["gloss"] == "1"
         assert ws.receive_json()["unknown_signs"] == ["PRIYA"]
+
+
+def test_number_word_uses_digit_in_http_and_stream():
+    result = c.post("/api/translate", json={"text": "one"}).json()
+    assert result["original_text"] == "one"
+    assert result["gloss"] == ["1"]
+    assert result["sequence"][0]["gloss"] == "1"
+
+    with c.websocket_connect("/api/translate/stream") as ws:
+        ws.send_json({"text": "zero zero seven", "source_language": "en-IN"})
+        assert ws.receive_json()["gloss"] == ["0", "0", "7"]
+        assert [ws.receive_json()["item"]["gloss"] for _ in range(3)] == ["0", "0", "7"]
+        assert ws.receive_json()["type"] == "done"
 
 
 def test_video_without_assets():

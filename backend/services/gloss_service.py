@@ -16,7 +16,7 @@ async def translate(req: TranslationRequest) -> TranslationResponse:
     if unknown:
         notice = (
             (notice + " " if notice else "")
-            + "Unknown words are marked FS: for character spelling. Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text."
+            + "Unknown words are marked FS: for character spelling. Character playback depends on available clips and avatar poses."
         )
     return TranslationResponse(
         original_text=req.text,

@@ -12,7 +12,7 @@ LEXICON_DIR = Path(__file__).parents[1] / "data/lexicon"
 GLOSSARY_NOTICE = "demo glossary, machine-assembled, not linguist-verified"
 ROMANIZATION_NOTICE = (
     "Unmapped Indic words were romanized/transliterated for character spelling. "
-    "Missing letters use placeholder fingerspelling (not the ISL alphabet); missing digits are shown as text."
+    "Character playback depends on available clips and avatar poses."
 )
 
 

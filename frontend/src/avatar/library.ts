@@ -71,7 +71,7 @@ export function getClip(item: SignItem): CompiledClip {
 /** True when this item will be fingerspelled (no real or demo clip is known for it). */
 export function willFingerspell(item: SignItem): boolean {
   if (item.gloss.toUpperCase().startsWith("FS:")) return true;
-  return !(item.clip_url && !failed.has(item.clip_url)) && !demo.has(item.gloss.toUpperCase()) && (hasLetters(item.gloss) || /\d/.test(item.gloss));
+  return !(item.clip_url && !failed.has(item.clip_url)) && !demo.has(item.gloss.toUpperCase()) && hasLetters(item.gloss);
 }
 
 /**

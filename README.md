@@ -1,7 +1,7 @@
 # SignAI — experimental English text/speech to sign playback
 
 SignAI turns English text into a gloss representation and resolves it to signer
-videos, avatar clips, or explicitly labeled spelling placeholders. **It is not
+videos, avatar clips, or labeled avatar fingerspelling. **It is not
 currently a validated English-to-ISL translator.**
 
 The bundled repository contains demo assets; run `python backend/tools/repo_stats.py` for current counts.
@@ -131,7 +131,10 @@ The default confidence values are demo heuristics, not calibrated ISL accuracy.
 
 Lookup tries original gloss/aliases before WordNet inflections, preserving signs
 such as PLEASE before function-word filtering. Common contractions are expanded;
-numbers use whole-number entries or digits, preserving repetitions and zeros.
+English cardinal words from typed or transcribed input are normalized to digits.
+For example, one becomes 1, twenty-one becomes 21, and zero zero seven
+plays 0, 0, 7. Numbers use a whole-number entry when available or play each
+digit in order, preserving repetitions and leading zeros.
 Unknown words and potential names use explicit FS tokens. Name detection is a
 capitalization heuristic; ambiguous names can still match common words.
 
@@ -306,10 +309,10 @@ ISL coarticulation. The lab can scrub a previous/next demo pair. See
 [timing and transition details](docs/TIMING.md).
 
 Alphabet playback preserves both hands of supplied clips and their provenance.
-Missing letters use the existing ASL-style approximations, explicitly **not the
-ISL alphabet**. Missing digits/unsupported characters remain text-only. Only
-entirely reviewed character assets drop that placeholder warning; assembled
-word transitions are still not signer-certified.
+When clips are missing, the avatar uses hand-authored A-Z and 0-9 poses
+based on supplied reference charts. Unsupported characters remain text-only.
+The chart-based poses and assembled transitions require signer review.
+Open `/lab.html?spell=B12` or `/lab.html?spell=007` to inspect a sequence.
 
 ## Evaluation and review
 
@@ -480,9 +483,9 @@ hex value rather than disappearing. Examples: `नमस्ते` → `NAMASTE`
 `MADADA`, `ಕನ್ನಡ` → `KANNADA`, `ನಮಸ್ಕಾರ` → `NAMASKAARA`.
 This is a mechanical spelling aid, not ISO-15919, pronunciation, translation,
 or the ISL manual alphabet. FS stays within the existing ASCII token regex.
-The user sees a romanization notice and the existing disclaimer:
-“Missing letters use placeholder fingerspelling (not the ISL alphabet);
-missing digits are shown as text.”
+The user sees a romanization notice. In the main player, A-Z and 0-9
+without a character clip use hand-authored avatar poses based on supplied
+reference charts. These poses and the transitions between them require signer review.
 
 Parallel evaluation inputs have 60 aligned sentences per language, excluding
 their `#` header. Hindi and Kannada inputs are machine-assembled and pending
@@ -515,3 +518,29 @@ explicitly simulated local transport, not live-model results. Gloss accuracy is
 not comprehension accuracy; the real placeholder testset still produces
 `NO_VERIFIED_ROWS` with exit 2 and no new scores. The generated blinded still-frame
 pilot is not yet a full-motion comprehension study.
+
+### Local iSign coverage research
+
+The [iSign benchmark](https://exploration-lab.github.io/iSign/) provides
+sentence-level English and ISL pairs. For the first integration, use its English
+transcripts to measure spelling fallback and prioritize missing vocabulary.
+Obtain the CSV through the [iSign dataset card](https://huggingface.co/datasets/Exploration-Lab/iSign)
+under the applicable access terms. Store it outside the repository.
+
+```powershell
+Get-Content -LiteralPath "C:\research\iSign_v1.1.csv" -TotalCount 1
+.\.venv\Scripts\python.exe -m eval.isign_coverage "C:\research\iSign_v1.1.csv" --text-column "<English column from header>" --split all --limit 25
+```
+
+Use `--uid-column` if the UID header differs from `uid`. Set `--split train`
+to rank vocabulary candidates, `--split dev` to tune changes, and `--split test`
+for a held-out coverage check. Remove `--limit` for the full selected split.
+The project groups segments by source video ID before assigning them to a
+deterministic 80/10/10 split. These are project-specific splits.
+
+The report contains counts, spelling fallback rate, and a frequency-ranked
+list of unknown words for local analysis. The English captions supply input
+sentences. ISL accuracy evaluation still requires gloss or signer-comprehension
+references. For avatar research, iSign's paired sentence poses can serve as
+reference trajectories once access and applicable reuse terms are established.
+See [dataset permissions](docs/LICENSES.md) for the playback import policy.

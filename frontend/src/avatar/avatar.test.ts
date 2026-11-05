@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from "vitest";
 import * as THREE from "three";
 import { compileClip, eulerYXZToQuat, restPose, sampleClip, slerp } from "./pose";
-import { fingerspellClip, hasLetters, spellDuration, spellableLetters } from "./alphabet";
+import { fingerspellClip, hasLetters, spellDuration } from "./alphabet";
 import { DEMO_SIGNS } from "./demoSigns";
 import { getClip, retimeForAvatar, willFingerspell, avatarLabel, prefetchClips, videoLabel } from "./library";
 import type { SignClip } from "./types";
@@ -76,18 +76,17 @@ describe("resolution order and fingerspelling", () => {
     } finally { vi.unstubAllGlobals(); }
   });
   it("treats FS: as metadata, never as letters or a demo sign", () => {
-    expect(spellableLetters("FS:PRIYA")).toEqual(spellableLetters("PRIYA"));
     expect(spellDuration("FS:PRIYA")).toBe(spellDuration("PRIYA"));
     expect(getClip(item("FS:HELLO")).clip.kind).toBe("fingerspell");
     expect(willFingerspell(item("FS:HELLO"))).toBe(true);
-    expect(avatarLabel(getClip(item("FS:PRIYA")))).toContain("not the ISL alphabet");
+    expect(avatarLabel(getClip(item("FS:PRIYA")))).toContain("Chart-based avatar poses (unreviewed)");
   });
-  it("keeps missing digits as text without fabricating handshapes", () => {
+  it("animates digits without imported assets", () => {
     const clip = getClip(item("FS:1"));
     expect(clip.clip.gloss).toBe("FS:1");
-    expect(hasLetters("FS:1")).toBe(false);
-    expect(clip.clip.keys.every((k) => k.R === null)).toBe(true);
-    expect(avatarLabel(clip)).toContain("Digits shown as text only");
+    expect(hasLetters("FS:1")).toBe(true);
+    expect(clip.clip.keys.some((k) => k.R != null)).toBe(true);
+    expect(avatarLabel(clip)).toContain("Chart-based avatar poses (unreviewed)");
   });
   it("demo gloss uses the demo clip, unknown gloss is spelled", () => {
     expect(getClip(item("HELLO")).clip.kind).toBe("demo");
@@ -99,7 +98,7 @@ describe("resolution order and fingerspelling", () => {
     expect(getClip(item("HELLO", { clip_url: "/signs/clips/none.json" })).clip.kind).toBe("demo");
   });
   it("spelling handles underscores, repeats and junk", () => {
-    expect(hasLetters("123")).toBe(false);
+    expect(hasLetters("123")).toBe(true);
     const c = fingerspellClip("HELLO_YOU");
     expect(c.keys.length).toBeGreaterThan(9);
     expect(c.keys.every((k) => k.t >= 0 && k.t <= 1)).toBe(true);

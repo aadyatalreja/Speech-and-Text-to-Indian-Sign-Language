@@ -13,7 +13,7 @@ from models.markers import GlossToken
 from models.translation import LLMResult, Entity
 from models.grammar import GrammarUse
 from services.english_service import (
-    NUMBER_WORDS,
+    normalize_number_words,
     english_words,
     resolve_word,
     number_tokens,
@@ -46,6 +46,7 @@ Target label: {target}
 Configured demo/review-labelled operations (JSON): {grammar}
 Verified examples (JSON): {examples}
 Never invent signs, examples, signer review, signing space coordinates or ISL grammar.
+Preserve decimal digits in the input, including leading zeros. Use a numeric gloss if available or FS:<digits>.
 Keep names and unknown words as explicit FS:<WORD> tokens. FS payloads use uppercase
 letters/digits/underscores and optional internal apostrophes/hyphens.
 Use only exact allowed repository glosses or FS:<WORD>. The vocabulary follows this block.
@@ -101,7 +102,7 @@ def mock_transform(text: str, repo: SignRepository | None = None) -> LLMResult:
     """English lookup then configured demo operations; no ISL grammar claims."""
     repo = repo or get_repository()
     rules = active_rules()
-    words = english_words(text)
+    words = english_words(normalize_number_words(text))
     tokens, entities = [], []
     i = 0
     while i < len(words):
@@ -120,19 +121,14 @@ def mock_transform(text: str, repo: SignRepository | None = None) -> LLMResult:
                 entities.append(
                     Entity(text=" ".join(words[i : i + consumed]), type=sign.category.upper())
                 )
-        elif word.isdigit() or word.casefold() in NUMBER_WORDS:
+        elif word.isdigit():
             tokens.extend(
                 GlossToken(
                     gloss=token,
                     fs_reason="oov" if token.startswith("FS:") else None,
-                    lemma_tried=(digit if word.isdigit() else tried_lemma(word))
-                    if token.startswith("FS:")
-                    else None,
+                    lemma_tried=token[3:] if token.startswith("FS:") else None,
                 )
-                for digit, token in zip(
-                    word if word.isdigit() else str(NUMBER_WORDS[word.casefold()]),
-                    number_tokens(word, repo),
-                )
+                for token in number_tokens(word, repo)
             )
         else:
             indic = has_indic(word)
@@ -340,9 +336,12 @@ def result_notice(result, text=""):
 
 async def understand(text: str) -> tuple[LLMResult, str, str | None]:
     """Returns (result, engine, notice), retaining the public fallback contract."""
-    if settings.LLM_PROVIDER == "api":
+    normalized = normalize_number_words(text)
+    if settings.LLM_PROVIDER == "api" and not re.fullmatch(
+        r"[0-9]+(?:\s+[0-9]+)*[.!?]?", normalized.strip()
+    ):
         try:
-            result = await api_transform(text)
+            result = await api_transform(normalized)
             return result, "api", result_notice(result, text)
         except LLMError:
             log.warning("Falling back to mock")

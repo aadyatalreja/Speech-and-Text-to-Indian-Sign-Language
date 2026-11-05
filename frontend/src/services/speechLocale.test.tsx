@@ -41,3 +41,13 @@ it("renders an accessible type-instead message when speech is unavailable", () =
   expect(html).toContain('role="alert"');
   expect(html).toContain("Speech recognition is unavailable in this browser. Please type instead.");
 });
+
+it("ignores delayed results and errors from a cancelled recognizer", () => {
+  const callbacks = { interim: vi.fn(), final: vi.fn(), error: vi.fn(), end: vi.fn() };
+  const { recognition, cancel } = createSpeechSession(FakeRecognition, "en-IN", callbacks);
+  cancel();
+  recognition.onresult!({ resultIndex: 0, results: [{ isFinal: true, 0: { transcript: "stale" } }] });
+  recognition.onerror!({ error: "network" });
+  recognition.onend!();
+  for (const callback of Object.values(callbacks)) expect(callback).not.toHaveBeenCalled();
+});

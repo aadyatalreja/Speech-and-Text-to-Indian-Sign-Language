@@ -10,12 +10,62 @@ from models.sign import Sign
 from services.sign_repository import SignRepository
 
 _lemmatizer = WordNetLemmatizer()
-NUMBER_WORDS = dict(
+SMALL_NUMBERS = dict(
     zip(
-        "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen twenty thirty forty fifty sixty seventy eighty ninety hundred thousand".split(),
-        [*range(21), 30, 40, 50, 60, 70, 80, 90, 100, 1000],
+        "zero one two three four five six seven eight nine ten eleven twelve thirteen fourteen fifteen sixteen seventeen eighteen nineteen".split(),
+        range(20),
     )
 )
+TENS = dict(
+    zip("twenty thirty forty fifty sixty seventy eighty ninety".split(), range(20, 100, 10))
+)
+SCALES = {
+    "thousand": 10**3,
+    "lakh": 10**5,
+    "million": 10**6,
+    "crore": 10**7,
+    "billion": 10**9,
+    "trillion": 10**12,
+}
+_UNIT = "|".join(list(SMALL_NUMBERS)[1:10])
+_SMALL = "|".join(sorted(SMALL_NUMBERS, key=len, reverse=True))
+_TENS = "|".join(TENS)
+_UNDER_HUNDRED = rf"(?:(?:{_TENS})(?:[ -](?:{_UNIT}))?|(?:{_SMALL}))"
+_GROUP = rf"(?:(?:(?:{_UNIT}) +)?hundred(?: +(?:and +)?{_UNDER_HUNDRED})?|{_UNDER_HUNDRED})"
+_SCALED = [rf"(?:{_GROUP} +)?{scale}" for scale in reversed(SCALES)]
+# Require decreasing scales, allowing omitted intermediate groups.
+_NUMBER_PHRASE = re.compile(
+    r"\b(?:"
+    + "|".join(
+        first
+        + "".join(rf"(?: +{later})?" for later in _SCALED[index + 1 :])
+        + rf"(?: +(?:and +)?{_GROUP})?"
+        for index, first in enumerate(_SCALED)
+    )
+    + rf"|{_GROUP})\b",
+    re.IGNORECASE,
+)
+
+
+def normalize_number_words(text: str) -> str:
+    """Turn English cardinal phrases into digits while preserving surrounding text."""
+
+    def replace(match):
+        total = 0
+        group = None
+        for word in match[0].lower().replace("-", " ").split():
+            if word in SCALES:
+                total += (1 if group is None else group) * SCALES[word]
+                group = None
+            elif word == "hundred":
+                group = (1 if group is None else group) * 100
+            elif word != "and":
+                group = (group or 0) + SMALL_NUMBERS.get(word, TENS.get(word, 0))
+        return str(total + (group or 0))
+
+    return _NUMBER_PHRASE.sub(replace, text)
+
+
 _CONTRACTIONS = {
     "can't": "can not",
     "cannot": "can not",
@@ -82,12 +132,6 @@ def number_tokens(word: str, repo: SignRepository) -> list[str]:
     sign = repo.get_by_text(word)
     if sign:
         return [sign.gloss]
-    if word.casefold() in NUMBER_WORDS:
-        digits = str(NUMBER_WORDS[word.casefold()])
-        # Keep the original word for spelling if no numeric entry can help.
-        if not repo.get_by_text(digits) and not any(repo.get_by_text(d) for d in digits):
-            return [f"FS:{word.upper()}"]
-        return number_tokens(digits, repo)
     return [sign.gloss if (sign := repo.get_by_text(digit)) else f"FS:{digit}" for digit in word]
 
 

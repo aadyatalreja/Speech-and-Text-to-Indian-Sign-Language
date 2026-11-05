@@ -64,6 +64,7 @@ export interface SignClipV1 {
     missing: string[];
     unverified: string[];
     textOnly: string[];
+    approximated?: string[];
     assets: { character: string; source: string; licence: string; signer: string; review_status: "unverified" | "in_review" | "verified" }[];
   };
 }

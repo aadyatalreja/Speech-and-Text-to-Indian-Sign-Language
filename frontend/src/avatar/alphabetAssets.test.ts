@@ -42,11 +42,11 @@ describe("character clip loading", () => {
     expect([...store.characters.keys()]).toEqual(["A"]);
     expect(fetch.mock.calls.some(([url]) => String(url).includes(".."))).toBe(false);
   });
-  it("keeps a failed manifest playable using existing placeholders", async () => {
+  it("keeps a failed manifest playable using chart-based poses", async () => {
     const store = new AlphabetAssets();
     await store.load(fetcher({}, ["/api/alphabet"]));
     expect(store.characters.size).toBe(0);
-    expect(spellingLabel(buildSpelling("ABC", store.characters))).toContain("not the ISL alphabet");
+    expect(spellingLabel(buildSpelling("ABC", store.characters))).toContain("Chart-based avatar poses (unreviewed)");
   });
   it("rejects a corrupt handshape instead of inventing a replacement", () => {
     const clip = fixture("A");
@@ -68,11 +68,11 @@ describe("spelled word composition", () => {
     expect(spellingLabel(result)).toContain("Reviewed alphabet clips");
     expect(available.get("A")!.clip.keys[0].t).toBe(0);
   });
-  it("falls back only for missing letters and keeps the not-ISL label", () => {
+  it("falls back only for missing letters and labels the chart-based pose", () => {
     const result = buildSpelling("FS:AB", new Map([["A", asset("A")]]));
     expect(result.spelling!.missing).toEqual(["B"]);
     expect(result.spelling!.assets.map((a) => a.character)).toEqual(["A"]);
-    expect(spellingLabel(result)).toContain("not the ISL alphabet");
+    expect(spellingLabel(result)).toContain("Chart-based avatar poses (unreviewed)");
     expect(spellingLabel(result)).toContain("B");
   });
   it("never labels unreviewed supplied clips as verified", () => {
@@ -80,11 +80,12 @@ describe("spelled word composition", () => {
     expect(result.spelling!.unverified).toEqual(["A"]);
     expect(spellingLabel(result)).toContain("not verified ISL");
   });
-  it("preserves missing digits and unsupported characters as text-only entries", () => {
+  it("animates digits and keeps unsupported characters as text only", () => {
     const result = buildSpelling("FS:001?", new Map());
-    expect(result.spelling!.textOnly).toEqual(["0", "1", "?"]);
-    expect(result.keys.every((key) => key.R === null && key.L === null)).toBe(true);
-    expect(spellingLabel(buildSpelling("FS:123", new Map()))).toContain("Digits shown as text only");
+    expect(result.spelling!.textOnly).toEqual(["?"]);
+    expect(result.spelling!.approximated).toEqual(["0", "1"]);
+    expect(result.keys.some((key) => key.R != null)).toBe(true);
+    expect(spellingLabel(buildSpelling("FS:123", new Map()))).toContain("Chart-based avatar poses (unreviewed)");
   });
   it("keeps repeated letters distinct and resets an omitted hand for the next character", () => {
     const oneHand = asset("B");
@@ -108,4 +109,25 @@ describe("spelled word composition", () => {
     expect(avatarLabel(after)).toContain("Reviewed alphabet clips");
     expect(retimeForAvatar([item])[0].duration).toBeCloseTo(1.5);
   });
+});
+
+it("animates all 36 characters through the avatar compiler", () => {
+  for (const symbol of "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") {
+    const clip = buildSpelling(`FS:${symbol}`, new Map());
+    expect(clip.spelling!.approximated).toEqual([symbol]);
+    expect(clip.spelling!.textOnly).toEqual([]);
+    expect(clip.keys.some(key => key.R != null)).toBe(true);
+    expect(() => compileClip(clip)).not.toThrow();
+  }
+  expect(buildSpelling("FS:B", new Map()).keys.some(key => key.L != null && key.R != null)).toBe(true);
+});
+
+it("animates repeated digits and preserves leading zeros", () => {
+  const clip = buildSpelling("FS:007", new Map());
+  const holds = clip.keys.filter(key => key.R?.shape === "oh");
+  const repeatBreak = (0.65 + 0.12 / 2) / clip.spelling!.duration;
+  expect(holds.some(key => key.t < repeatBreak)).toBe(true);
+  expect(holds.some(key => key.t > repeatBreak)).toBe(true);
+  expect(clip.keys.some(key => key.t === repeatBreak && key.R === null)).toBe(true);
+  expect(clip.spelling!.approximated).toEqual(["0", "7"]);
 });

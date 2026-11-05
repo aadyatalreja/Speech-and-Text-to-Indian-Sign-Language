@@ -49,7 +49,7 @@ export default function TextInput(p: Props) {
           options={[{ value: "video", label: "Standard" }, { value: "rt", label: "Live" }]} />
       </div>
       <div className="mt-3 min-h-6 text-center text-sm" role="status" aria-live="polite">
-        {speech.listening && <span className="inline-flex items-center gap-2 font-medium text-accent-fg"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-accent" />Listening… speak your sentence</span>}
+        {speech.listening && <span className="inline-flex items-center gap-2 font-medium text-accent-fg"><span className="h-2.5 w-2.5 animate-pulse rounded-full bg-accent" />Listening… interim transcript</span>}
         {p.hint && !speech.listening && <span role="alert" className="font-medium text-warn">{p.hint}</span>}
         {speech.error && <span role="alert" className="font-medium text-warn">{speech.error}</span>}
       </div>

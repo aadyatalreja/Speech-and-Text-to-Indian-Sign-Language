@@ -30,27 +30,32 @@ export function createSpeechSession(Ctor: RecognitionConstructor, lang: string, 
 }) {
   const r = new Ctor();
   let finalText = "";
-  let failed = false;
+  let finished = false;
   r.lang = lang; r.interimResults = true; r.continuous = false; r.maxAlternatives = 1;
   r.onresult = e => {
-    if (failed) return;
+    if (finished) return;
+    finalText = "";
     let interimText = "";
-    for (let i = e.resultIndex; i < e.results.length; i++) {
+    for (let i = 0; i < e.results.length; i++) {
       const part = e.results[i][0].transcript;
       if (e.results[i].isFinal) finalText += part; else interimText += part;
     }
     callbacks.interim(finalText + interimText);
   };
   r.onerror = e => {
-    failed = true; finalText = "";
+    if (finished) return;
+    finished = true;
     callbacks.end();
     if (e.error !== "aborted") callbacks.error(ERRORS[e.error] ?? "Speech recognition failed. Please type instead.");
   };
   r.onend = () => {
+    if (finished) return;
+    finished = true;
     callbacks.end();
-    if (!failed && finalText) callbacks.final(finalText);
+    if (finalText.trim()) callbacks.final(finalText);
+    else callbacks.error(ERRORS["no-speech"]);
   };
-  return { recognition: r, cancel: () => { failed = true; finalText = ""; r.abort(); } };
+  return { recognition: r, cancel: () => { if (finished) return; finished = true; r.abort(); } };
 }
 
 /** Speech -> text, preserving the recognizer's Unicode transcript. */
